@@ -1,5 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+interface GeocodingResponse {
+  status: string
+  results?: Array<{
+    geometry?: {
+      location?: {
+        lat: number
+        lng: number
+      }
+    }
+  }>
+  error_message?: string
+}
+
 export async function GET(_request: NextRequest) {
   try {
     const apiKey = process.env.GOOGLE_MAPS_API_KEY || process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
@@ -16,7 +29,7 @@ export async function GET(_request: NextRequest) {
     const geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(testAddress)}&key=${apiKey}`
     
     const response = await fetch(geocodingUrl)
-    const data = await response.json()
+    const data = await response.json() as GeocodingResponse
 
     if (data.status === 'OK') {
       return NextResponse.json({

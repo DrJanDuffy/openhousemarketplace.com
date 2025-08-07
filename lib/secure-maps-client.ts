@@ -53,8 +53,6 @@ export class SecureMapsClient {
 
   // Helper method for Google Maps API calls
   async callGoogleMapsAPI(endpoint: string, params: Record<string, string> = {}): Promise<any> {
-    const token = await this.getAppCheckToken()
-    
     const url = new URL(endpoint)
     Object.entries(params).forEach(([key, value]) => {
       url.searchParams.append(key, value)
