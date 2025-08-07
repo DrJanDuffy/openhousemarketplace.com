@@ -156,8 +156,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
       {/* Map Container */}
       <div
         ref={mapRef}
-        className="w-full h-96 md:h-[600px] rounded-lg shadow-lg"
-        style={{ minHeight: '400px' }}
+        className="w-full h-96 md:h-[600px] rounded-lg shadow-lg min-h-[400px]"
       />
 
       {/* Map Controls Overlay */}

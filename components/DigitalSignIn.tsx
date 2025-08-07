@@ -238,6 +238,9 @@ const DigitalSignIn: React.FC<DigitalSignInProps> = ({
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
+                placeholder="Enter your phone number"
+                title="Enter your phone number"
+                aria-label="Phone number"
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
@@ -352,6 +355,9 @@ const DigitalSignIn: React.FC<DigitalSignInProps> = ({
                   name="city"
                   value={formData.city}
                   onChange={handleInputChange}
+                  placeholder="Enter city"
+                  title="Enter city"
+                  aria-label="City"
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
@@ -364,6 +370,9 @@ const DigitalSignIn: React.FC<DigitalSignInProps> = ({
                   name="state"
                   value={formData.state}
                   onChange={handleInputChange}
+                  placeholder="Enter state"
+                  title="Enter state"
+                  aria-label="State"
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
@@ -376,6 +385,9 @@ const DigitalSignIn: React.FC<DigitalSignInProps> = ({
                   name="zipCode"
                   value={formData.zipCode}
                   onChange={handleInputChange}
+                  placeholder="Enter ZIP code"
+                  title="Enter ZIP code"
+                  aria-label="ZIP code"
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
