@@ -244,11 +244,17 @@ const SummerlinOpenHouseWebsite = () => {
             {filteredHouses.map(house => (
               <div key={house.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="relative">
-                  <img 
-                    src={house.image} 
-                    alt={house.address}
-                    className="w-full h-48 object-cover"
-                  />
+                  <div 
+                    onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
+                    className="cursor-pointer"
+                    title="Click to view in RealScout"
+                  >
+                    <img 
+                      src={house.image} 
+                      alt={house.address}
+                      className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
+                    />
+                  </div>
                   <button 
                     onClick={() => toggleFavorite(house.id)}
                     className="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white transition-colors"
@@ -349,11 +355,17 @@ const SummerlinOpenHouseWebsite = () => {
               }
             ].map(neighborhood => (
               <div key={neighborhood.name} className="bg-gray-50 rounded-lg overflow-hidden">
-                <img 
-                  src={neighborhood.image} 
-                  alt={neighborhood.name}
-                  className="w-full h-48 object-cover"
-                />
+                <div 
+                  onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
+                  className="cursor-pointer"
+                  title="Click to view in RealScout"
+                >
+                  <img 
+                    src={neighborhood.image} 
+                    alt={neighborhood.name}
+                    className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
+                  />
+                </div>
                 <div className="p-6">
                   <h4 className="text-xl font-bold text-gray-900 mb-2">{neighborhood.name}</h4>
                   <p className="text-gray-600 mb-3">{neighborhood.description}</p>
