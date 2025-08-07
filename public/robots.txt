@@ -1,25 +1,32 @@
+# Global rules
 User-agent: *
 Allow: /
-
-# Disallow admin and private areas
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: /_next/
 Disallow: /node_modules/
 
-# Allow important directories
+# Allow important content directories
 Allow: /neighborhoods/
 Allow: /zip/
 Allow: /resources/
 Allow: /builders/
+Allow: /open-houses/
+Allow: /luxury-homes/
+Allow: /new-construction/
 
-# Crawl delay for respectful crawling
-Crawl-delay: 1
+# Crawl-delay
+Crawl-delay: 10
 
-# Sitemap location
+# Main sitemap
 Sitemap: https://openhousemarketplace.com/sitemap.xml
 
-# Additional sitemaps for specific content types
-Sitemap: https://openhousemarketplace.com/sitemap-neighborhoods.xml
-Sitemap: https://openhousemarketplace.com/sitemap-open-houses.xml
+# Subdomain sitemaps
+Sitemap: https://theridges.openhousemarketplace.com/sitemap.xml
+Sitemap: https://redrock.openhousemarketplace.com/sitemap.xml
+Sitemap: https://summerlincentre.openhousemarketplace.com/sitemap.xml
+Sitemap: https://suncity.openhousemarketplace.com/sitemap.xml
+Sitemap: https://openhouses.openhousemarketplace.com/sitemap.xml
+Sitemap: https://luxury.openhousemarketplace.com/sitemap.xml
+Sitemap: https://new.openhousemarketplace.com/sitemap.xml

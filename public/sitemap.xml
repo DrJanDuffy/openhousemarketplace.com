@@ -1,11 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage -->
+  <!-- Main Domain -->
   <url>
     <loc>https://openhousemarketplace.com/</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2024-03-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- The Ridges Subdomain -->
+  <url>
+    <loc>https://theridges.openhousemarketplace.com/</loc>
+    <lastmod>2024-03-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Red Rock Country Club Subdomain -->
+  <url>
+    <loc>https://redrock.openhousemarketplace.com/</loc>
+    <lastmod>2024-03-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Summerlin Centre Subdomain -->
+  <url>
+    <loc>https://summerlincentre.openhousemarketplace.com/</loc>
+    <lastmod>2024-03-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Sun City Summerlin Subdomain -->
+  <url>
+    <loc>https://suncity.openhousemarketplace.com/</loc>
+    <lastmod>2024-03-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Open Houses Subdomain -->
+  <url>
+    <loc>https://openhouses.openhousemarketplace.com/</loc>
+    <lastmod>2024-03-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Luxury Homes Subdomain -->
+  <url>
+    <loc>https://luxury.openhousemarketplace.com/</loc>
+    <lastmod>2024-03-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- New Construction Subdomain -->
+  <url>
+    <loc>https://new.openhousemarketplace.com/</loc>
+    <lastmod>2024-03-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- Main Pages -->
