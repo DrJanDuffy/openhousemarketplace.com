@@ -49,15 +49,13 @@ const RealScoutIntegration: React.FC<RealScoutIntegrationProps> = ({
   }
 
   const openRealScoutSearch = () => {
-    // Open RealScout search with Summerlin West filters
-    const searchUrl = `https://www.realscout.com/search?location=Summerlin%20West%2C%20Las%20Vegas%2C%20NV&agent=Dr.%20Jan%20Duffy`
-    window.open(searchUrl, '_blank')
+    // Open Dr. Jan Duffy's RealScout shared search
+    window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')
   }
 
   const scheduleTour = (propertyData: any) => {
-    // RealScout tour scheduling integration
-    const tourUrl = `https://www.realscout.com/schedule-tour?property=${propertyData.id}&agent=Dr.%20Jan%20Duffy`
-    window.open(tourUrl, '_blank')
+    // Open Dr. Jan Duffy's RealScout shared search for tour scheduling
+    window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')
   }
 
   return (

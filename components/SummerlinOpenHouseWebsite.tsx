@@ -138,8 +138,8 @@ const SummerlinOpenHouseWebsite = () => {
   })
 
   const saveToRealScout = (house: typeof openHouses[0]) => {
-    // RealScout integration would go here
-    alert(`Saving ${house.address} to your RealScout favorites!`)
+    // Open Dr. Jan Duffy's RealScout shared search
+    window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')
   }
 
   return (
@@ -163,7 +163,10 @@ const SummerlinOpenHouseWebsite = () => {
                 <MapPin className="h-4 w-4 mr-2" />
                 {showMap ? 'List View' : 'Map View'}
               </button>
-              <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium">
+              <button 
+                onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
+                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium"
+              >
                 Open RealScout App
               </button>
               <div className="text-right">
@@ -213,7 +216,10 @@ const SummerlinOpenHouseWebsite = () => {
                     <option key={neighborhood} value={neighborhood}>{neighborhood}</option>
                   ))}
                 </select>
-                <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-medium">
+                <button 
+                  onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
+                  className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-medium"
+                >
                   Find Open Houses
                 </button>
               </div>
@@ -398,7 +404,10 @@ const SummerlinOpenHouseWebsite = () => {
             </div>
           </div>
           
-          <button className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-3 rounded-lg font-bold text-lg">
+          <button 
+            onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
+            className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-3 rounded-lg font-bold text-lg"
+          >
             Start Your RealScout Search
           </button>
         </div>
@@ -468,7 +477,10 @@ const SummerlinOpenHouseWebsite = () => {
                     <option key={neighborhood} value={neighborhood}>{neighborhood}</option>
                   ))}
                 </select>
-                <button className="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium">
+                <button 
+                  onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
+                  className="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium"
+                >
                   Get Market Updates
                 </button>
               </div>
@@ -516,7 +528,14 @@ const SummerlinOpenHouseWebsite = () => {
                 <li>Summerlin West Expert</li>
                 <li>Las Vegas, Nevada</li>
                 <li className="pt-2">
-                  <a href="#" className="text-blue-400 hover:text-blue-300">Open RealScout Search</a>
+                  <a 
+                    href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300"
+                  >
+                    Open RealScout Search
+                  </a>
                 </li>
               </ul>
             </div>
