@@ -6,10 +6,5 @@
   "env": {
     "NEXT_PUBLIC_APP_URL": "https://openhousemarketplace.com",
     "SKIP_ENV_VALIDATION": "true"
-  },
-  "functions": {
-    "app/api/**/*.ts": {
-      "runtime": "nodejs20.x"
-    }
   }
 }
