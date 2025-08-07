@@ -36,7 +36,7 @@ export async function GET(_request: NextRequest) {
         success: true,
         message: 'Google Maps API key is working correctly',
         testAddress,
-        coordinates: data.results[0]?.geometry?.location,
+        coordinates: data.results?.[0]?.geometry?.location,
         apiKeyConfigured: !!apiKey,
         apiKeyLength: apiKey.length
       })
