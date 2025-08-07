@@ -2,6 +2,9 @@
 
 import React, { useState, useEffect } from 'react'
 import { MapPin, Calendar, Home, Star, Phone, Mail, Search, Filter, Heart, Clock, Users, Award } from 'lucide-react'
+import RealScoutWidget from './RealScoutWidget'
+import FollowupBossIntegration from './FollowupBossIntegration'
+import InteractiveMap from './InteractiveMap'
 
 const SummerlinOpenHouseWebsite = () => {
   const [searchQuery, setSearchQuery] = useState('')
@@ -26,7 +29,9 @@ const SummerlinOpenHouseWebsite = () => {
       zipCode: "89135",
       realtor: "Dr. Jan Duffy",
       phone: "(702) 555-0123",
-      description: "Stunning golf course property with panoramic views of Red Rock Canyon"
+      description: "Stunning golf course property with panoramic views of Red Rock Canyon",
+      lat: 36.1699,
+      lng: -115.1398
     },
     {
       id: 2,
@@ -42,7 +47,9 @@ const SummerlinOpenHouseWebsite = () => {
       zipCode: "89135",
       realtor: "Dr. Jan Duffy",
       phone: "(702) 555-0123",
-      description: "Luxury custom home with breathtaking mountain and city views"
+      description: "Luxury custom home with breathtaking mountain and city views",
+      lat: 36.1750,
+      lng: -115.1450
     },
     {
       id: 3,
@@ -58,7 +65,9 @@ const SummerlinOpenHouseWebsite = () => {
       zipCode: "89138",
       realtor: "Dr. Jan Duffy",
       phone: "(702) 555-0123",
-      description: "Modern new construction with smart home features and energy efficiency"
+      description: "Modern new construction with smart home features and energy efficiency",
+      lat: 36.1650,
+      lng: -115.1350
     },
     {
       id: 4,
@@ -74,7 +83,9 @@ const SummerlinOpenHouseWebsite = () => {
       zipCode: "89144",
       realtor: "Dr. Jan Duffy",
       phone: "(702) 555-0123",
-      description: "Perfect active adult home with golf cart garage and low maintenance lifestyle"
+      description: "Perfect active adult home with golf cart garage and low maintenance lifestyle",
+      lat: 36.1600,
+      lng: -115.1500
     },
     {
       id: 5,
@@ -90,7 +101,9 @@ const SummerlinOpenHouseWebsite = () => {
       zipCode: "89138",
       realtor: "Dr. Jan Duffy",
       phone: "(702) 555-0123",
-      description: "Family-friendly home in excellent school district with large backyard"
+      description: "Family-friendly home in excellent school district with large backyard",
+      lat: 36.1700,
+      lng: -115.1300
     },
     {
       id: 6,
@@ -106,7 +119,9 @@ const SummerlinOpenHouseWebsite = () => {
       zipCode: "89135",
       realtor: "Dr. Jan Duffy",
       phone: "(702) 555-0123",
-      description: "Charming home in established neighborhood with mature landscaping"
+      description: "Charming home in established neighborhood with mature landscaping",
+      lat: 36.1800,
+      lng: -115.1400
     }
   ]
 
@@ -240,7 +255,17 @@ const SummerlinOpenHouseWebsite = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {showMap ? (
+            <InteractiveMap 
+              properties={filteredHouses}
+              className="mb-8"
+              onPropertyClick={(property) => {
+                // Handle property click from map
+                console.log('Property clicked:', property)
+              }}
+            />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredHouses.map(house => (
               <div key={house.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="relative">
@@ -384,6 +409,24 @@ const SummerlinOpenHouseWebsite = () => {
         </div>
       </section>
 
+      {/* RealScout Widget Section */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Live Summerlin West Listings</h3>
+            <p className="text-lg text-gray-600 mb-8">
+              Browse current properties for sale in Summerlin West with Dr. Jan Duffy's RealScout platform
+            </p>
+          </div>
+          
+          <RealScoutWidget 
+            className="bg-white rounded-lg shadow-lg p-6"
+            priceMin="400000"
+            priceMax="3000000"
+          />
+        </div>
+      </section>
+
       {/* RealScout CTA Section */}
       <section className="bg-blue-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -466,37 +509,13 @@ const SummerlinOpenHouseWebsite = () => {
               </div>
             </div>
             
-            <div className="bg-gray-800 rounded-lg p-6">
-              <h4 className="text-xl font-bold mb-4">Get Summerlin Market Updates</h4>
-              <div className="space-y-4">
-                <input 
-                  type="text" 
-                  placeholder="Your Name" 
-                  className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
-                />
-                <input 
-                  type="email" 
-                  placeholder="Email Address" 
-                  className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400"
-                />
-                <select 
-                  className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white"
-                  aria-label="Select interested neighborhood"
-                  title="Select interested neighborhood"
-                >
-                  <option>Interested Neighborhood</option>
-                  {neighborhoods.map(neighborhood => (
-                    <option key={neighborhood} value={neighborhood}>{neighborhood}</option>
-                  ))}
-                </select>
-                <button 
-                  onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium"
-                >
-                  Get Market Updates
-                </button>
-              </div>
-            </div>
+            <FollowupBossIntegration 
+              title="Get Summerlin Market Updates"
+              description="Stay informed about new listings and market changes in Summerlin West"
+              showPhone={true}
+              showMessage={false}
+              neighborhoods={neighborhoods}
+            />
           </div>
         </div>
       </section>
