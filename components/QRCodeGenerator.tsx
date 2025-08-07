@@ -17,6 +17,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
   const [qrCodeUrl, setQrCodeUrl] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
   const [downloadFormat, setDownloadFormat] = useState<'png' | 'svg'>('png')
+  const [propertyAddressState, setPropertyAddressState] = useState(propertyAddress)
   const qrCodeRef = useRef<HTMLDivElement>(null)
 
   // Generate QR code URL for the property
@@ -100,8 +101,8 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
           </label>
           <input
             type="text"
-            value={propertyAddress}
-            onChange={(e) => setPropertyAddress(e.target.value)}
+            value={propertyAddressState}
+            onChange={(e) => setPropertyAddressState(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter property address"
           />
