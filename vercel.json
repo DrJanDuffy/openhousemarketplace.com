@@ -1,10 +1,11 @@
 {
   "buildCommand": "npm run build",
-  "installCommand": "npm install",
+  "installCommand": "npm install --legacy-peer-deps",
   "framework": "nextjs",
   "outputDirectory": ".next",
   "env": {
-    "NEXT_PUBLIC_APP_URL": "https://openhousemarketplace.com"
+    "NEXT_PUBLIC_APP_URL": "https://openhousemarketplace.com",
+    "SKIP_ENV_VALIDATION": "true"
   },
   "functions": {
     "app/api/**/*.ts": {

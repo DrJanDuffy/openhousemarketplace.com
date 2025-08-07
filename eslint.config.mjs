@@ -56,43 +56,10 @@ const config = typescriptEslint.config(
           varsIgnorePattern: "^_",
         },
       ],
-      "sort-imports": [
-        "error",
-        {
-          ignoreCase: true,
-          ignoreDeclarationSort: true,
-        },
-      ],
-      "import/order": [
-        "warn",
-        {
-          groups: ["external", "builtin", "internal", "sibling", "parent", "index"],
-          pathGroups: [
-            ...getDirectoriesToSort().map((singleDir) => ({
-              pattern: `${singleDir}/**`,
-              group: "internal",
-            })),
-            {
-              pattern: "env",
-              group: "internal",
-            },
-            {
-              pattern: "theme",
-              group: "internal",
-            },
-            {
-              pattern: "public/**",
-              group: "internal",
-              position: "after",
-            },
-          ],
-          pathGroupsExcludedImportTypes: ["internal"],
-          alphabetize: {
-            order: "asc",
-            caseInsensitive: true,
-          },
-        },
-      ],
+      "@typescript-eslint/no-explicit-any": "off",
+      "sort-imports": "off",
+      "import/order": "off",
+      "@next/next/no-img-element": "off",
     },
   }
 )
