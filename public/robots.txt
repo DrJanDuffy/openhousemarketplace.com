@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /node_modules/
+
+# Allow important directories
+Allow: /neighborhoods/
+Allow: /zip/
+Allow: /resources/
+Allow: /builders/
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://openhousemarketplace.com/sitemap.xml
+
+# Additional sitemaps for specific content types
+Sitemap: https://openhousemarketplace.com/sitemap-neighborhoods.xml
+Sitemap: https://openhousemarketplace.com/sitemap-open-houses.xml
