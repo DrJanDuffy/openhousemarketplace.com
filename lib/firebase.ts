@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig)
 // Initialize App Check with reCAPTCHA v3
 if (typeof window !== 'undefined') {
   // Only initialize App Check on the client side
-  const appCheck = initializeAppCheck(app, {
+  const _appCheck = initializeAppCheck(app, {
     provider: new ReCaptchaV3Provider(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''),
     isTokenAutoRefreshEnabled: true
   })

@@ -2,6 +2,19 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getAppCheck } from 'firebase-admin/app-check'
 import { initializeApp, getApps, cert } from 'firebase-admin/app'
 
+interface MapsRequestBody {
+  endpoint: string
+  params: Record<string, any>
+}
+
+// Type guard function for runtime validation
+function isValidMapsRequest(obj: any): obj is MapsRequestBody {
+  return obj && 
+         typeof obj.endpoint === 'string' && 
+         obj.params && 
+         typeof obj.params === 'object'
+}
+
 // Initialize Firebase Admin if not already initialized
 if (!getApps().length) {
   initializeApp({
@@ -36,16 +49,17 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Parse the request body
-    const { endpoint, params } = await request.json()
+    // Parse and validate the request body
+    const body = await request.json()
 
-    // Validate the request
-    if (!endpoint || !params) {
+    if (!isValidMapsRequest(body)) {
       return NextResponse.json(
-        { error: 'Missing endpoint or params' },
+        { error: 'Invalid request body format. Expected { endpoint: string, params: object }' },
         { status: 400 }
       )
     }
+
+    const { endpoint, params } = body
 
     // Make the Google Maps API call
     const url = new URL(endpoint)
