@@ -42,7 +42,7 @@ const OfflineCapability: React.FC = () => {
     try {
       const cached = localStorage.getItem('summerlin_offline_data')
       if (cached) {
-        setCachedData(JSON.parse(cached))
+        setCachedData(JSON.parse(cached) as any[])
       }
     } catch (error) {
       console.error('Error loading cached data:', error)
