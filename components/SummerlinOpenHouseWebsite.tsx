@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { MapPin, Calendar, Home, Star, Phone, Mail, Search, Filter, Heart, Clock, Users, Award } from 'lucide-react'
+import React, { useState } from 'react'
+import { MapPin, Calendar, Home, Star, Phone, Mail, Search, Heart, Award } from 'lucide-react'
 import RealScoutWidget from './RealScoutWidget'
 import FollowupBossIntegration from './FollowupBossIntegration'
 import InteractiveMap from './InteractiveMap'
@@ -9,7 +9,6 @@ import InteractiveMap from './InteractiveMap'
 const SummerlinOpenHouseWebsite = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedNeighborhood, setSelectedNeighborhood] = useState('all')
-  const [priceRange, setPriceRange] = useState('all')
   const [favorites, setFavorites] = useState<number[]>([])
   const [showMap, setShowMap] = useState(false)
 
@@ -152,7 +151,7 @@ const SummerlinOpenHouseWebsite = () => {
     return matchesSearch && matchesNeighborhood
   })
 
-  const saveToRealScout = (house: typeof openHouses[0]) => {
+  const saveToRealScout = (_house: typeof openHouses[0]) => {
     // Open Dr. Jan Duffy's RealScout shared search
     window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')
   }

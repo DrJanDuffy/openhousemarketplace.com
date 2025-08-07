@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import { MapPin, Home, Star, Clock } from 'lucide-react'
+import { Clock } from 'lucide-react'
 
 interface Property {
   id: number
@@ -31,8 +31,8 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   onPropertyClick
 }) => {
   const mapRef = useRef<HTMLDivElement>(null)
-  const [map, setMap] = useState<google.maps.Map | null>(null)
-  const [markers, setMarkers] = useState<google.maps.Marker[]>([])
+  const [map, setMap] = useState<any>(null)
+  const [markers, setMarkers] = useState<any[]>([])
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null)
   const [isMapLoaded, setIsMapLoaded] = useState(false)
 
@@ -61,7 +61,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const initializeMap = () => {
     if (!mapRef.current) return
 
-    const mapInstance = new google.maps.Map(mapRef.current, {
+    const mapInstance = new window.google.maps.Map(mapRef.current, {
       center: SUMMERLIN_CENTER,
       zoom: 13,
       styles: [
@@ -94,7 +94,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
     // Create new markers for each property
     const newMarkers = properties.map(property => {
-      const marker = new google.maps.Marker({
+      const marker = new window.google.maps.Marker({
         position: { lat: property.lat, lng: property.lng },
         map: map,
         title: property.address,
@@ -105,13 +105,13 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
               <path d="M16 8l-6 6v10h12V14l-6-6z" fill="white"/>
             </svg>
           `),
-          scaledSize: new google.maps.Size(32, 32),
-          anchor: new google.maps.Point(16, 16)
+          scaledSize: new window.google.maps.Size(32, 32),
+          anchor: new window.google.maps.Point(16, 16)
         }
       })
 
       // Create info window content
-      const infoWindow = new google.maps.InfoWindow({
+      const infoWindow = new window.google.maps.InfoWindow({
         content: `
           <div class="p-4 max-w-xs">
             <div class="font-bold text-lg text-gray-900">${property.price}</div>
@@ -142,9 +142,9 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
     // Fit map to show all markers
     if (newMarkers.length > 0) {
-      const bounds = new google.maps.LatLngBounds()
+      const bounds = new window.google.maps.LatLngBounds()
       newMarkers.forEach(marker => {
-        bounds.extend(marker.getPosition()!)
+        bounds.extend(marker.getPosition())
       })
       map.fitBounds(bounds)
     }
@@ -153,12 +153,12 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   return (
     <div className={`relative ${className}`}>
       {/* Map Container */}
-      <div 
-        ref={mapRef} 
+      <div
+        ref={mapRef}
         className="w-full h-96 md:h-[600px] rounded-lg shadow-lg"
         style={{ minHeight: '400px' }}
       />
-      
+
       {/* Map Controls Overlay */}
       <div className="absolute top-4 left-4 bg-white rounded-lg shadow-md p-2">
         <div className="text-sm font-medium text-gray-700 mb-2">Summerlin West</div>
@@ -172,11 +172,11 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
         <h3 className="font-bold text-gray-900 mb-3">Open Houses</h3>
         <div className="space-y-3">
           {properties.slice(0, 5).map(property => (
-            <div 
+            <div
               key={property.id}
               className={`p-3 rounded-lg border cursor-pointer transition-colors ${
-                selectedProperty?.id === property.id 
-                  ? 'border-blue-500 bg-blue-50' 
+                selectedProperty?.id === property.id
+                  ? 'border-blue-500 bg-blue-50'
                   : 'border-gray-200 hover:border-gray-300'
               }`}
               onClick={() => {
@@ -208,7 +208,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
         </div>
         {properties.length > 5 && (
           <div className="text-center mt-3">
-            <button 
+            <button
               onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
               className="text-sm text-blue-600 hover:text-blue-800 font-medium"
             >
