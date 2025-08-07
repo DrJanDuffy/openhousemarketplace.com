@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { User, Mail, Phone, MapPin, Calendar, Clock, CheckCircle, ArrowRight } from 'lucide-react'
+import { User, Clock, CheckCircle, ArrowRight } from 'lucide-react'
 
 interface DigitalSignInProps {
   propertyId?: string
@@ -98,7 +98,7 @@ const DigitalSignIn: React.FC<DigitalSignInProps> = ({
           synced: true
         }
 
-        const existingSubmissions = JSON.parse(localStorage.getItem('offline_signins') || '[]')
+        const existingSubmissions = JSON.parse(localStorage.getItem('offline_signins') || '[]') as any[]
         existingSubmissions.push(offlineSubmission)
         localStorage.setItem('offline_signins', JSON.stringify(existingSubmissions))
 
@@ -119,7 +119,7 @@ const DigitalSignIn: React.FC<DigitalSignInProps> = ({
         synced: false
       }
 
-      const existingSubmissions = JSON.parse(localStorage.getItem('offline_signins') || '[]')
+      const existingSubmissions = JSON.parse(localStorage.getItem('offline_signins') || '[]') as any[]
       existingSubmissions.push(offlineSubmission)
       localStorage.setItem('offline_signins', JSON.stringify(existingSubmissions))
       
