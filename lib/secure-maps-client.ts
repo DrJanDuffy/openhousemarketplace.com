@@ -1,5 +1,5 @@
-import { getAppCheck, getToken } from 'firebase/app-check'
-import { app } from './firebase'
+import { getToken } from 'firebase/app-check'
+import { app, appCheck } from './firebase'
 
 export class SecureMapsClient {
   private static instance: SecureMapsClient
@@ -22,7 +22,10 @@ export class SecureMapsClient {
     }
 
     try {
-      const appCheck = getAppCheck(app)
+      if (!appCheck) {
+        throw new Error('App Check not initialized')
+      }
+      
       const { token } = await getToken(appCheck, false)
       
       this.appCheckToken = token
