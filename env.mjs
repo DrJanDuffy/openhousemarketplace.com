@@ -18,7 +18,7 @@ export const env = createEnv({
     NEXT_PUBLIC_REAL_SCOUT_CLIENT_ID: z.string().optional(),
     NEXT_PUBLIC_REAL_SCOUT_REDIRECT_URI: z.string().url().optional(),
     // Google Maps Integration
-    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: z.string().min(1, "Google Maps API key is required for map functionality"),
+    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: z.string().optional(),
     // Firebase App Check (for API key protection)
     NEXT_PUBLIC_FIREBASE_API_KEY: z.string().optional(),
     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: z.string().optional(),
