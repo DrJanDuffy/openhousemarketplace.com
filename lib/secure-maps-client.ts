@@ -1,5 +1,5 @@
 import { getToken } from 'firebase/app-check'
-import { app, appCheck } from './firebase'
+import { appCheck } from './firebase'
 
 export class SecureMapsClient {
   private static instance: SecureMapsClient
