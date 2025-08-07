@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import { SummerlinOpenHouseWebsite } from "components/SummerlinOpenHouseWebsite"
+import SummerlinOpenHouseWebsite from "components/SummerlinOpenHouseWebsite"
 
 export const metadata: Metadata = {
   title: "Summerlin West Open Houses | Dr. Jan Duffy Real Estate",
