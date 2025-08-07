@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Calendar, Home, Star, Phone, Mail, Search, Heart } from 'lucide-react'
 
 const RealScoutIntegration = () => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [_isLoading, _setIsLoading] = useState(false)
 
   const openRealScoutSearch = () => {
     // Open Dr. Jan Duffy's RealScout shared search
