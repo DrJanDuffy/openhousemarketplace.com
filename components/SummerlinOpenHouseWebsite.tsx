@@ -266,7 +266,7 @@ const SummerlinOpenHouseWebsite = () => {
             />
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredHouses.map(house => (
+              {filteredHouses.map(house => (
               <div key={house.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <div 
@@ -339,7 +339,8 @@ const SummerlinOpenHouseWebsite = () => {
                 </div>
               </div>
             ))}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 
