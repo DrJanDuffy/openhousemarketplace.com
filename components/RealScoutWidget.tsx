@@ -65,14 +65,14 @@ const RealScoutWidget: React.FC<RealScoutWidgetProps> = ({
   return (
     <div className={`realScout-widget-container ${className}`}>
       <div ref={widgetRef}>
-        <realscout-office-listings
-          agent-encoded-id={agentEncodedId}
-          sort-order={sortOrder}
-          listing-status={listingStatus}
-          property-types={propertyTypes}
-          price-min={priceMin}
-          price-max={priceMax}
-        />
+        {React.createElement('realscout-office-listings', {
+          'agent-encoded-id': agentEncodedId,
+          'sort-order': sortOrder,
+          'listing-status': listingStatus,
+          'property-types': propertyTypes,
+          'price-min': priceMin,
+          'price-max': priceMax
+        })}
       </div>
     </div>
   )
