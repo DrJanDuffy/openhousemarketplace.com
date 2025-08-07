@@ -18,14 +18,6 @@ function isValidMapsRequest(obj: any): obj is MapsRequestBody {
          typeof obj.params === 'object'
 }
 
-// Type guard function for runtime validation
-function isValidMapsRequest(obj: any): obj is MapsRequestBody {
-  return obj && 
-         typeof obj.endpoint === 'string' && 
-         obj.params && 
-         typeof obj.params === 'object'
-}
-
 export async function POST(request: NextRequest) {
   try {
     // Get Firebase admin (may be null during build)
