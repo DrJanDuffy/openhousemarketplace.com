@@ -4,10 +4,10 @@ import { z } from "zod"
 export const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "production", "test"]),
-    VERCEL_URL: z.string().url().optional(),
+    VERCEL_URL: z.string().optional(),
   },
   client: {
-    NEXT_PUBLIC_APP_URL: z.string().url(),
+    NEXT_PUBLIC_APP_URL: z.string().url().optional(),
     // RealScout Integration
     NEXT_PUBLIC_REAL_SCOUT_API_URL: z.string().url().optional(),
     NEXT_PUBLIC_REAL_SCOUT_CLIENT_ID: z.string().optional(),

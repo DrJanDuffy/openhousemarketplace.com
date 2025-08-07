@@ -5,5 +5,10 @@
   "outputDirectory": ".next",
   "env": {
     "NEXT_PUBLIC_APP_URL": "https://openhousemarketplace.com"
+  },
+  "functions": {
+    "app/api/**/*.ts": {
+      "runtime": "nodejs20.x"
+    }
   }
 }
