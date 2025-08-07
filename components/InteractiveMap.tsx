@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import { Clock } from 'lucide-react'
+import '../lib/firebase' // Initialize Firebase App Check
 
 interface Property {
   id: number
