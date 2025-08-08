@@ -45,10 +45,14 @@ const interactionCache = new Map<string, PropertyInteraction[]>()
 
 export const followupBossService = {
   async createOrUpdateLead(data: LeadData): Promise<LeadData | { error: string }> {
+    console.log('FollowupBoss service: createOrUpdateLead called')
+    console.log('API_KEY configured:', !!API_KEY)
+    
     if (!API_KEY) {
       console.error('FollowUpBoss API key not configured')
       return { error: 'FollowUpBoss service not configured' }
     }
+    
     const { firstName, lastName, email, phone, propertyId, propertyAddress, source, tags = [], notes, customFields = {} } = data
 
     // Prepare the lead data
@@ -70,8 +74,11 @@ export const followupBossService = {
       }
     }
 
+    console.log('Prepared lead data:', JSON.stringify(leadData, null, 2))
+
     try {
       // Search for existing lead
+      console.log('Searching for existing lead with email:', email)
       const searchResponse = await fetch(`${API_URL}/people?email=${encodeURIComponent(email)}`, {
         headers: {
           'Authorization': `Basic ${Buffer.from(API_KEY + ':').toString('base64')}`,
@@ -79,10 +86,20 @@ export const followupBossService = {
         }
       })
 
+      console.log('Search response status:', searchResponse.status)
+      
+      if (!searchResponse.ok) {
+        const errorText = await searchResponse.text()
+        console.error('Search request failed:', searchResponse.status, errorText)
+        throw new Error(`FollowUpBoss search API error: ${searchResponse.status} - ${errorText}`)
+      }
+
       const searchData = await searchResponse.json() as FollowUpBossSearchResponse
+      console.log('Search response data:', JSON.stringify(searchData, null, 2))
       
       if ((searchData._items?.length ?? 0) > 0 && searchData._items?.[0]?.id) {
         // Update existing lead
+        console.log('Updating existing lead with ID:', searchData._items[0].id)
         const leadId = searchData._items[0].id
         const response = await fetch(`${API_URL}/people/${leadId}`, {
           method: 'PUT',
@@ -93,13 +110,20 @@ export const followupBossService = {
           body: JSON.stringify(leadData)
         })
 
+        console.log('Update response status:', response.status)
+        
         if (!response.ok) {
-          throw new Error(`FollowUpBoss API error: ${response.status}`)
+          const errorText = await response.text()
+          console.error('Update request failed:', response.status, errorText)
+          throw new Error(`FollowUpBoss API error: ${response.status} - ${errorText}`)
         }
 
-        return response.json() as Promise<LeadData>
+        const result = await response.json()
+        console.log('Update successful:', result)
+        return result as LeadData
       } else {
         // Create new lead
+        console.log('Creating new lead')
         const response = await fetch(`${API_URL}/people`, {
           method: 'POST',
           headers: {
@@ -109,11 +133,17 @@ export const followupBossService = {
           body: JSON.stringify(leadData)
         })
 
+        console.log('Create response status:', response.status)
+        
         if (!response.ok) {
-          throw new Error(`FollowUpBoss API error: ${response.status}`)
+          const errorText = await response.text()
+          console.error('Create request failed:', response.status, errorText)
+          throw new Error(`FollowUpBoss API error: ${response.status} - ${errorText}`)
         }
 
-        return response.json() as Promise<LeadData>
+        const result = await response.json()
+        console.log('Create successful:', result)
+        return result as LeadData
       }
     } catch (error) {
       console.error('Error in FollowupBoss API:', error)

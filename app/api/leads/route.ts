@@ -30,9 +30,12 @@ function isValidLeadData(obj: any): obj is LeadData {
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('API route called - processing lead submission')
     const data = await request.json()
+    console.log('Received data:', JSON.stringify(data, null, 2))
     
     if (!isValidLeadData(data)) {
+      console.error('Invalid lead data format:', data)
       return NextResponse.json(
         { error: 'Invalid lead data format' },
         { status: 400 }
@@ -54,6 +57,8 @@ export async function POST(request: NextRequest) {
       currentlyWorking,
       notes
     } = data
+
+    console.log('Processing lead for:', email, 'in neighborhood:', propertyAddress)
 
     // Determine tags based on form data
     const tags = ['Website Lead']
@@ -100,14 +105,19 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    console.log('Calling followupBossService.createOrUpdateLead...')
     const result = await followupBossService.createOrUpdateLead(leadData)
+    console.log('FollowUpBoss service result:', result)
     
     if ('error' in result && result.error) {
+      console.error('FollowUpBoss service error:', result.error)
       return NextResponse.json(
         { error: result.error },
         { status: 500 }
       )
     }
+
+    console.log('Lead created/updated successfully')
 
     // Track property interaction
     try {
@@ -117,6 +127,7 @@ export async function POST(request: NextRequest) {
         timestamp: new Date().toISOString(),
         leadEmail: email
       })
+      console.log('Property interaction tracked')
     } catch (interactionError) {
       console.warn('Failed to track property interaction:', interactionError)
     }
@@ -125,6 +136,7 @@ export async function POST(request: NextRequest) {
     if (registrationType === 'full') {
       try {
         await followupBossService.setupAutomation(email, propertyId || 'unknown')
+        console.log('Automation setup completed')
       } catch (automationError) {
         console.warn('Failed to setup automation:', automationError)
       }
