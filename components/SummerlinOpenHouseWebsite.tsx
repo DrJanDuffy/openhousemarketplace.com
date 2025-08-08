@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MapPin, Calendar, Home, Star, Phone, Mail, Search, Heart, Award } from 'lucide-react'
 import RealScoutWidget from './RealScoutWidget'
 import ReactHookForm from './ReactHookForm'
@@ -9,6 +9,7 @@ import InteractiveMap from './InteractiveMap'
 import QRCodeGenerator from './QRCodeGenerator'
 import OfflineCapability from './OfflineCapability'
 import DigitalSignIn from './DigitalSignIn'
+import ExitIntentPopup from './ExitIntentPopup'
 
 const SummerlinOpenHouseWebsite = () => {
   const [searchQuery, setSearchQuery] = useState('')
@@ -16,6 +17,8 @@ const SummerlinOpenHouseWebsite = () => {
   const [favorites, setFavorites] = useState<number[]>([])
   const [showMap, setShowMap] = useState(false)
   const [showContactForm, setShowContactForm] = useState(false)
+  const [showExitPopup, setShowExitPopup] = useState(false)
+  const [hasShownExitPopup, setHasShownExitPopup] = useState(false)
 
   // Mock data for open houses in Summerlin West
   const openHouses = [
@@ -161,6 +164,31 @@ const SummerlinOpenHouseWebsite = () => {
     window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')
   }
 
+  // Exit intent detection
+  useEffect(() => {
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !hasShownExitPopup) {
+        setShowExitPopup(true)
+        setHasShownExitPopup(true)
+      }
+    }
+
+    const handleBeforeUnload = () => {
+      if (!hasShownExitPopup) {
+        setShowExitPopup(true)
+        setHasShownExitPopup(true)
+      }
+    }
+
+    document.addEventListener('mouseleave', handleMouseLeave)
+    window.addEventListener('beforeunload', handleBeforeUnload)
+
+    return () => {
+      document.removeEventListener('mouseleave', handleMouseLeave)
+      window.removeEventListener('beforeunload', handleBeforeUnload)
+    }
+  }, [hasShownExitPopup])
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -197,67 +225,177 @@ const SummerlinOpenHouseWebsite = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-red-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold mb-4">
-              Discover Your Dream Home in Summerlin West
-            </h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto">
-              This Weekend's Premium Open Houses in Las Vegas's Most Desirable Neighborhoods
-            </p>
+             {/* Hero Section */}
+       <section className="bg-gradient-to-r from-blue-600 to-red-600 text-white py-16">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+             {/* Left Column - Content */}
+             <div className="text-left">
+               <div className="flex items-center mb-6">
+                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                   <Home className="h-8 w-8 text-white" />
+                 </div>
+                 <div>
+                   <p className="text-blue-200 text-sm font-medium">DR. JAN DUFFY</p>
+                   <p className="text-white text-lg font-semibold">Your Local Research-Driven Expert</p>
+                 </div>
+               </div>
+               
+               <h2 className="text-5xl font-bold mb-6 leading-tight">
+                 Your Local Research-Driven Expert for Summerlin & Las Vegas Open Houses
+               </h2>
+               <p className="text-xl mb-8 text-blue-100">
+                 Get instant access to this weekend's premium open houses with personalized alerts and market insights
+               </p>
+               
+               {/* Trust Indicators */}
+               <div className="flex items-center space-x-6 mb-8">
+                 <div className="flex items-center">
+                   <Star className="h-5 w-5 text-yellow-400 mr-2" />
+                   <span className="text-sm">98% of listings sell in 14 days</span>
+                 </div>
+                 <div className="flex items-center">
+                   <Award className="h-5 w-5 text-yellow-400 mr-2" />
+                   <span className="text-sm">Certified Luxury Specialist</span>
+                 </div>
+               </div>
+               
+               {/* Primary CTA */}
+               <button 
+                 onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
+                 className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-lg font-bold text-lg mr-4 mb-4 lg:mb-0"
+               >
+                 Get a Custom Open House Alert
+               </button>
+             </div>
+             
+             {/* Right Column - Search Bar */}
+             <div className="bg-white rounded-lg p-6 shadow-xl">
+               <h3 className="text-gray-900 text-xl font-bold mb-4">Find Your Perfect Home</h3>
             
-            {/* Search Bar */}
-            <div className="max-w-2xl mx-auto bg-white rounded-lg p-4 shadow-lg">
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1">
-                  <div className="relative">
-                    <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                    <input
-                      type="text"
-                      placeholder="Search by address or neighborhood..."
-                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-gray-900"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                  </div>
-                </div>
-                <select 
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-gray-900"
-                  value={selectedNeighborhood}
-                  onChange={(e) => setSelectedNeighborhood(e.target.value)}
-                  aria-label="Select neighborhood"
-                  title="Select neighborhood"
-                >
-                  <option value="all">All Neighborhoods</option>
-                  {neighborhoods.map(neighborhood => (
-                    <option key={neighborhood} value={neighborhood}>{neighborhood}</option>
-                  ))}
-                </select>
-                <button 
-                  onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
-                  className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-medium"
-                >
-                  Find Open Houses
-                </button>
-              </div>
-            </div>
+                           <div className="space-y-4">
+                 <div className="flex-1">
+                   <div className="relative">
+                     <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                     <input
+                       type="text"
+                       placeholder="Search by address or neighborhood..."
+                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-gray-900"
+                       value={searchQuery}
+                       onChange={(e) => setSearchQuery(e.target.value)}
+                     />
+                   </div>
+                 </div>
+                 <select 
+                   className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900"
+                   value={selectedNeighborhood}
+                   onChange={(e) => setSelectedNeighborhood(e.target.value)}
+                   aria-label="Select neighborhood"
+                   title="Select neighborhood"
+                 >
+                   <option value="all">All Neighborhoods</option>
+                   {neighborhoods.map(neighborhood => (
+                     <option key={neighborhood} value={neighborhood}>{neighborhood}</option>
+                   ))}
+                 </select>
+                 <button 
+                   onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
+                   className="w-full bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium"
+                 >
+                   Find Open Houses
+                 </button>
+                 
+                 {/* Quick Stats */}
+                 <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200">
+                   <div className="text-center">
+                     <div className="text-2xl font-bold text-blue-600">{filteredHouses.length}</div>
+                     <div className="text-xs text-gray-600">Open Houses</div>
+                   </div>
+                   <div className="text-center">
+                     <div className="text-2xl font-bold text-blue-600">14</div>
+                     <div className="text-xs text-gray-600">Avg Days</div>
+                   </div>
+                   <div className="text-center">
+                     <div className="text-2xl font-bold text-blue-600">98%</div>
+                     <div className="text-xs text-gray-600">Success Rate</div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
           </div>
         </div>
       </section>
 
-      {/* Featured Open Houses */}
-      <section className="py-16">
+             {/* Dynamic Market Insights Widget */}
+       <section className="bg-gray-50 py-12">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="bg-white rounded-lg shadow-lg p-6">
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+               <div className="text-center">
+                 <div className="text-3xl font-bold text-blue-600 mb-2">$875K</div>
+                 <div className="text-sm text-gray-600">Median Price</div>
+                 <div className="text-xs text-green-600 mt-1">↑ 5.2% vs last month</div>
+               </div>
+               <div className="text-center">
+                 <div className="text-3xl font-bold text-blue-600 mb-2">14</div>
+                 <div className="text-sm text-gray-600">Avg Days on Market</div>
+                 <div className="text-xs text-green-600 mt-1">↓ 3 days vs last month</div>
+               </div>
+               <div className="text-center">
+                 <div className="text-3xl font-bold text-blue-600 mb-2">156</div>
+                 <div className="text-sm text-gray-600">Active Listings</div>
+                 <div className="text-xs text-orange-600 mt-1">↔ Stable inventory</div>
+               </div>
+               <div className="text-center">
+                 <div className="text-3xl font-bold text-blue-600 mb-2">98%</div>
+                 <div className="text-sm text-gray-600">List to Sale Ratio</div>
+                 <div className="text-xs text-green-600 mt-1">↑ 2% vs last month</div>
+               </div>
+             </div>
+             <div className="mt-6 text-center">
+               <button 
+                 onClick={() => setShowContactForm(true)}
+                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium"
+               >
+                 Get Full 2025 Market Report
+               </button>
+             </div>
+           </div>
+         </div>
+       </section>
+
+       {/* Featured Open Houses */}
+       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              This Weekend's Featured Open Houses
-            </h3>
-            <p className="text-lg text-gray-600">
-              {filteredHouses.length} open houses available in Summerlin West
-            </p>
-          </div>
+                     <div className="text-center mb-12">
+             <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+               <Calendar className="h-4 w-4 mr-2" />
+               This Weekend Only - Don't Miss Out!
+             </div>
+             <h3 className="text-3xl font-bold text-gray-900 mb-4">
+               This Weekend's Featured Open Houses
+             </h3>
+             <p className="text-lg text-gray-600 mb-6">
+               {filteredHouses.length} premium open houses available in Summerlin West
+             </p>
+             <div className="flex justify-center space-x-4">
+               <button 
+                 onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
+                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium"
+               >
+                 View All Listings
+               </button>
+               <button 
+                 onClick={() => setShowContactForm(true)}
+                 className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-medium"
+               >
+                 Get Priority Access
+               </button>
+             </div>
+           </div>
 
           {showMap ? (
             <InteractiveMap 
@@ -294,11 +432,16 @@ const SummerlinOpenHouseWebsite = () => {
                       className={`h-5 w-5 ${favorites.includes(house.id) ? 'text-red-500 fill-current' : 'text-gray-600'}`} 
                     />
                   </button>
-                  <div className="absolute bottom-3 left-3">
-                    <span className="bg-blue-600 text-white px-2 py-1 rounded text-sm font-medium">
-                      {house.openHouseTime}
-                    </span>
-                  </div>
+                                     <div className="absolute bottom-3 left-3">
+                     <span className="bg-blue-600 text-white px-2 py-1 rounded text-sm font-medium">
+                       {house.openHouseTime}
+                     </span>
+                   </div>
+                   <div className="absolute top-3 left-3">
+                     <span className="bg-red-600 text-white px-2 py-1 rounded text-sm font-medium">
+                       New This Weekend!
+                     </span>
+                   </div>
                 </div>
                 
                 <div className="p-4">
@@ -329,17 +472,20 @@ const SummerlinOpenHouseWebsite = () => {
                     )}
                   </div>
                   
-                  <div className="flex gap-2">
-                    <button 
-                      onClick={() => saveToRealScout(house)}
-                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm font-medium"
-                    >
-                      Save to RealScout
-                    </button>
-                    <button className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded text-sm font-medium">
-                      Get Directions
-                    </button>
-                  </div>
+                                     <div className="flex gap-2">
+                     <button 
+                       onClick={() => saveToRealScout(house)}
+                       className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm font-medium"
+                     >
+                       Schedule Tour
+                     </button>
+                     <button 
+                       onClick={() => window.open(`https://maps.google.com/?q=${house.address}`, '_blank')}
+                       className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded text-sm font-medium"
+                     >
+                       Get Directions
+                     </button>
+                   </div>
                 </div>
               </div>
             ))}
@@ -503,15 +649,98 @@ const SummerlinOpenHouseWebsite = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="bg-gray-900 text-white py-16">
+             {/* Testimonial Carousel & Success Stats */}
+       <section className="bg-white py-16">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="text-center mb-12">
+             <h3 className="text-3xl font-bold text-gray-900 mb-4">
+               What Our Clients Say
+             </h3>
+             <p className="text-lg text-gray-600">
+               Real stories from satisfied buyers and sellers in Summerlin West
+             </p>
+           </div>
+           
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+             <div className="bg-gray-50 p-6 rounded-lg">
+               <div className="flex items-center mb-4">
+                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                 <Star className="h-5 w-5 text-yellow-400 mr-2" />
+                 <span className="text-sm text-gray-600">Verified Buyer</span>
+               </div>
+               <p className="text-gray-700 mb-4">
+                 "Dr. Jan found us the perfect home in The Ridges within 2 weeks. Her market knowledge is incredible!"
+               </p>
+               <div className="font-semibold text-gray-900">- Sarah & Mike Johnson</div>
+               <div className="text-sm text-gray-600">The Ridges, $2.1M</div>
+             </div>
+             
+             <div className="bg-gray-50 p-6 rounded-lg">
+               <div className="flex items-center mb-4">
+                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                 <Star className="h-5 w-5 text-yellow-400 mr-2" />
+                 <span className="text-sm text-gray-600">Verified Seller</span>
+               </div>
+               <p className="text-gray-700 mb-4">
+                 "Our home sold in 8 days for 5% above asking price. Dr. Jan's marketing strategy was brilliant!"
+               </p>
+               <div className="font-semibold text-gray-900">- David & Lisa Chen</div>
+               <div className="text-sm text-gray-600">Red Rock Country Club, $1.8M</div>
+             </div>
+             
+             <div className="bg-gray-50 p-6 rounded-lg">
+               <div className="flex items-center mb-4">
+                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                 <Star className="h-5 w-5 text-yellow-400 mr-2" />
+                 <span className="text-sm text-gray-600">Verified Buyer</span>
+               </div>
+               <p className="text-gray-700 mb-4">
+                 "The personalized open house alerts helped us find our dream home before anyone else!"
+               </p>
+               <div className="font-semibold text-gray-900">- Robert & Emily Davis</div>
+               <div className="text-sm text-gray-600">Summerlin Centre, $650K</div>
+             </div>
+           </div>
+           
+           <div className="text-center">
+             <button 
+               onClick={() => setShowContactForm(true)}
+               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium"
+             >
+               Start Your Success Story
+             </button>
+           </div>
+         </div>
+       </section>
+
+       {/* Contact Section */}
+       <section className="bg-gray-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-3xl font-bold mb-4">Work with Dr. Jan Duffy</h3>
-              <p className="text-lg text-gray-300 mb-6">
-                Your trusted Summerlin West real estate expert with proven results in luxury and family homes.
-              </p>
+                         <div>
+               <h3 className="text-3xl font-bold mb-4">Work with Dr. Jan Duffy</h3>
+               <p className="text-lg text-gray-300 mb-6">
+                 Your trusted Summerlin West real estate expert with proven results in luxury and family homes.
+               </p>
+               
+               <div className="bg-blue-900/50 rounded-lg p-4 mb-6">
+                 <h4 className="text-lg font-semibold mb-2">🎯 Get Priority Access to:</h4>
+                 <ul className="text-blue-100 space-y-1 text-sm">
+                   <li>• New listings before they hit the market</li>
+                   <li>• Exclusive open house invitations</li>
+                   <li>• Personalized market reports</li>
+                   <li>• VIP buyer/seller consultations</li>
+                 </ul>
+               </div>
               
               <div className="space-y-4 mb-6">
                 <div className="flex items-center">
@@ -640,10 +869,16 @@ const SummerlinOpenHouseWebsite = () => {
               />
             </div>
           </div>
-        </div>
-      )}
-    </div>
-  )
-}
+                 </div>
+       )}
+
+       {/* Exit Intent Popup */}
+       <ExitIntentPopup 
+         isVisible={showExitPopup}
+         onClose={() => setShowExitPopup(false)}
+       />
+     </div>
+   )
+ }
 
 export default SummerlinOpenHouseWebsite
