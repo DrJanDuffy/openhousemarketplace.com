@@ -57,7 +57,7 @@ export function getFirebaseAdmin(): App | null {
       })
     } else {
       const apps = getApps()
-      adminApp = apps.length > 0 ? apps[0] : null
+      adminApp = apps.length > 0 ? apps[0] as App : null
     }
     
     return adminApp
