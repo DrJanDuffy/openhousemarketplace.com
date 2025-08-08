@@ -100,19 +100,34 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    await followupBossService.createOrUpdateLead(leadData)
+    const result = await followupBossService.createOrUpdateLead(leadData)
+    
+    if (result.error) {
+      return NextResponse.json(
+        { error: result.error },
+        { status: 500 }
+      )
+    }
 
     // Track property interaction
-    await followupBossService.trackPropertyInteraction({
-      propertyId: propertyId || 'unknown',
-      type: 'register',
-      timestamp: new Date().toISOString(),
-      leadEmail: email
-    })
+    try {
+      await followupBossService.trackPropertyInteraction({
+        propertyId: propertyId || 'unknown',
+        type: 'register',
+        timestamp: new Date().toISOString(),
+        leadEmail: email
+      })
+    } catch (interactionError) {
+      console.warn('Failed to track property interaction:', interactionError)
+    }
 
     // Set up automated alerts if full registration
     if (registrationType === 'full') {
-      await followupBossService.setupAutomation(email, propertyId || 'unknown')
+      try {
+        await followupBossService.setupAutomation(email, propertyId || 'unknown')
+      } catch (automationError) {
+        console.warn('Failed to setup automation:', automationError)
+      }
     }
 
     return NextResponse.json({ success: true })

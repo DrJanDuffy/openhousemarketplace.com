@@ -60,42 +60,33 @@ const FollowupBossIntegration: React.FC<FollowupBossIntegrationProps> = ({
   }
 
   const submitToFollowupBoss = async (leadData: LeadData) => {
-    // Followup Boss API endpoint
-    const apiUrl = 'https://api.followupboss.com/v1/people'
-    const apiKey = 'fka_0N4mnNxym6FYyqt91G2eaemnqC8TTOSYru'
-    
-    const payload = {
-      people: [{
-        firstName: leadData.name.split(' ')[0] || leadData.name,
-        lastName: leadData.name.split(' ').slice(1).join(' ') || '',
-        emails: [{ value: leadData.email, type: 'work' }],
-        phones: leadData.phone ? [{ value: leadData.phone, type: 'mobile' }] : [],
-        tags: ['Website Lead', 'Summerlin West', leadData.neighborhood].filter(Boolean),
-        customFields: {
-          'Neighborhood Interest': leadData.neighborhood,
-          'Lead Source': leadData.source,
-          'Message': leadData.message
-        }
-      }]
-    }
-
     try {
-      const response = await fetch(apiUrl, {
+      const response = await fetch('/api/leads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Basic ${btoa(apiKey + ':')}`
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+          firstName: leadData.name.split(' ')[0] || leadData.name,
+          lastName: leadData.name.split(' ').slice(1).join(' ') || '',
+          email: leadData.email,
+          phone: leadData.phone,
+          propertyAddress: leadData.neighborhood,
+          source: leadData.source,
+          registrationType: 'light',
+          notes: leadData.message
+        })
       })
 
       if (response.ok) {
-        return { success: true, data: await response.json() }
+        const result = await response.json()
+        return { success: true, data: result }
       } else {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.error || `HTTP ${response.status}: ${response.statusText}`)
       }
     } catch (error) {
-      console.error('Followup Boss API Error:', error)
+      console.error('Lead submission error:', error)
       return { success: false, error: error instanceof Error ? error.message : 'Unknown error' }
     }
   }

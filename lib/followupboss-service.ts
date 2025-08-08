@@ -117,7 +117,10 @@ export const followupBossService = {
       }
     } catch (error) {
       console.error('Error in FollowupBoss API:', error)
-      throw error
+      if (error instanceof Error) {
+        throw new Error(`FollowUpBoss API Error: ${error.message}`)
+      }
+      throw new Error('FollowUpBoss API Error: Unknown error occurred')
     }
   },
 
