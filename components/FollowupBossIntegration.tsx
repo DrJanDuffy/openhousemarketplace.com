@@ -82,8 +82,11 @@ const FollowupBossIntegration: React.FC<FollowupBossIntegrationProps> = ({
         const result = await response.json()
         return { success: true, data: result }
       } else {
-        const errorData = await response.json().catch(() => ({}))
-        throw new Error(errorData.error || `HTTP ${response.status}: ${response.statusText}`)
+        const errorData: unknown = await response.json().catch(() => ({}))
+        const message = (typeof errorData === 'object' && errorData && 'error' in errorData)
+          ? String((errorData as { error?: unknown }).error || '')
+          : ''
+        throw new Error(message || `HTTP ${response.status}: ${response.statusText}`)
       }
     } catch (error) {
       console.error('Lead submission error:', error)
