@@ -65,7 +65,7 @@ const RealScoutIntegration = () => {
         <div className="flex items-center justify-center space-x-4 text-sm text-gray-600">
           <div className="flex items-center">
             <Phone className="h-4 w-4 mr-1" />
-            <span>(702) 555-0123</span>
+            <span>(702) 905-1222</span>
           </div>
           <div className="flex items-center">
             <Mail className="h-4 w-4 mr-1" />

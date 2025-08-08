@@ -165,7 +165,7 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({ neighborhood }) => 
                   <div className="space-y-4">
                     <div className="flex items-center">
                       <Phone className="h-4 w-4 text-blue-600 mr-3" />
-                      <span className="text-gray-600">(702) 555-0123</span>
+                      <span className="text-gray-600">(702) 905-1222</span>
                     </div>
                     <div className="flex items-center">
                       <Mail className="h-4 w-4 text-blue-600 mr-3" />
