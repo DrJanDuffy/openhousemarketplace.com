@@ -325,9 +325,6 @@ const SummerlinOpenHouseWebsite = () => {
            </div>
          </div>
        </section>
-          </div>
-        </div>
-      </section>
 
              {/* Dynamic Market Insights Widget */}
        <section className="bg-gray-50 py-12">
