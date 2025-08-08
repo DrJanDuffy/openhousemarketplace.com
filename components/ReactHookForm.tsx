@@ -90,7 +90,7 @@ const ReactHookForm: React.FC<ReactHookFormProps> = ({
 
       if (!response.ok) {
         const errorData = await response.json()
-        throw new Error(errorData.error || `HTTP ${response.status}: ${response.statusText}`)
+        throw new Error((errorData as { error?: string }).error || `HTTP ${response.status}: ${response.statusText}`)
       }
 
       const result = await response.json()
