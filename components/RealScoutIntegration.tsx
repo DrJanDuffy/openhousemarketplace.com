@@ -63,10 +63,16 @@ const RealScoutIntegration = () => {
 
       <div className="mt-6 pt-6 border-t border-gray-200">
         <div className="flex items-center justify-center space-x-4 text-sm text-gray-600">
-          <div className="flex items-center">
-            <Phone className="h-4 w-4 mr-1" />
-            <span>(702) 905-1222</span>
-          </div>
+                     <div className="flex items-center">
+             <Phone className="h-4 w-4 mr-1" />
+             <a 
+               href="tel:7029051222" 
+               className="hover:text-blue-600 transition-colors cursor-pointer"
+               title="Call (702) 905-1222"
+             >
+               (702) 905-1222
+             </a>
+           </div>
           <div className="flex items-center">
             <Mail className="h-4 w-4 mr-1" />
             <span>jan@summerlinexpert.com</span>

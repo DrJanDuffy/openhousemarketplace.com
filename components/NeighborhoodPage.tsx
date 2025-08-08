@@ -163,10 +163,16 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({ neighborhood }) => 
                 <div className="bg-white p-6 rounded-lg shadow-sm border mt-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Contact Dr. Jan Duffy</h3>
                   <div className="space-y-4">
-                    <div className="flex items-center">
-                      <Phone className="h-4 w-4 text-blue-600 mr-3" />
-                      <span className="text-gray-600">(702) 905-1222</span>
-                    </div>
+                                         <div className="flex items-center">
+                       <Phone className="h-4 w-4 text-blue-600 mr-3" />
+                       <a 
+                         href="tel:7029051222" 
+                         className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+                         title="Call (702) 905-1222"
+                       >
+                         (702) 905-1222
+                       </a>
+                     </div>
                     <div className="flex items-center">
                       <Mail className="h-4 w-4 text-blue-600 mr-3" />
                       <span className="text-gray-600">jan@summerlinexpert.com</span>

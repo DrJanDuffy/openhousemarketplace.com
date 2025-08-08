@@ -532,11 +532,14 @@ const SummerlinOpenHouseWebsite = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium">
-                  <Phone className="h-4 w-4 mr-2" />
-                  Call Today
-                </button>
+                             <div className="flex flex-col sm:flex-row gap-4">
+                 <button 
+                   onClick={() => window.open('tel:7029051222', '_self')}
+                   className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium"
+                 >
+                   <Phone className="h-4 w-4 mr-2" />
+                   Call Today
+                 </button>
                 <button 
                   onClick={() => setShowContactForm(true)}
                   className="flex items-center justify-center bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium"
