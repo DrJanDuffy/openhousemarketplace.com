@@ -56,7 +56,8 @@ export function getFirebaseAdmin(): App | null {
         projectId: serviceAccount.project_id
       })
     } else {
-      adminApp = getApps()[0]
+      const apps = getApps()
+      adminApp = apps.length > 0 ? apps[0] : null
     }
     
     return adminApp
