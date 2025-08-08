@@ -126,9 +126,30 @@ export async function POST(request: NextRequest) {
   }
 }
 
+interface InteractionData {
+  email: string
+  propertyId: string
+  interactionType: string
+}
+
+function isValidInteractionData(obj: any): obj is InteractionData {
+  return obj &&
+    typeof obj.email === 'string' &&
+    typeof obj.propertyId === 'string' &&
+    typeof obj.interactionType === 'string'
+}
+
 export async function PUT(request: NextRequest) {
   try {
     const data = await request.json()
+    
+    if (!isValidInteractionData(data)) {
+      return NextResponse.json(
+        { error: 'Invalid interaction data format' },
+        { status: 400 }
+      )
+    }
+    
     const { email, propertyId, interactionType } = data
 
     // Track property interaction
