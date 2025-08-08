@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { MapPin, Calendar, Home, Star, Phone, Mail, Search, Heart, Award } from 'lucide-react'
 import RealScoutWidget from './RealScoutWidget'
-import SimpleLeadForm from './SimpleLeadForm'
+import ReactHookForm from './ReactHookForm'
 import InteractiveMap from './InteractiveMap'
 import QRCodeGenerator from './QRCodeGenerator'
 import OfflineCapability from './OfflineCapability'
@@ -542,7 +542,7 @@ const SummerlinOpenHouseWebsite = () => {
               </div>
             </div>
             
-            <SimpleLeadForm 
+            <ReactHookForm 
               title="Get Summerlin Market Updates"
               description="Stay informed about new listings and market changes in Summerlin West"
               neighborhoods={neighborhoods}
