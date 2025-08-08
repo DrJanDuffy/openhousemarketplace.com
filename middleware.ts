@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 // Subdomain configuration
-const subdomainRoutes = {
+const subdomainRoutes: Record<string, string> = {
   'theridges': '/neighborhoods/the-ridges',
   'redrock': '/neighborhoods/red-rock-country-club',
   'summerlincentre': '/neighborhoods/summerlin-centre',
@@ -22,7 +22,7 @@ export function middleware(request: NextRequest) {
                      subdomain !== 'www' && 
                      subdomain !== 'openhousemarketplace'
 
-  if (isSubdomain && subdomainRoutes[subdomain]) {
+  if (isSubdomain && subdomain in subdomainRoutes) {
     // Rewrite the URL but keep the subdomain
     const url = request.nextUrl.clone()
     url.pathname = subdomainRoutes[subdomain] + url.pathname
