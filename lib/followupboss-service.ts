@@ -44,7 +44,7 @@ const API_URL = process.env.FOLLOWUPBOSS_BASE_URL || 'https://api.followupboss.c
 const interactionCache = new Map<string, PropertyInteraction[]>()
 
 export const followupBossService = {
-  async createOrUpdateLead(data: LeadData) {
+  async createOrUpdateLead(data: LeadData): Promise<LeadData | { error: string }> {
     if (!API_KEY) {
       console.error('FollowUpBoss API key not configured')
       return { error: 'FollowUpBoss service not configured' }

@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
 
     const result = await followupBossService.createOrUpdateLead(leadData)
     
-    if (result.error) {
+    if ('error' in result && result.error) {
       return NextResponse.json(
         { error: result.error },
         { status: 500 }
