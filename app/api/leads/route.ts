@@ -1,35 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server'
 import followupBossService from '@/lib/followupboss-service'
 
+interface LeadData {
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  propertyId?: string
+  propertyAddress?: string
+  source?: string
+  registrationType: 'light' | 'full'
+  buyingTimeframe?: string
+  priceRange?: string
+  prequalified?: string
+  currentlyWorking?: string
+  notes?: string
+}
+
+// Type guard for lead data
+function isValidLeadData(obj: any): obj is LeadData {
+  return obj &&
+    typeof obj.firstName === 'string' &&
+    typeof obj.lastName === 'string' &&
+    typeof obj.email === 'string' &&
+    typeof obj.phone === 'string' &&
+    typeof obj.registrationType === 'string' &&
+    (obj.registrationType === 'light' || obj.registrationType === 'full')
+}
+
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json()
     
-    // Type guard for lead data
-    function isValidLeadData(obj: any): obj is {
-      firstName: string
-      lastName: string
-      email: string
-      phone: string
-      propertyId?: string
-      propertyAddress?: string
-      source?: string
-      registrationType: 'light' | 'full'
-      buyingTimeframe?: string
-      priceRange?: string
-      prequalified?: string
-      currentlyWorking?: string
-      notes?: string
-    } {
-      return obj &&
-        typeof obj.firstName === 'string' &&
-        typeof obj.lastName === 'string' &&
-        typeof obj.email === 'string' &&
-        typeof obj.phone === 'string' &&
-        typeof obj.registrationType === 'string' &&
-        (obj.registrationType === 'light' || obj.registrationType === 'full')
-    }
-
     if (!isValidLeadData(data)) {
       return NextResponse.json(
         { error: 'Invalid lead data format' },
