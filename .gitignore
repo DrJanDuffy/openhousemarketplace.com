@@ -24,10 +24,17 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Never commit these sensitive files
+*.key
+*.pem
+serviceAccountKey.json
+firebase-admin-sdk.json
 storybook-static/
 /test-results/
 /playwright-report/

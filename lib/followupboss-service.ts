@@ -33,7 +33,11 @@ interface FollowUpBossSearchResponse {
   _links?: Record<string, any>
 }
 
-const API_KEY = process.env.FOLLOWUPBOSS_API_KEY || 'fka_0N4mnNxym6FYyqt91G2eaemnqC8TTOSYru'
+const API_KEY = process.env.FOLLOWUPBOSS_API_KEY
+
+if (!API_KEY) {
+  console.warn('FOLLOWUPBOSS_API_KEY environment variable is not set. FollowUpBoss integration will not work.')
+}
 const API_URL = process.env.FOLLOWUPBOSS_BASE_URL || 'https://api.followupboss.com/v1'
 
 // Cache for tracking property interactions
@@ -41,6 +45,10 @@ const interactionCache = new Map<string, PropertyInteraction[]>()
 
 export const followupBossService = {
   async createOrUpdateLead(data: LeadData) {
+    if (!API_KEY) {
+      console.error('FollowUpBoss API key not configured')
+      return { error: 'FollowUpBoss service not configured' }
+    }
     const { firstName, lastName, email, phone, propertyId, propertyAddress, source, tags = [], notes, customFields = {} } = data
 
     // Prepare the lead data
