@@ -129,14 +129,15 @@ export async function POST(request: NextRequest) {
 interface InteractionData {
   email: string
   propertyId: string
-  interactionType: string
+  interactionType: 'view' | 'save' | 'schedule' | 'register'
 }
 
 function isValidInteractionData(obj: any): obj is InteractionData {
   return obj &&
     typeof obj.email === 'string' &&
     typeof obj.propertyId === 'string' &&
-    typeof obj.interactionType === 'string'
+    typeof obj.interactionType === 'string' &&
+    ['view', 'save', 'schedule', 'register'].includes(obj.interactionType)
 }
 
 export async function PUT(request: NextRequest) {
@@ -155,7 +156,7 @@ export async function PUT(request: NextRequest) {
     // Track property interaction
     await followupBossService.trackPropertyInteraction({
       propertyId,
-      type: interactionType,
+      type: interactionType as 'view' | 'save' | 'schedule' | 'register',
       timestamp: new Date().toISOString(),
       leadEmail: email
     })
