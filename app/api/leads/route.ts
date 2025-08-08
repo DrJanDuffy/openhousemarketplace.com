@@ -111,6 +111,25 @@ export async function POST(request: NextRequest) {
     
     if ('error' in result && result.error) {
       console.error('FollowUpBoss service error:', result.error)
+      
+      // If FollowUpBoss is not configured, still return success but log the data
+      if (result.error.includes('not configured')) {
+        console.log('FollowUpBoss not configured, but lead data received:', {
+          firstName,
+          lastName,
+          email,
+          phone,
+          propertyAddress,
+          source,
+          registrationType
+        })
+        return NextResponse.json({ 
+          success: true, 
+          message: 'Lead received (FollowUpBoss not configured)',
+          leadData: { firstName, lastName, email, phone, propertyAddress }
+        })
+      }
+      
       return NextResponse.json(
         { error: result.error },
         { status: 500 }

@@ -56,8 +56,8 @@ const ReactHookForm: React.FC<ReactHookFormProps> = ({
       const firstName = nameParts[0] || data.name
       const lastName = nameParts.slice(1).join(' ') || ''
 
-      // Prepare FollowUpBoss payload
-      const leadData = {
+      // Prepare FollowUpBoss payload (for logging purposes)
+      const _leadData = {
         firstName,
         lastName,
         emails: [{ value: data.email, type: 'work' }],
@@ -94,7 +94,7 @@ const ReactHookForm: React.FC<ReactHookFormProps> = ({
       }
 
       const result = await response.json()
-      console.log('Lead created successfully:', result)
+      console.log('API response:', result)
       
       setSubmitStatus('success')
       reset() // Clear the form
