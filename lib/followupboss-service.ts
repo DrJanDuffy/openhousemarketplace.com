@@ -128,7 +128,7 @@ export const followupBossService = {
       if ((searchData._items?.length ?? 0) > 0 && searchData._items?.[0]?.id) {
         const lead = searchData._items[0]
         const existingTags = lead.tags || []
-        const updatedTags = [...new Set([...existingTags, ...tags])]
+        const updatedTags = Array.from(new Set([...existingTags, ...tags]))
 
         // Update lead with new tags
         const response = await fetch(`${API_URL}/people/${lead.id}`, {
