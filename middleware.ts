@@ -22,7 +22,7 @@ export function middleware(request: NextRequest) {
                      subdomain !== 'www' && 
                      subdomain !== 'openhousemarketplace'
 
-  if (isSubdomain && subdomain in subdomainRoutes) {
+  if (isSubdomain && subdomain && subdomain in subdomainRoutes) {
     // Rewrite the URL but keep the subdomain
     const url = request.nextUrl.clone()
     url.pathname = subdomainRoutes[subdomain] + url.pathname
