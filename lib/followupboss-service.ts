@@ -73,7 +73,7 @@ export const followupBossService = {
 
       const searchData = await searchResponse.json() as FollowUpBossSearchResponse
       
-      if (searchData._items && searchData._items.length > 0) {
+      if (searchData._items?.length > 0 && searchData._items[0]?.id) {
         // Update existing lead
         const leadId = searchData._items[0].id
         const response = await fetch(`${API_URL}/people/${leadId}`, {
@@ -125,7 +125,7 @@ export const followupBossService = {
 
       const searchData = await searchResponse.json() as FollowUpBossSearchResponse
       
-      if (searchData._items && searchData._items.length > 0) {
+      if (searchData._items?.length > 0 && searchData._items[0]?.id) {
         const lead = searchData._items[0]
         const existingTags = lead.tags || []
         const updatedTags = [...new Set([...existingTags, ...tags])]
@@ -208,7 +208,7 @@ export const followupBossService = {
 
       const searchData = await searchResponse.json() as FollowUpBossSearchResponse
       
-      if (searchData._items && searchData._items.length > 0) {
+      if (searchData._items?.length > 0 && searchData._items[0]?.id) {
         const leadId = searchData._items[0].id
 
         // Create note
