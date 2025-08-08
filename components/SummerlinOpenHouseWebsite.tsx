@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { MapPin, Calendar, Home, Star, Phone, Mail, Search, Heart, Award } from 'lucide-react'
 import RealScoutWidget from './RealScoutWidget'
-import FollowupBossIntegration from './FollowupBossIntegration'
+import SimpleLeadForm from './SimpleLeadForm'
 import InteractiveMap from './InteractiveMap'
 import QRCodeGenerator from './QRCodeGenerator'
 import OfflineCapability from './OfflineCapability'
@@ -542,11 +542,9 @@ const SummerlinOpenHouseWebsite = () => {
               </div>
             </div>
             
-            <FollowupBossIntegration 
+            <SimpleLeadForm 
               title="Get Summerlin Market Updates"
               description="Stay informed about new listings and market changes in Summerlin West"
-              showPhone={true}
-              showMessage={false}
               neighborhoods={neighborhoods}
             />
           </div>
