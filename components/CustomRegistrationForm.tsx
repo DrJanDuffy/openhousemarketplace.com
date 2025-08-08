@@ -44,11 +44,22 @@ const CustomRegistrationForm: React.FC<CustomRegistrationFormProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const fields: FormField[] = [
+  const lightFields: FormField[] = [
     { id: 'firstName', label: 'First Name', type: 'text', required: true, placeholder: 'First Name' },
     { id: 'lastName', label: 'Last Name', type: 'text', required: true, placeholder: 'Last Name' },
     { id: 'email', label: 'Email', type: 'email', required: true, placeholder: 'Email' },
     { id: 'phone', label: 'Phone', type: 'tel', required: true, placeholder: 'Phone Number' }
+  ]
+
+  const fullFields: FormField[] = [
+    ...lightFields,
+    { id: 'preferredDate', label: 'Preferred Date', type: 'date', required: false },
+    { id: 'preferredTime', label: 'Preferred Time', type: 'time', required: false },
+    { id: 'buyingTimeframe', label: 'Buying Timeframe', type: 'select', required: false, options: ['0-3 months', '3-6 months', '6-12 months', '12+ months'] },
+    { id: 'priceRange', label: 'Price Range', type: 'select', required: false, options: ['$500k-750k', '$750k-1M', '$1M-1.5M', '$1.5M+'] },
+    { id: 'prequalified', label: 'Pre-qualified?', type: 'select', required: false, options: ['Yes', 'No', 'In Process'] },
+    { id: 'currentlyWorking', label: 'Working with Agent?', type: 'select', required: false, options: ['Yes', 'No'] },
+    { id: 'notes', label: 'Additional Notes', type: 'textarea', required: false }
   ]
 
   const fields = formType === 'light' ? lightFields : fullFields
