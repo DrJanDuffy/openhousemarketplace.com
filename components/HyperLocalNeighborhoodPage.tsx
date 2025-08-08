@@ -1,10 +1,9 @@
 'use client'
 
 import React, { useState } from 'react'
-import { MapPin, Home, Clock, ChartBar, School, Tree, Car } from 'lucide-react'
+import { MapPin, Home, Clock, ChartBar, School, Leaf, Car } from 'lucide-react'
 import RealScoutWidget from './RealScoutWidget'
-import InteractiveMap from './InteractiveMap'
-import DigitalSignIn from './DigitalSignIn'
+import CustomRegistrationForm from './CustomRegistrationForm'
 
 interface MarketStats {
   medianPrice: string
@@ -229,7 +228,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                   {amenities.map((amenity, index) => (
                     <div key={index} className="flex items-start p-4 bg-gray-50 rounded-lg">
                       {amenity.type === 'park' ? (
-                        <Tree className="h-6 w-6 text-green-600 mt-1 mr-4" />
+                        <Leaf className="h-6 w-6 text-green-600 mt-1 mr-4" />
                       ) : (
                         <MapPin className="h-6 w-6 text-blue-600 mt-1 mr-4" />
                       )}
@@ -250,9 +249,22 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
             {/* Contact Form */}
             <div className="bg-white rounded-lg shadow-md p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Schedule a Tour</h3>
-              <DigitalSignIn 
+              <CustomRegistrationForm
                 propertyAddress={name}
-                openHouseTime="Contact for available times"
+                formType="full"
+                onSubmit={async (data) => {
+                  const response = await fetch('/api/leads', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                  })
+                  
+                  if (!response.ok) {
+                    throw new Error('Failed to submit registration')
+                  }
+                }}
               />
             </div>
 
@@ -269,7 +281,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                   <span className="text-gray-600">Top-rated schools nearby</span>
                 </div>
                 <div className="flex items-center">
-                  <Tree className="h-5 w-5 text-blue-600 mr-3" />
+                  <Leaf className="h-5 w-5 text-blue-600 mr-3" />
                   <span className="text-gray-600">Multiple parks and trails</span>
                 </div>
                 <div className="flex items-center">
