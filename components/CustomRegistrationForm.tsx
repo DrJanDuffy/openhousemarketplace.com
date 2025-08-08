@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Home, User, Mail, Phone, MapPin, Calendar, Clock, Info } from 'lucide-react'
+// Removed unused imports
 
 interface FormField {
   id: string
@@ -221,6 +221,7 @@ const CustomRegistrationForm: React.FC<CustomRegistrationFormProps> = ({
           </p>
         </div>
       )}
+      </div>
     </div>
   )
 }
