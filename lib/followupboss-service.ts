@@ -18,6 +18,21 @@ interface PropertyInteraction {
   leadEmail: string
 }
 
+interface FollowUpBossSearchResponse {
+  _items?: {
+    id: string
+    firstName?: string
+    lastName?: string
+    email?: string
+    phones?: { value: string }[]
+    tags?: string[]
+    notes?: { content: string, type: string }[]
+    customFields?: Record<string, any>
+  }[]
+  _totalItems?: number
+  _links?: Record<string, any>
+}
+
 const API_KEY = process.env.FOLLOWUPBOSS_API_KEY || 'fka_0N4mnNxym6FYyqt91G2eaemnqC8TTOSYru'
 const API_URL = process.env.FOLLOWUPBOSS_BASE_URL || 'https://api.followupboss.com/v1'
 
@@ -56,7 +71,7 @@ export const followupBossService = {
         }
       })
 
-      const searchData = await searchResponse.json()
+      const searchData = await searchResponse.json() as FollowUpBossSearchResponse
       
       if (searchData._items && searchData._items.length > 0) {
         // Update existing lead
@@ -70,7 +85,11 @@ export const followupBossService = {
           body: JSON.stringify(leadData)
         })
 
-        return response.json()
+        if (!response.ok) {
+          throw new Error(`FollowUpBoss API error: ${response.status}`)
+        }
+
+        return response.json() as Promise<LeadData>
       } else {
         // Create new lead
         const response = await fetch(`${API_URL}/people`, {
@@ -82,7 +101,11 @@ export const followupBossService = {
           body: JSON.stringify(leadData)
         })
 
-        return response.json()
+        if (!response.ok) {
+          throw new Error(`FollowUpBoss API error: ${response.status}`)
+        }
+
+        return response.json() as Promise<LeadData>
       }
     } catch (error) {
       console.error('Error in FollowupBoss API:', error)
@@ -100,7 +123,7 @@ export const followupBossService = {
         }
       })
 
-      const searchData = await searchResponse.json()
+      const searchData = await searchResponse.json() as FollowUpBossSearchResponse
       
       if (searchData._items && searchData._items.length > 0) {
         const lead = searchData._items[0]
@@ -119,7 +142,11 @@ export const followupBossService = {
           })
         })
 
-        return response.json()
+        if (!response.ok) {
+          throw new Error(`FollowUpBoss API error: ${response.status}`)
+        }
+
+        return response.json() as Promise<LeadData>
       }
     } catch (error) {
       console.error('Error adding tags:', error)
@@ -179,7 +206,7 @@ export const followupBossService = {
         }
       })
 
-      const searchData = await searchResponse.json()
+      const searchData = await searchResponse.json() as FollowUpBossSearchResponse
       
       if (searchData._items && searchData._items.length > 0) {
         const leadId = searchData._items[0].id
@@ -198,7 +225,11 @@ export const followupBossService = {
           })
         })
 
-        return response.json()
+        if (!response.ok) {
+          throw new Error(`FollowUpBoss API error: ${response.status}`)
+        }
+
+        return response.json() as Promise<{ id: string; content: string; type: string }>
       }
     } catch (error) {
       console.error('Error creating note:', error)
