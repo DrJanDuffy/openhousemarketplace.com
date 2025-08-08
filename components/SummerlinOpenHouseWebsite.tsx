@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { MapPin, Calendar, Home, Star, Phone, Mail, Search, Heart, Award } from 'lucide-react'
 import RealScoutWidget from './RealScoutWidget'
 import ReactHookForm from './ReactHookForm'
+import ContactForm from './ContactForm'
 import InteractiveMap from './InteractiveMap'
 import QRCodeGenerator from './QRCodeGenerator'
 import OfflineCapability from './OfflineCapability'
@@ -14,6 +15,7 @@ const SummerlinOpenHouseWebsite = () => {
   const [selectedNeighborhood, setSelectedNeighborhood] = useState('all')
   const [favorites, setFavorites] = useState<number[]>([])
   const [showMap, setShowMap] = useState(false)
+  const [showContactForm, setShowContactForm] = useState(false)
 
   // Mock data for open houses in Summerlin West
   const openHouses = [
@@ -535,7 +537,10 @@ const SummerlinOpenHouseWebsite = () => {
                   <Phone className="h-4 w-4 mr-2" />
                   Call Today
                 </button>
-                <button className="flex items-center justify-center bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium">
+                <button 
+                  onClick={() => setShowContactForm(true)}
+                  className="flex items-center justify-center bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium"
+                >
                   <Mail className="h-4 w-4 mr-2" />
                   Send Message
                 </button>
@@ -608,6 +613,32 @@ const SummerlinOpenHouseWebsite = () => {
           </div>
         </div>
       </footer>
+
+      {/* Contact Form Modal */}
+      {showContactForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center p-6 border-b">
+              <h3 className="text-lg font-semibold text-gray-900">Contact Dr. Jan Duffy</h3>
+              <button
+                onClick={() => setShowContactForm(false)}
+                className="text-gray-400 hover:text-gray-600"
+                aria-label="Close contact form"
+                title="Close contact form"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="p-6">
+              <ContactForm 
+                onSuccess={() => setShowContactForm(false)}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
