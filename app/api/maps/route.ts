@@ -3,7 +3,7 @@ export const runtime = 'nodejs'
 
 import { NextRequest, NextResponse } from 'next/server'
 import { getAppCheck } from 'firebase-admin/app-check'
-import { getFirebaseAdmin } from '@/lib/firebase-admin'
+import { getFirebaseAdmin } from '../../../lib/firebase-admin'
 
 interface MapsRequestBody {
   endpoint: string

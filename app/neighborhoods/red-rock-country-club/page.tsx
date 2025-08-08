@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
+import HyperLocalNeighborhoodPage from '../../../components/HyperLocalNeighborhoodPage'
 
 export const metadata: Metadata = {
   title: 'Red Rock Country Club | Luxury Golf Course Homes',
