@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import OptimizedImage from './OptimizedImage'
 // Removed unused imports
 
 interface FormField {
@@ -118,14 +119,10 @@ const CustomRegistrationForm: React.FC<CustomRegistrationFormProps> = ({
       {/* Property Image Header */}
       {propertyAddress && (
         <div className="relative">
-          <img 
+          <OptimizedImage
             src={`/images/properties/${propertyId || 'default'}.jpg`}
             alt={propertyAddress}
             className="w-full h-48 object-cover"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.src = '/images/default-property.jpg';
-            }}
           />
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
             <div className="text-white">

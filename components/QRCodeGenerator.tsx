@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useRef } from 'react'
+import OptimizedImage from './OptimizedImage'
 import { Download, QrCode, Share2, Copy } from 'lucide-react'
 
 interface QRCodeGeneratorProps {
@@ -149,7 +150,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
         <div className="space-y-4">
           <div className="flex justify-center">
             <div ref={qrCodeRef} className="border-2 border-gray-200 rounded-lg p-4">
-              <img
+              <OptimizedImage
                 src={qrCodeUrl}
                 alt="QR Code"
                 className="w-48 h-48"

@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import OptimizedImage from './OptimizedImage'
 import { MapPin, Calendar, Home, Star, Phone, Mail, Search, Heart, Award } from 'lucide-react'
 import RealScoutWidget from './RealScoutWidget'
 import ReactHookForm from './ReactHookForm'
@@ -413,10 +414,11 @@ const SummerlinOpenHouseWebsite = () => {
                     className="cursor-pointer"
                     title="Click to view in RealScout"
                   >
-                    <img 
-                      src={house.image} 
+                    <OptimizedImage
+                      src={house.image}
                       alt={house.address}
                       className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
+                      priority={false}
                     />
                   </div>
                   <button 
@@ -533,8 +535,8 @@ const SummerlinOpenHouseWebsite = () => {
                   className="cursor-pointer"
                   title="Click to view in RealScout"
                 >
-                  <img 
-                    src={neighborhood.image} 
+                  <OptimizedImage
+                    src={neighborhood.image}
                     alt={neighborhood.name}
                     className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
                   />
