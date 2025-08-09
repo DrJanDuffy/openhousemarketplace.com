@@ -7,9 +7,7 @@ import RealScoutWidget from './RealScoutWidget'
 import ReactHookForm from './ReactHookForm'
 import ContactForm from './ContactForm'
 import InteractiveMap from './InteractiveMap'
-import QRCodeGenerator from './QRCodeGenerator'
-import OfflineCapability from './OfflineCapability'
-import DigitalSignIn from './DigitalSignIn'
+// Removed tool imports no longer used in buyer-focused UI
 import BuyerToolsSection from './BuyerToolsSection'
 import ExitIntentPopup from './ExitIntentPopup'
 
@@ -21,9 +19,7 @@ const SummerlinOpenHouseWebsite = () => {
   const [showContactForm, setShowContactForm] = useState(false)
   const [showExitPopup, setShowExitPopup] = useState(false)
   const [hasShownExitPopup, setHasShownExitPopup] = useState(false)
-  const [selectedPrice, setSelectedPrice] = useState(875000)
-  const [downPayment, setDownPayment] = useState(20)
-  const [interestRate, setInterestRate] = useState(7.0)
+  // Buyer tools moved into BuyerToolsSection
 
   // Mock data for open houses in Summerlin West
   const openHouses = [
@@ -409,7 +405,7 @@ const SummerlinOpenHouseWebsite = () => {
               }}
             />
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredHouses.map(house => (
               <div key={house.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="relative">
@@ -491,7 +487,7 @@ const SummerlinOpenHouseWebsite = () => {
                    </div>
                 </div>
               </div>
-            ))}
+              ))}
             </div>
           )}
         </div>
@@ -635,7 +631,7 @@ const SummerlinOpenHouseWebsite = () => {
                 </svg>
                 <span>Rated 4.9/5 by 1,247 happy buyers</span>
               </div>
-            </div>
+          </div>
           </div>
         </div>
       </section>
