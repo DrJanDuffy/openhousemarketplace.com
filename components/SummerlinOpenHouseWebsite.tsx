@@ -9,6 +9,7 @@ import ContactForm from './ContactForm'
 import InteractiveMap from './InteractiveMap'
 // Removed tool imports no longer used in buyer-focused UI
 import BuyerToolsSection from './BuyerToolsSection'
+import RealScoutSearchCard from './RealScoutSearchCard'
 import ExitIntentPopup from './ExitIntentPopup'
 
 const SummerlinOpenHouseWebsite = () => {
@@ -270,59 +271,11 @@ const SummerlinOpenHouseWebsite = () => {
                </button>
              </div>
              
-             {/* Right Column - Search Bar */}
-             <div className="bg-white rounded-lg p-6 shadow-xl">
-               <h3 className="text-gray-900 text-xl font-bold mb-4">Find Your Perfect Home</h3>
-            
-                           <div className="space-y-4">
-                 <div className="flex-1">
-                   <div className="relative">
-                     <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                     <input
-                       type="text"
-                       placeholder="Search by address or neighborhood..."
-                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-gray-900"
-                       value={searchQuery}
-                       onChange={(e) => setSearchQuery(e.target.value)}
-                     />
-                   </div>
-                 </div>
-                 <select 
-                   className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900"
-                   value={selectedNeighborhood}
-                   onChange={(e) => setSelectedNeighborhood(e.target.value)}
-                   aria-label="Select neighborhood"
-                   title="Select neighborhood"
-                 >
-                   <option value="all">All Neighborhoods</option>
-                   {neighborhoods.map(neighborhood => (
-                     <option key={neighborhood} value={neighborhood}>{neighborhood}</option>
-                   ))}
-                 </select>
-                 <button 
-                   onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
-                   className="w-full bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium"
-                 >
-                   Find Open Houses
-                 </button>
-                 
-                 {/* Quick Stats */}
-                 <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200">
-                   <div className="text-center">
-                     <div className="text-2xl font-bold text-blue-600">{filteredHouses.length}</div>
-                     <div className="text-xs text-gray-600">Open Houses</div>
-                   </div>
-                   <div className="text-center">
-                     <div className="text-2xl font-bold text-blue-600">14</div>
-                     <div className="text-xs text-gray-600">Avg Days</div>
-                   </div>
-                   <div className="text-center">
-                     <div className="text-2xl font-bold text-blue-600">98%</div>
-                     <div className="text-xs text-gray-600">Success Rate</div>
-                   </div>
-                 </div>
-               </div>
-             </div>
+              {/* Right Column - RealScout Advanced Search */}
+              <div className="bg-white rounded-lg p-6 shadow-xl">
+                <h3 className="text-gray-900 text-xl font-bold mb-4">Find Your Perfect Home</h3>
+                <RealScoutSearchCard />
+              </div>
            </div>
          </div>
        </section>
