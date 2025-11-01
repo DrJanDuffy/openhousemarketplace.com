@@ -278,6 +278,9 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
     notFound()
   }
 
+  // TypeScript guard: resource is confirmed to exist after notFound() check
+  const resourceTitle = resource.title.split('|')[0].trim()
+
   return (
     <>
       <StructuredData 
@@ -286,7 +289,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
           items: [
             { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
             { name: 'Resources', url: 'https://www.openhousemarketplace.com/resources' },
-            { name: resource.title.split('|')[0].trim(), url: `https://www.openhousemarketplace.com/resources/${slug}` }
+            { name: resourceTitle, url: `https://www.openhousemarketplace.com/resources/${slug}` }
           ]
         }}
       />
