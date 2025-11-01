@@ -276,12 +276,12 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
 
   if (!resource) {
     notFound()
+    // TypeScript needs explicit never return type hint
+    throw new Error('Resource not found')
   }
 
-  // TypeScript type narrowing: After notFound() check, resource is guaranteed to exist
-  // Using direct type assertion to match validResources value type
-  const safeResource = resource as { title: string; description: string; content: React.ReactNode }
-  const resourceTitle = safeResource.title.split('|')[0].trim()
+  // Extract title for breadcrumb - TypeScript now knows resource is defined
+  const resourceTitle = resource.title.split('|')[0]?.trim() || resource.title.trim()
 
   return (
     <>
@@ -298,8 +298,8 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
       <StructuredData 
         type="WebPage"
         data={{
-          name: safeResource.title,
-          description: safeResource.description,
+          name: resource.title,
+          description: resource.description,
         }}
       />
       <div className="min-h-screen bg-gray-50">
@@ -309,7 +309,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-4xl mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {safeResource.title.split('|')[0].trim()}
+              {resourceTitle}
             </h1>
           </div>
         </div>
@@ -320,12 +320,12 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-              Welcome to our comprehensive {safeResource.title.toLowerCase().includes('guide') ? 'guide' : 'resource'} for 
+              Welcome to our comprehensive {resource.title.toLowerCase().includes('guide') ? 'guide' : 'resource'} for 
               Summerlin real estate. Whether you're buying your first home, investing in property, or exploring the 
               Summerlin lifestyle, this resource provides valuable insights to help you make informed decisions about 
               real estate in Las Vegas' premier master-planned community.
             </p>
-            {safeResource.content}
+            {resource.content}
           </div>
         </div>
 
