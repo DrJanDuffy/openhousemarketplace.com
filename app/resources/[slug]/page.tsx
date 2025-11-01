@@ -279,8 +279,8 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
   }
 
   // TypeScript type narrowing: After notFound() check, resource is guaranteed to exist
-  // Using 'as' assertion since notFound() throws and TypeScript doesn't recognize it
-  const safeResource = resource as NonNullable<typeof resource>
+  // Using direct type assertion to match validResources value type
+  const safeResource = resource as { title: string; description: string; content: React.ReactNode }
   const resourceTitle = safeResource.title.split('|')[0].trim()
 
   return (
