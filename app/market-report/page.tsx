@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { TrendingUp, TrendingDown, Home, DollarSign, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -224,9 +225,9 @@ export default function MarketReportPage() {
               <tbody>
                 <tr className="border-b">
                   <td className="py-3 px-4">
-                    <a href="/neighborhoods/the-ridges" className="text-blue-600 hover:text-blue-800">
+                    <Link href="/neighborhoods/the-ridges" className="text-blue-600 hover:text-blue-800">
                       The Ridges
-                    </a>
+                    </Link>
                   </td>
                   <td className="text-right py-3 px-4">$2,850,000</td>
                   <td className="text-right py-3 px-4">12</td>
@@ -234,9 +235,9 @@ export default function MarketReportPage() {
                 </tr>
                 <tr className="border-b">
                   <td className="py-3 px-4">
-                    <a href="/neighborhoods/red-rock-country-club" className="text-blue-600 hover:text-blue-800">
+                    <Link href="/neighborhoods/red-rock-country-club" className="text-blue-600 hover:text-blue-800">
                       Red Rock Country Club
-                    </a>
+                    </Link>
                   </td>
                   <td className="text-right py-3 px-4">$1,250,000</td>
                   <td className="text-right py-3 px-4">28</td>
@@ -244,9 +245,9 @@ export default function MarketReportPage() {
                 </tr>
                 <tr className="border-b">
                   <td className="py-3 px-4">
-                    <a href="/neighborhoods/summerlin-centre" className="text-blue-600 hover:text-blue-800">
+                    <Link href="/neighborhoods/summerlin-centre" className="text-blue-600 hover:text-blue-800">
                       Summerlin Centre
-                    </a>
+                    </Link>
                   </td>
                   <td className="text-right py-3 px-4">$675,000</td>
                   <td className="text-right py-3 px-4">45</td>
@@ -254,9 +255,9 @@ export default function MarketReportPage() {
                 </tr>
                 <tr>
                   <td className="py-3 px-4">
-                    <a href="/neighborhoods/sun-city-summerlin" className="text-blue-600 hover:text-blue-800">
+                    <Link href="/neighborhoods/sun-city-summerlin" className="text-blue-600 hover:text-blue-800">
                       Sun City Summerlin
-                    </a>
+                    </Link>
                   </td>
                   <td className="text-right py-3 px-4">$425,000</td>
                   <td className="text-right py-3 px-4">35</td>
