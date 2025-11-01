@@ -482,33 +482,46 @@ const SummerlinOpenHouseWebsite = () => {
                 highlights: ["Great schools", "Parks", "Family-friendly"],
                 image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop"
               }
-            ].map(neighborhood => (
-              <div key={neighborhood.name} className="bg-gray-50 rounded-lg overflow-hidden">
-                <div 
-                  onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
-                  className="cursor-pointer"
-                  title="Click to view in RealScout"
-                >
-                  <OptimizedImage
-                    src={neighborhood.image}
-                    alt={neighborhood.name}
-                    className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
-                  />
-                </div>
-                <div className="p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">{neighborhood.name}</h4>
-                  <p className="text-gray-600 mb-3">{neighborhood.description}</p>
-                  <p className="text-blue-600 font-semibold mb-3">{neighborhood.priceRange}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {neighborhood.highlights.map(highlight => (
-                      <span key={highlight} className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
-                        {highlight}
-                      </span>
-                    ))}
+            ].map(neighborhood => {
+              const neighborhoodUrls: Record<string, string> = {
+                'The Ridges': '/neighborhoods/the-ridges',
+                'Red Rock Country Club': '/neighborhoods/red-rock-country-club',
+                'Summerlin Centre': '/neighborhoods/summerlin-centre',
+              }
+              const neighborhoodUrl = neighborhoodUrls[neighborhood.name] || '#'
+              
+              return (
+                <div key={neighborhood.name} className="bg-gray-50 rounded-lg overflow-hidden">
+                  <Link href={neighborhoodUrl}>
+                    <OptimizedImage
+                      src={neighborhood.image}
+                      alt={neighborhood.name}
+                      className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
+                    />
+                  </Link>
+                  <div className="p-6">
+                    <Link href={neighborhoodUrl}>
+                      <h4 className="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600">{neighborhood.name}</h4>
+                    </Link>
+                    <p className="text-gray-600 mb-3">{neighborhood.description}</p>
+                    <p className="text-blue-600 font-semibold mb-3">{neighborhood.priceRange}</p>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {neighborhood.highlights.map(highlight => (
+                        <span key={highlight} className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
+                          {highlight}
+                        </span>
+                      ))}
+                    </div>
+                    <Link 
+                      href={neighborhoodUrl}
+                      className="inline-block text-blue-600 hover:text-blue-800 font-medium text-sm"
+                    >
+                      Explore {neighborhood.name} →
+                    </Link>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
