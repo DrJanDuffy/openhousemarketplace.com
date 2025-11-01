@@ -231,7 +231,7 @@ const SummerlinOpenHouseWebsite = () => {
                 onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
                 className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium"
               >
-                Open RealScout App
+                Open House Maps
               </button>
               <div className="text-right">
                 <p className="font-semibold text-gray-900">Dr. Jan Duffy</p>
@@ -812,7 +812,7 @@ const SummerlinOpenHouseWebsite = () => {
                     rel="noopener noreferrer"
                     className="text-blue-400 hover:text-blue-300"
                   >
-                    Open RealScout Search
+                    Open House Maps
                   </a>
                 </li>
               </ul>
