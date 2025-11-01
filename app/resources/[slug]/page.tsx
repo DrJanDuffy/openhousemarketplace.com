@@ -279,7 +279,8 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
   }
 
   // TypeScript guard: resource is confirmed to exist after notFound() check
-  const resourceTitle = resource.title.split('|')[0].trim()
+  // notFound() throws, so resource is guaranteed to exist here
+  const resourceTitle = resource!.title.split('|')[0].trim()
 
   return (
     <>
