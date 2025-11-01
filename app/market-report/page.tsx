@@ -272,12 +272,12 @@ export default function MarketReportPage() {
         <div className="bg-blue-600 rounded-lg shadow-md p-8 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Get Your Personalized Market Analysis</h2>
           <p className="text-xl mb-6">Want to know what your home is worth? Contact us for a free valuation.</p>
-          <a
+          <Link
             href="/contact"
             className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
           >
             Request Free Market Analysis
-          </a>
+          </Link>
         </div>
       </div>
     </div>
