@@ -775,7 +775,12 @@ const SummerlinOpenHouseWebsite = () => {
           </div>
           
           <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
-            <p>&copy; 2025 Summerlin West Open Houses. All rights reserved. | Powered by RealScout Technology</p>
+            <p className="mb-2">&copy; 2025 Summerlin West Open Houses. All rights reserved. | Powered by RealScout Technology</p>
+            <div className="flex flex-wrap justify-center gap-4 text-xs">
+              <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
+              <Link href="/terms-of-service" className="hover:text-white">Terms of Service</Link>
+              <Link href="/disclaimer" className="hover:text-white">Disclaimer</Link>
+            </div>
           </div>
         </div>
       </footer>
