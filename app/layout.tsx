@@ -40,7 +40,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-G22H2J3EMX');
+              gtag('config', 'G-G22H2J3EMX', {
+                page_path: window.location.pathname,
+                cookie_domain: 'auto',
+                cookie_flags: 'SameSite=None;Secure'
+              });
             `,
           }}
         />
