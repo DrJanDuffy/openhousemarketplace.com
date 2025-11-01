@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import SummerlinOpenHouseWebsite from "components/SummerlinOpenHouseWebsite"
+import StructuredData from "@/components/StructuredData"
 
 export const metadata: Metadata = {
   title: "Summerlin West Open Houses | Dr. Jan Duffy Real Estate",
@@ -24,5 +25,22 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
-  return <SummerlinOpenHouseWebsite />
+  return (
+    <>
+      <StructuredData 
+        type="LocalBusiness"
+        data={{
+          openingHours: 'Mo-Su 08:00-20:00',
+          paymentAccepted: 'Cash, Check, Credit Card',
+        }}
+      />
+      <StructuredData 
+        type="Organization"
+        data={{
+          url: 'https://openhousemarketplace.com',
+        }}
+      />
+      <SummerlinOpenHouseWebsite />
+    </>
+  )
 }
