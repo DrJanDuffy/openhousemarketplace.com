@@ -21,6 +21,7 @@ const SummerlinOpenHouseWebsite = () => {
   const [showContactForm, setShowContactForm] = useState(false)
   const [showExitPopup, setShowExitPopup] = useState(false)
   const [hasShownExitPopup, setHasShownExitPopup] = useState(false)
+  const [isPageReady, setIsPageReady] = useState(false)
   // Buyer tools moved into BuyerToolsSection
 
   // Mock data for open houses in Summerlin West
@@ -167,8 +168,21 @@ const SummerlinOpenHouseWebsite = () => {
     window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')
   }
 
-  // Exit intent detection
+  // Delay page ready state to ensure Google Analytics loads first
   useEffect(() => {
+    // Wait 15 seconds before allowing exit intent popup to show
+    // This gives Google Analytics time to load and be detected
+    const timer = setTimeout(() => {
+      setIsPageReady(true)
+    }, 15000) // 15 seconds delay
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  // Exit intent detection - only after page is ready
+  useEffect(() => {
+    if (!isPageReady) return // Don't show popup until page is ready
+
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0 && !hasShownExitPopup) {
         setShowExitPopup(true)
@@ -190,7 +204,7 @@ const SummerlinOpenHouseWebsite = () => {
       document.removeEventListener('mouseleave', handleMouseLeave)
       window.removeEventListener('beforeunload', handleBeforeUnload)
     }
-  }, [hasShownExitPopup])
+  }, [hasShownExitPopup, isPageReady])
 
   return (
     <div className="min-h-screen bg-gray-50">
