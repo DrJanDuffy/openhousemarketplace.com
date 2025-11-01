@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { School, Award, BookOpen, Users } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -228,21 +229,21 @@ export default function SchoolsPage() {
               Use our detailed zip code pages to explore schools serving specific areas within Summerlin West:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <a href="/zip/89135" className="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition-colors">
+              <Link href="/zip/89135" className="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition-colors">
                 <h4 className="font-semibold text-gray-900 mb-2">Zip Code 89135</h4>
                 <p className="text-sm text-gray-600">The Ridges, Red Rock Country Club</p>
                 <span className="text-blue-600 text-sm mt-2 inline-block">View Schools →</span>
-              </a>
-              <a href="/zip/89138" className="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition-colors">
+              </Link>
+              <Link href="/zip/89138" className="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition-colors">
                 <h4 className="font-semibold text-gray-900 mb-2">Zip Code 89138</h4>
                 <p className="text-sm text-gray-600">Summerlin Centre, The Trails</p>
                 <span className="text-blue-600 text-sm mt-2 inline-block">View Schools →</span>
-              </a>
-              <a href="/zip/89144" className="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition-colors">
+              </Link>
+              <Link href="/zip/89144" className="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition-colors">
                 <h4 className="font-semibold text-gray-900 mb-2">Zip Code 89144</h4>
                 <p className="text-sm text-gray-600">Sun City Summerlin</p>
                 <span className="text-blue-600 text-sm mt-2 inline-block">View Schools →</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

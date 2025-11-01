@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 
 const validResources: Record<string, {
@@ -190,25 +191,25 @@ const validResources: Record<string, {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                <a href="/builders/toll-brothers" className="text-blue-600 hover:text-blue-800">
+                <Link href="/builders/toll-brothers" className="text-blue-600 hover:text-blue-800">
                   Toll Brothers
-                </a>
+                </Link>
               </h3>
               <p className="text-gray-600">Luxury homes in premier locations</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                <a href="/builders/lennar" className="text-blue-600 hover:text-blue-800">
+                <Link href="/builders/lennar" className="text-blue-600 hover:text-blue-800">
                   Lennar
-                </a>
+                </Link>
               </h3>
               <p className="text-gray-600">Everything's Included® program</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                <a href="/builders/pulte" className="text-blue-600 hover:text-blue-800">
+                <Link href="/builders/pulte" className="text-blue-600 hover:text-blue-800">
                   Pulte Homes
-                </a>
+                </Link>
               </h3>
               <p className="text-gray-600">Energy-efficient modern homes</p>
             </div>

@@ -13,8 +13,8 @@ import RealScoutSearchCard from './RealScoutSearchCard'
 import ExitIntentPopup from './ExitIntentPopup'
 
 const SummerlinOpenHouseWebsite = () => {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [selectedNeighborhood, setSelectedNeighborhood] = useState('all')
+  const [searchQuery] = useState('')
+  const [selectedNeighborhood] = useState('all')
   const [favorites, setFavorites] = useState<number[]>([])
   const [showMap, setShowMap] = useState(false)
   const [showContactForm, setShowContactForm] = useState(false)
