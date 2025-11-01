@@ -249,10 +249,22 @@ export async function generateMetadata({ params }: ResourcePageProps): Promise<M
     title: resource.title,
     description: resource.description,
     keywords: `Summerlin real estate guide, ${slug}, Las Vegas real estate resources`,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
+    alternates: {
+      canonical: `https://www.openhousemarketplace.com/resources/${slug}`,
+    },
     openGraph: {
       title: resource.title,
       description: resource.description,
       images: ['/images/resources-hero.jpg'],
+      url: `https://www.openhousemarketplace.com/resources/${slug}`,
     }
   }
 }
@@ -271,9 +283,9 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://openhousemarketplace.com/' },
-            { name: 'Resources', url: 'https://openhousemarketplace.com/resources' },
-            { name: resource.title.split('|')[0].trim(), url: `https://openhousemarketplace.com/resources/${slug}` }
+            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
+            { name: 'Resources', url: 'https://www.openhousemarketplace.com/resources' },
+            { name: resource.title.split('|')[0].trim(), url: `https://www.openhousemarketplace.com/resources/${slug}` }
           ]
         }}
       />

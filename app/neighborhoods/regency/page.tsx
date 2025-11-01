@@ -5,10 +5,22 @@ export const metadata: Metadata = {
   title: 'Regency Summerlin | Luxury Homes for Sale in Prime Location',
   description: 'Discover luxury homes for sale in Regency, an upscale Summerlin West community offering prime location, luxury amenities, and exceptional living. Explore real estate opportunities in Las Vegas\' premier master-planned community.',
   keywords: 'Regency Summerlin, Regency homes for sale, luxury community Las Vegas, prime location Summerlin, luxury amenities, Regency real estate, luxury Summerlin homes, Las Vegas luxury real estate',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/neighborhoods/regency',
+  },
   openGraph: {
     title: 'Regency Summerlin | Luxury Community with Prime Location',
     description: 'Explore Regency, an upscale Summerlin community with luxury amenities and prime location.',
     images: ['/images/regency-hero.jpg'],
+    url: 'https://www.openhousemarketplace.com/neighborhoods/regency',
   }
 }
 

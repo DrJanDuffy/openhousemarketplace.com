@@ -7,11 +7,22 @@ export const metadata: Metadata = {
   title: 'About Dr. Jan Duffy | Top Summerlin West Real Estate Agent',
   description: 'Learn about Dr. Jan Duffy, your trusted real estate expert in Summerlin West. With 15+ years of experience, she has helped hundreds of clients buy and sell luxury homes in Las Vegas\' premier master-planned community. Discover why she\'s the leading Las Vegas realtor.',
   keywords: 'Dr. Jan Duffy, Summerlin realtor, Las Vegas real estate agent, luxury home specialist, Summerlin West real estate expert, top real estate agent Las Vegas, real estate professional Summerlin',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/about',
+  },
   openGraph: {
     title: 'About Dr. Jan Duffy | Summerlin West Real Estate Expert',
     description: 'Meet Dr. Jan Duffy, your trusted real estate expert in Summerlin West, Las Vegas.',
     images: ['/images/about-hero.jpg'],
-    url: 'https://openhousemarketplace.com/about',
+    url: 'https://www.openhousemarketplace.com/about',
   },
 }
 

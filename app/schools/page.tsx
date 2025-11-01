@@ -5,10 +5,22 @@ export const metadata: Metadata = {
   title: 'Summerlin West Schools | Top-Rated Education & CCSD Area 2',
   description: 'Discover top-rated schools in Summerlin West, Las Vegas. Comprehensive guide to CCSD Area 2 schools, private schools, charter schools, ratings, boundaries, and performance data for families moving to Las Vegas\' premier master-planned community.',
   keywords: 'Summerlin schools, CCSD Area 2, Las Vegas schools, top rated schools Summerlin, Summerlin West schools, best schools Las Vegas, Summerlin school districts, CCSD Area 2 schools, Summerlin education',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/schools',
+  },
   openGraph: {
     title: 'Summerlin West Schools | Top-Rated Education Options',
     description: 'Explore top-rated schools serving Summerlin West, Las Vegas.',
     images: ['/images/schools-hero.jpg'],
+    url: 'https://www.openhousemarketplace.com/schools',
   }
 }
 

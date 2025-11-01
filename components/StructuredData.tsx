@@ -9,7 +9,7 @@ interface StructuredDataProps {
 
 export default function StructuredData({ type, data = {} }: StructuredDataProps) {
   const pathname = usePathname()
-  const baseUrl = 'https://openhousemarketplace.com'
+  const baseUrl = 'https://www.openhousemarketplace.com'
 
   let structuredData: Record<string, any> = {}
 

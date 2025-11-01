@@ -187,10 +187,22 @@ export async function generateMetadata({ params }: ZipCodePageProps): Promise<Me
     title: `${zipcode} Homes for Sale | Summerlin Real Estate`,
     description: `Find homes for sale in zip code ${zipcode} in Summerlin. ${zipData.description}`,
     keywords: `${zipcode} homes, Summerlin zip code ${zipcode}, Las Vegas real estate ${zipcode}`,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
+    alternates: {
+      canonical: `https://www.openhousemarketplace.com/zip/${zipcode}`,
+    },
     openGraph: {
       title: `${zipcode} Homes for Sale | Summerlin Real Estate`,
       description: `Explore homes for sale in zip code ${zipcode} in Summerlin, Las Vegas.`,
       images: ['/images/zip-hero.jpg'],
+      url: `https://www.openhousemarketplace.com/zip/${zipcode}`,
     }
   }
 }
@@ -226,9 +238,9 @@ export default async function ZipCodePage({ params }: ZipCodePageProps) {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://openhousemarketplace.com/' },
-            { name: 'Zip Codes', url: 'https://openhousemarketplace.com/zip' },
-            { name: `Zip Code ${zipcode}`, url: `https://openhousemarketplace.com/zip/${zipcode}` }
+            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
+            { name: 'Zip Codes', url: 'https://www.openhousemarketplace.com/zip' },
+            { name: `Zip Code ${zipcode}`, url: `https://www.openhousemarketplace.com/zip/${zipcode}` }
           ]
         }}
       />

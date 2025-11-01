@@ -5,11 +5,22 @@ export const metadata: Metadata = {
   title: 'Red Rock Country Club | Luxury Golf Course Homes for Sale',
   description: 'Discover Red Rock Country Club homes for sale in Summerlin West. Championship 36-hole golf courses, resort-style amenities, stunning mountain views, and guard-gated luxury living. Experience premier golf course real estate in Las Vegas.',
   keywords: 'Red Rock Country Club, Red Rock Country Club homes for sale, golf course homes Summerlin, Summerlin real estate, luxury homes Las Vegas, guard gated community, Red Rock CC real estate, golf course homes Las Vegas',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/neighborhoods/red-rock-country-club',
+  },
   openGraph: {
     title: 'Red Rock Country Club | Luxury Golf Course Homes',
     description: 'Live the resort lifestyle at Red Rock Country Club. Championship golf, luxury amenities, and stunning homes.',
     images: ['/images/red-rock-cc-hero.jpg'],
-    url: 'https://openhousemarketplace.com/neighborhoods/red-rock-country-club',
+    url: 'https://www.openhousemarketplace.com/neighborhoods/red-rock-country-club',
   },
 }
 

@@ -5,10 +5,22 @@ export const metadata: Metadata = {
   title: 'Mesa Ridge Summerlin | Family Homes for Sale with Large Backyards',
   description: 'Find your perfect family home in Mesa Ridge, Summerlin West. Discover homes with large backyards, great schools, and family-friendly amenities in Las Vegas\' premier master-planned community. Explore real estate opportunities in this ideal family neighborhood.',
   keywords: 'Mesa Ridge Summerlin, Mesa Ridge homes for sale, family homes large yards, great schools Summerlin, family-friendly neighborhood, Mesa Ridge real estate, Summerlin West homes, Las Vegas family homes',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/neighborhoods/mesa-ridge',
+  },
   openGraph: {
     title: 'Mesa Ridge Summerlin | Family Homes with Large Backyards',
     description: 'Discover Mesa Ridge, a family-friendly neighborhood in Summerlin with large backyards and great schools.',
     images: ['/images/mesa-ridge-hero.jpg'],
+    url: 'https://www.openhousemarketplace.com/neighborhoods/mesa-ridge',
   }
 }
 

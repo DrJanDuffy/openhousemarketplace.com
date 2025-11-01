@@ -6,11 +6,22 @@ export const metadata: Metadata = {
   title: 'The Ridges Summerlin | Luxury Homes for Sale & Real Estate',
   description: 'Explore luxury homes for sale in The Ridges, Summerlin\'s most prestigious gated community. Custom estates, golf course views, exclusive amenities, and stunning mountain vistas. Live in Las Vegas\' premier address. Discover real estate opportunities in The Ridges.',
   keywords: 'The Ridges Summerlin, The Ridges homes for sale, luxury homes Las Vegas, custom estates Summerlin, golf course homes, guard gated community, The Ridges real estate, luxury Summerlin homes',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/neighborhoods/the-ridges',
+  },
   openGraph: {
     title: 'The Ridges Summerlin | Luxury Homes & Real Estate',
     description: 'Discover luxury living in The Ridges, Summerlin\'s most prestigious community. Custom estates with stunning views.',
     images: ['/images/the-ridges-hero.jpg'],
-    url: 'https://openhousemarketplace.com/neighborhoods/the-ridges',
+    url: 'https://www.openhousemarketplace.com/neighborhoods/the-ridges',
   },
 }
 
@@ -90,9 +101,9 @@ export default function TheRidgesPage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://openhousemarketplace.com/' },
-            { name: 'Neighborhoods', url: 'https://openhousemarketplace.com/neighborhoods' },
-            { name: 'The Ridges', url: 'https://openhousemarketplace.com/neighborhoods/the-ridges' }
+            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
+            { name: 'Neighborhoods', url: 'https://www.openhousemarketplace.com/neighborhoods' },
+            { name: 'The Ridges', url: 'https://www.openhousemarketplace.com/neighborhoods/the-ridges' }
           ]
         }}
       />

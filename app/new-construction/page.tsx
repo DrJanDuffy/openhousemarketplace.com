@@ -5,11 +5,22 @@ export const metadata: Metadata = {
   title: 'Summerlin New Construction | New Homes for Sale & Communities',
   description: 'Explore new construction homes for sale in Summerlin West. Discover modern designs, smart home features, energy efficiency, and the latest amenities. Find your perfect new build from top builders like Toll Brothers, Lennar, and Pulte in Las Vegas\' premier master-planned community.',
   keywords: 'Summerlin new construction, new homes Las Vegas, new construction Summerlin, Toll Brothers Summerlin, Lennar homes, Pulte homes, new homes for sale Summerlin, new construction communities Las Vegas',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/new-construction',
+  },
   openGraph: {
     title: 'Summerlin New Construction | New Homes & Communities',
     description: 'Brand new homes in Summerlin from top builders. Modern designs with smart features and energy efficiency.',
     images: ['/images/new-construction-hero.jpg'],
-    url: 'https://openhousemarketplace.com/new-construction',
+    url: 'https://www.openhousemarketplace.com/new-construction',
   },
 }
 

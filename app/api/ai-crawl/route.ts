@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 
 export async function GET() {
   const aiCrawlData = {
-    site: 'openhousemarketplace.com',
+    site: 'www.openhousemarketplace.com',
     description: "Summerlin West real estate services by Dr. Jan Duffy - expert real estate agent specializing in luxury homes, new construction, and residential properties in Las Vegas' premier master-planned community",
     primaryTopics: [
       'Summerlin West real estate',

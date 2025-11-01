@@ -5,10 +5,22 @@ export const metadata: Metadata = {
   title: 'Summerlin West Market Report | Las Vegas Real Estate Trends & Statistics',
   description: 'Stay informed with the latest Summerlin West real estate market trends, statistics, and insights. Comprehensive monthly reports on home prices, inventory, days on market, and market conditions in Las Vegas\' premier master-planned community.',
   keywords: 'Summerlin West market report, Las Vegas real estate trends, home prices Summerlin, market statistics, Summerlin real estate market analysis, Las Vegas housing market trends, Summerlin home prices, real estate market report Las Vegas',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/market-report',
+  },
   openGraph: {
     title: 'Summerlin West Market Report | Real Estate Trends & Statistics',
     description: 'Latest market insights and trends for Summerlin West real estate.',
     images: ['/images/market-report-hero.jpg'],
+    url: 'https://www.openhousemarketplace.com/market-report',
   }
 }
 

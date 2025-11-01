@@ -15,6 +15,24 @@ const subdomainRoutes: Record<string, string> = {
 export function middleware(request: NextRequest) {
   // Get hostname (e.g. theridges.openhousemarketplace.com, openhousemarketplace.com)
   const hostname = request.headers.get('host') || ''
+  const protocol = request.nextUrl.protocol
+  const pathname = request.nextUrl.pathname
+  const search = request.nextUrl.search
+  
+  // Force HTTPS redirect
+  if (protocol === 'http:') {
+    const httpsUrl = new URL(`https://${hostname}${pathname}${search}`, request.url)
+    return NextResponse.redirect(httpsUrl, 301)
+  }
+  
+  // Redirect non-www to www for main domain (but not subdomains)
+  const isMainDomain = hostname === 'openhousemarketplace.com'
+  const isWww = hostname === 'www.openhousemarketplace.com'
+  
+  if (isMainDomain) {
+    const wwwUrl = new URL(`https://www.openhousemarketplace.com${pathname}${search}`, request.url)
+    return NextResponse.redirect(wwwUrl, 301)
+  }
   
   // Check if this is a subdomain request
   const subdomain = hostname.split('.')[0]

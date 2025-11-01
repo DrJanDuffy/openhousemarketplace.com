@@ -5,11 +5,22 @@ export const metadata: Metadata = {
   title: 'Summerlin Luxury Homes | Exclusive Estates & Properties for Sale',
   description: 'Explore luxury homes for sale in Summerlin West. Discover custom estates, golf course properties, exclusive gated communities, and the finest luxury real estate in Las Vegas. Experience premier luxury living in Summerlin\'s most prestigious neighborhoods.',
   keywords: 'Summerlin luxury homes, luxury homes for sale Summerlin, Las Vegas luxury real estate, custom estates Summerlin, golf course homes, gated communities, luxury Summerlin real estate, high-end homes Las Vegas',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/luxury-homes',
+  },
   openGraph: {
     title: 'Summerlin Luxury Homes | Exclusive Estates & Properties',
     description: 'Discover Summerlin\'s most prestigious luxury homes and estates. Exclusive listings and private showings.',
     images: ['/images/luxury-homes-hero.jpg'],
-    url: 'https://openhousemarketplace.com/luxury-homes',
+    url: 'https://www.openhousemarketplace.com/luxury-homes',
   },
 }
 

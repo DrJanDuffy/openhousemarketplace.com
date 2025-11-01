@@ -5,11 +5,22 @@ export const metadata: Metadata = {
   title: 'Summerlin Centre | Modern Family Homes for Sale & Amenities',
   description: 'Explore Summerlin Centre homes for sale in Summerlin West. Modern family living with parks, top-rated schools, convenient shopping, and new construction opportunities. Experience the best of Summerlin\'s newest village and discover real estate in this family-friendly community.',
   keywords: 'Summerlin Centre, Summerlin Centre homes for sale, family homes Las Vegas, new construction Summerlin, Downtown Summerlin, modern homes, Summerlin Centre real estate, family-friendly Summerlin',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/neighborhoods/summerlin-centre',
+  },
   openGraph: {
     title: 'Summerlin Centre | Modern Family Homes & Amenities',
     description: 'Modern family living in Summerlin Centre. Parks, schools, and shopping at your doorstep.',
     images: ['/images/summerlin-centre-hero.jpg'],
-    url: 'https://openhousemarketplace.com/neighborhoods/summerlin-centre',
+    url: 'https://www.openhousemarketplace.com/neighborhoods/summerlin-centre',
   },
 }
 

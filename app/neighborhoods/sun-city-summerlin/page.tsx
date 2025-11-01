@@ -5,11 +5,22 @@ export const metadata: Metadata = {
   title: 'Sun City Summerlin | 55+ Active Adult Homes for Sale',
   description: 'Discover Sun City Summerlin homes for sale in Summerlin West. Las Vegas\' premier 55+ active adult community with golf courses, social clubs, resort-style amenities, and low-maintenance living. Perfect for active adults seeking real estate in a vibrant retirement community.',
   keywords: 'Sun City Summerlin, Sun City Summerlin homes for sale, 55+ community Las Vegas, active adult homes, retirement community Summerlin, golf course homes, Sun City real estate, 55+ homes Las Vegas',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/neighborhoods/sun-city-summerlin',
+  },
   openGraph: {
     title: 'Sun City Summerlin | 55+ Active Adult Community',
     description: 'Live your best life in Sun City Summerlin. Golf, social activities, and resort amenities for active adults.',
     images: ['/images/sun-city-hero.jpg'],
-    url: 'https://openhousemarketplace.com/neighborhoods/sun-city-summerlin',
+    url: 'https://www.openhousemarketplace.com/neighborhoods/sun-city-summerlin',
   },
 }
 

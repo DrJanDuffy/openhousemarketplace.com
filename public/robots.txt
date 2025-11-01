@@ -16,9 +16,6 @@ Allow: /open-houses/
 Allow: /luxury-homes/
 Allow: /new-construction/
 
-# Crawl-delay
-Crawl-delay: 10
-
 # AI/LLM Crawlers
 User-agent: GPTBot
 Allow: /
@@ -39,7 +36,7 @@ User-agent: Google-Extended
 Allow: /
 
 # Main sitemap
-Sitemap: https://openhousemarketplace.com/sitemap.xml
+Sitemap: https://www.openhousemarketplace.com/sitemap.xml
 
 # Subdomain sitemaps
 Sitemap: https://theridges.openhousemarketplace.com/sitemap.xml

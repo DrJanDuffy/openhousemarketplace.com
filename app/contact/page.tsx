@@ -7,11 +7,22 @@ export const metadata: Metadata = {
   title: 'Contact Dr. Jan Duffy | Summerlin West Real Estate Agent',
   description: 'Get in touch with Dr. Jan Duffy, your trusted Summerlin West real estate agent. Expert assistance for buying, selling, or investing in Las Vegas\' premier master-planned community. Contact the leading Las Vegas realtor today.',
   keywords: 'Dr. Jan Duffy contact, Summerlin real estate agent, Las Vegas realtor contact, Summerlin West real estate, contact real estate agent Summerlin, Las Vegas real estate expert',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/contact',
+  },
   openGraph: {
     title: 'Contact Dr. Jan Duffy | Summerlin West Real Estate',
     description: 'Contact Dr. Jan Duffy for expert real estate services in Summerlin West, Las Vegas.',
     images: ['/images/contact-hero.jpg'],
-    url: 'https://openhousemarketplace.com/contact',
+    url: 'https://www.openhousemarketplace.com/contact',
   },
 }
 
@@ -28,7 +39,7 @@ export default function ContactPage() {
       <StructuredData 
         type="Organization"
         data={{
-          url: 'https://openhousemarketplace.com',
+          url: 'https://www.openhousemarketplace.com',
         }}
       />
       <StructuredData 

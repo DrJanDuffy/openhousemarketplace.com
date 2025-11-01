@@ -5,10 +5,22 @@ export const metadata: Metadata = {
   title: 'Siena Summerlin | Luxury Mediterranean-Style Homes for Sale',
   description: 'Explore luxury Mediterranean-style homes for sale in Siena, an upscale Summerlin West community. Discover elegant architecture, premium amenities, resort-style living, and golf course access in Las Vegas\' premier master-planned community.',
   keywords: 'Siena Summerlin, Siena homes for sale, Mediterranean homes Summerlin, upscale community Las Vegas, luxury homes Summerlin, Siena real estate, Siena Golf Club, luxury Las Vegas real estate',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/neighborhoods/siena',
+  },
   openGraph: {
     title: 'Siena Summerlin | Mediterranean-Style Upscale Community',
     description: 'Discover Siena, an upscale Summerlin community featuring Mediterranean-style homes and premium amenities.',
     images: ['/images/siena-hero.jpg'],
+    url: 'https://www.openhousemarketplace.com/neighborhoods/siena',
   }
 }
 

@@ -5,10 +5,22 @@ export const metadata: Metadata = {
   title: 'Willows Summerlin | Homes for Sale in Mature Trees Neighborhood',
   description: 'Discover homes for sale in Willows, a charming Summerlin West neighborhood featuring mature trees, walkable streets, and an established community atmosphere. Explore real estate opportunities in this family-friendly Las Vegas neighborhood.',
   keywords: 'Willows Summerlin, Willows homes for sale, mature trees neighborhood, walkable community Summerlin, established area Las Vegas, Willows real estate, Summerlin West homes, Las Vegas family neighborhood',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/neighborhoods/willows',
+  },
   openGraph: {
     title: 'Willows Summerlin | Mature Trees & Walkable Community',
     description: 'Explore Willows, a charming neighborhood in Summerlin with mature trees and walkable streets.',
     images: ['/images/willows-hero.jpg'],
+    url: 'https://www.openhousemarketplace.com/neighborhoods/willows',
   }
 }
 

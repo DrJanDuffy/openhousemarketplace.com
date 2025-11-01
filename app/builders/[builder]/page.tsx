@@ -179,10 +179,22 @@ export async function generateMetadata({ params }: BuilderPageProps): Promise<Me
     title: `${builderData.displayName} Homes in Summerlin | New Construction`,
     description: builderData.description,
     keywords: `${builderData.displayName} Summerlin, ${builderData.displayName} homes Las Vegas, new construction Summerlin`,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
+    alternates: {
+      canonical: `https://www.openhousemarketplace.com/builders/${builder}`,
+    },
     openGraph: {
       title: `${builderData.displayName} Homes in Summerlin | New Construction`,
       description: `Explore new construction homes from ${builderData.displayName} in Summerlin.`,
       images: ['/images/builders-hero.jpg'],
+      url: `https://www.openhousemarketplace.com/builders/${builder}`,
     }
   }
 }
@@ -201,9 +213,9 @@ export default async function BuilderPage({ params }: BuilderPageProps) {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://openhousemarketplace.com/' },
-            { name: 'Builders', url: 'https://openhousemarketplace.com/builders' },
-            { name: builderData.displayName, url: `https://openhousemarketplace.com/builders/${builder}` }
+            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
+            { name: 'Builders', url: 'https://www.openhousemarketplace.com/builders' },
+            { name: builderData.displayName, url: `https://www.openhousemarketplace.com/builders/${builder}` }
           ]
         }}
       />

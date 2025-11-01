@@ -5,10 +5,22 @@ export const metadata: Metadata = {
   title: 'The Trails Summerlin | Homes for Sale in Established Family Neighborhood',
   description: 'Explore homes for sale in The Trails, an established family neighborhood in Summerlin West. Discover mature landscaping, walkable streets, excellent schools, and real estate opportunities in Las Vegas\' premier master-planned community.',
   keywords: 'The Trails Summerlin, The Trails homes for sale, established neighborhood Summerlin, family homes Summerlin, mature trees neighborhood, The Trails real estate, Summerlin West homes, Las Vegas family neighborhood',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/neighborhoods/the-trails',
+  },
   openGraph: {
     title: 'The Trails Summerlin | Established Family Neighborhood',
     description: 'Discover The Trails, an established family neighborhood in Summerlin with mature landscaping and great schools.',
     images: ['/images/the-trails-hero.jpg'],
+    url: 'https://www.openhousemarketplace.com/neighborhoods/the-trails',
   }
 }
 

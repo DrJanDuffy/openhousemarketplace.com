@@ -5,11 +5,22 @@ export const metadata: Metadata = {
   title: 'Summerlin Open Houses | This Weekend\'s Home Tours & Real Estate Showings',
   description: 'Find open houses in Summerlin this weekend. Tour luxury homes, new construction, and family homes in Las Vegas\' premier master-planned community. Discover current open house listings, schedule tours, and explore Summerlin real estate opportunities.',
   keywords: 'Summerlin open houses, Las Vegas home tours, weekend open houses, Summerlin real estate, house tours, open houses this weekend Summerlin, Summerlin West open houses, Las Vegas open houses',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/open-houses',
+  },
   openGraph: {
     title: 'Summerlin Open Houses | This Weekend\'s Home Tours',
     description: 'Tour the best homes for sale in Summerlin this weekend. Live updates and instant scheduling.',
     images: ['/images/open-houses-hero.jpg'],
-    url: 'https://openhousemarketplace.com/open-houses',
+    url: 'https://www.openhousemarketplace.com/open-houses',
   },
 }
 

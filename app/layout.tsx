@@ -2,7 +2,10 @@ import "styles/tailwind.css"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://openhousemarketplace.com'),
+  metadataBase: new URL('https://www.openhousemarketplace.com'),
+  alternates: {
+    canonical: '/',
+  },
   robots: {
     index: true,
     follow: true,
@@ -23,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
           type="module"
