@@ -221,11 +221,10 @@ const SummerlinOpenHouseWebsite = () => {
             </div>
             <div className="flex items-center space-x-4">
               <button 
-                onClick={() => setShowMap(!showMap)}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium flex items-center"
+                onClick={() => window.open('http://drjanduffy.realscout.com/onboarding', '_blank')}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium"
               >
-                <MapPin className="h-4 w-4 mr-2" />
-                {showMap ? 'List View' : 'Map View'}
+                Sign Up Today for Open House
               </button>
               <button 
                 onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
