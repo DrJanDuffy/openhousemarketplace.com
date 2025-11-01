@@ -2,6 +2,8 @@ import "styles/tailwind.css"
 import { Metadata } from "next"
 import Script from "next/script"
 
+// Google Analytics scripts must be in head as standard script tags for detection
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.openhousemarketplace.com'),
   alternates: {
@@ -28,8 +30,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-        {/* Google tag (gtag.js) */}
+        {/* Google tag (gtag.js) - Must be in head for detection */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-G22H2J3EMX"></script>
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
