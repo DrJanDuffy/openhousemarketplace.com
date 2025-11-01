@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { Award, Home, Users, TrendingUp, Heart } from 'lucide-react'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
@@ -325,12 +326,12 @@ export default function AboutPage() {
             professional. Contact Dr. Jan Duffy today to schedule your free consultation and discover why she's the 
             trusted choice for real estate services throughout Summerlin West.
           </p>
-          <a
+          <Link
             href="/contact"
             className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
           >
             Contact Dr. Jan Duffy Today
-          </a>
+          </Link>
         </div>
       </div>
     </div>
