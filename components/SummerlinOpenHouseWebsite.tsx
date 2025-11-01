@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 import OptimizedImage from './OptimizedImage'
 import { MapPin, Calendar, Home, Star, Phone, Mail, Search, Heart, Award } from 'lucide-react'
 import RealScoutWidget from './RealScoutWidget'
@@ -727,29 +728,38 @@ const SummerlinOpenHouseWebsite = () => {
             <div>
               <h5 className="font-semibold text-white mb-3">Neighborhoods</h5>
               <ul className="text-sm space-y-1">
-                <li><a href="#" className="hover:text-white">The Ridges</a></li>
-                <li><a href="#" className="hover:text-white">Red Rock Country Club</a></li>
-                <li><a href="#" className="hover:text-white">Summerlin Centre</a></li>
-                <li><a href="#" className="hover:text-white">Sun City Summerlin</a></li>
+                <li><Link href="/neighborhoods/the-ridges" className="hover:text-white">The Ridges</Link></li>
+                <li><Link href="/neighborhoods/red-rock-country-club" className="hover:text-white">Red Rock Country Club</Link></li>
+                <li><Link href="/neighborhoods/summerlin-centre" className="hover:text-white">Summerlin Centre</Link></li>
+                <li><Link href="/neighborhoods/sun-city-summerlin" className="hover:text-white">Sun City Summerlin</Link></li>
+                <li><Link href="/neighborhoods/the-trails" className="hover:text-white">The Trails</Link></li>
+                <li><Link href="/neighborhoods/willows" className="hover:text-white">Willows</Link></li>
+                <li><Link href="/neighborhoods/mesa-ridge" className="hover:text-white">Mesa Ridge</Link></li>
+                <li><Link href="/neighborhoods/siena" className="hover:text-white">Siena</Link></li>
+                <li><Link href="/neighborhoods/regency" className="hover:text-white">Regency</Link></li>
               </ul>
             </div>
             
             <div>
               <h5 className="font-semibold text-white mb-3">Resources</h5>
               <ul className="text-sm space-y-1">
-                <li><a href="#" className="hover:text-white">Market Reports</a></li>
-                <li><a href="#" className="hover:text-white">Home Buying Guide</a></li>
-                <li><a href="#" className="hover:text-white">School Information</a></li>
-                <li><a href="#" className="hover:text-white">HOA Communities</a></li>
+                <li><Link href="/market-report" className="hover:text-white">Market Reports</Link></li>
+                <li><Link href="/resources/home-buying-guide" className="hover:text-white">Home Buying Guide</Link></li>
+                <li><Link href="/schools" className="hover:text-white">School Information</Link></li>
+                <li><Link href="/resources/hoa-communities" className="hover:text-white">HOA Communities</Link></li>
+                <li><Link href="/resources/lifestyle-guide" className="hover:text-white">Lifestyle Guide</Link></li>
+                <li><Link href="/resources/new-construction" className="hover:text-white">New Construction</Link></li>
+                <li><Link href="/luxury-homes" className="hover:text-white">Luxury Homes</Link></li>
+                <li><Link href="/new-construction" className="hover:text-white">New Construction Homes</Link></li>
               </ul>
             </div>
             
             <div>
-              <h5 className="font-semibold text-white mb-3">Contact</h5>
+              <h5 className="font-semibold text-white mb-3">Contact & Info</h5>
               <ul className="text-sm space-y-1">
-                <li>Dr. Jan Duffy</li>
-                <li>Summerlin West Expert</li>
-                <li>Las Vegas, Nevada</li>
+                <li><Link href="/about" className="hover:text-white">About Dr. Jan Duffy</Link></li>
+                <li><Link href="/contact" className="hover:text-white">Contact Us</Link></li>
+                <li><Link href="/open-houses" className="hover:text-white">Open Houses</Link></li>
                 <li className="pt-2">
                   <a 
                     href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==" 
