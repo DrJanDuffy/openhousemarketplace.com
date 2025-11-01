@@ -404,7 +404,24 @@ const SummerlinOpenHouseWebsite = () => {
                   </div>
                   
                   <p className="text-gray-700 mb-2">{house.address}</p>
-                  <p className="text-sm text-blue-600 font-medium mb-3">{house.neighborhood}</p>
+                  {house.neighborhood && (() => {
+                    const neighborhoodUrlMap: Record<string, string> = {
+                      'The Ridges': '/neighborhoods/the-ridges',
+                      'Red Rock Country Club': '/neighborhoods/red-rock-country-club',
+                      'Summerlin Centre': '/neighborhoods/summerlin-centre',
+                      'Sun City Summerlin': '/neighborhoods/sun-city-summerlin',
+                      'Mesa Ridge': '/neighborhoods/mesa-ridge',
+                      'Willows': '/neighborhoods/willows',
+                    }
+                    const url = neighborhoodUrlMap[house.neighborhood]
+                    return url ? (
+                      <Link href={url} className="text-sm text-blue-600 hover:text-blue-800 font-medium mb-3 inline-block">
+                        {house.neighborhood}
+                      </Link>
+                    ) : (
+                      <p className="text-sm text-blue-600 font-medium mb-3">{house.neighborhood}</p>
+                    )
+                  })()}
                   
                   <div className="flex justify-between text-sm text-gray-600 mb-3">
                     <span>{house.beds} beds</span>
@@ -773,6 +790,7 @@ const SummerlinOpenHouseWebsite = () => {
                 <li><Link href="/about" className="hover:text-white">About Dr. Jan Duffy</Link></li>
                 <li><Link href="/contact" className="hover:text-white">Contact Us</Link></li>
                 <li><Link href="/open-houses" className="hover:text-white">Open Houses</Link></li>
+                <li><Link href="/sitemap" className="hover:text-white">Sitemap</Link></li>
                 <li className="pt-2">
                   <a 
                     href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==" 
@@ -790,6 +808,7 @@ const SummerlinOpenHouseWebsite = () => {
           <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
             <p className="mb-2">&copy; 2025 Summerlin West Open Houses. All rights reserved. | Powered by RealScout Technology</p>
             <div className="flex flex-wrap justify-center gap-4 text-xs">
+              <Link href="/sitemap" className="hover:text-white">Sitemap</Link>
               <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
               <Link href="/terms-of-service" className="hover:text-white">Terms of Service</Link>
               <Link href="/disclaimer" className="hover:text-white">Disclaimer</Link>
