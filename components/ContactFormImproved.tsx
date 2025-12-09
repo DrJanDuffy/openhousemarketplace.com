@@ -86,8 +86,11 @@ const ContactFormImproved: React.FC<ContactFormImprovedProps> = ({
       })
 
       if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || `HTTP ${response.status}`)
+        const errorData = await response.json() as { error?: string } | unknown
+        const errorMessage = (typeof errorData === 'object' && errorData !== null && 'error' in errorData)
+          ? (errorData as { error: string }).error
+          : undefined
+        throw new Error(errorMessage || `HTTP ${response.status}`)
       }
 
       setSubmitStatus('success')
