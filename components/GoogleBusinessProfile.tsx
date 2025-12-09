@@ -2,6 +2,8 @@
 
 import { Phone, MapPin, Star, Clock, Mail } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 interface GoogleBusinessProfileProps {
   className?: string
@@ -29,7 +31,7 @@ const BUSINESS_INFO = {
   hours: {
     weekdays: 'Monday - Friday: 9:00 AM - 6:00 PM',
     weekends: 'Saturday - Sunday: 10:00 AM - 4:00 PM',
-    emergency: 'Emergency service available 24/7'
+    note: 'Available by appointment outside regular hours'
   },
   // Google Business Profile URL - replace with actual GBP URL when available
   googleBusinessUrl: 'https://www.google.com/maps/place/?q=Dr+Jan+Duffy+Real+Estate+Summerlin+West+Las+Vegas+NV',
@@ -82,8 +84,11 @@ export default function GoogleBusinessProfile({
   }, [mapLoaded, showMap])
 
   return (
-    <div className={`bg-white rounded-lg shadow-md p-6 ${className}`}>
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
+    <Card className={className}>
+      <CardHeader>
+        <CardTitle>Contact Information</CardTitle>
+      </CardHeader>
+      <CardContent>
       
       {/* NAP Information */}
       <div className="space-y-4 mb-6">
@@ -126,44 +131,47 @@ export default function GoogleBusinessProfile({
             <p className="font-semibold mb-1">Business Hours</p>
             <p>{BUSINESS_INFO.hours.weekdays}</p>
             <p>{BUSINESS_INFO.hours.weekends}</p>
-            <p className="text-sm text-gray-600 mt-1">{BUSINESS_INFO.hours.emergency}</p>
+            <p className="text-sm text-gray-600 mt-1">{BUSINESS_INFO.hours.note}</p>
           </div>
         </div>
       </div>
 
       {/* Action Buttons */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
-        <a
-          href={BUSINESS_INFO.phoneLink}
-          className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors"
-          aria-label={`Call ${BUSINESS_INFO.phone}`}
-        >
-          <Phone className="h-4 w-4 mr-2" />
-          Call
-        </a>
-        
-        <a
-          href={BUSINESS_INFO.directionsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-3 rounded-lg font-medium transition-colors"
-          aria-label="Get directions to business"
-        >
-          <MapPin className="h-4 w-4 mr-2" />
-          Directions
-        </a>
-        
-        {showReviews && (
+        <Button asChild>
           <a
-            href={BUSINESS_INFO.reviewsUrl}
+            href={BUSINESS_INFO.phoneLink}
+            aria-label={`Call ${BUSINESS_INFO.phone}`}
+          >
+            <Phone className="h-4 w-4 mr-2" />
+            Call
+          </a>
+        </Button>
+        
+        <Button asChild variant="outline">
+          <a
+            href={BUSINESS_INFO.directionsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-3 rounded-lg font-medium transition-colors"
-            aria-label="View Google Reviews"
+            aria-label="Get directions to business"
           >
-            <Star className="h-4 w-4 mr-2" />
-            Reviews
+            <MapPin className="h-4 w-4 mr-2" />
+            Directions
           </a>
+        </Button>
+        
+        {showReviews && (
+          <Button asChild variant="secondary" className="bg-yellow-500 hover:bg-yellow-600 text-white">
+            <a
+              href={BUSINESS_INFO.reviewsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Google Reviews"
+            >
+              <Star className="h-4 w-4 mr-2" />
+              Reviews
+            </a>
+          </Button>
         )}
       </div>
 
@@ -215,7 +223,8 @@ export default function GoogleBusinessProfile({
               or a third-party service like Elfsight, ReviewsOnMyWebsite, etc. */}
         </div>
       )}
-    </div>
+      </CardContent>
+    </Card>
   )
 }
 

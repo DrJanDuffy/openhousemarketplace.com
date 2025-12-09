@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
+import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
   title: 'Willows Summerlin | Homes for Sale in Mature Trees Neighborhood',
@@ -78,6 +79,17 @@ const amenities = [
 
 export default function WillowsPage() {
   return (
+    <>
+      <StructuredData 
+        type="LocalBusiness"
+        data={{
+          openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
+          aggregateRating: {
+            ratingValue: '5.0',
+            reviewCount: '100'
+          }
+        }}
+      />
     <div>
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-8">
@@ -137,6 +149,7 @@ export default function WillowsPage() {
         realscoutUrl="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
       />
     </div>
+    </>
   )
 }
 

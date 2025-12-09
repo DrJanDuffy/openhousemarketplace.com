@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Open House Marketplace',
@@ -8,6 +9,17 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
+    <>
+      <StructuredData 
+        type="LocalBusiness"
+        data={{
+          openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
+          aggregateRating: {
+            ratingValue: '5.0',
+            reviewCount: '100'
+          }
+        }}
+      />
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-4">
         <div className="bg-white rounded-lg shadow-md p-8">
@@ -120,6 +132,7 @@ export default function PrivacyPolicyPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

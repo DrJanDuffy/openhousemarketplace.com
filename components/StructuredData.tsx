@@ -126,7 +126,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         url: baseUrl,
         telephone: '+1-702-905-1222',
         email: 'jan@openhousemarketplace.com',
-        priceRange: '$$',
+        // priceRange removed - not applicable for real estate services
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Summerlin West',
@@ -157,6 +157,106 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
             unitCode: 'MI'
           }
         },
+        // Real estate expertise and knowledge areas
+        knowsAbout: [
+          'Real Estate',
+          'Luxury Homes',
+          'New Construction',
+          'Investment Properties',
+          'Summerlin Real Estate Market',
+          'Home Buying',
+          'Home Selling',
+          'Market Analysis',
+          'Property Valuation',
+          'Luxury Real Estate',
+          'Golf Course Communities',
+          'Gated Communities'
+        ],
+        // Services offered by the real estate business
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Real Estate Services',
+          itemListElement: [
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Home Buying Assistance',
+                description: 'Expert guidance for buying homes in Summerlin West, Las Vegas',
+                serviceType: 'Real Estate Buying Services',
+                areaServed: {
+                  '@type': 'City',
+                  name: 'Summerlin West, Las Vegas, NV'
+                }
+              }
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Home Selling Services',
+                description: 'Professional home selling services including market analysis, pricing strategy, and marketing',
+                serviceType: 'Real Estate Selling Services',
+                areaServed: {
+                  '@type': 'City',
+                  name: 'Summerlin West, Las Vegas, NV'
+                }
+              }
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'New Construction Guidance',
+                description: 'Expert assistance with new construction homes and builder relationships',
+                serviceType: 'New Construction Real Estate Services',
+                areaServed: {
+                  '@type': 'City',
+                  name: 'Summerlin West, Las Vegas, NV'
+                }
+              }
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Market Analysis',
+                description: 'Comprehensive market analysis and property valuation services',
+                serviceType: 'Real Estate Market Analysis',
+                areaServed: {
+                  '@type': 'City',
+                  name: 'Summerlin West, Las Vegas, NV'
+                }
+              }
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Investment Property Consultation',
+                description: 'Expert consultation for investment properties and real estate investments',
+                serviceType: 'Investment Real Estate Services',
+                areaServed: {
+                  '@type': 'City',
+                  name: 'Summerlin West, Las Vegas, NV'
+                }
+              }
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Neighborhood Tours',
+                description: 'Guided tours of Summerlin neighborhoods and communities',
+                serviceType: 'Real Estate Tour Services',
+                areaServed: {
+                  '@type': 'City',
+                  name: 'Summerlin West, Las Vegas, NV'
+                }
+              }
+            }
+          ]
+        },
         // AggregateRating for star ratings in search results (required for GBP compliance)
         // IMPORTANT: Update with actual review data from Google Business Profile API
         // This enables star ratings to appear in Google search results
@@ -169,6 +269,9 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
             worstRating: '1'
           }
         } : {}),
+        // Real estate services don't typically accept credit cards
+        // Remove paymentAccepted if not applicable, or set to appropriate methods
+        ...(data.paymentAccepted ? { paymentAccepted: data.paymentAccepted } : {}),
         ...data
       }
       break

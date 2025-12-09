@@ -36,7 +36,6 @@ export default function AboutPage() {
         data={{
           telephone: '+1-702-905-1222',
           email: 'jan@openhousemarketplace.com',
-          priceRange: '$$',
           areaServed: {
             '@type': 'City',
             name: 'Summerlin West, Las Vegas, NV'
@@ -47,7 +46,6 @@ export default function AboutPage() {
         type="LocalBusiness"
         data={{
           openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
-          paymentAccepted: 'Cash, Check, Credit Card',
           // Add actual review data from Google Business Profile
           aggregateRating: {
             ratingValue: '5.0',
