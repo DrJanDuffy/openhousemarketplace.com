@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "cross-env FORCE_COLOR=1 next dev --turbo",
-    "build": "vercel build",
-    "build:local": "next build",
+    "build": "next build",
+    "build:vercel": "vercel build",
     "start": "next start",
     "setup-env": "node scripts/setup-env.js",
     "lint": "next lint",
