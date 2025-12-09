@@ -17,7 +17,7 @@ const SummerlinOpenHouseWebsite = () => {
   const [searchQuery] = useState('')
   const [selectedNeighborhood] = useState('all')
   const [favorites, setFavorites] = useState<number[]>([])
-  const [showMap, setShowMap] = useState(false)
+  const [showMap, _setShowMap] = useState(false)
   const [showContactForm, setShowContactForm] = useState(false)
   const [showExitPopup, setShowExitPopup] = useState(false)
   const [hasShownExitPopup, setHasShownExitPopup] = useState(false)
