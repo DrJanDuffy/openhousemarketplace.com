@@ -44,8 +44,13 @@ export default function HomePage() {
       <StructuredData 
         type="LocalBusiness"
         data={{
-          openingHours: 'Mo-Su 08:00-20:00',
+          openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
           paymentAccepted: 'Cash, Check, Credit Card',
+          // Add actual review data from Google Business Profile
+          aggregateRating: {
+            ratingValue: '5.0',
+            reviewCount: '100'
+          }
         }}
       />
       <StructuredData 

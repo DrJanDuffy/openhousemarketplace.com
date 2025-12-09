@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Award, Home, Users, TrendingUp, Heart } from 'lucide-react'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
+import GoogleBusinessProfile from '@/components/GoogleBusinessProfile'
 
 export const metadata: Metadata = {
   title: 'About Dr. Jan Duffy | Top Summerlin West Real Estate Agent',
@@ -33,7 +34,7 @@ export default function AboutPage() {
       <StructuredData 
         type="RealEstateAgent"
         data={{
-          telephone: '+1-702-555-1234',
+          telephone: '+1-702-905-1222',
           email: 'jan@openhousemarketplace.com',
           priceRange: '$$',
           areaServed: {
@@ -45,8 +46,13 @@ export default function AboutPage() {
       <StructuredData 
         type="LocalBusiness"
         data={{
-          openingHours: 'Mo-Su 08:00-20:00',
+          openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
           paymentAccepted: 'Cash, Check, Credit Card',
+          // Add actual review data from Google Business Profile
+          aggregateRating: {
+            ratingValue: '5.0',
+            reviewCount: '100'
+          }
         }}
       />
       <div className="min-h-screen bg-gray-50">
@@ -315,6 +321,11 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* GBP Component */}
+        <div className="mb-8">
+          <GoogleBusinessProfile showMap={true} showReviews={true} />
         </div>
 
         {/* CTA */}

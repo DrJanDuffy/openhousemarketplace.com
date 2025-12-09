@@ -101,7 +101,7 @@ export default function DisclaimerPage() {
               <p>For questions about this disclaimer, please contact:</p>
               <p>
                 <strong>Email:</strong> contact@openhousemarketplace.com<br />
-                <strong>Phone:</strong> (702) 555-1234
+                <strong>Phone:</strong> (702) 905-1222
               </p>
             </section>
           </div>

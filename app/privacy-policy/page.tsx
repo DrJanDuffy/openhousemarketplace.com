@@ -112,7 +112,7 @@ export default function PrivacyPolicyPage() {
               <p>If you have questions about this Privacy Policy, please contact us at:</p>
               <p>
                 <strong>Email:</strong> privacy@openhousemarketplace.com<br />
-                <strong>Phone:</strong> (702) 555-1234<br />
+                <strong>Phone:</strong> (702) 905-1222<br />
                 <strong>Address:</strong> [Your Business Address]
               </p>
             </section>

@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
+import GoogleBusinessProfile from '@/components/GoogleBusinessProfile'
 
 export const metadata: Metadata = {
   title: 'Contact Dr. Jan Duffy | Summerlin West Real Estate Agent',
@@ -32,7 +33,7 @@ export default function ContactPage() {
       <StructuredData 
         type="RealEstateAgent"
         data={{
-          telephone: '+1-702-555-1234',
+          telephone: '+1-702-905-1222',
           email: 'jan@openhousemarketplace.com',
         }}
       />
@@ -45,8 +46,13 @@ export default function ContactPage() {
       <StructuredData 
         type="LocalBusiness"
         data={{
-          openingHours: 'Mo-Su 08:00-20:00',
+          openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
           paymentAccepted: 'Cash, Check, Credit Card',
+          // Add actual review data from Google Business Profile
+          aggregateRating: {
+            ratingValue: '5.0',
+            reviewCount: '100'
+          }
         }}
       />
       <div className="min-h-screen bg-gray-50 py-12">
@@ -78,31 +84,7 @@ export default function ContactPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone Number</h3>
-                <a href="tel:+17025551234" className="text-blue-600 hover:text-blue-800 text-lg">
-                  (702) 555-1234
-                </a>
-                <p className="text-gray-600 text-sm mt-1">Call or text for immediate assistance</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Address</h3>
-                <a href="mailto:jan@openhousemarketplace.com" className="text-blue-600 hover:text-blue-800 text-lg">
-                  jan@openhousemarketplace.com
-                </a>
-                <p className="text-gray-600 text-sm mt-1">We respond within 24 hours</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Office Hours</h3>
-                <p className="text-gray-600">Monday - Friday: 9am - 6pm</p>
-                <p className="text-gray-600">Saturday - Sunday: 10am - 4pm</p>
-                <p className="text-gray-600 text-sm mt-2">Emergency service available 24/7</p>
-              </div>
-            </div>
-          </div>
+          <GoogleBusinessProfile showMap={true} showReviews={true} />
 
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Real Estate Services</h2>

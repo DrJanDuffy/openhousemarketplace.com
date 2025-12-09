@@ -47,7 +47,7 @@ export async function GET() {
       'Investment property consultation'
     ],
     contact: {
-      phone: '+1-702-555-1234',
+      phone: '+1-702-905-1222',
       email: 'jan@openhousemarketplace.com'
     },
     structuredData: {
