@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
   title: 'Disclaimer | Open House Marketplace',
