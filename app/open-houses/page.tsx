@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
+import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
   title: 'Summerlin Open Houses | This Weekend\'s Home Tours & Real Estate Showings',
@@ -78,6 +79,25 @@ const amenities = [
 
 export default function OpenHousesPage() {
   return (
+    <>
+      <StructuredData 
+        type="LocalBusiness"
+        data={{
+          openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
+          paymentAccepted: 'Cash, Check, Credit Card',
+          aggregateRating: {
+            ratingValue: '5.0',
+            reviewCount: '100'
+          }
+        }}
+      />
+      <StructuredData 
+        type="WebPage"
+        data={{
+          name: 'Summerlin Open Houses | This Weekend\'s Home Tours',
+          description: 'Find open houses in Summerlin this weekend. Tour luxury homes, new construction, and family homes in Las Vegas\' premier master-planned community.',
+        }}
+      />
     <div>
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-8">
@@ -140,5 +160,6 @@ export default function OpenHousesPage() {
         realscoutUrl="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
       />
     </div>
+    </>
   )
 }

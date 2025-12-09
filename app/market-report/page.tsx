@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { TrendingUp, TrendingDown, Home, DollarSign, Clock } from 'lucide-react'
+import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
   title: 'Summerlin West Market Report | Las Vegas Real Estate Trends & Statistics',
@@ -27,6 +28,25 @@ export const metadata: Metadata = {
 
 export default function MarketReportPage() {
   return (
+    <>
+      <StructuredData 
+        type="LocalBusiness"
+        data={{
+          openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
+          paymentAccepted: 'Cash, Check, Credit Card',
+          aggregateRating: {
+            ratingValue: '5.0',
+            reviewCount: '100'
+          }
+        }}
+      />
+      <StructuredData 
+        type="WebPage"
+        data={{
+          name: 'Summerlin West Market Report | Las Vegas Real Estate Trends',
+          description: 'Stay informed with the latest Summerlin West real estate market trends, statistics, and insights.',
+        }}
+      />
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px] bg-gradient-to-r from-blue-600 to-red-600">
@@ -281,6 +301,7 @@ export default function MarketReportPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
