@@ -141,7 +141,7 @@ const ContactFormImproved: React.FC<ContactFormImprovedProps> = ({
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
             <div className="relative">
-              <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+              <User className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
               <Input
                 id="name"
                 {...register('name', { 
@@ -164,7 +164,7 @@ const ContactFormImproved: React.FC<ContactFormImprovedProps> = ({
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <div className="relative">
-              <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+              <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
               <Input
                 id="email"
                 {...register('email', { 
@@ -190,7 +190,7 @@ const ContactFormImproved: React.FC<ContactFormImprovedProps> = ({
           <div className="space-y-2">
             <Label htmlFor="phone">Phone (optional)</Label>
             <div className="relative">
-              <Phone className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+              <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
               <Input
                 id="phone"
                 {...register('phone', {
@@ -256,7 +256,7 @@ const ContactFormImproved: React.FC<ContactFormImprovedProps> = ({
           <div className="space-y-2">
             <Label htmlFor="message">Message</Label>
             <div className="relative">
-              <MessageSquare className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+              <MessageSquare className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
               <Textarea
                 id="message"
                 {...register('message', { 

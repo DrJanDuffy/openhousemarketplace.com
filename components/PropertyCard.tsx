@@ -60,7 +60,7 @@ export function PropertyCard({
       </CardHeader>
       
       <CardContent>
-        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+        <div className="flex items-center gap-4 text-sm text-gray-600">
           <div className="flex items-center gap-1">
             <Bed className="h-4 w-4" />
             {beds} beds

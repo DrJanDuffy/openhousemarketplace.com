@@ -57,6 +57,7 @@ const config = typescriptEslint.config(
         },
       ],
       "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
       "sort-imports": "off",
       "import/order": "off",
       "@next/next/no-img-element": "off",
