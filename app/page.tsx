@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       {
         width: 1200,
         height: 630,
-        url: "/api/placeholder/1200/630",
+        url: "https://www.openhousemarketplace.com/images/og/og-image.jpg",
         alt: "Summerlin West Open Houses - Dr. Jan Duffy Real Estate",
       },
     ],
