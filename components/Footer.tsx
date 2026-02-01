@@ -21,27 +21,30 @@ export default function Footer() {
     <footer className="bg-gray-800 text-gray-300 py-8" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand + Logo */}
+          {/* Office / RealScout – first position on every page */}
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              {!logoError ? (
-                <Image
-                  src="/images/logo/logo.png"
-                  alt=""
-                  width={120}
-                  height={40}
-                  className="h-10 w-auto object-contain"
-                  onError={() => setLogoError(true)}
-                  unoptimized
-                />
-              ) : (
-                <Home className="h-6 w-6 text-red-500 shrink-0" aria-hidden />
-              )}
-              <span className="font-bold text-white">{SITE_NAME}</span>
-            </Link>
-            <p className="text-sm">
-              Your premier destination for Summerlin West open house listings and real estate with {BUSINESS.name}.
-            </p>
+            <h3 className="font-semibold text-white mb-3">Office</h3>
+            <ul className="text-sm space-y-2">
+              <li>
+                <a
+                  href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 font-medium"
+                >
+                  RealScout – Search Listings
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 shrink-0 text-red-500" aria-hidden />
+                <a href={BUSINESS.phoneLink} className="hover:text-white">{BUSINESS.phone}</a>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 shrink-0 text-red-500 mt-0.5" aria-hidden />
+                <span>{BUSINESS.address}</span>
+              </li>
+              <li><Link href="/contact" className="hover:text-white">Contact Us</Link></li>
+            </ul>
           </div>
 
           {/* Neighborhoods */}
@@ -75,32 +78,31 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact / NAP */}
+          {/* Brand + more links */}
           <div>
-            <h3 className="font-semibold text-white mb-3">Contact</h3>
-            <ul className="text-sm space-y-2">
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-red-500" aria-hidden />
-                <a href={BUSINESS.phoneLink} className="hover:text-white">{BUSINESS.phone}</a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 shrink-0 text-red-500 mt-0.5" aria-hidden />
-                <span>{BUSINESS.address}</span>
-              </li>
+            <Link href="/" className="flex items-center gap-2 mb-4">
+              {!logoError ? (
+                <Image
+                  src="/images/logo/logo.png"
+                  alt=""
+                  width={120}
+                  height={40}
+                  className="h-10 w-auto object-contain"
+                  onError={() => setLogoError(true)}
+                  unoptimized
+                />
+              ) : (
+                <Home className="h-6 w-6 text-red-500 shrink-0" aria-hidden />
+              )}
+              <span className="font-bold text-white">{SITE_NAME}</span>
+            </Link>
+            <p className="text-sm mb-3">
+              Your premier destination for Summerlin West open house listings and real estate with {BUSINESS.name}.
+            </p>
+            <ul className="text-sm space-y-1">
               <li><Link href="/about" className="hover:text-white">About Dr. Jan Duffy</Link></li>
-              <li><Link href="/contact" className="hover:text-white">Contact Us</Link></li>
               <li><Link href="/open-houses" className="hover:text-white">Open Houses</Link></li>
               <li><Link href="/sitemap" className="hover:text-white">Sitemap</Link></li>
-              <li>
-                <a
-                  href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300"
-                >
-                  Open House Maps
-                </a>
-              </li>
             </ul>
           </div>
         </div>

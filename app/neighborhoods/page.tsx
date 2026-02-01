@@ -75,6 +75,23 @@ export default function NeighborhoodsIndexPage() {
         </section>
 
         <div className="max-w-6xl mx-auto px-4 py-12">
+          {/* Office / RealScout first */}
+          <div className="mb-10 rounded-lg border border-blue-200 bg-blue-50 p-6">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">Office</h2>
+            <p className="text-gray-700 mb-4">
+              Search all Summerlin listings with Dr. Jan Duffy&apos;s RealScout platform. Get alerts for new listings, price drops, and open houses.
+            </p>
+            <a
+              href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+              RealScout – Search Listings
+            </a>
+          </div>
+
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Neighborhoods</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {neighborhoods.map((n) => (
               <Link
