@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
 import StructuredData from '@/components/StructuredData'
 
+export const revalidate = 2592000 // ISR: revalidate every 30 days (legal)
+
 export const metadata: Metadata = {
   title: 'Disclaimer | Open House Marketplace',
   description: 'Legal disclaimer for Open House Marketplace. Important information about the use of our website and services.',

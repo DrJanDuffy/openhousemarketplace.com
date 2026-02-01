@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { TrendingUp, TrendingDown, Home, DollarSign, Clock } from 'lucide-react'
 import StructuredData from '@/components/StructuredData'
 
+export const revalidate = 86400 // ISR: revalidate daily
+
 export const metadata: Metadata = {
   title: 'Summerlin West Market Report | Las Vegas Real Estate Trends & Statistics',
   description: 'Stay informed with the latest Summerlin West real estate market trends, statistics, and insights. Comprehensive monthly reports on home prices, inventory, days on market, and market conditions in Las Vegas\' premier master-planned community.',

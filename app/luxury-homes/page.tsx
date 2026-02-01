@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
+export const revalidate = 86400 // ISR: revalidate daily
+
 export const metadata: Metadata = {
   title: 'Summerlin Luxury Homes | Exclusive Estates & Properties for Sale',
   description: 'Explore luxury homes for sale in Summerlin West. Discover custom estates, golf course properties, exclusive gated communities, and the finest luxury real estate in Las Vegas. Experience premier luxury living in Summerlin\'s most prestigious neighborhoods.',

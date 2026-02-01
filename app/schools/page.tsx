@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { School, Award, BookOpen, Users } from 'lucide-react'
 import StructuredData from '@/components/StructuredData'
 
+export const revalidate = 86400 // ISR: revalidate daily
+
 export const metadata: Metadata = {
   title: 'Summerlin West Schools | Top-Rated Education & CCSD Area 2',
   description: 'Discover top-rated schools in Summerlin West, Las Vegas. Comprehensive guide to CCSD Area 2 schools, private schools, charter schools, ratings, boundaries, and performance data for families moving to Las Vegas\' premier master-planned community.',

@@ -10,6 +10,8 @@ const GoogleBusinessProfile = dynamic(
   { ssr: true, loading: () => <div className="bg-white rounded-lg shadow-md p-6 animate-pulse h-80" aria-label="Loading map" /> }
 )
 
+export const revalidate = 86400 // ISR: revalidate daily
+
 export const metadata: Metadata = {
   title: 'About Dr. Jan Duffy | Top Summerlin West Real Estate Agent',
   description: 'Learn about Dr. Jan Duffy, your trusted real estate expert in Summerlin West. With 15+ years of experience, she has helped hundreds of clients buy and sell luxury homes in Las Vegas\' premier master-planned community. Discover why she\'s the leading Las Vegas realtor.',

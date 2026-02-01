@@ -9,6 +9,8 @@ const GoogleBusinessProfile = dynamic(
   { ssr: true, loading: () => <div className="bg-white rounded-lg shadow-md p-6 animate-pulse h-80" aria-label="Loading map" /> }
 )
 
+export const revalidate = 86400 // ISR: revalidate daily
+
 export const metadata: Metadata = {
   title: 'Contact Dr. Jan Duffy | Summerlin West Real Estate Agent',
   description: 'Get in touch with Dr. Jan Duffy, your trusted Summerlin West real estate agent. Expert assistance for buying, selling, or investing in Las Vegas\' premier master-planned community. Contact the leading Las Vegas realtor today.',

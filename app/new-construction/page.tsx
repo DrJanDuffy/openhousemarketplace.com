@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
+export const revalidate = 86400 // ISR: revalidate daily
+
 export const metadata: Metadata = {
   title: 'Summerlin New Construction | New Homes for Sale & Communities',
   description: 'Explore new construction homes for sale in Summerlin West. Discover modern designs, smart home features, energy efficiency, and the latest amenities. Find your perfect new build from top builders like Toll Brothers, Lennar, and Pulte in Las Vegas\' premier master-planned community.',
