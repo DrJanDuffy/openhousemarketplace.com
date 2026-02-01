@@ -4,7 +4,8 @@ import StructuredData from '@/components/StructuredData'
 export const metadata: Metadata = {
   title: 'Disclaimer | Open House Marketplace',
   description: 'Legal disclaimer for Open House Marketplace. Important information about the use of our website and services.',
-  robots: 'noindex, follow',
+  robots: { index: true, follow: true },
+  alternates: { canonical: 'https://www.openhousemarketplace.com/disclaimer' },
 }
 
 export default function DisclaimerPage() {

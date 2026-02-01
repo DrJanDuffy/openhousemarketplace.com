@@ -232,8 +232,14 @@ const validResources: Record<string, {
   }
 }
 
+const RESOURCE_SLUGS = ['home-buying-guide', 'hoa-communities', 'lifestyle-guide', 'new-construction'] as const
+
 interface ResourcePageProps {
   params: Promise<{ slug: string }>
+}
+
+export function generateStaticParams() {
+  return RESOURCE_SLUGS.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: ResourcePageProps): Promise<Metadata> {

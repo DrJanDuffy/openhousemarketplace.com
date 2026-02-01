@@ -169,8 +169,14 @@ const validZipCodes: Record<string, {
   }
 }
 
+const ZIP_SLUGS = ['89135', '89138', '89144'] as const
+
 interface ZipCodePageProps {
   params: Promise<{ zipcode: string }>
+}
+
+export function generateStaticParams() {
+  return ZIP_SLUGS.map((zipcode) => ({ zipcode }))
 }
 
 export async function generateMetadata({ params }: ZipCodePageProps): Promise<Metadata> {

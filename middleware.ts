@@ -12,26 +12,28 @@ const subdomainRoutes: Record<string, string> = {
   'new': '/new-construction'
 }
 
+const CANONICAL_ORIGIN = 'https://www.openhousemarketplace.com'
+
 export function middleware(request: NextRequest) {
-  // Get hostname (e.g. theridges.openhousemarketplace.com, openhousemarketplace.com)
   const hostname = request.headers.get('host') || ''
   const protocol = request.nextUrl.protocol
   const pathname = request.nextUrl.pathname
   const search = request.nextUrl.search
-  
-  // Force HTTPS redirect
+
+  // Main domain: canonical is https://www. Single 301 for http and/or non-www (avoids redirect chains).
+  const isMainDomain = hostname === 'openhousemarketplace.com' || hostname === 'www.openhousemarketplace.com'
+  const needsCanonicalRedirect =
+    isMainDomain &&
+    (protocol === 'http:' || hostname === 'openhousemarketplace.com')
+
+  if (needsCanonicalRedirect) {
+    return NextResponse.redirect(`${CANONICAL_ORIGIN}${pathname}${search}`, 301)
+  }
+
+  // HTTPS for other hosts (e.g. subdomains)
   if (protocol === 'http:') {
     const httpsUrl = new URL(`https://${hostname}${pathname}${search}`, request.url)
     return NextResponse.redirect(httpsUrl, 301)
-  }
-  
-  // Redirect non-www to www for main domain (but not subdomains)
-  const isMainDomain = hostname === 'openhousemarketplace.com'
-  const isWww = hostname === 'www.openhousemarketplace.com'
-  
-  if (isMainDomain) {
-    const wwwUrl = new URL(`https://www.openhousemarketplace.com${pathname}${search}`, request.url)
-    return NextResponse.redirect(wwwUrl, 301)
   }
   
   // Check if this is a subdomain request
@@ -53,12 +55,8 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     /*
-     * Match all paths except for:
-     * 1. /api routes
-     * 2. /_next (Next.js internals)
-     * 3. /static (inside /public)
-     * 4. all root files inside /public (e.g. /favicon.ico)
+     * Match page routes only; skip api, _next, static, and static files (favicon, etc.)
      */
-    '/((?!api|_next|static|[\\w-]+\\.\\w+).*)',
+    '/((?!api|_next|static|favicon\\.ico|robots\\.txt|sitemap\\.xml|[\\w-]+\\.(?:ico|png|jpg|jpeg|gif|webp|svg|woff2?|css|js)$).*)',
   ],
 }
