@@ -2,6 +2,9 @@
 const config = {
   reactStrictMode: true,
   poweredByHeader: false,
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
   logging: {
     fetches: {
       fullUrl: process.env.NODE_ENV === 'development',

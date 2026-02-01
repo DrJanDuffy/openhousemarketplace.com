@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 
+export const revalidate = 86400 // ISR: revalidate daily
+
 export const metadata: Metadata = {
   title: 'Summerlin Neighborhoods | Communities & Areas | Dr. Jan Duffy Real Estate',
   description: 'Explore Summerlin neighborhoods: The Ridges, Red Rock Country Club, Summerlin Centre, Sun City Summerlin, The Trails, Willows, Mesa Ridge, Siena, Regency. Find homes and community info.',

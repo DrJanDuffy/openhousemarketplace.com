@@ -1,8 +1,13 @@
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import ContactForm from '@/components/ContactForm'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
-import GoogleBusinessProfile from '@/components/GoogleBusinessProfile'
+
+const GoogleBusinessProfile = dynamic(
+  () => import('@/components/GoogleBusinessProfile'),
+  { ssr: true, loading: () => <div className="bg-white rounded-lg shadow-md p-6 animate-pulse h-80" aria-label="Loading map" /> }
+)
 
 export const metadata: Metadata = {
   title: 'Contact Dr. Jan Duffy | Summerlin West Real Estate Agent',

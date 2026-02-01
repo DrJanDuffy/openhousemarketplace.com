@@ -2,6 +2,8 @@ import { Metadata } from "next"
 import SummerlinOpenHouseWebsite from "components/SummerlinOpenHouseWebsite"
 import StructuredData from "@/components/StructuredData"
 
+export const revalidate = 3600 // ISR: revalidate every hour
+
 export const metadata: Metadata = {
   title: "Summerlin West Open Houses | Dr. Jan Duffy Real Estate",
   description: "Discover your dream home in Summerlin West, Las Vegas. This weekend's open houses in The Ridges, Red Rock Country Club, Summerlin Centre, and more. Search with Dr. Jan Duffy's RealScout platform.",

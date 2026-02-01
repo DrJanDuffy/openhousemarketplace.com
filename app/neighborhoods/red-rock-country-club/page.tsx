@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import HyperLocalNeighborhoodPage from '../../../components/HyperLocalNeighborhoodPage'
+import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {

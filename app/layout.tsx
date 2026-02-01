@@ -34,22 +34,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://em.realscout.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        {/* Google tag (gtag.js) - Must be in head for detection */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-G22H2J3EMX"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-G22H2J3EMX', {
-                page_path: window.location.pathname,
-                cookie_domain: 'auto',
-                cookie_flags: 'SameSite=None;Secure'
-              });
-            `,
-          }}
+        {/* Google tag (gtag.js) - load afterInteractive to avoid blocking LCP */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-G22H2J3EMX"
+          strategy="afterInteractive"
         />
+        <Script id="gtag-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-G22H2J3EMX', {
+              page_path: window.location.pathname,
+              cookie_domain: 'auto',
+              cookie_flags: 'SameSite=None;Secure'
+            });
+          `}
+        </Script>
         <style
           dangerouslySetInnerHTML={{
             __html: `

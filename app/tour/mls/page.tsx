@@ -3,6 +3,8 @@ import { Metadata } from 'next'
 const REALSCOUT_SEARCH_URL =
   'https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=='
 
+export const revalidate = 86400 // ISR: revalidate daily
+
 export const metadata: Metadata = {
   title: 'MLS Property Search | Summerlin Real Estate | Dr. Jan Duffy',
   description:

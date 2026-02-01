@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
+export const revalidate = 3600 // ISR: revalidate hourly (open house listings change often)
+
 export const metadata: Metadata = {
   title: 'Summerlin Open Houses | This Weekend\'s Home Tours & Real Estate Showings',
   description: 'Find open houses in Summerlin this weekend. Tour luxury homes, new construction, and family homes in Las Vegas\' premier master-planned community. Discover current open house listings, schedule tours, and explore Summerlin real estate opportunities.',

@@ -1,9 +1,14 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { Award, Home, Users, TrendingUp, Heart } from 'lucide-react'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
-import GoogleBusinessProfile from '@/components/GoogleBusinessProfile'
+
+const GoogleBusinessProfile = dynamic(
+  () => import('@/components/GoogleBusinessProfile'),
+  { ssr: true, loading: () => <div className="bg-white rounded-lg shadow-md p-6 animate-pulse h-80" aria-label="Loading map" /> }
+)
 
 export const metadata: Metadata = {
   title: 'About Dr. Jan Duffy | Top Summerlin West Real Estate Agent',
