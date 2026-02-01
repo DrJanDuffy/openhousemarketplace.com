@@ -8,6 +8,7 @@
     "build:vercel": "vercel build",
     "start": "next start",
     "setup-env": "node scripts/setup-env.js",
+    "assets:check": "node scripts/asset-checklist.js",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",

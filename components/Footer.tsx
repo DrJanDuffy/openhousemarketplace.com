@@ -83,10 +83,10 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2 mb-4">
               {!logoError ? (
                 <Image
-                  src="/images/logo/logo.png"
+                  src="/images/logo/logo.svg"
                   alt=""
-                  width={120}
-                  height={40}
+                  width={170}
+                  height={28}
                   className="h-10 w-auto object-contain"
                   onError={() => setLogoError(true)}
                   unoptimized
