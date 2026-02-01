@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
@@ -108,7 +109,10 @@ export default function SienaPage() {
               community apart from other luxury neighborhoods in Summerlin. Terra cotta tile roofs, stucco exteriors, 
               and thoughtful landscaping evoke the romance and sophistication of Tuscany, creating an environment that 
               feels both luxurious and inviting. This attention to architectural detail and design consistency is one of 
-              the factors that makes Siena one of the most desirable luxury communities in the Las Vegas real estate market.
+              the factors that makes Siena one of the most desirable luxury communities in the               Las Vegas real estate market.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Siena.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Luxury Real Estate in Siena</h3>
             <p className="text-gray-700 leading-relaxed mb-4">

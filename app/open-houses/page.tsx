@@ -79,6 +79,25 @@ const amenities = [
   }
 ]
 
+const openHouseFaqs = [
+  {
+    question: 'When are open houses in Summerlin?',
+    answer: 'Open houses in Summerlin are typically held on weekends (Saturday and Sunday), with many listings open from late morning through afternoon. Times vary by property; check our Summerlin open house listings or RealScout for current dates and times.'
+  },
+  {
+    question: 'How do I find open houses this weekend in Summerlin?',
+    answer: 'Visit our Open Houses page for this weekend\'s home tours, or use Dr. Jan Duffy\'s RealScout platform to search listings and filter by open house dates. You can also sign up for open house alerts to get notified when new Summerlin open houses are added.'
+  },
+  {
+    question: 'What should I bring to an open house?',
+    answer: 'Bring a list of questions, your phone for photos and notes, and comfortable shoes. If you\'re serious about buying, consider bringing a pre-approval letter. Dr. Jan Duffy can help you prepare for Summerlin open house visits and evaluate properties.'
+  },
+  {
+    question: 'Are there open houses in Summerlin West neighborhoods like The Ridges or Red Rock?',
+    answer: 'Yes. Open houses are held across Summerlin West, including The Ridges, Red Rock Country Club, Summerlin Centre, The Trails, and other neighborhoods. Use our neighborhood pages and RealScout to find open houses in your preferred area.'
+  }
+]
+
 export default function OpenHousesPage() {
   return (
     <>
@@ -99,6 +118,11 @@ export default function OpenHousesPage() {
           description: 'Find open houses in Summerlin this weekend. Tour luxury homes, new construction, and family homes in Las Vegas\' premier master-planned community.',
         }}
       />
+      <StructuredData type="BreadcrumbList" data={{ items: [
+        { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
+        { name: 'Summerlin Open Houses', url: 'https://www.openhousemarketplace.com/open-houses' },
+      ] }} />
+      <StructuredData type="FAQPage" data={{ faqs: openHouseFaqs }} />
     <div>
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-8">
@@ -148,6 +172,15 @@ export default function OpenHousesPage() {
               the Summerlin market helps clients navigate open houses effectively and make informed decisions about real estate 
               purchases in Las Vegas' premier master-planned community.
             </p>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-3 mt-8">Frequently Asked Questions About Summerlin Open Houses</h2>
+            <dl className="space-y-4">
+              {openHouseFaqs.map((faq) => (
+                <div key={faq.question}>
+                  <dt className="font-semibold text-gray-900">{faq.question}</dt>
+                  <dd className="text-gray-700 mt-1 ml-0">{faq.answer}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </div>

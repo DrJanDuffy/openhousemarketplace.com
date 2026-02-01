@@ -285,7 +285,7 @@ export default async function ZipCodePage({ params }: ZipCodePageProps) {
               Whether you're seeking luxury estates, family homes, or investment properties, zip code {zipcode} provides 
               excellent opportunities for real estate investment in Summerlin.
             </p>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-3">Neighborhoods in {zipcode}</h3>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Neighborhoods in {zipcode}</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
               Zip code {zipcode} encompasses several of Summerlin's most desirable neighborhoods, including {zipData.neighborhoods.join(', ')}. 
               Each neighborhood within this zip code offers unique character, amenities, and real estate opportunities, 
@@ -293,7 +293,7 @@ export default async function ZipCodePage({ params }: ZipCodePageProps) {
               with mature landscaping to newer developments with modern amenities, {zipcode} has something for every type 
               of homebuyer in the Las Vegas real estate market.
             </p>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-3">Why Choose Zip Code {zipcode}?</h3>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Zip Code {zipcode}?</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
               Purchasing real estate in zip code {zipcode} means investing in one of Summerlin's most well-established and 
               desirable areas. This zip code offers convenient access to premier shopping at Downtown Summerlin, world-class 

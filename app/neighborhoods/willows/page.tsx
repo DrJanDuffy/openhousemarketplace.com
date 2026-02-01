@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
@@ -107,7 +108,10 @@ export default function WillowsPage() {
               to homebuyers seeking an established neighborhood in Summerlin. These trees, combined with well-maintained 
               properties and thoughtfully designed streets, create an environment that feels both welcoming and refined. 
               For families considering real estate in Las Vegas, Willows represents an opportunity to invest in a 
-              neighborhood that has already proven its value and desirability over time.
+              neighborhood that has already proven its value and desirability               over time.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Willows.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Real Estate Market in Willows</h3>
             <p className="text-gray-700 leading-relaxed mb-4">

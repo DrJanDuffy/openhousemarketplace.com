@@ -56,15 +56,19 @@ export default function TestForm() {
   return (
     <div className="p-8 max-w-2xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">API Test Page</h1>
-      
-      <div className="space-y-4">
+
+      <h2 className="text-xl font-semibold mb-2">About This Page</h2>
+      <p className="text-gray-600 mb-4">Use the buttons below to test environment variables and lead form submission.</p>
+
+      <h2 className="text-xl font-semibold mb-2">Test Actions</h2>
+      <div className="space-y-4 mb-6">
         <button
           onClick={testEnv}
           className="bg-blue-500 text-white px-4 py-2 rounded"
         >
           Test Environment Variables
         </button>
-        
+
         <button
           onClick={testForm}
           disabled={loading}
@@ -76,7 +80,7 @@ export default function TestForm() {
 
       {result && (
         <div className="mt-6">
-          <h2 className="text-xl font-semibold mb-2">Result:</h2>
+          <h2 className="text-xl font-semibold mb-2">Result</h2>
           <pre className="bg-gray-100 p-4 rounded overflow-auto text-sm">
             {JSON.stringify(result, null, 2)}
           </pre>

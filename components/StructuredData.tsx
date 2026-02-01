@@ -7,6 +7,13 @@ interface StructuredDataProps {
   data?: Record<string, any>
 }
 
+// Google 2025 SEO: Add NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL in env for sameAs (GBP link)
+const sameAsUrls: string[] = [
+  ...(typeof process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL === 'string'
+    ? [process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL]
+    : []),
+]
+
 export default function StructuredData({ type, data = {} }: StructuredDataProps) {
   const pathname = usePathname()
   const baseUrl = 'https://www.openhousemarketplace.com'
@@ -18,26 +25,38 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
       structuredData = {
         '@context': 'https://schema.org',
         '@type': 'RealEstateAgent',
+        '@id': `${baseUrl}/about#agent`,
         name: 'Dr. Jan Duffy',
-        description: 'Top Summerlin West real estate agent with 15+ years of experience helping clients buy and sell luxury homes in Las Vegas',
-        url: `${baseUrl}${pathname}`,
+        description: 'Top Summerlin West real estate agent with 15+ years of experience helping clients buy and sell luxury homes in Las Vegas. Licensed Nevada real estate professional (S.0197614.LLC), Berkshire Hathaway HomeServices Nevada Properties.',
+        url: `${baseUrl}/about`,
         image: `${baseUrl}/images/dr-jan-duffy.jpg`,
+        telephone: '+1-702-905-1222',
+        email: 'jan@openhousemarketplace.com',
         address: {
           '@type': 'PostalAddress',
           addressLocality: 'Summerlin',
           addressRegion: 'NV',
+          postalCode: '89135',
           addressCountry: 'US'
         },
         areaServed: {
           '@type': 'City',
           name: 'Summerlin West, Las Vegas'
         },
+        worksFor: {
+          '@type': 'RealEstateOrganization',
+          name: 'Berkshire Hathaway HomeServices Nevada Properties',
+          url: baseUrl,
+        },
         knowsAbout: [
           'Real Estate',
           'Luxury Homes',
           'New Construction',
           'Investment Properties',
-          'Summerlin Real Estate Market'
+          'Summerlin Real Estate Market',
+          'Open Houses',
+          'Home Buying',
+          'Home Selling'
         ],
         ...data
       }
@@ -58,7 +77,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         '@type': 'Organization',
         name: 'Dr. Jan Duffy Real Estate',
         url: baseUrl,
-        logo: `${baseUrl}/logo.png`,
+        logo: `${baseUrl}/images/logo/logo.svg`,
         contactPoint: {
           '@type': 'ContactPoint',
           telephone: '+1-702-905-1222',
@@ -66,9 +85,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
           areaServed: 'US',
           availableLanguage: 'English'
         },
-        sameAs: [
-          // Add social media profiles if available
-        ],
+        ...(sameAsUrls.length > 0 ? { sameAs: sameAsUrls } : {}),
         ...data
       }
       break
@@ -81,6 +98,20 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         name: data.name || 'Summerlin Real Estate',
         description: data.description || 'Real estate services in Summerlin West',
         inLanguage: 'en-US',
+        // E-E-A-T: author/creator for expertise and trust (Google 2025)
+        author: {
+          '@type': 'Person',
+          name: 'Dr. Jan Duffy',
+          url: `${baseUrl}/about`,
+          jobTitle: 'Real Estate Agent',
+          worksFor: { '@type': 'Organization', name: 'Dr. Jan Duffy Real Estate', url: baseUrl },
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Dr. Jan Duffy Real Estate',
+          url: baseUrl,
+          logo: { '@type': 'ImageObject', url: `${baseUrl}/images/logo/logo.svg` },
+        },
         ...data
       }
       break
@@ -122,7 +153,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         '@id': `${baseUrl}/#organization`,
         name: 'Dr. Jan Duffy Real Estate',
         image: `${baseUrl}/images/dr-jan-duffy.jpg`,
-        logo: `${baseUrl}/logo.png`,
+        logo: `${baseUrl}/images/logo/logo.svg`,
         url: baseUrl,
         telephone: '+1-702-905-1222',
         email: 'jan@openhousemarketplace.com',
@@ -160,6 +191,8 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         // Real estate expertise and knowledge areas
         knowsAbout: [
           'Real Estate',
+          'Open Houses',
+          'Open House Tours',
           'Luxury Homes',
           'New Construction',
           'Investment Properties',
@@ -254,12 +287,24 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
                   name: 'Summerlin West, Las Vegas, NV'
                 }
               }
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Open House Tours',
+                description: 'Find and tour Summerlin open houses this weekend. Open house listings, schedules, and alerts for homes in Summerlin West, The Ridges, Red Rock Country Club, and more.',
+                serviceType: 'Open House Real Estate Services',
+                areaServed: {
+                  '@type': 'City',
+                  name: 'Summerlin West, Las Vegas, NV'
+                }
+              }
             }
           ]
         },
-        // AggregateRating for star ratings in search results (required for GBP compliance)
-        // IMPORTANT: Update with actual review data from Google Business Profile API
-        // This enables star ratings to appear in Google search results
+        ...(sameAsUrls.length > 0 ? { sameAs: sameAsUrls } : {}),
+        // AggregateRating: replace with real review data from Google Business Profile for accuracy
         ...(data.aggregateRating ? {
           aggregateRating: {
             '@type': 'AggregateRating',

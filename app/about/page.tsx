@@ -15,7 +15,7 @@ export const revalidate = 86400 // ISR: revalidate daily
 export const metadata: Metadata = {
   title: 'About Dr. Jan Duffy | Top Summerlin West Real Estate Agent',
   description: 'Learn about Dr. Jan Duffy, your trusted real estate expert in Summerlin West. With 15+ years of experience, she has helped hundreds of clients buy and sell luxury homes in Las Vegas\' premier master-planned community. Discover why she\'s the leading Las Vegas realtor.',
-  keywords: 'Dr. Jan Duffy, Summerlin realtor, Las Vegas real estate agent, luxury home specialist, Summerlin West real estate expert, top real estate agent Las Vegas, real estate professional Summerlin',
+  keywords: 'Dr. Jan Duffy, Summerlin realtor, Las Vegas real estate agent, Summerlin open houses, luxury home specialist, Summerlin West real estate expert, top real estate agent Las Vegas, real estate professional Summerlin',
   robots: {
     index: true,
     follow: true,
@@ -62,7 +62,7 @@ export default function AboutPage() {
       />
       <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] bg-gradient-to-r from-blue-600 to-red-600">
+      <section className="relative h-[50vh] min-h-[400px] bg-gradient-to-r from-blue-600 to-red-600 rounded-b-3xl overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-40" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-4xl mx-auto px-4">
@@ -89,10 +89,11 @@ export default function AboutPage() {
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
             Specializing in luxury homes, new construction properties, and investment real estate, Dr. Duffy provides 
-            personalized service tailored to each client's unique needs. Her comprehensive knowledge of Summerlin 
+            personalized service tailored to each client&apos;s unique needs. She also helps buyers find and tour Summerlin 
+            open houses—see our <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">open houses</Link> page for this weekend&apos;s home tours. Her comprehensive knowledge of Summerlin 
             neighborhoods, from The Ridges to Summerlin Centre, ensures that clients receive expert guidance throughout 
-            their real estate journey. Whether you're a first-time homebuyer, luxury property investor, or looking to 
-            sell your home, Dr. Duffy's market expertise and proven strategies ensure successful transactions.
+            their real estate journey. Whether you&apos;re a first-time homebuyer, luxury property investor, or looking to 
+            sell your home, Dr. Duffy&apos;s market expertise and proven strategies ensure successful transactions.
           </p>
           <p className="text-gray-700 leading-relaxed">
             As a top-performing Las Vegas realtor, Dr. Jan Duffy has consistently ranked among the area's leading real 
@@ -335,19 +336,27 @@ export default function AboutPage() {
 
         {/* CTA */}
         <div className="bg-blue-600 rounded-lg shadow-md p-8 text-center text-white">
-          <h2 className="text-3xl font-bold mb-4">Ready to Work with Las Vegas' Top Real Estate Agent?</h2>
-          <p className="text-xl mb-6">Let's work together to achieve your real estate goals in Summerlin West</p>
+          <h2 className="text-3xl font-bold mb-4">Ready to Work with Las Vegas&apos; Top Real Estate Agent?</h2>
+          <p className="text-xl mb-6">Let&apos;s work together to achieve your real estate goals in Summerlin West</p>
           <p className="text-lg mb-6 opacity-90">
             Experience the difference of working with a dedicated, experienced, and results-driven Las Vegas real estate 
-            professional. Contact Dr. Jan Duffy today to schedule your free consultation and discover why she's the 
+            professional. Contact Dr. Jan Duffy today to schedule your free consultation and discover why she&apos;s the 
             trusted choice for real estate services throughout Summerlin West.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
-          >
-            Contact Dr. Jan Duffy Today
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
+            >
+              Contact Dr. Jan Duffy Today
+            </Link>
+            <Link
+              href="/open-houses"
+              className="inline-block bg-blue-500 hover:bg-blue-400 text-white px-8 py-3 rounded-lg font-bold text-lg border-2 border-white/50 transition-colors"
+            >
+              View Summerlin Open Houses
+            </Link>
+          </div>
         </div>
       </div>
     </div>
@@ -377,6 +386,10 @@ export default function AboutPage() {
         {
           question: "How does Dr. Jan Duffy help first-time homebuyers?",
           answer: "Dr. Jan Duffy provides comprehensive guidance for first-time homebuyers, including education about the home buying process, assistance with mortgage pre-approval, neighborhood tours, and step-by-step support throughout the entire transaction. She ensures first-time buyers feel confident and informed at every stage."
+        },
+        {
+          question: "Does Dr. Jan Duffy help buyers find open houses in Summerlin?",
+          answer: "Yes. Dr. Jan Duffy helps buyers find and tour Summerlin open houses. Visit our Open Houses page for this weekend's home tours, or use her RealScout platform to search listings and filter by open house dates. She can also set up open house alerts so you're notified when new Summerlin open houses are added."
         }
       ]}
     />

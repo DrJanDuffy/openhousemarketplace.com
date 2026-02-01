@@ -18,7 +18,7 @@ export default function Footer() {
   const [logoError, setLogoError] = useState(false)
 
   return (
-    <footer className="bg-gray-800 text-gray-300 py-8" role="contentinfo">
+    <footer className="bg-gray-800 text-gray-300 py-10 border-t-4 border-blue-600" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Office / RealScout – first position on every page */}
@@ -30,7 +30,7 @@ export default function Footer() {
                   href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 font-medium"
+                  className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
                 >
                   RealScout – Search Listings
                 </a>
@@ -43,7 +43,8 @@ export default function Footer() {
                 <MapPin className="h-4 w-4 shrink-0 text-red-500 mt-0.5" aria-hidden />
                 <span>{BUSINESS.address}</span>
               </li>
-              <li><Link href="/contact" className="hover:text-white">Contact Us</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+              <li><Link href="/open-houses" className="hover:text-white transition-colors">Summerlin open houses</Link></li>
             </ul>
           </div>
 
@@ -51,15 +52,15 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-3">Neighborhoods</h3>
             <ul className="text-sm space-y-1">
-              <li><Link href="/neighborhoods/the-ridges" className="hover:text-white">The Ridges</Link></li>
-              <li><Link href="/neighborhoods/red-rock-country-club" className="hover:text-white">Red Rock Country Club</Link></li>
-              <li><Link href="/neighborhoods/summerlin-centre" className="hover:text-white">Summerlin Centre</Link></li>
-              <li><Link href="/neighborhoods/sun-city-summerlin" className="hover:text-white">Sun City Summerlin</Link></li>
-              <li><Link href="/neighborhoods/the-trails" className="hover:text-white">The Trails</Link></li>
-              <li><Link href="/neighborhoods/willows" className="hover:text-white">Willows</Link></li>
-              <li><Link href="/neighborhoods/mesa-ridge" className="hover:text-white">Mesa Ridge</Link></li>
-              <li><Link href="/neighborhoods/siena" className="hover:text-white">Siena</Link></li>
-              <li><Link href="/neighborhoods/regency" className="hover:text-white">Regency</Link></li>
+              <li><Link href="/neighborhoods/the-ridges" className="hover:text-white transition-colors">The Ridges</Link></li>
+              <li><Link href="/neighborhoods/red-rock-country-club" className="hover:text-white transition-colors">Red Rock Country Club</Link></li>
+              <li><Link href="/neighborhoods/summerlin-centre" className="hover:text-white transition-colors">Summerlin Centre</Link></li>
+              <li><Link href="/neighborhoods/sun-city-summerlin" className="hover:text-white transition-colors">Sun City Summerlin</Link></li>
+              <li><Link href="/neighborhoods/the-trails" className="hover:text-white transition-colors">The Trails</Link></li>
+              <li><Link href="/neighborhoods/willows" className="hover:text-white transition-colors">Willows</Link></li>
+              <li><Link href="/neighborhoods/mesa-ridge" className="hover:text-white transition-colors">Mesa Ridge</Link></li>
+              <li><Link href="/neighborhoods/siena" className="hover:text-white transition-colors">Siena</Link></li>
+              <li><Link href="/neighborhoods/regency" className="hover:text-white transition-colors">Regency</Link></li>
             </ul>
           </div>
 
@@ -67,14 +68,14 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-3">Resources</h3>
             <ul className="text-sm space-y-1">
-              <li><Link href="/market-report" className="hover:text-white">Market Reports</Link></li>
-              <li><Link href="/resources/home-buying-guide" className="hover:text-white">Home Buying Guide</Link></li>
-              <li><Link href="/schools" className="hover:text-white">School Information</Link></li>
-              <li><Link href="/resources/hoa-communities" className="hover:text-white">HOA Communities</Link></li>
-              <li><Link href="/resources/lifestyle-guide" className="hover:text-white">Lifestyle Guide</Link></li>
-              <li><Link href="/resources/new-construction" className="hover:text-white">New Construction</Link></li>
-              <li><Link href="/luxury-homes" className="hover:text-white">Luxury Homes</Link></li>
-              <li><Link href="/new-construction" className="hover:text-white">New Construction Homes</Link></li>
+              <li><Link href="/market-report" className="hover:text-white transition-colors">Market Reports</Link></li>
+              <li><Link href="/resources/home-buying-guide" className="hover:text-white transition-colors">Home Buying Guide</Link></li>
+              <li><Link href="/schools" className="hover:text-white transition-colors">School Information</Link></li>
+              <li><Link href="/resources/hoa-communities" className="hover:text-white transition-colors">HOA Communities</Link></li>
+              <li><Link href="/resources/lifestyle-guide" className="hover:text-white transition-colors">Lifestyle Guide</Link></li>
+              <li><Link href="/resources/new-construction" className="hover:text-white transition-colors">New Construction</Link></li>
+              <li><Link href="/luxury-homes" className="hover:text-white transition-colors">Luxury Homes</Link></li>
+              <li><Link href="/new-construction" className="hover:text-white transition-colors">New Construction Homes</Link></li>
             </ul>
           </div>
 
@@ -100,9 +101,9 @@ export default function Footer() {
               Your premier destination for Summerlin West open house listings and real estate with {BUSINESS.name}.
             </p>
             <ul className="text-sm space-y-1">
-              <li><Link href="/about" className="hover:text-white">About Dr. Jan Duffy</Link></li>
-              <li><Link href="/open-houses" className="hover:text-white">Open Houses</Link></li>
-              <li><Link href="/sitemap" className="hover:text-white">Sitemap</Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">About Dr. Jan Duffy</Link></li>
+              <li><Link href="/open-houses" className="hover:text-white transition-colors">Open Houses</Link></li>
+              <li><Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link></li>
             </ul>
           </div>
         </div>
@@ -112,10 +113,10 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved. | {BUSINESS.name} | Powered by RealScout
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-xs">
-            <Link href="/sitemap" className="hover:text-white">Sitemap</Link>
-            <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="hover:text-white">Terms of Service</Link>
-            <Link href="/disclaimer" className="hover:text-white">Disclaimer</Link>
+            <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link>
           </div>
         </div>
       </div>

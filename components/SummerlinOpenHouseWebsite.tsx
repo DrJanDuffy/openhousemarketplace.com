@@ -208,41 +208,8 @@ const SummerlinOpenHouseWebsite = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <Home className="h-8 w-8 text-red-600 mr-2" />
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">Summerlin West Open Houses</h1>
-                <p className="text-sm text-gray-600">Las Vegas's Premier Master-Planned Community</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <button 
-                onClick={() => window.open('http://drjanduffy.realscout.com/onboarding', '_blank')}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium"
-              >
-                Sign Up Today for Open House
-              </button>
-              <button 
-                onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
-                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium"
-              >
-                Open House Maps
-              </button>
-              <div className="text-right">
-                <p className="font-semibold text-gray-900">Dr. Jan Duffy</p>
-                <p className="text-sm text-gray-600">Your Summerlin Expert</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-             {/* Hero Section */}
-       <section className="bg-gradient-to-r from-blue-600 to-red-600 text-white py-16">
+      {/* Hero Section */}
+       <section className="bg-gradient-to-r from-blue-600 to-red-600 text-white py-16 rounded-b-3xl">
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
              {/* Left Column - Content */}
@@ -260,8 +227,11 @@ const SummerlinOpenHouseWebsite = () => {
                <h2 className="text-5xl font-bold mb-6 leading-tight">
                  Your Local Research-Driven Expert for Summerlin & Las Vegas Open Houses
                </h2>
-               <p className="text-xl mb-8 text-blue-100">
-                 Get instant access to this weekend's premium open houses with personalized alerts and market insights
+               <p className="text-xl mb-4 text-blue-100">
+                 Get instant access to this weekend&apos;s premium open houses with personalized alerts and market insights
+               </p>
+               <p className="text-base mb-8 text-blue-100">
+                 <Link href="/open-houses" className="text-white font-semibold underline hover:no-underline">Browse all Summerlin open houses</Link> this weekend
                </p>
                
                {/* Trust Indicators */}
@@ -279,14 +249,14 @@ const SummerlinOpenHouseWebsite = () => {
                {/* Primary CTA */}
                <button 
                  onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
-                 className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-lg font-bold text-lg mr-4 mb-4 lg:mb-0"
+                 className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-xl font-bold text-lg mr-4 mb-4 lg:mb-0 shadow-lg hover:shadow-xl transition-all duration-200"
                >
                  Get a Custom Open House Alert
                </button>
              </div>
              
               {/* Right Column - RealScout Advanced Search */}
-              <div className="bg-white rounded-lg p-6 shadow-xl">
+              <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
                 <h3 className="text-gray-900 text-xl font-bold mb-4">Find Your Perfect Home</h3>
                 <RealScoutSearchCard />
               </div>
@@ -340,22 +310,22 @@ const SummerlinOpenHouseWebsite = () => {
                <Calendar className="h-4 w-4 mr-2" />
                This Weekend Only - Don't Miss Out!
              </div>
-             <h3 className="text-3xl font-bold text-gray-900 mb-4">
-               This Weekend's Featured Open Houses
-             </h3>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              This Weekend&apos;s Featured Open Houses
+            </h2>
              <p className="text-lg text-gray-600 mb-6">
-               {filteredHouses.length} premium open houses available in Summerlin West
+               {filteredHouses.length} premium open houses available in Summerlin West. <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">See full Summerlin open house listings</Link>.
              </p>
-             <div className="flex justify-center space-x-4">
+             <div className="flex flex-wrap justify-center gap-3">
                <button 
                  onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
-                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium"
+                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all duration-200"
                >
                  View All Listings
                </button>
                <button 
                  onClick={() => setShowContactForm(true)}
-                 className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-medium"
+                 className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-xl font-semibold border border-gray-200 hover:border-gray-300 transition-all duration-200"
                >
                  Get Priority Access
                </button>
@@ -373,8 +343,8 @@ const SummerlinOpenHouseWebsite = () => {
             />
           ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredHouses.map(house => (
-              <div key={house.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+              {filteredHouses.map((house, index) => (
+              <div key={house.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
                 <div className="relative">
                   <div 
                     onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
@@ -383,9 +353,9 @@ const SummerlinOpenHouseWebsite = () => {
                   >
                     <OptimizedImage
                       src={house.image}
-                      alt={house.address}
+                      alt={`${house.address} - ${house.neighborhood} open house`}
                       className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
-                      priority={false}
+                      priority={index === 0}
                     />
                   </div>
                   <button 
@@ -481,9 +451,9 @@ const SummerlinOpenHouseWebsite = () => {
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Summerlin West Neighborhoods
-            </h3>
+            </h2>
             <p className="text-lg text-gray-600">
               Explore Las Vegas's premier master-planned community
             </p>
@@ -560,7 +530,7 @@ const SummerlinOpenHouseWebsite = () => {
       <section className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Live Summerlin West Listings</h3>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Live Summerlin West Listings</h2>
             <p className="text-lg text-gray-600 mb-8">
               Browse current properties for sale in Summerlin West with Dr. Jan Duffy's RealScout platform
             </p>

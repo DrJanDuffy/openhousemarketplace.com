@@ -1,12 +1,24 @@
 import "styles/tailwind.css"
-import { Metadata } from "next"
+import { Metadata, Viewport } from "next"
 import Script from "next/script"
+import SiteHeader from "@/components/SiteHeader"
 import Footer from "@/components/Footer"
+import WebSiteSchema from "@/components/WebSiteSchema"
 
 // Google Analytics scripts must be in head as standard script tags for detection
+// SEO: Google 2025 – metadata defaults, E-E-A-T, structured data, Core Web Vitals
+
+const SITE_URL = 'https://www.openhousemarketplace.com'
+const DEFAULT_TITLE = 'Summerlin West Open Houses | Dr. Jan Duffy Real Estate'
+const DEFAULT_DESCRIPTION = 'Find Summerlin West open houses and Las Vegas real estate. Dr. Jan Duffy offers listings, neighborhood guides, and expert buying and selling services in Summerlin.'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.openhousemarketplace.com'),
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: DEFAULT_TITLE,
+    template: '%s | Open House Marketplace',
+  },
+  description: DEFAULT_DESCRIPTION,
   alternates: {
     canonical: '/',
   },
@@ -24,6 +36,26 @@ export const metadata: Metadata = {
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: SITE_URL,
+    siteName: 'Open House Marketplace',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [{ url: `${SITE_URL}/images/og/og-image.jpg`, width: 1200, height: 630, alt: 'Summerlin West Open Houses - Dr. Jan Duffy Real Estate' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#2563eb',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -91,11 +123,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <WebSiteSchema />
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
           type="module"
           strategy="afterInteractive"
         />
+        <SiteHeader />
         {children}
         <Footer />
       </body>

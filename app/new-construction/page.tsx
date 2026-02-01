@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
@@ -116,7 +117,10 @@ export default function NewConstructionPage() {
               select finishes and features that match your lifestyle, and enjoy the peace of mind that comes with builder 
               warranties and modern construction standards. Whether you're seeking a luxury estate, a family home with modern 
               amenities, or an energy-efficient property designed for sustainability, Summerlin's new construction communities 
-              offer options that meet every buyer's needs and preferences in today's Las Vegas real estate market.
+              offer options that meet every buyer&apos;s needs and preferences in today&apos;s Las Vegas real estate market.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including new construction showings.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Benefits of New Construction in Summerlin</h3>
             <p className="text-gray-700 leading-relaxed mb-4">

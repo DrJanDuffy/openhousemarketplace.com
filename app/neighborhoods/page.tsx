@@ -65,7 +65,7 @@ export default function NeighborhoodsIndexPage() {
         }}
       />
       <div className="min-h-screen bg-gray-50">
-        <section className="relative bg-gradient-to-r from-blue-600 to-slate-700 text-white py-16 md:py-20">
+        <section className="relative bg-gradient-to-r from-blue-600 to-slate-700 text-white py-16 md:py-20 rounded-b-3xl">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Summerlin Neighborhoods
@@ -83,14 +83,22 @@ export default function NeighborhoodsIndexPage() {
             <p className="text-gray-700 mb-4">
               Search all Summerlin listings with Dr. Jan Duffy&apos;s RealScout platform. Get alerts for new listings, price drops, and open houses.
             </p>
-            <a
-              href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-            >
-              RealScout – Search Listings
-            </a>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                RealScout – Search Listings
+              </a>
+              <Link
+                href="/open-houses"
+                className="inline-block bg-slate-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors"
+              >
+                Summerlin open houses this weekend
+              </Link>
+            </div>
           </div>
 
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Neighborhoods</h2>
@@ -99,9 +107,9 @@ export default function NeighborhoodsIndexPage() {
               <Link
                 key={n.slug}
                 href={`/neighborhoods/${n.slug}`}
-                className="block rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                className="block rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
               >
-                <h2 className="text-xl font-semibold text-gray-900 mb-2">{n.name}</h2>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{n.name}</h3>
                 <p className="text-gray-600">{n.shortDescription}</p>
                 <span className="inline-block mt-3 text-blue-600 font-medium">
                   View homes in {n.name} →
@@ -110,7 +118,7 @@ export default function NeighborhoodsIndexPage() {
             ))}
           </div>
 
-          <div className="mt-12 rounded-lg bg-white border border-gray-200 p-8">
+          <div className="mt-12 rounded-xl bg-white border border-gray-200 p-8 shadow-md">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Why work with a Summerlin expert?</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
               Dr. Jan Duffy knows every Summerlin neighborhood—schools, HOAs, builders, and market trends. Get personalized guidance to find the right community and home for you.

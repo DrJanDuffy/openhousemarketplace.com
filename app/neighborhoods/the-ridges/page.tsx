@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
@@ -144,7 +145,10 @@ export default function TheRidgesPage() {
               design and craftsmanship. From Mediterranean-inspired villas to contemporary estates, properties in The 
               Ridges reflect the sophisticated tastes of their owners while maintaining the natural beauty and serene 
               atmosphere that makes this community so desirable. For buyers seeking the ultimate in luxury real estate, 
-              The Ridges offers an unmatched combination of privacy, prestige, and natural beauty.
+              The               Ridges offers an unmatched combination of privacy, prestige, and natural beauty.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in The Ridges.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Luxury Real Estate in The Ridges</h3>
             <p className="text-gray-700 leading-relaxed mb-4">

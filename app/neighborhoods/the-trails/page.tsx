@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
@@ -106,7 +107,10 @@ export default function TheTrailsPage() {
               natural shade and aesthetic appeal throughout the community. The Trails' walkable streets and extensive 
               sidewalk network encourage residents to enjoy outdoor activities, from evening walks to children playing 
               safely throughout the neighborhood. This combination of natural beauty and community-focused design makes 
-              The Trails a highly sought-after area for families looking to purchase real estate in Summerlin.
+              The Trails a highly sought-after area for families looking to purchase               real estate in Summerlin.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in The Trails.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Real Estate in The Trails</h3>
             <p className="text-gray-700 leading-relaxed mb-4">

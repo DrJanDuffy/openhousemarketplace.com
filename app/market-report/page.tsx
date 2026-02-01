@@ -71,8 +71,8 @@ export default function MarketReportPage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Market Overview</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             The Summerlin West real estate market continues to show strength and resilience. 
-            As of the latest reporting period, we're seeing steady appreciation in home values 
-            with strong buyer demand across all price points.
+            As of the latest reporting period, we&apos;re seeing steady appreciation in home values 
+            with strong buyer demand across all price points. See our <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> page for this weekend&apos;s home tours.
           </p>
 
           {/* Key Metrics Grid */}

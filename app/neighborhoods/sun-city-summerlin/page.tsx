@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
@@ -110,6 +111,9 @@ export default function SunCitySummerlinPage() {
               mountains, and beautifully landscaped common areas, creating a living environment that feels both luxurious and 
               comfortable. This thoughtful approach to design and lifestyle makes Sun City Summerlin one of the most desirable 
               communities for active adult real estate in Las Vegas.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Sun City Summerlin.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Real Estate Market in Sun City Summerlin</h3>
             <p className="text-gray-700 leading-relaxed mb-4">

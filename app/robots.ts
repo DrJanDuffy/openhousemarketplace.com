@@ -17,15 +17,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'Claude-Web', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
     ],
-    sitemap: [
-      `${baseUrl}/sitemap.xml`,
-      'https://theridges.openhousemarketplace.com/sitemap.xml',
-      'https://redrock.openhousemarketplace.com/sitemap.xml',
-      'https://summerlincentre.openhousemarketplace.com/sitemap.xml',
-      'https://suncity.openhousemarketplace.com/sitemap.xml',
-      'https://openhouses.openhousemarketplace.com/sitemap.xml',
-      'https://luxury.openhousemarketplace.com/sitemap.xml',
-      'https://new.openhousemarketplace.com/sitemap.xml',
-    ],
+    sitemap: [`${baseUrl}/sitemap.xml`],
   }
 }

@@ -267,7 +267,7 @@ export default async function BuilderPage({ params }: BuilderPageProps) {
               the best of master-planned community living. The builder's commitment to quality, innovation, and customer 
               satisfaction makes {builderData.displayName} one of the top choices for new home construction in Summerlin West.
             </p>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-3">New Construction Benefits</h3>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">New Construction Benefits</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
               Purchasing a new {builderData.displayName} home in Summerlin means enjoying the latest in home design, 
               energy efficiency, and smart home technology. New construction homes come with builder warranties, modern 
@@ -275,7 +275,7 @@ export default async function BuilderPage({ params }: BuilderPageProps) {
               preferences. With a median price of {builderData.marketStats.medianPrice} for {builderData.displayName} 
               homes, buyers receive exceptional value in the competitive Summerlin real estate market.
             </p>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-3">{builderData.displayName} Communities in Summerlin</h3>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{builderData.displayName} Communities in Summerlin</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
               {builderData.displayName} builds in some of Summerlin's most prestigious neighborhoods, including 
               {builderData.communities.map((community, index) => {

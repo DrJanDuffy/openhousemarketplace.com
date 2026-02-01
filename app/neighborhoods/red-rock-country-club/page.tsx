@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
@@ -110,6 +111,9 @@ export default function RedRockCountryClubPage() {
               expansive windows, outdoor living spaces, and thoughtful architectural details that enhance the connection 
               between indoor and outdoor living. This integration of architecture and natural beauty makes Red Rock Country 
               Club one of the most desirable communities for luxury real estate in Summerlin.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Red Rock Country Club.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Luxury Real Estate Market in Red Rock Country Club</h3>
             <p className="text-gray-700 leading-relaxed mb-4">

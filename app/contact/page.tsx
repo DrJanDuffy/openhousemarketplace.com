@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import ContactForm from '@/components/ContactForm'
 import StructuredData from '@/components/StructuredData'
@@ -14,7 +15,7 @@ export const revalidate = 86400 // ISR: revalidate daily
 export const metadata: Metadata = {
   title: 'Contact Dr. Jan Duffy | Summerlin West Real Estate Agent',
   description: 'Get in touch with Dr. Jan Duffy, your trusted Summerlin West real estate agent. Expert assistance for buying, selling, or investing in Las Vegas\' premier master-planned community. Contact the leading Las Vegas realtor today.',
-  keywords: 'Dr. Jan Duffy contact, Summerlin real estate agent, Las Vegas realtor contact, Summerlin West real estate, contact real estate agent Summerlin, Las Vegas real estate expert',
+  keywords: 'Dr. Jan Duffy contact, Summerlin real estate agent, Summerlin open houses, Las Vegas realtor contact, Summerlin West real estate, contact real estate agent Summerlin, Las Vegas real estate expert',
   robots: {
     index: true,
     follow: true,
@@ -76,7 +77,8 @@ export default function ContactPage() {
           <p className="text-gray-700 leading-relaxed text-lg mb-6">
             Looking to buy or sell a home in Summerlin West? Dr. Jan Duffy is your trusted Las Vegas real estate 
             agent with over 15 years of experience helping clients navigate the Summerlin real estate market. 
-            Whether you're searching for luxury homes in The Ridges, family-friendly properties in Summerlin Centre, 
+            Whether you&apos;re searching for luxury homes in The Ridges, family-friendly properties in Summerlin Centre, 
+            <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline mx-1">Summerlin open houses</Link> this weekend, 
             or investment opportunities throughout Las Vegas, Dr. Duffy provides personalized service tailored to 
             your unique real estate goals.
           </p>
@@ -118,6 +120,12 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-1">Market Analysis</h3>
                 <p className="text-gray-600 text-sm">Free home valuations and comprehensive market reports</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                  <Link href="/open-houses" className="text-blue-600 hover:underline">Open House Tours</Link>
+                </h3>
+                <p className="text-gray-600 text-sm">Find and tour Summerlin open houses this weekend</p>
               </div>
             </div>
           </div>
@@ -278,6 +286,10 @@ export default function ContactPage() {
         {
           question: "Can Dr. Jan Duffy help with new construction homes?",
           answer: "Yes, Dr. Jan Duffy has extensive experience working with new construction homes in Summerlin. She works with top builders including Toll Brothers, Lennar, and Pulte, and can help you navigate the new construction process, including lot selection, customization options, and builder negotiations."
+        },
+        {
+          question: "How do I find open houses in Summerlin this weekend?",
+          answer: "Visit our Open Houses page for this weekend's Summerlin open house listings and home tours. You can also contact Dr. Jan Duffy to get open house alerts or use her RealScout platform to search and filter by open house dates."
         }
       ]}
     />

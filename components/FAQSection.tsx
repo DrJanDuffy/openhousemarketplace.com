@@ -25,7 +25,7 @@ export default function FAQSection({ faqs, title = 'Frequently Asked Questions',
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">{title}</h2>
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6">
+              <div key={index} className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   <span className="text-blue-600 mr-2">Q:</span>
                   {faq.question}

@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
@@ -108,6 +109,9 @@ export default function RegencyPage() {
               maintaining the privacy and exclusivity that luxury homebuyers expect. This combination of location and 
               luxury makes Regency one of the most sought-after communities for high-end real estate purchases in the 
               Summerlin market.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Regency.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Luxury Real Estate Market in Regency</h3>
             <p className="text-gray-700 leading-relaxed mb-4">

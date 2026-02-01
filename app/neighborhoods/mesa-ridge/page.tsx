@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
 
@@ -108,6 +109,9 @@ export default function MesaRidgePage() {
               families to entertain, and residents to enjoy outdoor activities in the comfort of their own property. 
               This focus on outdoor space makes Mesa Ridge particularly appealing to families who want room to grow and 
               play without leaving home.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Mesa Ridge.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Real Estate Opportunities in Mesa Ridge</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
