@@ -6,7 +6,6 @@ import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 
 export default function TestForm() {
   const [result, setResult] = useState<any>(null)
-  const [loading, setLoading] = useState(false)
 
   const testEnv = async () => {
     try {

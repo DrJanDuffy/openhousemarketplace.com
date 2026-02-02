@@ -2,14 +2,6 @@
 
 const CALENDLY_URL = 'https://calendly.com/drjanduffy/open-house-tour'
 
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void
-    }
-  }
-}
-
 type CalendlyPopupLinkProps = {
   url?: string
   children: React.ReactNode
