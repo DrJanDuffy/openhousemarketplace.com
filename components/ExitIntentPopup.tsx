@@ -1,8 +1,9 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { X } from 'lucide-react'
-import CalendlyInlineWidget from './CalendlyInlineWidget'
+
+const CALENDLY_URL = 'https://calendly.com/drjanduffy/open-house-tour'
 
 interface ExitIntentPopupProps {
   isVisible: boolean
@@ -10,6 +11,38 @@ interface ExitIntentPopupProps {
 }
 
 const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isVisible, onClose }) => {
+  const widgetContainerRef = useRef<HTMLDivElement>(null)
+
+  // Initialize Calendly inline widget when popup opens (script only scans DOM on load, so we must init manually)
+  useEffect(() => {
+    if (!isVisible || !widgetContainerRef.current) return
+
+    const el = widgetContainerRef.current
+    el.innerHTML = '' // avoid duplicate iframes if popup is reopened
+
+    const init = () => {
+      if (typeof window !== 'undefined' && window.Calendly?.initInlineWidget && el) {
+        window.Calendly.initInlineWidget({
+          url: CALENDLY_URL,
+          parentElement: el,
+        })
+      }
+    }
+
+    if (window.Calendly?.initInlineWidget) {
+      init()
+    } else {
+      // Script may not be loaded yet (e.g. badge loads afterInteractive); wait for it
+      const check = setInterval(() => {
+        if (window.Calendly?.initInlineWidget) {
+          clearInterval(check)
+          init()
+        }
+      }, 100)
+      return () => clearInterval(check)
+    }
+  }, [isVisible])
+
   if (!isVisible) return null
 
   return (
@@ -27,14 +60,11 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isVisible, onClose })
             <X className="h-6 w-6" />
           </button>
         </div>
-        <div className="flex-1 min-h-0 p-4">
-          <CalendlyInlineWidget
-            url="https://calendly.com/drjanduffy/open-house-tour"
-            minWidth={320}
-            height={600}
-            className="rounded-lg overflow-hidden w-full"
-          />
-        </div>
+        <div
+          ref={widgetContainerRef}
+          className="flex-1 min-h-[500px] w-full p-4"
+          aria-label="Schedule a meeting with Dr. Jan Duffy"
+        />
       </div>
     </div>
   )
