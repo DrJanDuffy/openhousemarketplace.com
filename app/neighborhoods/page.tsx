@@ -64,6 +64,14 @@ export default function NeighborhoodsIndexPage() {
           ],
         }}
       />
+      <StructuredData
+        type="ItemList"
+        data={{
+          name: 'Summerlin West Neighborhoods',
+          description: 'List of Summerlin West neighborhoods and communities with homes for sale.',
+          items: neighborhoods.map((n) => ({ name: n.name, url: `/neighborhoods/${n.slug}` })),
+        }}
+      />
       <div className="min-h-screen bg-gray-50">
         <section className="relative bg-gradient-to-r from-blue-600 to-slate-700 text-white py-16 md:py-20 rounded-b-3xl">
           <div className="max-w-4xl mx-auto px-4 text-center">

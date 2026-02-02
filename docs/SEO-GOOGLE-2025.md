@@ -44,10 +44,14 @@ This doc covers optional env and data updates to complete the site’s Google 20
 - WebSite + Organization + WebPage (author/publisher) structured data
 - RealEstateAgent with license, worksFor, knowsAbout
 - LocalBusiness with NAP, services, opening hours
+- ItemList schema on neighborhoods index
 - Default metadata, viewport, themeColor
 - Single sitemap in `robots.txt`
 - LCP priority on first property image
 - AI crawlers allowed in `robots.ts`
+- Custom 404 (`not-found.tsx`) with noindex and helpful links
+- Error boundary (`error.tsx`) for graceful error handling
+- Test form page noindexed via `test-form/layout.tsx`
 
 ## 4. Validation
 

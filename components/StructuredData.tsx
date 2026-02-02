@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 
 interface StructuredDataProps {
-  type: 'RealEstateAgent' | 'RealEstateListing' | 'Organization' | 'WebPage' | 'BreadcrumbList' | 'FAQPage' | 'LocalBusiness' | 'Place'
+  type: 'RealEstateAgent' | 'RealEstateListing' | 'Organization' | 'WebPage' | 'BreadcrumbList' | 'FAQPage' | 'LocalBusiness' | 'Place' | 'ItemList'
   data?: Record<string, any>
 }
 
@@ -338,6 +338,24 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
           latitude: 36.1699,
           longitude: -115.3301
         },
+        ...data
+      }
+      break
+
+    case 'ItemList':
+      const listItems = data.items || []
+      structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: data.name || 'Summerlin Neighborhoods',
+        description: data.description || 'List of Summerlin West neighborhoods and communities.',
+        numberOfItems: listItems.length,
+        itemListElement: listItems.map((item: { name: string; url: string }, index: number) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: item.name,
+          url: item.url.startsWith('http') ? item.url : `${baseUrl}${item.url.startsWith('/') ? '' : '/'}${item.url}`,
+        })),
         ...data
       }
       break

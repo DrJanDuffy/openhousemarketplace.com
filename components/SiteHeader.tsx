@@ -59,7 +59,7 @@ export default function SiteHeader() {
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100"
-            aria-expanded={String(mobileOpen)}
+            aria-expanded={mobileOpen}
             aria-label="Toggle menu"
           >
             <Menu className="h-6 w-6" />
