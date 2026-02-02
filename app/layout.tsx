@@ -4,6 +4,7 @@ import Script from "next/script"
 import SiteHeader from "@/components/SiteHeader"
 import Footer from "@/components/Footer"
 import WebSiteSchema from "@/components/WebSiteSchema"
+import GoogleEnhancement from "@/components/GoogleEnhancement"
 import CalendlyBadgeWidget from "@/components/CalendlyBadgeWidget"
 
 // Google Analytics scripts must be in head as standard script tags for detection
@@ -127,6 +128,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <WebSiteSchema />
+        <GoogleEnhancement />
         <CalendlyBadgeWidget />
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"

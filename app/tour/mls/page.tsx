@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import StructuredData from '@/components/StructuredData'
 
 const REALSCOUT_SEARCH_URL =
   'https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=='
@@ -20,7 +21,11 @@ export const metadata: Metadata = {
 
 export default function TourMLSPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <>
+      <StructuredData type="WebPage" data={{ name: 'MLS Property Search | Summerlin Real Estate | Dr. Jan Duffy', description: 'Search MLS listings in Summerlin. Access the full MLS database of homes for sale in Las Vegas\' premier master-planned community.' }} />
+      <StructuredData type="Organization" data={{ url: 'https://www.openhousemarketplace.com' }} />
+      <StructuredData type="BreadcrumbList" data={{ items: [{ name: 'Home', url: 'https://www.openhousemarketplace.com/' }, { name: 'MLS Property Search', url: 'https://www.openhousemarketplace.com/tour/mls' }] }} />
+      <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-4">
         <div className="bg-white rounded-lg shadow-md p-8 text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">MLS Property Search</h1>
@@ -61,6 +66,7 @@ export default function TourMLSPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
