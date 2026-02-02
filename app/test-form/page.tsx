@@ -1,45 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
+import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 
 export default function TestForm() {
   const [result, setResult] = useState<any>(null)
   const [loading, setLoading] = useState(false)
-
-  const testForm = async () => {
-    setLoading(true)
-    try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstName: 'Test',
-          lastName: 'User',
-          email: 'test@example.com',
-          phone: '555-1234',
-          propertyAddress: 'Test Neighborhood',
-          source: 'Test Form',
-          registrationType: 'light',
-          notes: 'Test submission'
-        })
-      })
-
-      const data = await response.json()
-      setResult({
-        status: response.status,
-        ok: response.ok,
-        data
-      })
-    } catch (error) {
-      setResult({
-        error: error instanceof Error ? error.message : 'Unknown error'
-      })
-    } finally {
-      setLoading(false)
-    }
-  }
 
   const testEnv = async () => {
     try {
@@ -58,7 +25,22 @@ export default function TestForm() {
       <h1 className="text-2xl font-bold mb-6">API Test Page</h1>
 
       <h2 className="text-xl font-semibold mb-2">About This Page</h2>
-      <p className="text-gray-600 mb-4">Use the buttons below to test environment variables and lead form submission.</p>
+      <p className="text-gray-600 mb-4">
+        Use the button below to test environment variables. To schedule a tour with Dr. Jan Duffy, use the Calendly widget.
+      </p>
+
+      <h2 className="text-xl font-semibold mb-2">Schedule a Tour</h2>
+      <p className="text-gray-600 mb-4">Book a private tour or consultation with Dr. Jan Duffy.</p>
+      <CalendlyPopupLink className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium mb-6">
+        Schedule Your Private Tour with Dr. Jan
+      </CalendlyPopupLink>
+
+      <CalendlyInlineWidget
+        url="https://calendly.com/drjanduffy/open-house-tour"
+        minWidth={320}
+        height={600}
+        className="rounded-xl overflow-hidden mb-8"
+      />
 
       <h2 className="text-xl font-semibold mb-2">Test Actions</h2>
       <div className="space-y-4 mb-6">
@@ -67,14 +49,6 @@ export default function TestForm() {
           className="bg-blue-500 text-white px-4 py-2 rounded"
         >
           Test Environment Variables
-        </button>
-
-        <button
-          onClick={testForm}
-          disabled={loading}
-          className="bg-green-500 text-white px-4 py-2 rounded disabled:bg-gray-400"
-        >
-          {loading ? 'Testing...' : 'Test Form Submission'}
         </button>
       </div>
 

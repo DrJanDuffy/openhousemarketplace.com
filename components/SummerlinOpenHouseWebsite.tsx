@@ -5,8 +5,8 @@ import Link from 'next/link'
 import OptimizedImage from './OptimizedImage'
 import { MapPin, Calendar, Home, Star, Phone, Mail, Search, Heart, Award } from 'lucide-react'
 import RealScoutWidget from './RealScoutWidget'
-import ReactHookForm from './ReactHookForm'
-import ContactForm from './ContactForm'
+import CalendlyPopupLink from './CalendlyPopupLink'
+import CalendlyInlineWidget from './CalendlyInlineWidget'
 import InteractiveMap from './InteractiveMap'
 // Removed tool imports no longer used in buyer-focused UI
 import BuyerToolsSection from './BuyerToolsSection'
@@ -18,7 +18,6 @@ const SummerlinOpenHouseWebsite = () => {
   const [selectedNeighborhood] = useState('all')
   const [favorites, setFavorites] = useState<number[]>([])
   const [showMap, _setShowMap] = useState(false)
-  const [showContactForm, setShowContactForm] = useState(false)
   const [showExitPopup, setShowExitPopup] = useState(false)
   const [hasShownExitPopup, setHasShownExitPopup] = useState(false)
   const [isPageReady, setIsPageReady] = useState(false)
@@ -134,18 +133,6 @@ const SummerlinOpenHouseWebsite = () => {
       lat: 36.1800,
       lng: -115.1400
     }
-  ]
-
-  const neighborhoods = [
-    "The Ridges",
-    "Red Rock Country Club", 
-    "Summerlin Centre",
-    "Sun City Summerlin",
-    "The Trails",
-    "Willows",
-    "Mesa Ridge",
-    "Siena",
-    "Regency"
   ]
 
   const toggleFavorite = (houseId: number) => {
@@ -291,12 +278,9 @@ const SummerlinOpenHouseWebsite = () => {
                </div>
              </div>
              <div className="mt-6 text-center">
-               <button 
-                 onClick={() => setShowContactForm(true)}
-                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium"
-               >
+               <CalendlyPopupLink className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium">
                  Get Full 2025 Market Report
-               </button>
+               </CalendlyPopupLink>
              </div>
            </div>
          </div>
@@ -323,12 +307,9 @@ const SummerlinOpenHouseWebsite = () => {
                >
                  View All Listings
                </button>
-               <button 
-                 onClick={() => setShowContactForm(true)}
-                 className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-xl font-semibold border border-gray-200 hover:border-gray-300 transition-all duration-200"
-               >
+               <CalendlyPopupLink className="inline-block bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-xl font-semibold border border-gray-200 hover:border-gray-300 transition-all duration-200">
                  Get Priority Access
-               </button>
+               </CalendlyPopupLink>
              </div>
            </div>
 
@@ -650,12 +631,9 @@ const SummerlinOpenHouseWebsite = () => {
            </div>
            
            <div className="text-center">
-             <button 
-               onClick={() => setShowContactForm(true)}
-               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium"
-             >
+             <CalendlyPopupLink className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium">
                Start Your Success Story
-             </button>
+             </CalendlyPopupLink>
            </div>
          </div>
        </section>
@@ -707,50 +685,26 @@ const SummerlinOpenHouseWebsite = () => {
                    <Phone className="h-4 w-4 mr-2" />
                    Call Today
                  </button>
-                <button 
-                  onClick={() => setShowContactForm(true)}
-                  className="flex items-center justify-center bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium"
-                >
+                <CalendlyPopupLink className="flex items-center justify-center bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium text-white">
                   <Mail className="h-4 w-4 mr-2" />
-                  Send Message
-                </button>
+                  Schedule Your Tour
+                </CalendlyPopupLink>
               </div>
             </div>
             
-            <ReactHookForm 
-              title="Get Summerlin Market Updates"
-              description="Stay informed about new listings and market changes in Summerlin West"
-              neighborhoods={neighborhoods}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form Modal */}
-      {showContactForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
-            <div className="flex justify-between items-center p-6 border-b">
-              <h3 className="text-lg font-semibold text-gray-900">Contact Dr. Jan Duffy</h3>
-              <button
-                onClick={() => setShowContactForm(false)}
-                className="text-gray-400 hover:text-gray-600"
-                aria-label="Close contact form"
-                title="Close contact form"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            <div className="p-6">
-              <ContactForm 
-                onSuccess={() => setShowContactForm(false)}
+            <div className="md:col-span-2">
+              <h3 className="text-xl font-bold text-white mb-4">Schedule an Open House Tour</h3>
+              <p className="text-blue-100 mb-4">Book a time that works for you with Dr. Jan Duffy.</p>
+              <CalendlyInlineWidget
+                url="https://calendly.com/drjanduffy/open-house-tour"
+                minWidth={320}
+                height={500}
+                className="rounded-xl overflow-hidden bg-white"
               />
             </div>
           </div>
-                 </div>
-       )}
+        </div>
+      </section>
 
        {/* Exit Intent Popup */}
        <ExitIntentPopup 

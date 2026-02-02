@@ -4,6 +4,7 @@ import Script from "next/script"
 import SiteHeader from "@/components/SiteHeader"
 import Footer from "@/components/Footer"
 import WebSiteSchema from "@/components/WebSiteSchema"
+import CalendlyBadgeWidget from "@/components/CalendlyBadgeWidget"
 
 // Google Analytics scripts must be in head as standard script tags for detection
 // SEO: Google 2025 – metadata defaults, E-E-A-T, structured data, Core Web Vitals
@@ -65,7 +66,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://em.realscout.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
         {/* Google tag (gtag.js) - load afterInteractive to avoid blocking LCP */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-G22H2J3EMX"
@@ -124,6 +127,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <WebSiteSchema />
+        <CalendlyBadgeWidget />
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
           type="module"

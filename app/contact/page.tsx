@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import ContactForm from '@/components/ContactForm'
+import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
+import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
 
@@ -68,9 +69,12 @@ export default function ContactPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Contact Dr. Jan Duffy - Your Summerlin West Real Estate Expert
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 mb-6">
             Your trusted real estate agent serving Summerlin West and all of Las Vegas
           </p>
+          <CalendlyPopupLink className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors">
+            Schedule Your Private Tour with Dr. Jan
+          </CalendlyPopupLink>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
@@ -86,8 +90,8 @@ export default function ContactPage() {
             As a leading Summerlin West real estate agent, Dr. Duffy specializes in luxury homes, new construction 
             properties, and investment real estate. Her deep knowledge of the Las Vegas market, combined with 
             cutting-edge technology and proven marketing strategies, ensures successful transactions for both buyers 
-            and sellers. Contact us today to schedule a consultation and discover why thousands of clients trust 
-            Dr. Jan Duffy with their real estate needs.
+            and sellers. <CalendlyPopupLink className="text-blue-600 font-semibold hover:underline">Schedule your private tour with Dr. Jan</CalendlyPopupLink> or 
+            contact us today to discover why thousands of clients trust Dr. Jan Duffy with their real estate needs.
           </p>
         </div>
 
@@ -238,9 +242,15 @@ export default function ContactPage() {
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-8">
-          <ContactForm 
-            title="Send a Message to Dr. Jan Duffy"
-            description="Fill out the form below and we'll get back to you as soon as possible. We typically respond within 2-4 hours during business hours."
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Schedule an Open House Tour</h2>
+          <p className="text-gray-600 mb-6">
+            Book a time that works for you. Select a slot below to schedule an open house tour or consultation with Dr. Jan Duffy.
+          </p>
+          <CalendlyInlineWidget
+            url="https://calendly.com/drjanduffy/open-house-tour"
+            minWidth={320}
+            height={700}
+            className="rounded-xl overflow-hidden"
           />
         </div>
 
@@ -281,7 +291,7 @@ export default function ContactPage() {
         },
         {
           question: "How do I schedule a home showing with Dr. Jan Duffy?",
-          answer: "You can schedule a home showing by filling out the contact form on this page, calling Dr. Jan Duffy directly, or using the RealScout platform to browse available properties and request showings. She will work with your schedule to find convenient viewing times."
+          answer: "You can schedule a home showing by using the Calendly scheduler on this page to book a time with Dr. Jan Duffy, calling her directly, or using the RealScout platform to browse available properties and request showings. She will work with your schedule to find convenient viewing times."
         },
         {
           question: "Can Dr. Jan Duffy help with new construction homes?",

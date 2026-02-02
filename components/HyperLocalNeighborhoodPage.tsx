@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { MapPin, Home, Clock, ChartBar, School, Leaf, Car } from 'lucide-react'
 import RealScoutWidget from './RealScoutWidget'
-import CustomRegistrationForm from './CustomRegistrationForm'
+import CalendlyInlineWidget from './CalendlyInlineWidget'
 
 interface MarketStats {
   medianPrice: string
@@ -246,25 +246,15 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Contact Form */}
+            {/* Schedule a Tour */}
             <div className="bg-white rounded-lg shadow-md p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Schedule a Tour</h3>
-              <CustomRegistrationForm
-                propertyAddress={name}
-                formType="full"
-                onSubmit={async (data) => {
-                  const response = await fetch('/api/leads', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                  })
-                  
-                  if (!response.ok) {
-                    throw new Error('Failed to submit registration')
-                  }
-                }}
+              <p className="text-gray-600 text-sm mb-4">Book a private tour with Dr. Jan Duffy.</p>
+              <CalendlyInlineWidget
+                url="https://calendly.com/drjanduffy/open-house-tour"
+                minWidth={280}
+                height={600}
+                className="rounded-lg overflow-hidden"
               />
             </div>
 
