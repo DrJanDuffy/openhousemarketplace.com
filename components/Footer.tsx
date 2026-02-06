@@ -8,8 +8,8 @@ import { useState } from 'react'
 const SITE_NAME = 'Open House Marketplace'
 const BUSINESS = {
   name: 'Dr. Jan Duffy Real Estate',
-  phone: '(702) 905-1222',
-  phoneLink: 'tel:+17029051222',
+  phone: '(702) 200-3422',
+  phoneLink: 'tel:+17022003422',
   address: 'Summerlin West, Las Vegas, NV 89135',
   directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=36.1699,-115.3301',
 }

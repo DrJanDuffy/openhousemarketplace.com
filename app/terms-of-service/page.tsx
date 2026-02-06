@@ -100,7 +100,7 @@ export default function TermsOfServicePage() {
               </p>
               <p>
                 <strong>Email:</strong> contact@openhousemarketplace.com<br />
-                <strong>Phone:</strong> (702) 905-1222
+                <strong>Phone:</strong> (702) 200-3422
               </p>
             </section>
           </div>

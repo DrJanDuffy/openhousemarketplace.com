@@ -14,8 +14,8 @@ interface GoogleBusinessProfileProps {
 // Business information matching Google Business Profile exactly
 const BUSINESS_INFO = {
   name: 'Dr. Jan Duffy Real Estate',
-  phone: '(702) 905-1222',
-  phoneLink: 'tel:+17029051222',
+  phone: '(702) 200-3422',
+  phoneLink: 'tel:+17022003422',
   email: 'jan@openhousemarketplace.com',
   address: {
     street: 'Summerlin West',

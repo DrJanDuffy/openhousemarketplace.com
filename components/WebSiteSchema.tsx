@@ -26,7 +26,7 @@ const webSiteSchema = {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-702-905-1222',
+      telephone: '+1-702-200-3422',
       contactType: 'customer service',
       areaServed: 'US',
       availableLanguage: 'English',

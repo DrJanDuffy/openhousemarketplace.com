@@ -38,7 +38,7 @@ const SummerlinOpenHouseWebsite = () => {
       features: ["Golf Course Views", "Pool", "Upgraded Kitchen"],
       zipCode: "89135",
       realtor: "Dr. Jan Duffy",
-      phone: "(702) 905-1222",
+      phone: "(702) 200-3422",
       description: "Stunning golf course property with panoramic views of Red Rock Canyon",
       lat: 36.1699,
       lng: -115.1398
@@ -56,7 +56,7 @@ const SummerlinOpenHouseWebsite = () => {
       features: ["Mountain Views", "Wine Cellar", "Guest Casita"],
       zipCode: "89135",
       realtor: "Dr. Jan Duffy",
-      phone: "(702) 905-1222",
+      phone: "(702) 200-3422",
       description: "Luxury custom home with breathtaking mountain and city views",
       lat: 36.1750,
       lng: -115.1450
@@ -74,7 +74,7 @@ const SummerlinOpenHouseWebsite = () => {
       features: ["New Construction", "Smart Home", "Energy Efficient"],
       zipCode: "89138",
       realtor: "Dr. Jan Duffy",
-      phone: "(702) 905-1222",
+      phone: "(702) 200-3422",
       description: "Modern new construction with smart home features and energy efficiency",
       lat: 36.1650,
       lng: -115.1350
@@ -92,7 +92,7 @@ const SummerlinOpenHouseWebsite = () => {
       features: ["55+ Community", "Golf Cart Garage", "Low Maintenance"],
       zipCode: "89144",
       realtor: "Dr. Jan Duffy",
-      phone: "(702) 905-1222",
+      phone: "(702) 200-3422",
       description: "Perfect active adult home with golf cart garage and low maintenance lifestyle",
       lat: 36.1600,
       lng: -115.1500
@@ -110,7 +110,7 @@ const SummerlinOpenHouseWebsite = () => {
       features: ["Family Home", "Large Backyard", "Great Schools"],
       zipCode: "89138",
       realtor: "Dr. Jan Duffy",
-      phone: "(702) 905-1222",
+      phone: "(702) 200-3422",
       description: "Family-friendly home in excellent school district with large backyard",
       lat: 36.1700,
       lng: -115.1300
@@ -128,7 +128,7 @@ const SummerlinOpenHouseWebsite = () => {
       features: ["Mature Trees", "Established Neighborhood", "Walkable"],
       zipCode: "89135",
       realtor: "Dr. Jan Duffy",
-      phone: "(702) 905-1222",
+      phone: "(702) 200-3422",
       description: "Charming home in established neighborhood with mature landscaping",
       lat: 36.1800,
       lng: -115.1400
@@ -679,7 +679,7 @@ const SummerlinOpenHouseWebsite = () => {
 
                              <div className="flex flex-col sm:flex-row gap-4">
                  <button 
-                   onClick={() => window.open('tel:7029051222', '_self')}
+                   onClick={() => window.open('tel:7022003422', '_self')}
                    className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium"
                  >
                    <Phone className="h-4 w-4 mr-2" />

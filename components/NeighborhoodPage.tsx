@@ -166,11 +166,11 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({ neighborhood }) => 
                                          <div className="flex items-center">
                        <Phone className="h-4 w-4 text-blue-600 mr-3" />
                        <a 
-                         href="tel:7029051222" 
+                         href="tel:7022003422" 
                          className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
-                         title="Call (702) 905-1222"
+                         title="Call (702) 200-3422"
                        >
-                         (702) 905-1222
+                         (702) 200-3422
                        </a>
                      </div>
                     <div className="flex items-center">

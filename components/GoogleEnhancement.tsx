@@ -75,7 +75,7 @@ export default function GoogleEnhancement() {
     image: `${BASE_URL}/images/dr-jan-duffy.jpg`,
     logo: `${BASE_URL}/images/logo/logo.svg`,
     url: BASE_URL,
-    telephone: '+1-702-905-1222',
+    telephone: '+1-702-200-3422',
     email: 'jan@openhousemarketplace.com',
     address: {
       '@type': 'PostalAddress',

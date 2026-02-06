@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { href: '/contact', label: 'Contact' },
 ]
 
-const PHONE = { display: '(702) 905-1222', href: 'tel:+17029051222' }
+const PHONE = { display: '(702) 200-3422', href: 'tel:+17022003422' }
 
 export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)

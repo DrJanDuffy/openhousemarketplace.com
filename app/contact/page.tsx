@@ -42,7 +42,7 @@ export default function ContactPage() {
       <StructuredData 
         type="RealEstateAgent"
         data={{
-          telephone: '+1-702-905-1222',
+          telephone: '+1-702-200-3422',
           email: 'jan@openhousemarketplace.com',
         }}
       />

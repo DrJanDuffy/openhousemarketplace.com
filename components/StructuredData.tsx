@@ -30,7 +30,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         description: 'Top Summerlin West real estate agent with 15+ years of experience helping clients buy and sell luxury homes in Las Vegas. Licensed Nevada real estate professional (S.0197614.LLC), Berkshire Hathaway HomeServices Nevada Properties.',
         url: `${baseUrl}/about`,
         image: `${baseUrl}/images/dr-jan-duffy.jpg`,
-        telephone: '+1-702-905-1222',
+        telephone: '+1-702-200-3422',
         email: 'jan@openhousemarketplace.com',
         address: {
           '@type': 'PostalAddress',
@@ -80,7 +80,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         logo: `${baseUrl}/images/logo/logo.svg`,
         contactPoint: {
           '@type': 'ContactPoint',
-          telephone: '+1-702-905-1222',
+          telephone: '+1-702-200-3422',
           contactType: 'Real Estate Services',
           areaServed: 'US',
           availableLanguage: 'English'
@@ -155,7 +155,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         image: `${baseUrl}/images/dr-jan-duffy.jpg`,
         logo: `${baseUrl}/images/logo/logo.svg`,
         url: baseUrl,
-        telephone: '+1-702-905-1222',
+        telephone: '+1-702-200-3422',
         email: 'jan@openhousemarketplace.com',
         // priceRange removed - not applicable for real estate services
         address: {
