@@ -285,7 +285,65 @@ export const followupBossService = {
     // Create a note about automation setup
     const noteContent = `Automation Setup: Price alerts and similar listings notifications enabled for Property ID: ${propertyId}`
     await this.createNote(email, noteContent)
-  }
+  },
+
+  /**
+   * Send a Registration event to FUB Events API (POST /v1/events).
+   * Creates/updates the person and triggers automations.
+   */
+  async sendRegistrationEvent(data: {
+    fullName: string
+    email: string
+    phone: string
+    listingAddress?: string
+    tags?: string[]
+    customFields?: Record<string, string>
+  }): Promise<{ success: boolean; error?: string }> {
+    if (!API_KEY) {
+      console.warn('FollowUpBoss API key not configured; skipping Registration event')
+      return { success: false, error: 'FollowUpBoss service not configured' }
+    }
+    const parts = data.fullName.trim().split(/\s+/)
+    const firstName = parts[0] ?? data.fullName
+    const lastName = parts.slice(1).join(' ') || undefined
+    const payload = {
+      source: 'OpenHouseMarketplace.com',
+      type: 'Registration',
+      person: {
+        firstName,
+        lastName,
+        emails: [{ value: data.email }],
+        phones: [{ value: data.phone }],
+        tags: ['Open House Lead', 'Summerlin', ...(data.tags ?? [])],
+        customFields: {
+          openHouseAddress: data.listingAddress ?? '',
+          ...data.customFields,
+        },
+      },
+    }
+    try {
+      const response = await fetch(`${API_URL}/events`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Basic ${Buffer.from(API_KEY + ':').toString('base64')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+      if (!response.ok) {
+        const text = await response.text()
+        console.error('FUB Events API error:', response.status, text)
+        return { success: false, error: `FUB API ${response.status}` }
+      }
+      return { success: true }
+    } catch (err) {
+      console.error('FUB sendRegistrationEvent error:', err)
+      return {
+        success: false,
+        error: err instanceof Error ? err.message : 'Unknown error',
+      }
+    }
+  },
 }
 
 export default followupBossService

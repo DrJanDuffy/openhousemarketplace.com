@@ -25,7 +25,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(`${CANONICAL_ORIGIN}/${search}`, 301)
   }
 
-  // Main domain: primary is https://www; both www and non-www are in use. Redirect non-www and http to www (single 301, no chain).
+  // Main domain: primary is https://www; both www and non-www are in use. Redirect non-www and http to www (single 301, no chain). Belt-and-suspenders with vercel.json so non-www always redirects even if Vercel edge redirect does not run.
   const isMainDomain = hostname === 'openhousemarketplace.com' || hostname === 'www.openhousemarketplace.com'
   const needsCanonicalRedirect =
     isMainDomain &&

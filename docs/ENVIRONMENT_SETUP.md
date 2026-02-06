@@ -5,8 +5,16 @@
 Create a `.env.local` file in your project root with the following variables:
 
 ```bash
-# FollowUpBoss API
-FOLLOWUPBOSS_API_KEY=fka_0N4mnNxym6FYyqt91G2eaemnqC8TTOSYru
+# FollowUpBoss API (used for leads and open house sign-in Registration events)
+FOLLOWUPBOSS_API_KEY=your_followupboss_api_key
+
+# Open House Sign-In Admin (password-protected admin page for QR codes and submissions)
+OPEN_HOUSE_ADMIN_PASSWORD=your_secure_admin_password
+
+# Vercel KV (storage for open house sign-in submissions and listing metadata)
+# Create a KV store in Vercel Dashboard → Storage → KV, then link to the project.
+KV_REST_API_URL=https://your-store.kv.vercel.app
+KV_REST_API_TOKEN=your_kv_rest_api_token
 
 # Google Maps API
 GOOGLE_MAPS_API_KEY=AIzaSyDt84u_m6IGyrNZ9Eyc2W0fAIx6yD3peTo

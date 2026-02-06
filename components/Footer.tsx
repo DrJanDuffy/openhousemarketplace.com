@@ -69,6 +69,7 @@ export default function Footer() {
             <h3 className="font-semibold text-white mb-3">Resources</h3>
             <ul className="text-sm space-y-1">
               <li><Link href="/market-report" className="hover:text-white transition-colors">Market Reports</Link></li>
+              <li><Link href="/open-house-guide" className="hover:text-white transition-colors">Open House Guide</Link></li>
               <li><Link href="/resources/home-buying-guide" className="hover:text-white transition-colors">Home Buying Guide</Link></li>
               <li><Link href="/schools" className="hover:text-white transition-colors">School Information</Link></li>
               <li><Link href="/resources/hoa-communities" className="hover:text-white transition-colors">HOA Communities</Link></li>
