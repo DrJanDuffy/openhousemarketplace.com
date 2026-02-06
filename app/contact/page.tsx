@@ -190,7 +190,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Advanced Technology & Marketing Tools</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Staying at the forefront of real estate technology, Dr. Jan Duffy utilizes the RealScout platform 
+                Staying at the forefront of real estate technology, Dr. Jan Duffy utilizes an advanced home search tool 
                 and other advanced tools to give clients a competitive advantage in the Summerlin real estate market. 
                 These technologies enable virtual tours, advanced search capabilities, and instant notifications about 
                 new listings that match your criteria.
@@ -283,7 +283,7 @@ export default function ContactPage() {
         },
         {
           question: "What services does Dr. Jan Duffy provide?",
-          answer: "Dr. Jan Duffy provides comprehensive real estate services including buying and selling homes, luxury real estate services, new construction guidance, investment property consultation, market analysis, neighborhood expertise, and access to exclusive listings through her RealScout platform."
+          answer: "Dr. Jan Duffy provides comprehensive real estate services including buying and selling homes, luxury real estate services, new construction guidance, investment property consultation, market analysis, neighborhood expertise, and access to exclusive listings through her home search."
         },
         {
           question: "Does it cost anything to contact Dr. Jan Duffy for a consultation?",
@@ -291,7 +291,7 @@ export default function ContactPage() {
         },
         {
           question: "How do I schedule a home showing with Dr. Jan Duffy?",
-          answer: "You can schedule a home showing by using the Calendly scheduler on this page to book a time with Dr. Jan Duffy, calling her directly, or using the RealScout platform to browse available properties and request showings. She will work with your schedule to find convenient viewing times."
+          answer: "You can schedule a home showing by using the Calendly scheduler on this page to book a time with Dr. Jan Duffy, calling her directly, or using the home search to browse available properties and request showings. She will work with your schedule to find convenient viewing times."
         },
         {
           question: "Can Dr. Jan Duffy help with new construction homes?",
@@ -299,7 +299,7 @@ export default function ContactPage() {
         },
         {
           question: "How do I find open houses in Summerlin this weekend?",
-          answer: "Visit our Open Houses page for this weekend's Summerlin open house listings and home tours. You can also contact Dr. Jan Duffy to get open house alerts or use her RealScout platform to search and filter by open house dates."
+          answer: "Visit our Open Houses page for this weekend's Summerlin open house listings and home tours. You can also contact Dr. Jan Duffy to get open house alerts or use her home search to search and filter by open house dates."
         }
       ]}
     />

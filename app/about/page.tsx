@@ -369,7 +369,7 @@ export default function AboutPage() {
         },
         {
           question: "What makes Dr. Jan Duffy different from other real estate agents?",
-          answer: "Dr. Jan Duffy combines her professional background with specialized expertise in Summerlin West real estate. She offers personalized service, deep market knowledge, access to exclusive listings through RealScout, and a commitment to building lasting relationships with clients rather than treating them as transactions."
+          answer: "Dr. Jan Duffy combines her professional background with specialized expertise in Summerlin West real estate. She offers personalized service, deep market knowledge, access to exclusive listings through her home search, and a commitment to building lasting relationships with clients rather than treating them as transactions."
         },
         {
           question: "What neighborhoods does Dr. Jan Duffy specialize in?",
@@ -389,7 +389,7 @@ export default function AboutPage() {
         },
         {
           question: "Does Dr. Jan Duffy help buyers find open houses in Summerlin?",
-          answer: "Yes. Dr. Jan Duffy helps buyers find and tour Summerlin open houses. Visit our Open Houses page for this weekend's home tours, or use her RealScout platform to search listings and filter by open house dates. She can also set up open house alerts so you're notified when new Summerlin open houses are added."
+          answer: "Yes. Dr. Jan Duffy helps buyers find and tour Summerlin open houses. Visit our Open Houses page for this weekend's home tours, or use her home search to search listings and filter by open house dates. She can also set up open house alerts so you're notified when new Summerlin open houses are added."
         }
       ]}
     />

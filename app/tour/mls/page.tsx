@@ -30,7 +30,7 @@ export default function TourMLSPage() {
         <div className="bg-white rounded-lg shadow-md p-8 text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">MLS Property Search</h1>
           <p className="text-xl text-gray-600 mb-8">
-            Access the full MLS database of homes for sale in Summerlin. Search listings, schedule showings, and get updates with Dr. Jan Duffy&apos;s RealScout platform. Looking for open houses? See our <a href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</a> page for this weekend&apos;s home tours.
+            Access the full MLS database of homes for sale in Summerlin. Search listings, schedule showings, and get updates with Dr. Jan Duffy&apos;s home search. Looking for open houses? See our <a href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</a> page for this weekend&apos;s home tours.
           </p>
           <a
             href={REALSCOUT_SEARCH_URL}
@@ -45,11 +45,11 @@ export default function TourMLSPage() {
           <section className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Search Summerlin Listings</h2>
             <p className="text-gray-600">
-              RealScout gives you access to every listing in the Las Vegas MLS. Filter by neighborhood, price, beds, baths, and more. Save favorites and get alerts when new homes match your criteria.
+              The search gives you access to every listing in the Las Vegas MLS. Filter by neighborhood, price, beds, baths, and more. Save favorites and get alerts when new homes match your criteria.
             </p>
           </section>
           <section className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">How RealScout Works</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">How It Works</h2>
             <p className="text-gray-600">
               Create a free account to save searches, schedule showings, and receive instant alerts for price drops and new listings. Dr. Jan Duffy&apos;s team is notified when you show interest so you get priority support.
             </p>

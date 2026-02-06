@@ -21,7 +21,7 @@ const RealScoutIntegration = () => {
       <div className="text-center mb-6">
         <Home className="h-12 w-12 text-blue-600 mx-auto mb-4" />
         <h3 className="text-xl font-bold text-gray-900 mb-2">Find Your Dream Home</h3>
-        <p className="text-gray-600">Search with Dr. Jan Duffy's RealScout platform</p>
+        <p className="text-gray-600">Search all Summerlin listings with Dr. Jan Duffy's home search</p>
       </div>
 
       <div className="space-y-4 mb-6">

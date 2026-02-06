@@ -304,20 +304,12 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
           ]
         },
         ...(sameAsUrls.length > 0 ? { sameAs: sameAsUrls } : {}),
-        // AggregateRating: replace with real review data from Google Business Profile for accuracy
-        ...(data.aggregateRating ? {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: data.aggregateRating.ratingValue || '5.0',
-            reviewCount: data.aggregateRating.reviewCount || '100',
-            bestRating: '5',
-            worstRating: '1'
-          }
-        } : {}),
-        // Real estate services don't typically accept credit cards
-        // Remove paymentAccepted if not applicable, or set to appropriate methods
+        // AggregateRating omitted here: single source is GoogleEnhancement (layout) to avoid "multiple aggregate ratings" in GSC
         ...(data.paymentAccepted ? { paymentAccepted: data.paymentAccepted } : {}),
-        ...data
+        ...((): Record<string, unknown> => {
+          const { aggregateRating: _omit, ...rest } = data
+          return rest
+        })()
       }
       break
 

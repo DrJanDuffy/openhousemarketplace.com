@@ -85,11 +85,11 @@ export default function NeighborhoodsIndexPage() {
         </section>
 
         <div className="max-w-6xl mx-auto px-4 py-12">
-          {/* Office / RealScout first */}
+          {/* Office / Search Listings first */}
           <div className="mb-10 rounded-lg border border-blue-200 bg-blue-50 p-6">
             <h2 className="text-xl font-semibold text-gray-900 mb-2">Office</h2>
             <p className="text-gray-700 mb-4">
-              Search all Summerlin listings with Dr. Jan Duffy&apos;s RealScout platform. Get alerts for new listings, price drops, and open houses.
+              Search all Summerlin listings with Dr. Jan Duffy&apos;s home search. Get alerts for new listings, price drops, and open houses.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -98,7 +98,7 @@ export default function NeighborhoodsIndexPage() {
                 rel="noopener noreferrer"
                 className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
-                RealScout – Search Listings
+                Search Listings
               </a>
               <Link
                 href="/open-houses"

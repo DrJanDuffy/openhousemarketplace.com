@@ -82,11 +82,11 @@ const amenities = [
 const openHouseFaqs = [
   {
     question: 'When are open houses in Summerlin?',
-    answer: 'Open houses in Summerlin are typically held on weekends (Saturday and Sunday), with many listings open from late morning through afternoon. Times vary by property; check our Summerlin open house listings or RealScout for current dates and times.'
+    answer: 'Open houses in Summerlin are typically held on weekends (Saturday and Sunday), with many listings open from late morning through afternoon. Times vary by property; check our Summerlin open house listings or our home search for current dates and times.'
   },
   {
     question: 'How do I find open houses this weekend in Summerlin?',
-    answer: 'Visit our Open Houses page for this weekend\'s home tours, or use Dr. Jan Duffy\'s RealScout platform to search listings and filter by open house dates. You can also sign up for open house alerts to get notified when new Summerlin open houses are added.'
+    answer: 'Visit our Open Houses page for this weekend\'s home tours, or use Dr. Jan Duffy\'s home search to search listings and filter by open house dates. You can also sign up for open house alerts to get notified when new Summerlin open houses are added.'
   },
   {
     question: 'What should I bring to an open house?',
@@ -94,7 +94,7 @@ const openHouseFaqs = [
   },
   {
     question: 'Are there open houses in Summerlin West neighborhoods like The Ridges or Red Rock?',
-    answer: 'Yes. Open houses are held across Summerlin West, including The Ridges, Red Rock Country Club, Summerlin Centre, The Trails, and other neighborhoods. Use our neighborhood pages and RealScout to find open houses in your preferred area.'
+    answer: 'Yes. Open houses are held across Summerlin West, including The Ridges, Red Rock Country Club, Summerlin Centre, The Trails, and other neighborhoods. Use our neighborhood pages and home search to find open houses in your preferred area.'
   }
 ]
 
@@ -153,7 +153,7 @@ export default function OpenHousesPage() {
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
               When attending open houses in Summerlin, consider not just the property itself but also the neighborhood, 
-              schools, amenities, and overall lifestyle that each area offers. Our RealScout platform allows you to search 
+              schools, amenities, and overall lifestyle that each area offers. Our home search allows you to search 
               open houses by neighborhood, price range, and property features, making it easy to find homes that match your 
               criteria. For personalized guidance on which open houses to visit, contact Dr. Jan Duffy to discuss your 
               preferences and receive recommendations on properties that align with your real estate goals.

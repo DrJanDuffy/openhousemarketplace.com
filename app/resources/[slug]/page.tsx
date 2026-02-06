@@ -38,7 +38,7 @@ const validResources: Record<string, {
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Step 3: Search for Homes</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            Use our RealScout platform to search for homes that match your criteria. Consider:
+            Use our home search to search for homes that match your criteria. Consider:
           </p>
           <ul className="list-disc pl-6 space-y-2 text-gray-600">
             <li>Location and neighborhood</li>

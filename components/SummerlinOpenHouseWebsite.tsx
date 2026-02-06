@@ -242,7 +242,7 @@ const SummerlinOpenHouseWebsite = () => {
                </button>
              </div>
              
-              {/* Right Column - RealScout Advanced Search */}
+              {/* Right Column - Advanced Home Search */}
               <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
                 <h3 className="text-gray-900 text-xl font-bold mb-4">Find Your Perfect Home</h3>
                 <RealScoutSearchCard />
@@ -330,7 +330,7 @@ const SummerlinOpenHouseWebsite = () => {
                   <div 
                     onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
                     className="cursor-pointer"
-                    title="Click to view in RealScout"
+                    title="Click to view all listings"
                   >
                     <OptimizedImage
                       src={house.image}
@@ -513,7 +513,7 @@ const SummerlinOpenHouseWebsite = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Live Summerlin West Listings</h2>
             <p className="text-lg text-gray-600 mb-8">
-              Browse current properties for sale in Summerlin West with Dr. Jan Duffy's RealScout platform
+              Browse current properties for sale in Summerlin West with Dr. Jan Duffy's home search
             </p>
           </div>
           
@@ -530,7 +530,7 @@ const SummerlinOpenHouseWebsite = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-3xl font-bold mb-4">Never Miss Your Dream Home</h3>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Get instant alerts for new listings, price drops, and open houses in Summerlin West with RealScout
+            Get instant alerts for new listings, price drops, and open houses in Summerlin West
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -561,7 +561,7 @@ const SummerlinOpenHouseWebsite = () => {
             onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
             className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-3 rounded-lg font-bold text-lg"
           >
-            Start Your RealScout Search
+            Start Your Home Search
           </button>
         </div>
       </section>

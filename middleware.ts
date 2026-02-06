@@ -20,7 +20,12 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const search = request.nextUrl.search
 
-  // Main domain: canonical is https://www. Single 301 for http and/or non-www (avoids redirect chains).
+  // /index and /index/ → canonical root (avoids "Alternate page with proper canonical tag" in GSC)
+  if (pathname === '/index' || pathname === '/index/') {
+    return NextResponse.redirect(`${CANONICAL_ORIGIN}/${search}`, 301)
+  }
+
+  // Main domain: primary is https://www; both www and non-www are in use. Redirect non-www and http to www (single 301, no chain).
   const isMainDomain = hostname === 'openhousemarketplace.com' || hostname === 'www.openhousemarketplace.com'
   const needsCanonicalRedirect =
     isMainDomain &&

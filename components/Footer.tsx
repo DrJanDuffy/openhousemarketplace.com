@@ -21,7 +21,7 @@ export default function Footer() {
     <footer className="bg-gray-800 text-gray-300 py-10 border-t-4 border-blue-600" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Office / RealScout – first position on every page */}
+          {/* Office / Search Listings – first position on every page */}
           <div>
             <h3 className="font-semibold text-white mb-3">Office</h3>
             <ul className="text-sm space-y-2">
@@ -32,7 +32,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
                 >
-                  RealScout – Search Listings
+                  Search Listings
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -110,7 +110,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
           <p className="mb-2">
-            &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved. | {BUSINESS.name} | Powered by RealScout
+            &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved. | {BUSINESS.name} | Listings via MLS
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-xs">
             <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>

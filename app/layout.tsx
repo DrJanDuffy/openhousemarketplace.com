@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   alternates: {
-    canonical: '/',
+    canonical: 'https://www.openhousemarketplace.com/',
   },
   robots: {
     index: true,
