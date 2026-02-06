@@ -15,10 +15,31 @@ export default function CalendlyPopupLink({
 }: CalendlyPopupLinkProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    if (typeof window !== 'undefined' && window.Calendly) {
-      window.Calendly.initPopupWidget({ url })
+    if (typeof window === 'undefined') return
+
+    const openPopup = () => {
+      if (window.Calendly?.initPopupWidget) {
+        window.Calendly.initPopupWidget({ url })
+      } else {
+        window.open(url, '_blank', 'noopener,noreferrer')
+      }
+    }
+
+    if (window.Calendly?.initPopupWidget) {
+      openPopup()
     } else {
-      window.open(url, '_blank', 'noopener,noreferrer')
+      let attempts = 0
+      const maxAttempts = 50
+      const interval = setInterval(() => {
+        attempts++
+        if (window.Calendly?.initPopupWidget) {
+          clearInterval(interval)
+          openPopup()
+        } else if (attempts >= maxAttempts) {
+          clearInterval(interval)
+          window.open(url, '_blank', 'noopener,noreferrer')
+        }
+      }, 100)
     }
   }
 
