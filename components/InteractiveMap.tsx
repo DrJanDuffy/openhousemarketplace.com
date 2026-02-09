@@ -89,13 +89,14 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
   useEffect(() => {
     if (!map || !isMapLoaded || !window.google?.maps) return
+    const g = window.google.maps
 
     // Clear existing markers
     markers.forEach(marker => marker.setMap(null))
 
     // Create new markers for each property
     const newMarkers = properties.map(property => {
-      const marker = new window.google.maps.Marker({
+      const marker = new g.Marker({
         position: { lat: property.lat, lng: property.lng },
         map: map,
         title: property.address,
@@ -106,13 +107,13 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
               <path d="M16 8l-6 6v10h12V14l-6-6z" fill="white"/>
             </svg>
           `),
-          scaledSize: new window.google.maps.Size(32, 32),
-          anchor: new window.google.maps.Point(16, 16)
+          scaledSize: new g.Size(32, 32),
+          anchor: new g.Point(16, 16)
         }
       })
 
       // Create info window content
-      const infoWindow = new window.google.maps.InfoWindow({
+      const infoWindow = new g.InfoWindow({
         content: `
           <div class="p-4 max-w-xs">
             <div class="font-bold text-lg text-gray-900">${property.price}</div>
@@ -143,7 +144,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
     // Fit map to show all markers
     if (newMarkers.length > 0) {
-      const bounds = new window.google.maps.LatLngBounds()
+      const bounds = new g.LatLngBounds()
       newMarkers.forEach(marker => {
         bounds.extend(marker.getPosition())
       })
