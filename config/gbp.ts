@@ -23,8 +23,8 @@ export const GBP = {
   phoneE164: '+17022003422',
   /** SMS/Chat from GBP */
   sms: 'sms:+17022003422',
-  /** Website URL from GBP */
-  website: 'https://openhousemarketplace.com/',
+  /** Website URL from GBP (canonical; must match site canonicals and schema) */
+  website: 'https://www.openhousemarketplace.com/',
   /**
    * Business hours from GBP: Open 9:00 AM–5:00 PM every day.
    * (Wednesday was listed as 5:00 AM in profile; treated as 5:00 PM.)

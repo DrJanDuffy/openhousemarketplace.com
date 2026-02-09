@@ -103,13 +103,6 @@ export default function GoogleEnhancement() {
       opens: spec.opens,
       closes: spec.closes,
     })),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '100',
-      bestRating: '5',
-      worstRating: '1',
-    },
     knowsAbout: ['Real Estate', 'Open Houses', 'Luxury Homes', 'New Construction', 'Summerlin Real Estate Market', 'Home Buying', 'Home Selling'],
     ...(GBP_URL ? { sameAs: [GBP_URL] } : {}),
   }
@@ -126,11 +119,11 @@ export default function GoogleEnhancement() {
       name: 'Dr. Jan Duffy',
       url: `${BASE_URL}/about`,
       jobTitle: 'Real Estate Agent',
-      worksFor: { '@type': 'Organization', name: 'Dr. Jan Duffy Real Estate', url: BASE_URL },
+      worksFor: { '@type': 'Organization', name: GBP.name, url: BASE_URL },
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Dr. Jan Duffy Real Estate',
+      name: GBP.name,
       url: BASE_URL,
       logo: { '@type': 'ImageObject', url: `${BASE_URL}/images/logo/logo.svg` },
     },

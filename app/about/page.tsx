@@ -37,9 +37,20 @@ export const metadata: Metadata = {
   },
 }
 
+const ABOUT_FAQS = [
+  { question: 'How long has Dr. Jan Duffy been a real estate agent?', answer: 'Dr. Jan Duffy has been a licensed real estate agent for over 15 years, specializing in Summerlin West and the greater Las Vegas area. Her extensive experience and deep market knowledge have helped hundreds of clients successfully buy and sell homes.' },
+  { question: 'What makes Dr. Jan Duffy different from other real estate agents?', answer: 'Dr. Jan Duffy combines her professional background with specialized expertise in Summerlin West real estate. She offers personalized service, deep market knowledge, access to exclusive listings through her home search, and a commitment to building lasting relationships with clients rather than treating them as transactions.' },
+  { question: 'What neighborhoods does Dr. Jan Duffy specialize in?', answer: 'Dr. Jan Duffy specializes in all neighborhoods throughout Summerlin West, including The Ridges, Red Rock Country Club, Summerlin Centre, Sun City Summerlin, The Trails, Willows, Mesa Ridge, Siena, and Regency. She has extensive knowledge of each community\'s unique characteristics, market trends, and amenities.' },
+  { question: 'Does Dr. Jan Duffy work with luxury home buyers and sellers?', answer: 'Yes, Dr. Jan Duffy has extensive experience with luxury real estate in Summerlin, including custom estates, golf course properties, and exclusive gated communities. She understands the unique needs of luxury buyers and sellers and has access to high-end listings throughout the area.' },
+  { question: 'What credentials does Dr. Jan Duffy have?', answer: 'Dr. Jan Duffy is a licensed real estate agent with over 15 years of experience. She has specialized training in luxury homes, new construction, investment properties, and the Summerlin West real estate market. Her professional credentials and certifications demonstrate her commitment to excellence in real estate services.' },
+  { question: 'How does Dr. Jan Duffy help first-time homebuyers?', answer: 'Dr. Jan Duffy provides comprehensive guidance for first-time homebuyers, including education about the home buying process, assistance with mortgage pre-approval, neighborhood tours, and step-by-step support throughout the entire transaction. She ensures first-time buyers feel confident and informed at every stage.' },
+  { question: 'Does Dr. Jan Duffy help buyers find open houses in Summerlin?', answer: 'Yes. Dr. Jan Duffy helps buyers find and tour Summerlin open houses. Visit our Open Houses page for this weekend\'s home tours, or use her home search to search listings and filter by open house dates. She can also set up open house alerts so you\'re notified when new Summerlin open houses are added.' },
+]
+
 export default function AboutPage() {
   return (
     <>
+      <StructuredData type="FAQPage" data={{ faqs: ABOUT_FAQS }} />
       <StructuredData 
         type="RealEstateAgent"
         data={{
@@ -51,17 +62,7 @@ export default function AboutPage() {
           }
         }}
       />
-      <StructuredData 
-        type="LocalBusiness"
-        data={{
-          openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
-          // Add actual review data from Google Business Profile
-          aggregateRating: {
-            ratingValue: '5.0',
-            reviewCount: '100'
-          }
-        }}
-      />
+      <StructuredData type="LocalBusiness" />
       <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] bg-gradient-to-r from-blue-600 to-red-600 rounded-b-3xl overflow-hidden">
@@ -389,38 +390,7 @@ export default function AboutPage() {
       </div>
     </div>
 
-    <FAQSection 
-      faqs={[
-        {
-          question: "How long has Dr. Jan Duffy been a real estate agent?",
-          answer: "Dr. Jan Duffy has been a licensed real estate agent for over 15 years, specializing in Summerlin West and the greater Las Vegas area. Her extensive experience and deep market knowledge have helped hundreds of clients successfully buy and sell homes."
-        },
-        {
-          question: "What makes Dr. Jan Duffy different from other real estate agents?",
-          answer: "Dr. Jan Duffy combines her professional background with specialized expertise in Summerlin West real estate. She offers personalized service, deep market knowledge, access to exclusive listings through her home search, and a commitment to building lasting relationships with clients rather than treating them as transactions."
-        },
-        {
-          question: "What neighborhoods does Dr. Jan Duffy specialize in?",
-          answer: "Dr. Jan Duffy specializes in all neighborhoods throughout Summerlin West, including The Ridges, Red Rock Country Club, Summerlin Centre, Sun City Summerlin, The Trails, Willows, Mesa Ridge, Siena, and Regency. She has extensive knowledge of each community's unique characteristics, market trends, and amenities."
-        },
-        {
-          question: "Does Dr. Jan Duffy work with luxury home buyers and sellers?",
-          answer: "Yes, Dr. Jan Duffy has extensive experience with luxury real estate in Summerlin, including custom estates, golf course properties, and exclusive gated communities. She understands the unique needs of luxury buyers and sellers and has access to high-end listings throughout the area."
-        },
-        {
-          question: "What credentials does Dr. Jan Duffy have?",
-          answer: "Dr. Jan Duffy is a licensed real estate agent with over 15 years of experience. She has specialized training in luxury homes, new construction, investment properties, and the Summerlin West real estate market. Her professional credentials and certifications demonstrate her commitment to excellence in real estate services."
-        },
-        {
-          question: "How does Dr. Jan Duffy help first-time homebuyers?",
-          answer: "Dr. Jan Duffy provides comprehensive guidance for first-time homebuyers, including education about the home buying process, assistance with mortgage pre-approval, neighborhood tours, and step-by-step support throughout the entire transaction. She ensures first-time buyers feel confident and informed at every stage."
-        },
-        {
-          question: "Does Dr. Jan Duffy help buyers find open houses in Summerlin?",
-          answer: "Yes. Dr. Jan Duffy helps buyers find and tour Summerlin open houses. Visit our Open Houses page for this weekend's home tours, or use her home search to search listings and filter by open house dates. She can also set up open house alerts so you're notified when new Summerlin open houses are added."
-        }
-      ]}
-    />
+    <FAQSection faqs={ABOUT_FAQS} />
     </>
   )
 }

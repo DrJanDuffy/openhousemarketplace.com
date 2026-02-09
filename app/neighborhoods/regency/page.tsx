@@ -81,16 +81,7 @@ const amenities = [
 export default function RegencyPage() {
   return (
     <>
-      <StructuredData 
-        type="LocalBusiness"
-        data={{
-          openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
-          aggregateRating: {
-            ratingValue: '5.0',
-            reviewCount: '100'
-          }
-        }}
-      />
+      <StructuredData type="LocalBusiness" />
     <div>
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-8">

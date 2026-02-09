@@ -36,9 +36,20 @@ export const metadata: Metadata = {
   },
 }
 
+const CONTACT_FAQS = [
+  { question: 'How quickly will Dr. Jan Duffy respond to my inquiry?', answer: 'Dr. Jan Duffy understands the importance of timely communication in real estate. She typically responds to inquiries within 2-4 hours during business hours and within 24 hours for inquiries received outside of business hours. For urgent matters, you can call her directly at the phone number provided.' },
+  { question: 'What areas does Dr. Jan Duffy serve?', answer: 'Dr. Jan Duffy specializes in Summerlin West real estate, including neighborhoods such as The Ridges, Red Rock Country Club, Summerlin Centre, Sun City Summerlin, and all surrounding areas in Las Vegas, Nevada. She also serves clients throughout the greater Las Vegas metropolitan area.' },
+  { question: 'What services does Dr. Jan Duffy provide?', answer: 'Dr. Jan Duffy provides comprehensive real estate services including buying and selling homes, luxury real estate services, new construction guidance, investment property consultation, market analysis, neighborhood expertise, and access to exclusive listings through her home search.' },
+  { question: 'Does it cost anything to contact Dr. Jan Duffy for a consultation?', answer: 'Initial consultations with Dr. Jan Duffy are completely free. She offers complimentary consultations to discuss your real estate goals, whether you\'re looking to buy, sell, or invest in Summerlin West or the greater Las Vegas area.' },
+  { question: 'How do I schedule a home showing with Dr. Jan Duffy?', answer: 'You can schedule a home showing by using the Calendly scheduler on this page to book a time with Dr. Jan Duffy, calling her directly, or using the home search to browse available properties and request showings. She will work with your schedule to find convenient viewing times.' },
+  { question: 'Can Dr. Jan Duffy help with new construction homes?', answer: 'Yes, Dr. Jan Duffy has extensive experience working with new construction homes in Summerlin. She works with top builders including Toll Brothers, Lennar, and Pulte, and can help you navigate the new construction process, including lot selection, customization options, and builder negotiations.' },
+  { question: 'How do I find open houses in Summerlin this weekend?', answer: 'Visit our Open Houses page for this weekend\'s Summerlin open house listings and home tours. You can also contact Dr. Jan Duffy to get open house alerts or use her home search to search and filter by open house dates.' },
+]
+
 export default function ContactPage() {
   return (
     <>
+      <StructuredData type="FAQPage" data={{ faqs: CONTACT_FAQS }} />
       <StructuredData 
         type="RealEstateAgent"
         data={{
@@ -52,17 +63,7 @@ export default function ContactPage() {
           url: 'https://www.openhousemarketplace.com',
         }}
       />
-      <StructuredData 
-        type="LocalBusiness"
-        data={{
-          openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
-          // Add actual review data from Google Business Profile
-          aggregateRating: {
-            ratingValue: '5.0',
-            reviewCount: '100'
-          }
-        }}
-      />
+      <StructuredData type="LocalBusiness" />
       <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-4">
         <div className="text-center mb-12">
@@ -279,38 +280,7 @@ export default function ContactPage() {
       </div>
     </div>
 
-    <FAQSection 
-      faqs={[
-        {
-          question: "How quickly will Dr. Jan Duffy respond to my inquiry?",
-          answer: "Dr. Jan Duffy understands the importance of timely communication in real estate. She typically responds to inquiries within 2-4 hours during business hours and within 24 hours for inquiries received outside of business hours. For urgent matters, you can call her directly at the phone number provided."
-        },
-        {
-          question: "What areas does Dr. Jan Duffy serve?",
-          answer: "Dr. Jan Duffy specializes in Summerlin West real estate, including neighborhoods such as The Ridges, Red Rock Country Club, Summerlin Centre, Sun City Summerlin, and all surrounding areas in Las Vegas, Nevada. She also serves clients throughout the greater Las Vegas metropolitan area."
-        },
-        {
-          question: "What services does Dr. Jan Duffy provide?",
-          answer: "Dr. Jan Duffy provides comprehensive real estate services including buying and selling homes, luxury real estate services, new construction guidance, investment property consultation, market analysis, neighborhood expertise, and access to exclusive listings through her home search."
-        },
-        {
-          question: "Does it cost anything to contact Dr. Jan Duffy for a consultation?",
-          answer: "Initial consultations with Dr. Jan Duffy are completely free. She offers complimentary consultations to discuss your real estate goals, whether you're looking to buy, sell, or invest in Summerlin West or the greater Las Vegas area."
-        },
-        {
-          question: "How do I schedule a home showing with Dr. Jan Duffy?",
-          answer: "You can schedule a home showing by using the Calendly scheduler on this page to book a time with Dr. Jan Duffy, calling her directly, or using the home search to browse available properties and request showings. She will work with your schedule to find convenient viewing times."
-        },
-        {
-          question: "Can Dr. Jan Duffy help with new construction homes?",
-          answer: "Yes, Dr. Jan Duffy has extensive experience working with new construction homes in Summerlin. She works with top builders including Toll Brothers, Lennar, and Pulte, and can help you navigate the new construction process, including lot selection, customization options, and builder negotiations."
-        },
-        {
-          question: "How do I find open houses in Summerlin this weekend?",
-          answer: "Visit our Open Houses page for this weekend's Summerlin open house listings and home tours. You can also contact Dr. Jan Duffy to get open house alerts or use her home search to search and filter by open house dates."
-        }
-      ]}
-    />
+    <FAQSection faqs={CONTACT_FAQS} />
     </>
   )
 }

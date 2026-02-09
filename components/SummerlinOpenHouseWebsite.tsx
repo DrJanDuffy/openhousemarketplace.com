@@ -196,7 +196,7 @@ const SummerlinOpenHouseWebsite = () => {
                 highlights: ["Great schools", "Parks", "Family-friendly"],
                 image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop"
               }
-            ].map(neighborhood => {
+            ].map((neighborhood, index) => {
               const neighborhoodUrls: Record<string, string> = {
                 'The Ridges': '/neighborhoods/the-ridges',
                 'Red Rock Country Club': '/neighborhoods/red-rock-country-club',
@@ -209,8 +209,9 @@ const SummerlinOpenHouseWebsite = () => {
                   <Link href={neighborhoodUrl}>
                     <OptimizedImage
                       src={neighborhood.image}
-                      alt={neighborhood.name}
+                      alt={`${neighborhood.name} - Summerlin West neighborhood`}
                       className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
+                      priority={index === 0}
                     />
                   </Link>
                   <div className="p-6">

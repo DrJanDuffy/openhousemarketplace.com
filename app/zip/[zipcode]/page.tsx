@@ -223,16 +223,7 @@ export default async function ZipCodePage({ params }: ZipCodePageProps) {
 
   return (
     <>
-      <StructuredData 
-        type="LocalBusiness"
-        data={{
-          openingHours: ['Mo-Fr 09:00-18:00', 'Sa-Su 10:00-16:00'],
-          aggregateRating: {
-            ratingValue: '5.0',
-            reviewCount: '100'
-          }
-        }}
-      />
+      <StructuredData type="LocalBusiness" />
       <StructuredData 
         type="Place"
         data={{
