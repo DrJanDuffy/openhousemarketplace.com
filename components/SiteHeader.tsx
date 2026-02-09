@@ -67,7 +67,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
         type="button"
         onClick={() => setOpen(!open)}
         className="flex items-center gap-0.5 px-3 py-2 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors"
-        aria-expanded={String(open)}
+        aria-expanded={open}
         aria-haspopup="true"
         aria-controls={`nav-menu-${group.label.replace(/\s+/g, '-')}`}
         id={`nav-trigger-${group.label.replace(/\s+/g, '-')}`}
@@ -172,7 +172,7 @@ export default function SiteHeader() {
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden flex items-center justify-center min-h-[44px] min-w-[44px] rounded-lg text-gray-600 hover:bg-gray-100"
-            aria-expanded={String(mobileOpen)}
+            aria-expanded={mobileOpen}
             aria-label="Toggle menu"
           >
             <Menu className="h-6 w-6" />
@@ -224,7 +224,7 @@ export default function SiteHeader() {
                       type="button"
                       onClick={() => setMobileGroupOpen(isOpen ? null : group.label)}
                       className="flex w-full items-center justify-between px-4 py-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium"
-                      aria-expanded={String(isOpen)}
+                      aria-expanded={isOpen}
                     >
                       {group.label}
                       <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
