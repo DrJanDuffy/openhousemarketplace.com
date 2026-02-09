@@ -81,7 +81,6 @@ const amenities = [
 export default function TheRidgesPage() {
   return (
     <>
-      <StructuredData type="LocalBusiness" />
       <StructuredData 
         type="Place"
         data={{

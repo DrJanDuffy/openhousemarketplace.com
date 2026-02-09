@@ -85,7 +85,6 @@ const amenities = [
 export default function LuxuryHomesPage() {
   return (
     <>
-      <StructuredData type="LocalBusiness" />
       <StructuredData 
         type="WebPage"
         data={{

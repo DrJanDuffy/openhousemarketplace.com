@@ -32,7 +32,6 @@ export const metadata: Metadata = {
 export default function MarketReportPage() {
   return (
     <>
-      <StructuredData type="LocalBusiness" />
       <StructuredData 
         type="WebPage"
         data={{

@@ -222,7 +222,6 @@ export default async function BuilderPage({ params }: BuilderPageProps) {
 
   return (
     <>
-      <StructuredData type="LocalBusiness" />
       <StructuredData 
         type="BreadcrumbList"
         data={{

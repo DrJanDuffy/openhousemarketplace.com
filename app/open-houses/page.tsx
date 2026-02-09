@@ -105,7 +105,6 @@ const openHouseFaqs = [
 export default function OpenHousesPage() {
   return (
     <>
-      <StructuredData type="LocalBusiness" />
       <StructuredData 
         type="WebPage"
         data={{

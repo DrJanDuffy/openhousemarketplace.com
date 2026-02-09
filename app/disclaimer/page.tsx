@@ -19,7 +19,6 @@ export const metadata: Metadata = {
 export default function DisclaimerPage() {
   return (
     <>
-      <StructuredData type="LocalBusiness" />
       <StructuredData
         type="BreadcrumbList"
         data={{

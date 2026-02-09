@@ -52,7 +52,6 @@ export default function AboutPage() {
   return (
     <>
       <StructuredData type="FAQPage" data={{ faqs: ABOUT_FAQS }} />
-      <StructuredData type="LocalBusiness" />
       <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] bg-gradient-to-r from-blue-600 to-red-600 rounded-b-3xl overflow-hidden">

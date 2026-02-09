@@ -81,7 +81,6 @@ const amenities = [
 export default function RedRockCountryClubPage() {
   return (
     <>
-      <StructuredData type="LocalBusiness" />
     <div>
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-8">

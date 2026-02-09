@@ -291,7 +291,6 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
 
   return (
     <>
-      <StructuredData type="LocalBusiness" />
       <StructuredData 
         type="BreadcrumbList"
         data={{

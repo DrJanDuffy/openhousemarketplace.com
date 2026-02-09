@@ -148,6 +148,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
       }
       break
 
+    // Canonical LocalBusiness is output by GoogleEnhancement in layout; do not use page-level LocalBusiness to avoid duplicate entity and "multiple aggregate ratings" Search Console errors.
     case 'LocalBusiness':
       structuredData = {
         '@context': 'https://schema.org',

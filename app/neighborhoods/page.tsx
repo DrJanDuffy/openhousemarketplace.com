@@ -44,7 +44,6 @@ const neighborhoods: { slug: string; name: string; shortDescription: string }[] 
 export default function NeighborhoodsIndexPage() {
   return (
     <>
-      <StructuredData type="LocalBusiness" />
       <StructuredData
         type="WebPage"
         data={{

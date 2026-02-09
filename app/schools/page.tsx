@@ -71,7 +71,6 @@ export default function SchoolsPage() {
 
   return (
     <>
-      <StructuredData type="LocalBusiness" />
       <StructuredData 
         type="WebPage"
         data={{

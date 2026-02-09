@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
-import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
   title: 'Willows Summerlin | Homes for Sale in Mature Trees Neighborhood',
@@ -81,7 +80,6 @@ const amenities = [
 export default function WillowsPage() {
   return (
     <>
-      <StructuredData type="LocalBusiness" />
     <div>
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-8">

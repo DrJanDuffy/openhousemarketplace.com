@@ -223,7 +223,6 @@ export default async function ZipCodePage({ params }: ZipCodePageProps) {
 
   return (
     <>
-      <StructuredData type="LocalBusiness" />
       <StructuredData 
         type="Place"
         data={{

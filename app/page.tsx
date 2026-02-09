@@ -43,7 +43,6 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main id="main">
-      <StructuredData type="LocalBusiness" />
       <StructuredData 
         type="Organization"
         data={{
