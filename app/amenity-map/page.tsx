@@ -103,7 +103,7 @@ export default function AmenityMapPage() {
                 Call
               </a>
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=36.1699,-115.3301"
+                href="https://www.google.com/maps/dir/?api=1&destination=Summerlin+West,+Las+Vegas,+NV+89135"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"

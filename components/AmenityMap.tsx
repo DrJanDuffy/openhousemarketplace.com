@@ -15,7 +15,7 @@ const AMENITY_TYPES: { type: string; label: string; icon: React.ReactNode }[] = 
   { type: 'pharmacy', label: 'Pharmacies', icon: <Pill className="h-4 w-4" /> },
 ]
 
-const MAP_CENTER = { lat: 36.16, lng: -115.13 }
+const MAP_CENTER = { lat: 36.1792, lng: -115.2896 } // Summerlin West, Las Vegas, NV 89135
 const MAP_RADIUS_M = 2500
 const MAP_ZOOM = 14
 const MAP_LOAD_TIMEOUT_MS = 15000
