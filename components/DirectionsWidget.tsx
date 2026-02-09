@@ -141,7 +141,7 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
         return
       }
       renderer?.setDirections(res as never)
-      const leg = response.routes[0].legs?.[0]
+      const leg = response.routes?.[0]?.legs?.[0]
       if (leg) {
         setResult({
           duration: leg.duration?.text ?? '—',
