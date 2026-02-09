@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
+import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
@@ -140,6 +141,7 @@ export default function TheRidgesPage() {
             <p className="text-gray-700 leading-relaxed mb-4">
               View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in The Ridges.
             </p>
+            <RelatedNeighborhoods currentSlug="the-ridges" className="mb-4" />
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Luxury Real Estate in The Ridges</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
               The real estate market in The Ridges represents the upper echelon of luxury homes in Summerlin, with a 

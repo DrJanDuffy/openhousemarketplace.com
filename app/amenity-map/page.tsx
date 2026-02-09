@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import AmenityMap from '@/components/AmenityMap'
+import ExternalLink from '@/components/ExternalLink'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
@@ -102,22 +103,20 @@ export default function AmenityMapPage() {
               >
                 Call
               </a>
-              <a
+              <ExternalLink
                 href="https://www.google.com/maps/dir/?api=1&destination=Summerlin+West,+Las+Vegas,+NV+89135"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
+                showIcon={false}
               >
                 Directions
-              </a>
-              <a
+              </ExternalLink>
+              <ExternalLink
                 href="https://www.google.com/maps/place/?q=Dr+Jan+Duffy+Real+Estate+Summerlin+West+Las+Vegas+NV&action=reviews"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
+                showIcon={false}
               >
                 View Google Reviews
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </div>

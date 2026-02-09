@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import ExternalLink from '@/components/ExternalLink'
 
 export default function RealScoutSearchCard() {
   const [isWidgetLoaded, setIsWidgetLoaded] = useState(false)
@@ -54,14 +55,13 @@ export default function RealScoutSearchCard() {
       </div>
 
       <div className="mt-4 text-center">
-        <a
+        <ExternalLink
           href="https://drjanduffy.realscout.com"
-          target="_blank"
-          rel="noopener noreferrer"
           className="inline-block py-2.5 text-sm text-blue-600 hover:text-blue-700 font-medium"
+          showIcon={false}
         >
           Advanced Search Options →
-        </a>
+        </ExternalLink>
       </div>
     </div>
   )

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
+import ExternalLink from '@/components/ExternalLink'
 import RealScoutSearchCard from '@/components/RealScoutSearchCard'
 import RealScoutWidget from '@/components/RealScoutWidget'
 
@@ -56,14 +57,13 @@ export default function TourMLSPage() {
           </section>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <a
+            <ExternalLink
               href={REALSCOUT_SEARCH_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold"
+              showIcon={false}
             >
               Open full search in new tab
-            </a>
+            </ExternalLink>
             <Link href="/contact" className="inline-block text-gray-700 hover:text-blue-600 font-medium">
               Contact Dr. Jan Duffy
             </Link>

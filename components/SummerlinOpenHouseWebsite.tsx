@@ -254,9 +254,12 @@ const SummerlinOpenHouseWebsite = () => {
               )
             })}
           </div>
-          <div className="text-center mt-6">
+          <div className="text-center mt-6 flex flex-wrap justify-center gap-x-4 gap-y-1">
             <Link href="/neighborhoods" className="text-blue-600 font-semibold hover:underline">
               Explore all neighborhoods →
+            </Link>
+            <Link href="/sitemap" className="text-blue-600 font-semibold hover:underline">
+              Browse full sitemap
             </Link>
           </div>
         </div>

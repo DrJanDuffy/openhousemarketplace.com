@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
+import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
@@ -103,6 +104,7 @@ export default function RegencyPage() {
             <p className="text-gray-700 leading-relaxed mb-4">
               View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Regency.
             </p>
+            <RelatedNeighborhoods currentSlug="regency" className="mb-4" />
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Luxury Real Estate Market in Regency</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
               The Regency real estate market represents the upper tier of luxury homes in Summerlin, with a median home 

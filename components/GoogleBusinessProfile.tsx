@@ -5,6 +5,7 @@ import { Phone, MapPin, Star, Clock, Mail } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import ExternalLink from '@/components/ExternalLink'
 import { GBP } from '@/config/gbp'
 
 interface GoogleBusinessProfileProps {
@@ -148,28 +149,28 @@ export default function GoogleBusinessProfile({
         </Button>
         
         <Button asChild variant="outline">
-          <a
+          <ExternalLink
             href={BUSINESS_INFO.directionsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Get directions to business"
+            ariaLabel="Get directions to business"
+            showIcon={false}
+            className="inline-flex items-center justify-center"
           >
             <MapPin className="h-4 w-4 mr-2" />
             Directions
-          </a>
+          </ExternalLink>
         </Button>
         
         {showReviews && (
           <Button asChild variant="secondary" className="bg-yellow-500 hover:bg-yellow-600 text-white">
-            <a
+            <ExternalLink
               href={BUSINESS_INFO.reviewsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="View Google Reviews"
+              ariaLabel="View Google Reviews"
+              showIcon={false}
+              className="inline-flex items-center justify-center"
             >
               <Star className="h-4 w-4 mr-2" />
               Reviews
-            </a>
+            </ExternalLink>
           </Button>
         )}
       </div>
@@ -190,14 +191,13 @@ export default function GoogleBusinessProfile({
             aria-label="Google Map showing business location"
           />
           <p className="text-sm text-gray-600 mt-2 text-center">
-            <a 
+            <ExternalLink
               href={BUSINESS_INFO.googleBusinessUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800"
+              ariaLabel="View on Google Maps"
             >
               View on Google Maps
-            </a>
+            </ExternalLink>
           </p>
         </div>
       )}
@@ -212,17 +212,16 @@ export default function GoogleBusinessProfile({
           <p className="text-gray-600 text-sm mb-3">
             See what our clients say about us on Google
           </p>
-          <a
+          <ExternalLink
             href={BUSINESS_INFO.reviewsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+            ariaLabel="View all reviews on Google"
           >
             View All Reviews on Google
             <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </a>
+          </ExternalLink>
           {/* Note: For actual Google Reviews widget, you would need to use Google's Place API
               or a third-party service like Elfsight, ReviewsOnMyWebsite, etc. */}
         </div>

@@ -50,7 +50,7 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
   const [activeTab, setActiveTab] = useState<'overview' | 'market' | 'schools' | 'amenities'>('overview')
 
   const handleRealScoutClick = () => {
-    window.open(realscoutUrl, '_blank')
+    window.open(realscoutUrl, '_blank', 'noopener,noreferrer')
   }
 
   return (

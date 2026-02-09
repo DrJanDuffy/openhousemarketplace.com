@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
+import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
 
 export const metadata: Metadata = {
   title: 'Willows Summerlin | Homes for Sale in Mature Trees Neighborhood',
@@ -102,6 +103,7 @@ export default function WillowsPage() {
             <p className="text-gray-700 leading-relaxed mb-4">
               View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Willows.
             </p>
+            <RelatedNeighborhoods currentSlug="willows" className="mb-4" />
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Real Estate Market in Willows</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
               The Willows real estate market offers excellent value for buyers seeking established homes in a mature, 

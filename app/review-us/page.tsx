@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import ExternalLink from '@/components/ExternalLink'
 import StructuredData from '@/components/StructuredData'
 
 const REVIEW_URL = 'https://g.page/r/CbX7prnSI9uREBM/review'
@@ -70,11 +71,10 @@ export default function ReviewUsPage() {
           <p className="text-gray-600 mb-4">
             Use the link below to leave a review for Dr. Jan Duffy Real Estate on Google.
           </p>
-          <a
+          <ExternalLink
             href={REVIEW_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#4285F4] hover:bg-[#3367D6] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            showIcon={false}
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24" aria-hidden>
               <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -83,7 +83,7 @@ export default function ReviewUsPage() {
               <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
             </svg>
             Review us on Google
-          </a>
+          </ExternalLink>
           <p className="mt-3 text-sm text-gray-500 break-all">
             {REVIEW_URL}
           </p>
@@ -95,30 +95,28 @@ export default function ReviewUsPage() {
             Share our review link on WhatsApp or Facebook so more customers can leave a review.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a
+            <ExternalLink
               href={whatsappShareUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
-              aria-label="Share review link on WhatsApp"
+              ariaLabel="Share review link on WhatsApp"
+              showIcon={false}
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
               Share on WhatsApp
-            </a>
-            <a
+            </ExternalLink>
+            <ExternalLink
               href={facebookShareUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#166FE5] text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
-              aria-label="Share review link on Facebook"
+              ariaLabel="Share review link on Facebook"
+              showIcon={false}
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
               </svg>
               Share on Facebook
-            </a>
+            </ExternalLink>
           </div>
         </section>
 
@@ -128,12 +126,11 @@ export default function ReviewUsPage() {
             Right-click the QR code and select &quot;Save Image As...&quot; so you can share your QR code with customers.
           </p>
           <div className="flex flex-col items-center mt-6">
-            <a
+            <ExternalLink
               href={REVIEW_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg"
-              aria-label="Open Google review page for Dr. Jan Duffy Real Estate"
+              ariaLabel="Open Google review page for Dr. Jan Duffy Real Estate"
+              showIcon={false}
             >
               <Image
                 src={QR_CODE_URL}
@@ -143,7 +140,7 @@ export default function ReviewUsPage() {
                 unoptimized
                 className="rounded-lg border border-gray-200"
               />
-            </a>
+            </ExternalLink>
             <p className="mt-4 text-lg font-semibold text-gray-900">Scan me!</p>
           </div>
         </section>
@@ -155,24 +152,22 @@ export default function ReviewUsPage() {
           </p>
           <ul className="space-y-2">
             <li>
-              <a
+              <ExternalLink
                 href={GOOGLE_REVIEW_GUIDE}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-blue-600 hover:underline font-medium"
+                ariaLabel="Share a link or QR code to request reviews (Google Help)"
               >
                 Share a link or QR code to request reviews (Google Help)
-              </a>
+              </ExternalLink>
             </li>
             <li>
-              <a
+              <ExternalLink
                 href={GOOGLE_TIPS_REVIEWS}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-blue-600 hover:underline font-medium"
+                ariaLabel="Tips to get more reviews (Google Help)"
               >
                 Tips to get more reviews (Google Help)
-              </a>
+              </ExternalLink>
             </li>
           </ul>
         </section>

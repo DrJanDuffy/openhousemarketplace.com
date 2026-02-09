@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
+import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
@@ -105,6 +106,7 @@ export default function SunCitySummerlinPage() {
             <p className="text-gray-700 leading-relaxed mb-4">
               View <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link> this weekend, including homes in Sun City Summerlin.
             </p>
+            <RelatedNeighborhoods currentSlug="sun-city-summerlin" className="mb-4" />
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Real Estate Market in Sun City Summerlin</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
               The real estate market in Sun City Summerlin offers excellent value for active adults seeking quality homes in 

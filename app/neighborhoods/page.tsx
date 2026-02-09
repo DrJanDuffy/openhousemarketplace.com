@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
+import ExternalLink from '@/components/ExternalLink'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
 
@@ -88,14 +89,13 @@ export default function NeighborhoodsIndexPage() {
               Search all Summerlin listings with Dr. Jan Duffy&apos;s home search. Get alerts for new listings, price drops, and open houses.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a
+              <ExternalLink
                 href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                showIcon={false}
               >
                 Search Listings
-              </a>
+              </ExternalLink>
               <Link
                 href="/open-houses"
                 className="inline-block bg-slate-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors"
@@ -133,6 +133,9 @@ export default function NeighborhoodsIndexPage() {
             >
               Contact Dr. Jan Duffy
             </Link>
+            <p className="text-sm text-gray-600 mt-4">
+              See <Link href="/sitemap" className="text-blue-600 hover:text-blue-800 font-medium">sitemap</Link> for all pages.
+            </p>
           </div>
 
           {/* Schedule a tour - Calendly inline widget */}

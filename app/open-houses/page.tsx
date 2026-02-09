@@ -139,7 +139,10 @@ export default function OpenHousesPage() {
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Finding the Right Open House for You</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Summerlin's open house market includes properties across all price points and neighborhoods, from entry-level 
+              Explore open houses in <Link href="/neighborhoods/the-ridges" className="text-blue-600 font-semibold hover:underline">The Ridges</Link>, <Link href="/neighborhoods/red-rock-country-club" className="text-blue-600 font-semibold hover:underline">Red Rock Country Club</Link>, <Link href="/neighborhoods/summerlin-centre" className="text-blue-600 font-semibold hover:underline">Summerlin Centre</Link>, and <Link href="/neighborhoods/sun-city-summerlin" className="text-blue-600 font-semibold hover:underline">Sun City Summerlin</Link>, or see <Link href="/neighborhoods" className="text-blue-600 font-semibold hover:underline">all Summerlin neighborhoods</Link> for community info and schools.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Summerlin&apos;s open house market includes properties across all price points and neighborhoods, from entry-level 
               homes perfect for first-time buyers to luxury estates that represent the pinnacle of Las Vegas real estate. 
               Our open house listings are updated regularly to provide the most current information about available properties, 
               including times, dates, and property details. With a median home price of $750,000 and 85 active listings, 
@@ -200,6 +203,8 @@ export default function OpenHousesPage() {
       </section>
       <p className="text-center text-sm text-gray-500 mb-8">
         Enjoyed your visit? <Link href="/review-us" className="text-blue-600 hover:underline font-medium">Leave a review on Google</Link>
+        {' · '}
+        <Link href="/sitemap" className="text-blue-600 hover:underline font-medium">Sitemap</Link>
       </p>
       <HyperLocalNeighborhoodPage
         name="Summerlin Open Houses"

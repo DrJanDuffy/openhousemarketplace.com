@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Home, Phone, MapPin, Calendar } from 'lucide-react'
 import { useState } from 'react'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
+import ExternalLink from '@/components/ExternalLink'
 import { SITE_NAME } from '@/config/site'
 import { GBP } from '@/config/gbp'
 
@@ -28,14 +29,12 @@ export default function Footer() {
             <h3 className="font-semibold text-white mb-3">Office</h3>
             <ul className="text-sm space-y-2">
               <li>
-                <a
+                <ExternalLink
                   href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
                 >
                   Search Listings
-                </a>
+                </ExternalLink>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0 text-red-500" aria-hidden />
