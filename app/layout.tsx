@@ -68,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://em.realscout.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.realscout.com" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -136,11 +137,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <WebSiteSchema />
         <GoogleEnhancement />
         <CalendlyBadgeWidget />
-        <Script
-          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          type="module"
-          strategy="afterInteractive"
-        />
         <SiteHeader />
         {children}
         <Footer />

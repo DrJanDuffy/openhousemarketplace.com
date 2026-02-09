@@ -34,6 +34,16 @@ const RealScoutWidget: React.FC<RealScoutWidgetProps> = ({
       setScriptReady(true)
       return
     }
+    const scriptId = 'realscout-web-components-script'
+    let script = document.getElementById(scriptId) as HTMLScriptElement | null
+    if (!script) {
+      script = document.createElement('script')
+      script.id = scriptId
+      script.src = _REALSCOUT_SCRIPT
+      script.type = 'module'
+      script.async = true
+      document.body.appendChild(script)
+    }
     const check = setInterval(() => {
       if (isCustomElementDefined()) {
         clearInterval(check)
