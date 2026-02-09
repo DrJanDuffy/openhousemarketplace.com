@@ -1,8 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
-import { Home, Phone, Menu, Calendar, ChevronDown } from 'lucide-react'
+import { Phone, Menu, Calendar, ChevronDown } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import { GBP } from '@/config/gbp'
@@ -106,37 +105,16 @@ function NavDropdown({ group }: { group: NavGroup }) {
 export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileGroupOpen, setMobileGroupOpen] = useState<string | null>(null)
-  const [logoError, setLogoError] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-18">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-gray-900 hover:text-blue-600 transition-colors"
-            aria-label="Open House Market Place - Home"
-          >
-            {!logoError ? (
-              <Image
-                src="/images/logo/logo.svg"
-                alt="Open House Market Place - Home"
-                width={325}
-                height={48}
-                className="h-12 w-auto object-contain"
-                onError={() => setLogoError(true)}
-                unoptimized
-              />
-            ) : (
-              <>
-                <Home className="h-7 w-7 text-red-600 shrink-0" aria-hidden />
-                <div>
-                  <span className="font-bold text-lg">Open House Market Place</span>
-                </div>
-              </>
-            )}
-          </Link>
+          {/* Calendly widget CTA (replaces logo) */}
+          <CalendlyPopupLink className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0069ff] text-white hover:bg-[#0052cc] font-semibold transition-colors min-h-[44px]">
+            <Calendar className="h-5 w-5 shrink-0" aria-hidden />
+            <span>Book a showing</span>
+          </CalendlyPopupLink>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1" aria-label="Main">
