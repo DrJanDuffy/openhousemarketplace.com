@@ -4,8 +4,8 @@ import StructuredData from '@/components/StructuredData'
 export const revalidate = 2592000 // ISR: revalidate every 30 days (legal)
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Open House Marketplace',
-  description: 'Privacy Policy for Open House Marketplace. Learn how we collect, use, and protect your personal information.',
+  title: 'Privacy Policy | Open House Market Place',
+  description: 'Privacy Policy for Open House Market Place. Learn how we collect, use, and protect your personal information.',
   robots: 'noindex, follow',
 }
 
@@ -32,7 +32,7 @@ export default function PrivacyPolicyPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Introduction</h2>
               <p>
-                Open House Marketplace ("we," "our," or "us") is committed to protecting your privacy. 
+                Open House Market Place ("we," "our," or "us") is committed to protecting your privacy. 
                 This Privacy Policy explains how we collect, use, disclose, and safeguard your information 
                 when you visit our website.
               </p>

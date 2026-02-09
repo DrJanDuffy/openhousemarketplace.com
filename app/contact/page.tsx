@@ -16,7 +16,7 @@ export const revalidate = 86400 // ISR: revalidate daily
 export const metadata: Metadata = {
   title: 'Contact Dr. Jan Duffy | Summerlin West Real Estate Agent',
   description: 'Get in touch with Dr. Jan Duffy, your trusted Summerlin West real estate agent. Expert assistance for buying, selling, or investing in Las Vegas\' premier master-planned community. Contact the leading Las Vegas realtor today.',
-  keywords: 'Dr. Jan Duffy contact, Summerlin real estate agent, Summerlin open houses, Las Vegas realtor contact, Summerlin West real estate, contact real estate agent Summerlin, Las Vegas real estate expert',
+  keywords: 'Dr. Jan Duffy contact, schedule private showing Summerlin, Summerlin real estate agent, Summerlin open houses, Las Vegas realtor contact, Summerlin West real estate, contact real estate agent Summerlin, Las Vegas real estate expert',
   robots: {
     index: true,
     follow: true,
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     canonical: 'https://www.openhousemarketplace.com/contact',
   },
   openGraph: {
-    title: 'Contact Dr. Jan Duffy | Summerlin West Real Estate',
-    description: 'Contact Dr. Jan Duffy for expert real estate services in Summerlin West, Las Vegas.',
+    title: 'Contact Dr. Jan Duffy | Schedule a Private Showing',
+    description: 'Contact Dr. Jan Duffy for expert real estate services in Summerlin West, Las Vegas. Schedule a private showing.',
     images: ['/images/contact-hero.jpg'],
     url: 'https://www.openhousemarketplace.com/contact',
   },
@@ -72,8 +72,8 @@ export default function ContactPage() {
           <p className="text-xl text-gray-600 mb-6">
             Your trusted real estate agent serving Summerlin West and all of Las Vegas
           </p>
-          <CalendlyPopupLink className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors">
-            Schedule Your Private Tour with Dr. Jan
+          <CalendlyPopupLink className="inline-block bg-[#0069ff] hover:bg-[#0052cc] text-white px-6 py-3 rounded-xl font-semibold transition-colors">
+            Schedule a private showing
           </CalendlyPopupLink>
         </div>
 
@@ -90,7 +90,7 @@ export default function ContactPage() {
             As a leading Summerlin West real estate agent, Dr. Duffy specializes in luxury homes, new construction 
             properties, and investment real estate. Her deep knowledge of the Las Vegas market, combined with 
             cutting-edge technology and proven marketing strategies, ensures successful transactions for both buyers 
-            and sellers. <CalendlyPopupLink className="text-blue-600 font-semibold hover:underline">Schedule your private tour with Dr. Jan</CalendlyPopupLink> or 
+            and sellers. <CalendlyPopupLink className="text-blue-600 font-semibold hover:underline">Schedule a free consultation</CalendlyPopupLink> or 
             contact us today to discover why thousands of clients trust Dr. Jan Duffy with their real estate needs.
           </p>
         </div>
@@ -133,6 +133,14 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="bg-blue-50 border border-blue-100 rounded-lg p-6 mb-8 text-center">
+          <p className="text-gray-800 font-medium mb-2">Enjoyed working with us?</p>
+          <Link href="/review-us" className="text-blue-600 hover:underline font-semibold">
+            Leave a review on Google
+          </Link>
+          <span className="text-gray-600"> — it helps other customers find us.</span>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">

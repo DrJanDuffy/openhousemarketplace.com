@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { Phone, MapPin, Star, Clock, Mail } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
@@ -174,6 +175,12 @@ export default function GoogleBusinessProfile({
           </Button>
         )}
       </div>
+      <p className="text-sm text-gray-600 text-center mb-4">
+        Want to leave a review?{' '}
+        <Link href="/review-us" className="text-blue-600 hover:underline font-medium">
+          Review us on Google
+        </Link>
+      </p>
 
       {/* Google Map Embed */}
       {showMap && (
@@ -181,8 +188,7 @@ export default function GoogleBusinessProfile({
           <h3 className="text-lg font-semibold text-gray-900 mb-3">Location</h3>
           <div 
             id="gbp-map" 
-            className="w-full h-64 rounded-lg border border-gray-200"
-            style={{ minHeight: '256px' }}
+            className="w-full min-h-64 h-64 rounded-lg border border-gray-200"
             aria-label="Google Map showing business location"
           />
           <p className="text-sm text-gray-600 mt-2 text-center">

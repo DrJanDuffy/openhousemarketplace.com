@@ -113,7 +113,7 @@ export default function OpenHouseSignInForm({ listingId, listingAddress }: Props
             Browse more open houses
           </a>
           <CalendlyPopupLink className="block w-full text-center rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold px-4 py-3 transition-colors">
-            Schedule a follow-up tour with Dr. Jan
+            Schedule a private showing
           </CalendlyPopupLink>
           <a
             href="/open-houses"

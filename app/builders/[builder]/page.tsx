@@ -178,7 +178,7 @@ export async function generateMetadata({ params }: BuilderPageProps): Promise<Me
   
   if (!builderData) {
     return {
-      title: 'Builder Not Found | Open House Marketplace',
+      title: 'Builder Not Found | Open House Market Place',
     }
   }
 

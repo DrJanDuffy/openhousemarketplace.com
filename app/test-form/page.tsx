@@ -25,17 +25,16 @@ export default function TestForm() {
 
       <h2 className="text-xl font-semibold mb-2">About This Page</h2>
       <p className="text-gray-600 mb-4">
-        Use the button below to test environment variables. To schedule a tour with Dr. Jan Duffy, use the Calendly widget.
+        Use the button below to test environment variables. To schedule a private showing with Dr. Jan Duffy, use the Calendly widget.
       </p>
 
-      <h2 className="text-xl font-semibold mb-2">Schedule a Tour</h2>
-      <p className="text-gray-600 mb-4">Book a private tour or consultation with Dr. Jan Duffy.</p>
-      <CalendlyPopupLink className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium mb-6">
-        Schedule Your Private Tour with Dr. Jan
+      <h2 className="text-xl font-semibold mb-2">Schedule a private showing</h2>
+      <p className="text-gray-600 mb-4">Book a private showing or consultation with Dr. Jan Duffy.</p>
+      <CalendlyPopupLink className="inline-block bg-[#0069ff] hover:bg-[#0052cc] text-white px-6 py-3 rounded-xl font-semibold mb-6">
+        Schedule a private showing
       </CalendlyPopupLink>
 
       <CalendlyInlineWidget
-        url="https://calendly.com/drjanduffy/open-house-tour"
         minWidth={320}
         height={600}
         className="rounded-xl overflow-hidden mb-8"

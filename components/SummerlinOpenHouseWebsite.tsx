@@ -7,153 +7,17 @@ import { MapPin, Calendar, Home, Star, Phone, Mail, Search, Heart, Award } from 
 import RealScoutWidget from './RealScoutWidget'
 import CalendlyPopupLink from './CalendlyPopupLink'
 import CalendlyInlineWidget from './CalendlyInlineWidget'
-import InteractiveMap from './InteractiveMap'
 // Removed tool imports no longer used in buyer-focused UI
 import BuyerToolsSection from './BuyerToolsSection'
 import RealScoutSearchCard from './RealScoutSearchCard'
 import ExitIntentPopup from './ExitIntentPopup'
+import FeaturedOpenHouses from './FeaturedOpenHouses'
 
 const SummerlinOpenHouseWebsite = () => {
-  const [searchQuery] = useState('')
-  const [selectedNeighborhood] = useState('all')
-  const [favorites, setFavorites] = useState<number[]>([])
-  const [showMap, _setShowMap] = useState(false)
   const [showExitPopup, setShowExitPopup] = useState(false)
   const [hasShownExitPopup, setHasShownExitPopup] = useState(false)
   const [isPageReady, setIsPageReady] = useState(false)
   // Buyer tools moved into BuyerToolsSection
-
-  // Mock data for open houses in Summerlin West
-  const openHouses = [
-    {
-      id: 1,
-      address: "1234 Red Rock Vista Dr",
-      neighborhood: "Red Rock Country Club",
-      price: "$1,250,000",
-      beds: 4,
-      baths: 3.5,
-      sqft: "3,200",
-      openHouseTime: "Saturday 1-4 PM",
-      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
-      features: ["Golf Course Views", "Pool", "Upgraded Kitchen"],
-      zipCode: "89135",
-      realtor: "Dr. Jan Duffy",
-      phone: "(702) 200-3422",
-      description: "Stunning golf course property with panoramic views of Red Rock Canyon",
-      lat: 36.1699,
-      lng: -115.1398
-    },
-    {
-      id: 2,
-      address: "5678 Ridges Summit Ct",
-      neighborhood: "The Ridges",
-      price: "$2,100,000",
-      beds: 5,
-      baths: 4.5,
-      sqft: "4,800",
-      openHouseTime: "Sunday 12-3 PM",
-      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop",
-      features: ["Mountain Views", "Wine Cellar", "Guest Casita"],
-      zipCode: "89135",
-      realtor: "Dr. Jan Duffy",
-      phone: "(702) 200-3422",
-      description: "Luxury custom home with breathtaking mountain and city views",
-      lat: 36.1750,
-      lng: -115.1450
-    },
-    {
-      id: 3,
-      address: "9101 Summerlin Pkwy",
-      neighborhood: "Summerlin Centre",
-      price: "$650,000",
-      beds: 3,
-      baths: 2.5,
-      sqft: "2,400",
-      openHouseTime: "Saturday 10-1 PM",
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop",
-      features: ["New Construction", "Smart Home", "Energy Efficient"],
-      zipCode: "89138",
-      realtor: "Dr. Jan Duffy",
-      phone: "(702) 200-3422",
-      description: "Modern new construction with smart home features and energy efficiency",
-      lat: 36.1650,
-      lng: -115.1350
-    },
-    {
-      id: 4,
-      address: "2468 Desert Willow St",
-      neighborhood: "Sun City Summerlin",
-      price: "$485,000",
-      beds: 2,
-      baths: 2,
-      sqft: "1,800",
-      openHouseTime: "Sunday 1-4 PM",
-      image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=400&h=300&fit=crop",
-      features: ["55+ Community", "Golf Cart Garage", "Low Maintenance"],
-      zipCode: "89144",
-      realtor: "Dr. Jan Duffy",
-      phone: "(702) 200-3422",
-      description: "Perfect active adult home with golf cart garage and low maintenance lifestyle",
-      lat: 36.1600,
-      lng: -115.1500
-    },
-    {
-      id: 5,
-      address: "3456 Mesa Ridge Dr",
-      neighborhood: "Mesa Ridge",
-      price: "$875,000",
-      beds: 4,
-      baths: 3,
-      sqft: "3,100",
-      openHouseTime: "Saturday 2-5 PM",
-      image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=400&h=300&fit=crop",
-      features: ["Family Home", "Large Backyard", "Great Schools"],
-      zipCode: "89138",
-      realtor: "Dr. Jan Duffy",
-      phone: "(702) 200-3422",
-      description: "Family-friendly home in excellent school district with large backyard",
-      lat: 36.1700,
-      lng: -115.1300
-    },
-    {
-      id: 6,
-      address: "7890 Willows Way",
-      neighborhood: "Willows",
-      price: "$720,000",
-      beds: 3,
-      baths: 2.5,
-      sqft: "2,600",
-      openHouseTime: "Sunday 11-2 PM",
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop",
-      features: ["Mature Trees", "Established Neighborhood", "Walkable"],
-      zipCode: "89135",
-      realtor: "Dr. Jan Duffy",
-      phone: "(702) 200-3422",
-      description: "Charming home in established neighborhood with mature landscaping",
-      lat: 36.1800,
-      lng: -115.1400
-    }
-  ]
-
-  const toggleFavorite = (houseId: number) => {
-    setFavorites(prev => 
-      prev.includes(houseId) 
-        ? prev.filter(id => id !== houseId)
-        : [...prev, houseId]
-    )
-  }
-
-  const filteredHouses = openHouses.filter(house => {
-    const matchesSearch = house.address.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         house.neighborhood.toLowerCase().includes(searchQuery.toLowerCase())
-    const matchesNeighborhood = selectedNeighborhood === 'all' || house.neighborhood === selectedNeighborhood
-    return matchesSearch && matchesNeighborhood
-  })
-
-  const saveToRealScout = (_house: typeof openHouses[0]) => {
-    // Open Dr. Jan Duffy's RealScout shared search
-    window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')
-  }
 
   // Delay page ready state to ensure Google Analytics loads first
   useEffect(() => {
@@ -278,155 +142,15 @@ const SummerlinOpenHouseWebsite = () => {
                </div>
              </div>
              <div className="mt-6 text-center">
-               <CalendlyPopupLink className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium">
-                 Get Full 2025 Market Report
+               <CalendlyPopupLink className="inline-block bg-[#0069ff] hover:bg-[#0052cc] text-white px-6 py-2 rounded-lg font-medium">
+                 Schedule a private showing
                </CalendlyPopupLink>
              </div>
            </div>
          </div>
        </section>
 
-       {/* Featured Open Houses */}
-       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                     <div className="text-center mb-12">
-             <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
-               <Calendar className="h-4 w-4 mr-2" />
-               This Weekend Only - Don't Miss Out!
-             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              This Weekend&apos;s Featured Open Houses
-            </h2>
-             <p className="text-lg text-gray-600 mb-6">
-               {filteredHouses.length} premium open houses available in Summerlin West. <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">See full Summerlin open house listings</Link>.
-             </p>
-             <div className="flex flex-wrap justify-center gap-3">
-               <button 
-                 onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
-                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all duration-200"
-               >
-                 View All Listings
-               </button>
-               <CalendlyPopupLink className="inline-block bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-xl font-semibold border border-gray-200 hover:border-gray-300 transition-all duration-200">
-                 Get Priority Access
-               </CalendlyPopupLink>
-             </div>
-           </div>
-
-          {showMap ? (
-            <InteractiveMap 
-              properties={filteredHouses}
-              className="mb-8"
-              onPropertyClick={(property) => {
-                // Handle property click from map
-                console.log('Property clicked:', property)
-              }}
-            />
-          ) : (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredHouses.map((house, index) => (
-              <div key={house.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
-                <div className="relative">
-                  <div 
-                    onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
-                    className="cursor-pointer"
-                    title="Click to view all listings"
-                  >
-                    <OptimizedImage
-                      src={house.image}
-                      alt={`${house.address} - ${house.neighborhood} open house`}
-                      className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
-                      priority={index === 0}
-                    />
-                  </div>
-                  <button 
-                    onClick={() => toggleFavorite(house.id)}
-                    className="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white transition-colors"
-                    aria-label={favorites.includes(house.id) ? 'Remove from favorites' : 'Add to favorites'}
-                    title={favorites.includes(house.id) ? 'Remove from favorites' : 'Add to favorites'}
-                  >
-                    <Heart 
-                      className={`h-5 w-5 ${favorites.includes(house.id) ? 'text-red-500 fill-current' : 'text-gray-600'}`} 
-                    />
-                  </button>
-                                     <div className="absolute bottom-3 left-3">
-                     <span className="bg-blue-600 text-white px-2 py-1 rounded text-sm font-medium">
-                       {house.openHouseTime}
-                     </span>
-                   </div>
-                   <div className="absolute top-3 left-3">
-                     <span className="bg-red-600 text-white px-2 py-1 rounded text-sm font-medium">
-                       New This Weekend!
-                     </span>
-                   </div>
-                </div>
-                
-                <div className="p-4">
-                  <div className="flex justify-between items-start mb-2">
-                    <h4 className="font-bold text-lg text-gray-900">{house.price}</h4>
-                    <span className="text-sm text-gray-600">{house.zipCode}</span>
-                  </div>
-                  
-                  <p className="text-gray-700 mb-2">{house.address}</p>
-                  {house.neighborhood && (() => {
-                    const neighborhoodUrlMap: Record<string, string> = {
-                      'The Ridges': '/neighborhoods/the-ridges',
-                      'Red Rock Country Club': '/neighborhoods/red-rock-country-club',
-                      'Summerlin Centre': '/neighborhoods/summerlin-centre',
-                      'Sun City Summerlin': '/neighborhoods/sun-city-summerlin',
-                      'Mesa Ridge': '/neighborhoods/mesa-ridge',
-                      'Willows': '/neighborhoods/willows',
-                    }
-                    const url = neighborhoodUrlMap[house.neighborhood]
-                    return url ? (
-                      <Link href={url} className="text-sm text-blue-600 hover:text-blue-800 font-medium mb-3 inline-block">
-                        {house.neighborhood}
-                      </Link>
-                    ) : (
-                      <p className="text-sm text-blue-600 font-medium mb-3">{house.neighborhood}</p>
-                    )
-                  })()}
-                  
-                  <div className="flex justify-between text-sm text-gray-600 mb-3">
-                    <span>{house.beds} beds</span>
-                    <span>{house.baths} baths</span>
-                    <span>{house.sqft} sqft</span>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {house.features.slice(0, 2).map(feature => (
-                      <span key={feature} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
-                        {feature}
-                      </span>
-                    ))}
-                    {house.features.length > 2 && (
-                      <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
-                        +{house.features.length - 2} more
-                      </span>
-                    )}
-                  </div>
-                  
-                                     <div className="flex gap-2">
-                     <button 
-                       onClick={() => saveToRealScout(house)}
-                       className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm font-medium"
-                     >
-                       Schedule Tour
-                     </button>
-                     <button 
-                       onClick={() => window.open(`https://maps.google.com/?q=${house.address}`, '_blank')}
-                       className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded text-sm font-medium"
-                     >
-                       Get Directions
-                     </button>
-                   </div>
-                </div>
-              </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
+       <FeaturedOpenHouses />
 
       {/* Neighborhood Spotlight */}
       <section className="bg-white py-16">
@@ -631,8 +355,8 @@ const SummerlinOpenHouseWebsite = () => {
            </div>
            
            <div className="text-center">
-             <CalendlyPopupLink className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium">
-               Start Your Success Story
+             <CalendlyPopupLink className="inline-block bg-[#0069ff] hover:bg-[#0052cc] text-white px-8 py-3 rounded-lg font-medium">
+               Schedule a private showing
              </CalendlyPopupLink>
            </div>
          </div>
@@ -685,20 +409,19 @@ const SummerlinOpenHouseWebsite = () => {
                    <Phone className="h-4 w-4 mr-2" />
                    Call Today
                  </button>
-                <CalendlyPopupLink className="flex items-center justify-center bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium text-white">
+                <CalendlyPopupLink className="flex items-center justify-center bg-[#0069ff] hover:bg-[#0052cc] px-6 py-3 rounded-lg font-medium text-white">
                   <Mail className="h-4 w-4 mr-2" />
-                  Schedule Your Tour
+                  Schedule a private showing
                 </CalendlyPopupLink>
               </div>
             </div>
             
             <div className="md:col-span-2">
-              <h3 className="text-xl font-bold text-white mb-4">Schedule an Open House Tour</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Schedule a private showing</h3>
               <p className="text-blue-100 mb-4">Book a time that works for you with Dr. Jan Duffy.</p>
               <CalendlyInlineWidget
-                url="https://calendly.com/drjanduffy/open-house-tour"
                 minWidth={320}
-                height={500}
+                height={700}
                 className="rounded-xl overflow-hidden bg-white"
               />
             </div>
@@ -707,10 +430,11 @@ const SummerlinOpenHouseWebsite = () => {
       </section>
 
        {/* Exit Intent Popup */}
-       <ExitIntentPopup 
+       <ExitIntentPopup
          isVisible={showExitPopup}
          onClose={() => setShowExitPopup(false)}
        />
+
      </div>
    )
  }

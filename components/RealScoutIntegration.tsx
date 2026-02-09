@@ -35,7 +35,7 @@ const RealScoutIntegration = () => {
         </div>
         <div className="flex items-center">
           <Calendar className="h-5 w-5 text-blue-600 mr-3" />
-          <span className="text-gray-700">Schedule private tours</span>
+          <span className="text-gray-700">Schedule private showings</span>
         </div>
         <div className="flex items-center">
           <Star className="h-5 w-5 text-blue-600 mr-3" />
@@ -57,7 +57,7 @@ const RealScoutIntegration = () => {
           className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-3 rounded-lg font-medium flex items-center justify-center"
         >
           <Calendar className="h-4 w-4 mr-2" />
-          Schedule a Tour
+          Schedule a private showing
         </button>
       </div>
 

@@ -1,13 +1,16 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
+import FeaturedOpenHouses from '@/components/FeaturedOpenHouses'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
+import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import StructuredData from '@/components/StructuredData'
 
 export const revalidate = 3600 // ISR: revalidate hourly (open house listings change often)
 
 export const metadata: Metadata = {
-  title: 'Summerlin Open Houses | This Weekend\'s Home Tours & Real Estate Showings',
-  description: 'Find open houses in Summerlin this weekend. Tour luxury homes, new construction, and family homes in Las Vegas\' premier master-planned community. Discover current open house listings, schedule tours, and explore Summerlin real estate opportunities.',
-  keywords: 'Summerlin open houses, Las Vegas home tours, weekend open houses, Summerlin real estate, house tours, open houses this weekend Summerlin, Summerlin West open houses, Las Vegas open houses',
+  title: 'Summerlin Open Houses | This Weekend\'s Home Tours & Private Showings',
+  description: 'Find open houses in Summerlin this weekend. Schedule a private showing with Dr. Jan Duffy. Tour luxury homes, new construction, and family homes in Las Vegas\' premier master-planned community.',
+  keywords: 'Summerlin open houses, schedule private showing, private home tour Summerlin, Las Vegas home tours, weekend open houses, Summerlin real estate, open houses this weekend Summerlin, Summerlin West open houses',
   robots: {
     index: true,
     follow: true,
@@ -20,8 +23,8 @@ export const metadata: Metadata = {
     canonical: 'https://www.openhousemarketplace.com/open-houses',
   },
   openGraph: {
-    title: 'Summerlin Open Houses | This Weekend\'s Home Tours',
-    description: 'Tour the best homes for sale in Summerlin this weekend. Live updates and instant scheduling.',
+    title: 'Summerlin Open Houses | Schedule a Private Showing',
+    description: 'Tour the best homes for sale in Summerlin this weekend. Schedule a private showing with Dr. Jan Duffy.',
     images: ['/images/open-houses-hero.jpg'],
     url: 'https://www.openhousemarketplace.com/open-houses',
   },
@@ -149,7 +152,8 @@ export default function OpenHousesPage() {
               homes perfect for first-time buyers to luxury estates that represent the pinnacle of Las Vegas real estate. 
               Our open house listings are updated regularly to provide the most current information about available properties, 
               including times, dates, and property details. With a median home price of $750,000 and 85 active listings, 
-              Summerlin offers diverse opportunities for buyers at every stage of their real estate journey.
+              Summerlin offers diverse opportunities for buyers at every stage of their real estate journey.{' '}
+              <CalendlyPopupLink className="text-blue-600 font-semibold hover:underline">Schedule a private showing</CalendlyPopupLink> to get personalized open house recommendations.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
               When attending open houses in Summerlin, consider not just the property itself but also the neighborhood, 
@@ -184,6 +188,28 @@ export default function OpenHousesPage() {
           </div>
         </div>
       </div>
+      <FeaturedOpenHouses />
+      {/* Schedule a private showing - Calendly inline widget */}
+      <section className="bg-white border-t border-gray-200 py-12" aria-labelledby="schedule-showing-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 id="schedule-showing-heading" className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center">
+            Schedule a private showing
+          </h2>
+          <p className="text-gray-600 text-center mb-8 max-w-xl mx-auto">
+            Book a time with Dr. Jan Duffy for a private showing. Choose a slot below—no signup required.
+          </p>
+          <div className="max-w-2xl mx-auto">
+            <CalendlyInlineWidget
+              minWidth={320}
+              height={700}
+              className="rounded-xl overflow-hidden border border-gray-200 shadow-sm"
+            />
+          </div>
+        </div>
+      </section>
+      <p className="text-center text-sm text-gray-500 mb-8">
+        Enjoyed your visit? <Link href="/review-us" className="text-blue-600 hover:underline font-medium">Leave a review on Google</Link>
+      </p>
       <HyperLocalNeighborhoodPage
         name="Summerlin Open Houses"
         description="Explore Summerlin's finest homes this weekend. From luxury estates to family homes, find your perfect match with our curated selection of open houses. Get real-time updates, instant scheduling, and exclusive market insights for every property."

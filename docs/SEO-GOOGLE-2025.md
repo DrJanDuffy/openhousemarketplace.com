@@ -1,6 +1,8 @@
 # Google 2025 SEO Setup
 
-This doc covers optional env and data updates to complete the site’s Google 2025 SEO setup.
+> **Current year:** For 2026 setup and ongoing reference, see [SEO-GOOGLE-2026.md](./SEO-GOOGLE-2026.md). This file is kept for historical reference.
+
+This doc covered optional env and data updates to complete the site’s Google 2025 SEO setup.
 
 ## 1. Google Business Profile (GBP) link in schema
 

@@ -47,6 +47,38 @@ Every folder under `public/images/` should contain **hyper-local** (Summerlin We
 
 ---
 
+## listings/
+
+**Purpose:** Property and listing photos (e.g. featured open houses, MLS images you host locally).
+
+**Add:** Optional. Use descriptive names (e.g. `11773-cashmere-mist-ave.jpg`). Prefer remote URLs from MLS/RealScout when possible; use this folder for custom or fallback images.
+
+---
+
+## neighborhoods/
+
+**Purpose:** Neighborhood-specific images (The Ridges, Red Rock Country Club, Summerlin Centre, etc.).
+
+**Add:** Photos per neighborhood for neighborhood pages or hero sections (e.g. `the-ridges.jpg`, `red-rock-country-club.jpg`).
+
+---
+
+## contact/
+
+**Purpose:** Contact page and office images.
+
+**Add:** Office exterior, team at desk, or “Contact Dr. Jan Duffy” banner (e.g. `contact-hero.jpg`).
+
+---
+
+## team/
+
+**Purpose:** Agent and team headshots or group photos.
+
+**Add:** Dr. Jan Duffy headshot, team photos. Use in about page, footer, or schema.
+
+---
+
 ## Scripts / references
 
 - Footer and layout reference: `/images/logo/logo.svg` (or `logo.png`).
@@ -64,5 +96,9 @@ Every folder under `public/images/` should contain **hyper-local** (Summerlin We
 | og/      | og-image.jpg    | 1200×630; Summerlin + services CTA   | Add      |
 | hero/    | hero-home.jpg   | Summerlin open houses / search       | Add      |
 | hero/    | hero-neighborhoods.jpg | Neighborhoods map / area      | Add      |
+| listings/ | (optional)            | Property/listing photos       | Ready    |
+| neighborhoods/ | (optional)     | Neighborhood page images      | Ready    |
+| contact/  | (optional)            | Contact/office images         | Ready    |
+| team/     | (optional)            | Agent/team headshots          | Ready    |
 
 Add photos and PNGs as you have them; keep naming and alt text hyper-local and service-focused.

@@ -4,8 +4,8 @@ import StructuredData from '@/components/StructuredData'
 export const revalidate = 2592000 // ISR: revalidate every 30 days (legal)
 
 export const metadata: Metadata = {
-  title: 'Disclaimer | Open House Marketplace',
-  description: 'Legal disclaimer for Open House Marketplace. Important information about the use of our website and services.',
+  title: 'Disclaimer | Open House Market Place',
+  description: 'Legal disclaimer for Open House Market Place. Important information about the use of our website and services.',
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://www.openhousemarketplace.com/disclaimer' },
 }
@@ -76,7 +76,7 @@ export default function DisclaimerPage() {
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">5. External Links</h2>
               <p>
                 Through this website, you are able to link to other websites which are not under the 
-                control of Open House Marketplace. We have no control over the nature, content, and 
+                control of Open House Market Place. We have no control over the nature, content, and 
                 availability of those sites. The inclusion of any links does not necessarily imply a 
                 recommendation or endorse the views expressed within them.
               </p>
@@ -85,7 +85,7 @@ export default function DisclaimerPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">6. Limitation of Liability</h2>
               <p>
-                In no event will Open House Marketplace, Dr. Jan Duffy, or any of our affiliates, agents, 
+                In no event will Open House Market Place, Dr. Jan Duffy, or any of our affiliates, agents, 
                 or representatives be liable for any loss or damage including without limitation, indirect 
                 or consequential loss or damage, or any loss or damage whatsoever arising from loss of 
                 data or profits arising out of, or in connection with, the use of this website.
@@ -95,7 +95,7 @@ export default function DisclaimerPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">7. Fair Housing</h2>
               <p>
-                Open House Marketplace and Dr. Jan Duffy are committed to providing equal housing 
+                Open House Market Place and Dr. Jan Duffy are committed to providing equal housing 
                 opportunities. We do not discriminate on the basis of race, color, religion, sex, 
                 handicap, familial status, or national origin. All properties are subject to the 
                 Federal Fair Housing Act.

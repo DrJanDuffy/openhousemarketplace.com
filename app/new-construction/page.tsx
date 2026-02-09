@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { Calendar } from 'lucide-react'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
+import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
 
 export const revalidate = 86400 // ISR: revalidate daily
@@ -164,6 +166,18 @@ export default function NewConstructionPage() {
         imageUrl="/images/new-construction-hero.jpg"
         realscoutUrl="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
       />
+
+      {/* Schedule a private showing CTA */}
+      <section className="bg-white border-t border-gray-200 py-10">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Tour new construction homes</h2>
+          <p className="text-gray-600 mb-6">Book a time with Dr. Jan Duffy to visit model homes and new communities.</p>
+          <CalendlyPopupLink className="inline-flex items-center gap-2 bg-[#0069ff] hover:bg-[#0052cc] text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors">
+            <Calendar className="h-5 w-5" aria-hidden />
+            Schedule a private showing
+          </CalendlyPopupLink>
+        </div>
+      </section>
     </div>
     </>
   )

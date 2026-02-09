@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { TrendingUp, TrendingDown, Home, DollarSign, Clock } from 'lucide-react'
+import { TrendingUp, TrendingDown, Home, DollarSign, Clock, Calendar } from 'lucide-react'
 import StructuredData from '@/components/StructuredData'
+import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 
 export const revalidate = 86400 // ISR: revalidate daily
 
@@ -293,12 +294,18 @@ export default function MarketReportPage() {
         <div className="bg-blue-600 rounded-lg shadow-md p-8 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Get Your Personalized Market Analysis</h2>
           <p className="text-xl mb-6">Want to know what your home is worth? Contact us for a free valuation.</p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
-          >
-            Request Free Market Analysis
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
+            >
+              Request Free Market Analysis
+            </Link>
+            <CalendlyPopupLink className="inline-flex items-center gap-2 bg-[#0069ff] hover:bg-[#0052cc] text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors">
+              <Calendar className="h-5 w-5" aria-hidden />
+              Schedule a private showing
+            </CalendlyPopupLink>
+          </div>
         </div>
       </div>
     </div>

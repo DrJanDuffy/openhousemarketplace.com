@@ -1,12 +1,18 @@
 'use client'
 
 import Link from 'next/link'
-import { Home, Phone, Menu } from 'lucide-react'
+import { Home, Phone, Menu, Calendar } from 'lucide-react'
 import { useState } from 'react'
+import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
+  { href: '/book-tour', label: 'Schedule a private showing' },
+  { href: '/schedule-consultation', label: 'Schedule a free consultation' },
   { href: '/open-houses', label: 'Open Houses' },
+  { href: '/amenity-map', label: 'Amenity Map' },
+  { href: '/store-locations', label: 'Find Our Stores' },
+  { href: '/directions', label: 'Get Directions' },
   { href: '/open-house-guide', label: 'Open House Guide' },
   { href: '/neighborhoods', label: 'Neighborhoods' },
   { href: '/about', label: 'About' },
@@ -14,6 +20,7 @@ const NAV_LINKS = [
 ]
 
 const PHONE = { display: '(702) 200-3422', href: 'tel:+17022003422' }
+const FEATURED_ADDRESS = '11773 Cashmere Mist Ave, Las Vegas, NV 89138'
 
 export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -26,12 +33,12 @@ export default function SiteHeader() {
           <Link
             href="/"
             className="flex items-center gap-2 text-gray-900 hover:text-blue-600 transition-colors"
-            aria-label="Open House Marketplace - Home"
+            aria-label="Open House Market Place - Home"
           >
             <Home className="h-7 w-7 text-red-600 shrink-0" aria-hidden />
             <div>
-              <span className="font-bold text-lg">Summerlin West Open Houses</span>
-              <span className="hidden sm:block text-xs text-gray-500 font-normal">Dr. Jan Duffy Real Estate</span>
+              <span className="font-bold text-lg">Open House Market Place</span>
+              <span className="hidden sm:block text-xs text-gray-500 font-normal">{FEATURED_ADDRESS}</span>
             </div>
           </Link>
 
@@ -46,6 +53,10 @@ export default function SiteHeader() {
                 {label}
               </Link>
             ))}
+            <CalendlyPopupLink className="flex items-center gap-1.5 ml-2 px-4 py-2 rounded-lg bg-[#0069ff] text-white hover:bg-[#0052cc] font-semibold transition-colors">
+              <Calendar className="h-4 w-4" aria-hidden />
+              <span>Schedule a private showing</span>
+            </CalendlyPopupLink>
             <a
               href={PHONE.href}
               className="flex items-center gap-1.5 ml-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 font-semibold transition-colors"
@@ -60,7 +71,7 @@ export default function SiteHeader() {
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100"
-            aria-expanded={mobileOpen}
+            aria-expanded={mobileOpen ? 'true' : 'false'}
             aria-label="Toggle menu"
           >
             <Menu className="h-6 w-6" />
@@ -85,6 +96,12 @@ export default function SiteHeader() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <CalendlyPopupLink className="flex items-center gap-2 px-4 py-3 rounded-lg bg-[#0069ff] text-white hover:bg-[#0052cc] font-semibold">
+                  <Calendar className="h-4 w-4" />
+                  Schedule a private showing
+                </CalendlyPopupLink>
+              </li>
               <li>
                 <a
                   href={PHONE.href}

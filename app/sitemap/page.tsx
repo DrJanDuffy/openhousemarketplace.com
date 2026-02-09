@@ -3,8 +3,8 @@ import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
-  title: 'Sitemap | Open House Marketplace',
-  description: 'Complete sitemap of all pages on Open House Marketplace. Find neighborhoods, resources, builders, and real estate information in Summerlin West.',
+  title: 'Sitemap | Open House Market Place',
+  description: 'Complete sitemap of all pages on Open House Market Place. Find neighborhoods, resources, builders, and real estate information in Summerlin West.',
   robots: {
     index: true,
     follow: true,
@@ -62,7 +62,7 @@ export default function SitemapPage() {
       <div className="max-w-4xl mx-auto px-4">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Sitemap</h1>
         <p className="text-gray-600 mb-8">
-          Find all pages and resources on Open House Marketplace. Explore neighborhoods, resources, and real estate information in Summerlin West, Las Vegas.
+          Find all pages and resources on Open House Market Place. Explore neighborhoods, resources, and real estate information in Summerlin West, Las Vegas.
         </p>
 
         <div className="space-y-8">
@@ -75,6 +75,7 @@ export default function SitemapPage() {
               <li><Link href="/market-report" className="text-blue-600 hover:text-blue-800">Market Report</Link></li>
               <li><Link href="/schools" className="text-blue-600 hover:text-blue-800">Schools</Link></li>
               <li><Link href="/contact" className="text-blue-600 hover:text-blue-800">Contact</Link></li>
+              <li><Link href="/review-us" className="text-blue-600 hover:text-blue-800">Review us on Google</Link></li>
               <li><Link href="/about" className="text-blue-600 hover:text-blue-800">About</Link></li>
               <li><Link href="/luxury-homes" className="text-blue-600 hover:text-blue-800">Luxury Homes</Link></li>
               <li><Link href="/new-construction" className="text-blue-600 hover:text-blue-800">New Construction</Link></li>

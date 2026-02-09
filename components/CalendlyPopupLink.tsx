@@ -1,6 +1,6 @@
 'use client'
 
-const CALENDLY_URL = 'https://calendly.com/drjanduffy/open-house-tour'
+import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
 
 type CalendlyPopupLinkProps = {
   url?: string
@@ -9,7 +9,7 @@ type CalendlyPopupLinkProps = {
 }
 
 export default function CalendlyPopupLink({
-  url = CALENDLY_URL,
+  url = CALENDLY_OPEN_HOUSE_TOUR_URL,
   children,
   className = '',
 }: CalendlyPopupLinkProps) {

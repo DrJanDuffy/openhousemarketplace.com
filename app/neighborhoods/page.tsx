@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
+import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
+import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
 
 export const revalidate = 86400 // ISR: revalidate daily
 
@@ -138,6 +140,24 @@ export default function NeighborhoodsIndexPage() {
               Contact Dr. Jan Duffy
             </Link>
           </div>
+
+          {/* Schedule a tour - Calendly inline widget */}
+          <section className="mt-12 py-12 border-t border-gray-200" aria-labelledby="schedule-tour-neighborhoods-heading">
+            <h2 id="schedule-tour-neighborhoods-heading" className="text-2xl font-bold text-gray-900 mb-2 text-center">
+              Schedule a neighborhood or open house tour
+            </h2>
+            <p className="text-gray-600 text-center mb-8 max-w-xl mx-auto">
+              Book a time with Dr. Jan Duffy to tour Summerlin neighborhoods or open houses. Choose a slot below.
+            </p>
+            <div className="max-w-2xl mx-auto">
+              <CalendlyInlineWidget
+                url={CALENDLY_OPEN_HOUSE_TOUR_URL}
+                minWidth={320}
+                height={700}
+                className="rounded-xl overflow-hidden border border-gray-200 shadow-sm"
+              />
+            </div>
+          </section>
         </div>
       </div>
     </>

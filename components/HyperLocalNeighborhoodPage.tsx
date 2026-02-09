@@ -246,12 +246,11 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Schedule a Tour */}
+            {/* Schedule a private showing */}
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Schedule a Tour</h3>
-              <p className="text-gray-600 text-sm mb-4">Book a private tour with Dr. Jan Duffy.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Schedule a private showing</h3>
+              <p className="text-gray-600 text-sm mb-4">Book a private showing with Dr. Jan Duffy.</p>
               <CalendlyInlineWidget
-                url="https://calendly.com/drjanduffy/open-house-tour"
                 minWidth={280}
                 height={600}
                 className="rounded-lg overflow-hidden"

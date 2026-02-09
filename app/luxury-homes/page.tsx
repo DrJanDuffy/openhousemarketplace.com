@@ -1,7 +1,9 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
+import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import StructuredData from '@/components/StructuredData'
+import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
 
 export const revalidate = 86400 // ISR: revalidate daily
 
@@ -169,6 +171,26 @@ export default function LuxuryHomesPage() {
         imageUrl="/images/luxury-homes-hero.jpg"
         realscoutUrl="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=="
       />
+
+      {/* Schedule a luxury home tour - Calendly inline widget */}
+      <section className="bg-white border-t border-gray-200 py-12" aria-labelledby="schedule-luxury-tour-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 id="schedule-luxury-tour-heading" className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center">
+            Schedule a private luxury home tour
+          </h2>
+          <p className="text-gray-600 text-center mb-8 max-w-xl mx-auto">
+            Book a time with Dr. Jan Duffy to tour luxury homes in Summerlin. Choose a slot below.
+          </p>
+          <div className="max-w-2xl mx-auto">
+            <CalendlyInlineWidget
+              url={CALENDLY_OPEN_HOUSE_TOUR_URL}
+              minWidth={320}
+              height={700}
+              className="rounded-xl overflow-hidden border border-gray-200 shadow-sm"
+            />
+          </div>
+        </div>
+      </section>
     </div>
     </>
   )

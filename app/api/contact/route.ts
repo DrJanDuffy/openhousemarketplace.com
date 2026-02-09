@@ -54,7 +54,7 @@ Message:
 ${message}
 
 ---
-This message was sent from the Open House Marketplace contact form.
+This message was sent from the Open House Market Place contact form.
     `.trim()
 
     // For development/testing, we'll just log the email

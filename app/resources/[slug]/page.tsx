@@ -248,7 +248,7 @@ export async function generateMetadata({ params }: ResourcePageProps): Promise<M
   
   if (!resource) {
     return {
-      title: 'Resource Not Found | Open House Marketplace',
+      title: 'Resource Not Found | Open House Market Place',
     }
   }
 

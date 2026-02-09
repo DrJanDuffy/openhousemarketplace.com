@@ -4,8 +4,8 @@ import StructuredData from '@/components/StructuredData'
 export const revalidate = 2592000 // ISR: revalidate every 30 days (legal)
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Open House Marketplace',
-  description: 'Terms of Service for Open House Marketplace. Please read these terms carefully before using our services.',
+  title: 'Terms of Service | Open House Market Place',
+  description: 'Terms of Service for Open House Market Place. Please read these terms carefully before using our services.',
   robots: 'noindex, follow',
 }
 
@@ -66,7 +66,7 @@ export default function TermsOfServicePage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">4. Limitation of Liability</h2>
               <p>
-                In no event shall Open House Marketplace or Dr. Jan Duffy be liable for any damages 
+                In no event shall Open House Market Place or Dr. Jan Duffy be liable for any damages 
                 (including, without limitation, damages for loss of data or profit, or due to business 
                 interruption) arising out of the use or inability to use the materials on this website, 
                 even if authorized representative has been notified orally or in writing of the possibility 
@@ -77,7 +77,7 @@ export default function TermsOfServicePage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">5. Revisions and Errata</h2>
               <p>
-                The materials appearing on Open House Marketplace's website could include technical, 
+                The materials appearing on Open House Market Place's website could include technical, 
                 typographical, or photographic errors. We do not warrant that any of the materials on 
                 its website are accurate, complete, or current.
               </p>
@@ -86,9 +86,9 @@ export default function TermsOfServicePage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">6. Links</h2>
               <p>
-                Open House Marketplace has not reviewed all of the sites linked to our website and is 
+                Open House Market Place has not reviewed all of the sites linked to our website and is 
                 not responsible for the contents of any such linked site. The inclusion of any link does 
-                not imply endorsement by Open House Marketplace. Use of any such linked website is at 
+                not imply endorsement by Open House Market Place. Use of any such linked website is at 
                 the user's own risk.
               </p>
             </section>

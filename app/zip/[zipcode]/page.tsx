@@ -185,7 +185,7 @@ export async function generateMetadata({ params }: ZipCodePageProps): Promise<Me
   
   if (!zipData) {
     return {
-      title: 'Zip Code Not Found | Open House Marketplace',
+      title: 'Zip Code Not Found | Open House Market Place',
     }
   }
 

@@ -2,18 +2,19 @@
 
 import { useEffect, useRef } from 'react'
 import Script from 'next/script'
+import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
 
 const CALENDLY_SCRIPT = 'https://assets.calendly.com/assets/external/widget.js'
 
 type CalendlyInlineWidgetProps = {
-  url: string
+  url?: string
   minWidth?: number
   height?: number
   className?: string
 }
 
 export default function CalendlyInlineWidget({
-  url,
+  url = CALENDLY_OPEN_HOUSE_TOUR_URL,
   minWidth = 320,
   height = 700,
   className = '',

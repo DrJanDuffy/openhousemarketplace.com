@@ -2,10 +2,11 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Home, Phone, MapPin } from 'lucide-react'
+import { Home, Phone, MapPin, Calendar } from 'lucide-react'
 import { useState } from 'react'
+import CalendlyPopupLink from '@/components/CalendlyPopupLink'
+import { SITE_NAME } from '@/config/site'
 
-const SITE_NAME = 'Open House Marketplace'
 const BUSINESS = {
   name: 'Dr. Jan Duffy Real Estate',
   phone: '(702) 200-3422',
@@ -45,6 +46,14 @@ export default function Footer() {
               </li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
               <li><Link href="/open-houses" className="hover:text-white transition-colors">Summerlin open houses</Link></li>
+              <li><Link href="/book-tour" className="hover:text-white transition-colors">Schedule a private showing</Link></li>
+              <li><Link href="/schedule-consultation" className="hover:text-white transition-colors">Schedule a free consultation</Link></li>
+              <li>
+                <CalendlyPopupLink className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-lg bg-[#0069ff] text-white hover:bg-[#0052cc] font-semibold text-sm transition-colors">
+                  <Calendar className="h-4 w-4" aria-hidden />
+                  Schedule a private showing
+                </CalendlyPopupLink>
+              </li>
             </ul>
           </div>
 
@@ -69,7 +78,11 @@ export default function Footer() {
             <h3 className="font-semibold text-white mb-3">Resources</h3>
             <ul className="text-sm space-y-1">
               <li><Link href="/market-report" className="hover:text-white transition-colors">Market Reports</Link></li>
+              <li><Link href="/review-us" className="hover:text-white transition-colors">Review us on Google</Link></li>
               <li><Link href="/open-house-guide" className="hover:text-white transition-colors">Open House Guide</Link></li>
+              <li><Link href="/amenity-map" className="hover:text-white transition-colors">Amenity Map</Link></li>
+              <li><Link href="/store-locations" className="hover:text-white transition-colors">Find Our Stores</Link></li>
+              <li><Link href="/directions" className="hover:text-white transition-colors">Get Directions</Link></li>
               <li><Link href="/resources/home-buying-guide" className="hover:text-white transition-colors">Home Buying Guide</Link></li>
               <li><Link href="/schools" className="hover:text-white transition-colors">School Information</Link></li>
               <li><Link href="/resources/hoa-communities" className="hover:text-white transition-colors">HOA Communities</Link></li>
@@ -86,7 +99,7 @@ export default function Footer() {
               {!logoError ? (
                 <Image
                   src="/images/logo/logo.svg"
-                  alt=""
+                  alt="Open House Market Place"
                   width={170}
                   height={28}
                   className="h-10 w-auto object-contain"
@@ -103,6 +116,7 @@ export default function Footer() {
             </p>
             <ul className="text-sm space-y-1">
               <li><Link href="/about" className="hover:text-white transition-colors">About Dr. Jan Duffy</Link></li>
+              <li><Link href="/review-us" className="hover:text-white transition-colors">Review us on Google</Link></li>
               <li><Link href="/open-houses" className="hover:text-white transition-colors">Open Houses</Link></li>
               <li><Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link></li>
             </ul>

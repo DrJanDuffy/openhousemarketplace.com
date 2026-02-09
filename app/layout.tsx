@@ -8,17 +8,17 @@ import GoogleEnhancement from "@/components/GoogleEnhancement"
 import CalendlyBadgeWidget from "@/components/CalendlyBadgeWidget"
 
 // Google Analytics scripts must be in head as standard script tags for detection
-// SEO: Google 2025 – metadata defaults, E-E-A-T, structured data, Core Web Vitals
+// SEO: Google 2026 – metadata defaults, E-E-A-T, structured data, Core Web Vitals
 
 const SITE_URL = 'https://www.openhousemarketplace.com'
 const DEFAULT_TITLE = 'Summerlin West Open Houses | Dr. Jan Duffy Real Estate'
-const DEFAULT_DESCRIPTION = 'Find Summerlin West open houses and Las Vegas real estate. Dr. Jan Duffy offers listings, neighborhood guides, and expert buying and selling services in Summerlin.'
+const DEFAULT_DESCRIPTION = 'Find Summerlin West open houses and schedule a private showing with Dr. Jan Duffy. Listings, neighborhood guides, and expert buying and selling in Summerlin and Las Vegas.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: DEFAULT_TITLE,
-    template: '%s | Open House Marketplace',
+    template: '%s | Open House Market Place',
   },
   description: DEFAULT_DESCRIPTION,
   alternates: {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
-    siteName: 'Open House Marketplace',
+    siteName: 'Open House Market Place',
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
     images: [{ url: `${SITE_URL}/images/og/og-image.jpg`, width: 1200, height: 630, alt: 'Summerlin West Open Houses - Dr. Jan Duffy Real Estate' }],

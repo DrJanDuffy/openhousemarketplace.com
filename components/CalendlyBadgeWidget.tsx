@@ -3,33 +3,35 @@
 import { useEffect } from 'react'
 import Script from 'next/script'
 
+import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
+
 const CALENDLY_SCRIPT = 'https://assets.calendly.com/assets/external/widget.js'
-const CALENDLY_URL = 'https://calendly.com/drjanduffy/open-house-tour'
+
+/** Calendly badge widget config – aligns with site purpose (private showings). */
+const BADGE_CONFIG = {
+  url: CALENDLY_OPEN_HOUSE_TOUR_URL,
+  text: 'Schedule a private showing',
+  color: '#0069ff',
+  textColor: '#ffffff',
+  branding: true,
+} as const
+
+function initBadgeWidget() {
+  if (typeof window !== 'undefined' && window.Calendly?.initBadgeWidget) {
+    window.Calendly.initBadgeWidget(BADGE_CONFIG)
+  }
+}
 
 export default function CalendlyBadgeWidget() {
-  const initBadge = () => {
-    if (typeof window !== 'undefined' && window.Calendly?.initBadgeWidget) {
-      window.Calendly.initBadgeWidget({
-        url: CALENDLY_URL,
-        text: 'Book Your Tour',
-        color: '#0069ff',
-        textColor: '#ffffff',
-        branding: true,
-      })
-    }
-  }
-
   useEffect(() => {
-    if (window.Calendly?.initBadgeWidget) {
-      initBadge()
-    }
+    if (window.Calendly?.initBadgeWidget) initBadgeWidget()
   }, [])
 
   return (
     <Script
       src={CALENDLY_SCRIPT}
       strategy="afterInteractive"
-      onLoad={initBadge}
+      onLoad={initBadgeWidget}
     />
   )
 }

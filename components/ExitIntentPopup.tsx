@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import { X } from 'lucide-react'
 
-const CALENDLY_URL = 'https://calendly.com/drjanduffy/open-house-tour'
+import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
 
 interface ExitIntentPopupProps {
   isVisible: boolean
@@ -23,7 +23,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isVisible, onClose })
     const init = () => {
       if (typeof window !== 'undefined' && window.Calendly?.initInlineWidget && el) {
         window.Calendly.initInlineWidget({
-          url: CALENDLY_URL,
+          url: CALENDLY_OPEN_HOUSE_TOUR_URL,
           parentElement: el,
         })
       }
@@ -50,7 +50,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isVisible, onClose })
       <div className="bg-white rounded-xl max-w-2xl w-full shadow-2xl max-h-[90vh] overflow-hidden flex flex-col">
         <div className="flex items-center justify-between p-4 border-b shrink-0">
           <h3 className="text-xl font-bold text-gray-900">
-            Schedule Your Private Tour with Dr. Jan
+            Schedule a private showing
           </h3>
           <button
             onClick={onClose}

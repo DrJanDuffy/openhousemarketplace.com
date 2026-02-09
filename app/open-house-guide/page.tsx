@@ -2,21 +2,21 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import FAQAccordion from '@/components/FAQAccordion'
-import OpenHouseGuideForm from '@/components/OpenHouseGuideForm'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
+import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 
 export const metadata: Metadata = {
-  title: 'Open House Guide 2025 | What Buyers Need to Know | Summerlin Las Vegas',
+  title: 'Open House Guide 2026 | What Buyers Need to Know | Summerlin Las Vegas',
   description:
-    'New NAR rules changed open houses in 2025. Learn what forms to expect, your rights as a buyer, and how to get the most from Summerlin open houses with Dr. Jan Duffy.',
+    'NAR rules shape how open houses work in 2026. Learn what forms to expect, your rights as a buyer, and how to get the most from Summerlin open houses with Dr. Jan Duffy.',
   robots: { index: true, follow: true },
   alternates: {
     canonical: 'https://www.openhousemarketplace.com/open-house-guide',
   },
   openGraph: {
-    title: 'Open House Guide 2025 | What Buyers Need to Know | Summerlin Las Vegas',
+    title: 'Open House Guide 2026 | What Buyers Need to Know | Summerlin Las Vegas',
     description:
-      'New NAR rules changed open houses in 2025. Learn what forms to expect, your rights as a buyer, and how to get the most from Summerlin open houses with Dr. Jan Duffy.',
+      'NAR rules shape how open houses work in 2026. Learn what forms to expect, your rights as a buyer, and how to get the most from Summerlin open houses with Dr. Jan Duffy.',
     url: 'https://www.openhousemarketplace.com/open-house-guide',
   },
   twitter: {
@@ -61,7 +61,7 @@ export default function OpenHouseGuidePage() {
         <section className="bg-gradient-to-b from-blue-600 to-blue-700 text-white py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              What to Expect at a Summerlin Open House in 2025
+              What to Expect at a Summerlin Open House in 2026
             </h1>
             <p className="text-xl text-blue-100 mb-8">
               New rules mean more transparency and better protection for buyers
@@ -153,35 +153,28 @@ export default function OpenHouseGuidePage() {
         {/* CTA Section */}
         <section className="py-16 px-4 bg-white">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Get Your Free Open House Touring Guide
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+              Get your free guide & schedule a consultation
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Get Your Free Open House Touring Guide
-                </h3>
-                <p className="text-gray-600 mb-4 text-sm">
-                  Enter your email and we&apos;ll send you a simple guide to touring Summerlin open
-                  houses in 2025.
-                </p>
-                <OpenHouseGuideForm />
-              </div>
-              <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 flex flex-col justify-center">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Schedule a Buyer Consultation
-                </h3>
-                <p className="text-gray-600 mb-4 text-sm">
-                  Book a time with Dr. Jan Duffy to discuss your home search and how she can
-                  represent you.
-                </p>
-                <CalendlyPopupLink className="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                  Schedule a Buyer Consultation
-                </CalendlyPopupLink>
-              </div>
+            <p className="text-gray-600 text-center mb-8 max-w-xl mx-auto">
+              Schedule a free consultation with Dr. Jan Duffy and we&apos;ll send you the Open House Touring Guide. Choose a time below—no form required.
+            </p>
+            <CalendlyPopupLink className="flex items-center justify-center gap-2 w-full max-w-sm mx-auto mb-8 bg-[#0069ff] hover:bg-[#0052cc] text-white px-6 py-4 rounded-xl font-bold text-lg transition-colors">
+              Schedule a private showing
+            </CalendlyPopupLink>
+            <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
+              <CalendlyInlineWidget
+                minWidth={320}
+                height={700}
+                className="rounded-lg overflow-hidden w-full"
+              />
             </div>
           </div>
         </section>
+
+        <p className="text-center text-sm text-gray-500 py-8">
+          Enjoyed our guide? <Link href="/review-us" className="text-blue-600 hover:underline font-medium">Leave a review on Google</Link>
+        </p>
       </div>
     </>
   )

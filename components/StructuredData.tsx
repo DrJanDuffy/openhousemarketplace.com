@@ -4,10 +4,11 @@ import { usePathname } from 'next/navigation'
 
 interface StructuredDataProps {
   type: 'RealEstateAgent' | 'RealEstateListing' | 'Organization' | 'WebPage' | 'BreadcrumbList' | 'FAQPage' | 'LocalBusiness' | 'Place' | 'ItemList'
+  /** For RealEstateListing: pass virtualTour (URL or MediaObject) and/or video (URL or VideoObject) when applicable. */
   data?: Record<string, any>
 }
 
-// Google 2025 SEO: Add NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL in env for sameAs (GBP link)
+// Google 2026 SEO: Add NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL in env for sameAs (GBP link)
 const sameAsUrls: string[] = [
   ...(typeof process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL === 'string'
     ? [process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL]
@@ -63,6 +64,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
       break
 
     case 'RealEstateListing':
+      // data may include virtualTour (URL or MediaObject) and video (URL or VideoObject) per Schema.org
       structuredData = {
         '@context': 'https://schema.org',
         '@type': 'RealEstateListing',
@@ -98,7 +100,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         name: data.name || 'Summerlin Real Estate',
         description: data.description || 'Real estate services in Summerlin West',
         inLanguage: 'en-US',
-        // E-E-A-T: author/creator for expertise and trust (Google 2025)
+        // E-E-A-T: author/creator for expertise and trust (Google 2026)
         author: {
           '@type': 'Person',
           name: 'Dr. Jan Duffy',
