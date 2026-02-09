@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
@@ -79,21 +80,34 @@ export default function ContactPage() {
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-          <p className="text-gray-700 leading-relaxed text-lg mb-6">
-            Looking to buy or sell a home in Summerlin West? Dr. Jan Duffy is your trusted Las Vegas real estate 
-            agent with over 15 years of experience helping clients navigate the Summerlin real estate market. 
-            Whether you&apos;re searching for luxury homes in The Ridges, family-friendly properties in Summerlin Centre, 
-            <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline mx-1">Summerlin open houses</Link> this weekend, 
-            or investment opportunities throughout Las Vegas, Dr. Duffy provides personalized service tailored to 
-            your unique real estate goals.
-          </p>
-          <p className="text-gray-700 leading-relaxed text-lg">
-            As a leading Summerlin West real estate agent, Dr. Duffy specializes in luxury homes, new construction 
-            properties, and investment real estate. Her deep knowledge of the Las Vegas market, combined with 
-            cutting-edge technology and proven marketing strategies, ensures successful transactions for both buyers 
-            and sellers. <CalendlyPopupLink className="text-blue-600 font-semibold hover:underline">Schedule a free consultation</CalendlyPopupLink> or 
-            contact us today to discover why thousands of clients trust Dr. Jan Duffy with their real estate needs.
-          </p>
+          <div className="flex flex-col sm:flex-row gap-6 items-start mb-6">
+            <div className="shrink-0 w-40 h-40 rounded-xl overflow-hidden bg-gray-100">
+              <Image
+                src="/images/team/dr-jan-duffy.jpg"
+                alt="Dr. Jan Duffy - Summerlin West real estate agent"
+                width={160}
+                height={160}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="min-w-0">
+              <p className="text-gray-700 leading-relaxed text-lg mb-4">
+                Looking to buy or sell a home in Summerlin West? Dr. Jan Duffy is your trusted Las Vegas real estate 
+                agent with over 15 years of experience helping clients navigate the Summerlin real estate market. 
+                Whether you&apos;re searching for luxury homes in The Ridges, family-friendly properties in Summerlin Centre, 
+                <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline mx-1">Summerlin open houses</Link> this weekend, 
+                or investment opportunities throughout Las Vegas, Dr. Duffy provides personalized service tailored to 
+                your unique real estate goals.
+              </p>
+              <p className="text-gray-700 leading-relaxed text-lg">
+                As a leading Summerlin West real estate agent, Dr. Duffy specializes in luxury homes, new construction 
+                properties, and investment real estate. Her deep knowledge of the Las Vegas market, combined with 
+                cutting-edge technology and proven marketing strategies, ensures successful transactions for both buyers 
+                and sellers. <CalendlyPopupLink className="text-blue-600 font-semibold hover:underline">Schedule a free consultation</CalendlyPopupLink> or 
+                contact us today to discover why thousands of clients trust Dr. Jan Duffy with their real estate needs.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">

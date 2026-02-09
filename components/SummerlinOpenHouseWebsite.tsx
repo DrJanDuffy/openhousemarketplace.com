@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import OptimizedImage from './OptimizedImage'
 import { Calendar, Home, Star, Phone, Award } from 'lucide-react'
 import RealScoutWidget from './RealScoutWidget'
@@ -14,6 +15,7 @@ const SummerlinOpenHouseWebsite = () => {
   const [showExitPopup, setShowExitPopup] = useState(false)
   const [hasShownExitPopup, setHasShownExitPopup] = useState(false)
   const [isPageReady, setIsPageReady] = useState(false)
+  const [heroPhotoError, setHeroPhotoError] = useState(false)
   // Buyer tools moved into BuyerToolsSection
 
   // Delay page ready state to ensure Google Analytics loads first
@@ -63,8 +65,21 @@ const SummerlinOpenHouseWebsite = () => {
              {/* Left Column - Content */}
              <div className="text-left">
                <div className="flex items-center mb-6">
-                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mr-4">
-                   <Home className="h-8 w-8 text-white" />
+                 <div className="w-16 h-16 rounded-full overflow-hidden bg-white/20 shrink-0 mr-4 ring-2 ring-white/30">
+                   {!heroPhotoError ? (
+                     <Image
+                       src="/images/team/dr-jan-duffy.jpg"
+                       alt=""
+                       width={64}
+                       height={64}
+                       className="w-full h-full object-cover"
+                       onError={() => setHeroPhotoError(true)}
+                     />
+                   ) : (
+                     <div className="w-full h-full flex items-center justify-center">
+                       <Home className="h-8 w-8 text-white" aria-hidden />
+                     </div>
+                   )}
                  </div>
                  <div>
                    <p className="text-blue-200 text-sm font-medium">DR. JAN DUFFY</p>

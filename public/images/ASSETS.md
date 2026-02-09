@@ -77,6 +77,8 @@ Every folder under `public/images/` should contain **hyper-local** (Summerlin We
 
 **Add:** Dr. Jan Duffy headshot, team photos. Use in about page, footer, or schema.
 
+**In use:** `dr-jan-duffy.jpg` – headshot used on About page, Contact page, and homepage hero. Add this file to `public/images/team/` for the photo to display.
+
 ---
 
 ## Scripts / references

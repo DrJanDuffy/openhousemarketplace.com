@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { Award, Home, Users, TrendingUp, Heart } from 'lucide-react'
 import StructuredData from '@/components/StructuredData'
@@ -82,14 +83,27 @@ export default function AboutPage() {
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 py-12">
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Professional Background & Real Estate Expertise</h2>
-          <p className="text-gray-700 leading-relaxed mb-4 text-lg">
+          <div className="flex flex-col sm:flex-row gap-6 items-start mb-6">
+            <div className="shrink-0 w-48 h-48 rounded-xl overflow-hidden bg-gray-100">
+              <Image
+                src="/images/team/dr-jan-duffy.jpg"
+                alt="Dr. Jan Duffy - Summerlin West real estate agent"
+                width={192}
+                height={192}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="min-w-0">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Professional Background & Real Estate Expertise</h2>
+              <p className="text-gray-700 leading-relaxed text-lg">
             Dr. Jan Duffy brings over 15 years of expertise and dedication to the Summerlin West real estate market. 
             As a licensed Las Vegas real estate agent with an extensive track record of success, she has established 
-            herself as one of the most trusted real estate professionals in Nevada's premier master-planned community. 
+            herself as one of the most trusted real estate professionals in Nevada&apos;s premier master-planned community. 
             Her deep understanding of the local market, combined with a passion for helping clients achieve their real 
             estate goals, makes her the ideal choice for anyone buying or selling property in Summerlin West.
-          </p>
+              </p>
+            </div>
+          </div>
           <p className="text-gray-700 leading-relaxed mb-4">
             Specializing in luxury homes, new construction properties, and investment real estate, Dr. Duffy provides 
             personalized service tailored to each client&apos;s unique needs. She also helps buyers find and tour Summerlin 
