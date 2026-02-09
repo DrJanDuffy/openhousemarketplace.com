@@ -7,6 +7,14 @@ export const metadata: Metadata = {
   title: 'Amenity Map | Nearby Restaurants, Parks, Parking & More | Summerlin',
   description: 'Explore nearby amenities in Summerlin and Las Vegas: restaurants, parks, parking, cafes, grocery stores, gyms, pharmacies, and more. Interactive map powered by Google Maps.',
   keywords: 'Summerlin amenities, nearby restaurants Summerlin, parks Las Vegas, parking Summerlin, cafes grocery gym pharmacy map',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   alternates: {
     canonical: 'https://www.openhousemarketplace.com/amenity-map',
   },
@@ -14,6 +22,7 @@ export const metadata: Metadata = {
     title: 'Amenity Map | Nearby Places in Summerlin',
     description: 'Find restaurants, parks, parking, cafes, and more near Summerlin and Las Vegas.',
     url: 'https://www.openhousemarketplace.com/amenity-map',
+    images: ['/images/og/og-image.jpg'],
   },
 }
 
@@ -70,10 +79,46 @@ export default function AmenityMapPage() {
 
           <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-100">
             <p className="text-sm text-gray-700">
-              <strong>Tip:</strong> Get started at no cost with Google Maps Platform. This map shows
-              places near the Summerlin area; adjust the filters above to see different types of
-              amenities.
+              <strong>Tip:</strong> This map shows places near Summerlin. Use the filters above to
+              switch between restaurants, parks, cafes, grocery, gyms, and more. Click a marker for
+              the place name.
             </p>
+          </div>
+
+          <div className="mt-8 p-4 rounded-lg border border-gray-200 bg-gray-50">
+            <h2 className="text-lg font-semibold text-gray-900 mb-2">Dr. Jan Duffy Real Estate</h2>
+            <p className="text-sm text-gray-700 mb-2">
+              Summerlin West, Las Vegas, NV 89135
+            </p>
+            <p className="text-sm mb-3">
+              <a href="tel:+17022003422" className="text-blue-600 font-medium hover:underline">
+                (702) 200-3422
+              </a>
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="tel:+17022003422"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
+              >
+                Call
+              </a>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=36.1699,-115.3301"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
+              >
+                Directions
+              </a>
+              <a
+                href="https://www.google.com/maps/place/?q=Dr+Jan+Duffy+Real+Estate+Summerlin+West+Las+Vegas+NV&action=reviews"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
+              >
+                View Google Reviews
+              </a>
+            </div>
           </div>
         </div>
       </main>

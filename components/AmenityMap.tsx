@@ -18,14 +18,20 @@ const AMENITY_TYPES: { type: string; label: string; icon: React.ReactNode }[] = 
 const MAP_CENTER = { lat: 36.16, lng: -115.13 }
 const MAP_RADIUS_M = 2500
 const MAP_ZOOM = 14
+const MAP_LOAD_TIMEOUT_MS = 15000
 
 export default function AmenityMap() {
   const mapRef = useRef<HTMLDivElement>(null)
   const [map, setMap] = useState<unknown>(null)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [mapLoadError, setMapLoadError] = useState<string | null>(null)
+  const [loadTrigger, setLoadTrigger] = useState(0)
   const [selectedTypes, setSelectedTypes] = useState<Set<string>>(new Set(['restaurant', 'park', 'cafe']))
+  const [noResultsForCurrentSelection, setNoResultsForCurrentSelection] = useState(false)
   const markersRef = useRef<unknown[]>([])
   const infoWindowRef = useRef<unknown>(null)
+  const loadTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const loadedSuccessRef = useRef(false)
 
   const toggleType = (type: string) => {
     setSelectedTypes((prev) => {
@@ -36,23 +42,23 @@ export default function AmenityMap() {
     })
   }
 
+  const handleRetry = () => {
+    setMapLoadError(null)
+    setLoadTrigger((t) => t + 1)
+  }
+
   useEffect(() => {
-    const loadMaps = () => {
-      if (typeof window === 'undefined') return
-      if (window.google?.maps) {
-        initMap()
-        return
-      }
-      const script = document.createElement('script')
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}&libraries=places`
-      script.async = true
-      script.defer = true
-      script.onload = initMap
-      document.head.appendChild(script)
-    }
+    if (typeof window === 'undefined') return
+    setMapLoadError(null)
+    if (loadTrigger > 0) setIsLoaded(false)
 
     const initMap = () => {
       if (!mapRef.current || !window.google?.maps) return
+      loadedSuccessRef.current = true
+      if (loadTimeoutRef.current) {
+        clearTimeout(loadTimeoutRef.current)
+        loadTimeoutRef.current = null
+      }
       const g = window.google.maps
       const mapInstance = new g.Map(mapRef.current, {
         center: MAP_CENTER,
@@ -66,11 +72,46 @@ export default function AmenityMap() {
       setIsLoaded(true)
     }
 
+    const loadMaps = () => {
+      if (window.google?.maps) {
+        initMap()
+        return
+      }
+      const script = document.createElement('script')
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}&libraries=places`
+      script.async = true
+      script.defer = true
+      script.onload = initMap
+      script.onerror = () => {
+        setMapLoadError('Map couldn\'t load. Check your connection or try again later.')
+        if (loadTimeoutRef.current) {
+          clearTimeout(loadTimeoutRef.current)
+          loadTimeoutRef.current = null
+        }
+      }
+      document.head.appendChild(script)
+    }
+
+    loadedSuccessRef.current = false
     loadMaps()
-  }, [])
+    loadTimeoutRef.current = setTimeout(() => {
+      loadTimeoutRef.current = null
+      if (!loadedSuccessRef.current) {
+        setMapLoadError('Map is taking longer than usual. Check your connection or try again.')
+      }
+    }, MAP_LOAD_TIMEOUT_MS)
+
+    return () => {
+      if (loadTimeoutRef.current) {
+        clearTimeout(loadTimeoutRef.current)
+        loadTimeoutRef.current = null
+      }
+    }
+  }, [loadTrigger])
 
   useEffect(() => {
     if (!map || !isLoaded || !mapRef.current || !window.google?.maps) return
+    setNoResultsForCurrentSelection(false)
     const g = window.google.maps
     const latLng = new g.LatLng(MAP_CENTER.lat, MAP_CENTER.lng)
 
@@ -79,7 +120,12 @@ export default function AmenityMap() {
     })
     markersRef.current = []
     const iw = infoWindowRef.current as { close?: () => void } | null
-    if (iw?.close) iw.close()
+    if (iw?.close) {
+      iw.close()
+      if (window.google?.maps?.event?.clearInstanceListeners) {
+        window.google.maps.event.clearInstanceListeners(iw as unknown)
+      }
+    }
 
     const bounds = new g.LatLngBounds()
     let pending = selectedTypes.size
@@ -104,7 +150,10 @@ export default function AmenityMap() {
         (results, status) => {
           if (status !== 'OK' || !results) {
             pending -= 1
-            if (pending === 0 && markersRef.current.length > 0) mapInstance.fitBounds(bounds)
+            if (pending === 0) {
+              if (markersRef.current.length > 0) mapInstance.fitBounds(bounds)
+              else if (selectedTypes.size > 0) setNoResultsForCurrentSelection(true)
+            }
             return
           }
           const label = AMENITY_TYPES.find((a) => a.type === placeType)?.label || placeType
@@ -127,7 +176,10 @@ export default function AmenityMap() {
             bounds.extend(loc)
           })
           pending -= 1
-          if (pending === 0 && markersRef.current.length > 0) mapInstance.fitBounds(bounds)
+          if (pending === 0) {
+            if (markersRef.current.length > 0) mapInstance.fitBounds(bounds)
+            else if (selectedTypes.size > 0) setNoResultsForCurrentSelection(true)
+          }
         }
       )
     })
@@ -165,12 +217,38 @@ export default function AmenityMap() {
         className="w-full h-[480px] md:h-[560px] rounded-xl border border-gray-200 shadow-lg bg-gray-100"
         aria-label="Map showing nearby amenities"
       />
-      {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-xl">
+      {noResultsForCurrentSelection && (
+        <p className="mt-3 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2" role="status">
+          No places found in this area. Try different types or zoom out.
+        </p>
+      )}
+      {!isLoaded && !mapLoadError && (
+        <div
+          className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-xl"
+          role="status"
+          aria-live="polite"
+          aria-label="Loading map"
+        >
           <div className="text-center">
             <div className="animate-spin rounded-full h-10 w-10 border-2 border-blue-600 border-t-transparent mx-auto mb-3" />
             <p className="text-sm text-gray-600">Loading map...</p>
           </div>
+        </div>
+      )}
+      {mapLoadError && (
+        <div
+          className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 rounded-xl p-6"
+          role="alert"
+          aria-live="assertive"
+        >
+          <p className="text-sm text-gray-700 text-center mb-4">{mapLoadError}</p>
+          <button
+            type="button"
+            onClick={handleRetry}
+            className="px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Retry
+          </button>
         </div>
       )}
     </div>
