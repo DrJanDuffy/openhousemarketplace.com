@@ -40,15 +40,15 @@ export default function RealScoutSearchCard() {
 
       <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200 mt-6">
         <div className="text-center">
-          <div className="text-2xl font-bold text-blue-600">6</div>
+          <div className="text-lg sm:text-2xl font-bold text-blue-600">6</div>
           <div className="text-xs text-gray-600">Open Houses</div>
         </div>
         <div className="text-center">
-          <div className="text-2xl font-bold text-blue-600">14</div>
+          <div className="text-lg sm:text-2xl font-bold text-blue-600">14</div>
           <div className="text-xs text-gray-600">Avg Days</div>
         </div>
         <div className="text-center">
-          <div className="text-2xl font-bold text-blue-600">98%</div>
+          <div className="text-lg sm:text-2xl font-bold text-blue-600">98%</div>
           <div className="text-xs text-gray-600">Success Rate</div>
         </div>
       </div>
@@ -58,7 +58,7 @@ export default function RealScoutSearchCard() {
           href="https://drjanduffy.realscout.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+          className="inline-block py-2.5 text-sm text-blue-600 hover:text-blue-700 font-medium"
         >
           Advanced Search Options →
         </a>

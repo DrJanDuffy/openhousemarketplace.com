@@ -52,14 +52,14 @@ export default function FeaturedOpenHouses() {
   }
 
   return (
-    <section className="py-16">
+    <section className="py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <div className="mb-4 inline-flex items-center rounded-full bg-red-100 px-4 py-2 text-sm font-medium text-red-800">
             <Calendar className="mr-2 h-4 w-4" />
             This Weekend Only - Don&apos;t Miss Out!
           </div>
-          <h2 className="mb-4 text-3xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl sm:text-3xl font-bold text-gray-900">
             This Weekend&apos;s Featured Open Houses
           </h2>
           <p className="mb-6 text-lg text-gray-600">
@@ -90,7 +90,7 @@ export default function FeaturedOpenHouses() {
             <button
               type="button"
               onClick={() => setShowMap((v) => !v)}
-              className="rounded-xl border border-gray-200 bg-white px-6 py-3 font-semibold text-gray-700 shadow-md transition-all duration-200 hover:border-gray-300 hover:bg-gray-50"
+              className="min-h-[44px] inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-6 py-3 font-semibold text-gray-700 shadow-md transition-all duration-200 hover:border-gray-300 hover:bg-gray-50"
             >
               {showMap ? 'Show list' : 'Show map'}
             </button>
@@ -102,11 +102,11 @@ export default function FeaturedOpenHouses() {
                   '_blank'
                 )
               }
-              className="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg"
+              className="min-h-[44px] inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg"
             >
               View All Listings
             </button>
-            <CalendlyPopupLink className="inline-block rounded-xl border border-gray-200 bg-gray-100 px-6 py-3 font-semibold text-gray-700 transition-all duration-200 hover:border-gray-300 hover:bg-gray-200">
+            <CalendlyPopupLink className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-gray-200 bg-gray-100 px-6 py-3 font-semibold text-gray-700 transition-all duration-200 hover:border-gray-300 hover:bg-gray-200">
               Schedule a private showing
             </CalendlyPopupLink>
           </div>

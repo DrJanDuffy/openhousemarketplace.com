@@ -57,9 +57,9 @@ const SummerlinOpenHouseWebsite = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-       <section className="bg-gradient-to-r from-blue-600 to-red-600 text-white py-16 rounded-b-3xl">
+       <section className="bg-gradient-to-r from-blue-600 to-red-600 text-white py-10 sm:py-12 lg:py-16 rounded-b-3xl">
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
              {/* Left Column - Content */}
              <div className="text-left">
                <div className="flex items-center mb-6">
@@ -72,10 +72,10 @@ const SummerlinOpenHouseWebsite = () => {
                  </div>
                </div>
                
-               <h2 className="text-5xl font-bold mb-6 leading-tight">
+               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                  Your Local Research-Driven Expert for Summerlin & Las Vegas Open Houses
                </h2>
-               <p className="text-xl mb-4 text-blue-100">
+               <p className="text-base sm:text-xl mb-4 text-blue-100">
                  Get instant access to this weekend&apos;s premium open houses with personalized alerts and market insights
                </p>
                <p className="text-base mb-8 text-blue-100">
@@ -97,7 +97,7 @@ const SummerlinOpenHouseWebsite = () => {
                {/* Primary CTA: RealScout / Search Listings */}
                <Link
                  href="/tour/mls"
-                 className="inline-block bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                 className="inline-flex items-center justify-center min-h-[44px] bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200"
                >
                  Search Summerlin Listings
                </Link>
@@ -113,10 +113,10 @@ const SummerlinOpenHouseWebsite = () => {
        </section>
 
       {/* RealScout Live Listings – #1 lead gen, above the fold */}
-      <section className="bg-gray-50 py-12">
+      <section className="bg-gray-50 py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Live Summerlin West Listings – Your #1 Home Search</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Live Summerlin West Listings – Your #1 Home Search</h2>
             <p className="text-lg text-gray-600">
               Browse current properties for sale in Summerlin West with Dr. Jan Duffy&apos;s home search
             </p>
@@ -130,7 +130,7 @@ const SummerlinOpenHouseWebsite = () => {
       </section>
 
       {/* Market teaser */}
-      <section className="bg-white py-10">
+      <section className="bg-white py-8 sm:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gray-50 rounded-xl p-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
@@ -162,10 +162,10 @@ const SummerlinOpenHouseWebsite = () => {
        <FeaturedOpenHouses />
 
       {/* Neighborhood Spotlight */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-10 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Summerlin West Neighborhoods
             </h2>
             <p className="text-lg text-gray-600">
@@ -246,7 +246,7 @@ const SummerlinOpenHouseWebsite = () => {
       </section>
 
       {/* Short testimonial strip */}
-      <section className="bg-gray-50 py-10">
+      <section className="bg-gray-50 py-8 sm:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-lg text-gray-700 italic max-w-2xl mx-auto mb-2">
             &ldquo;Dr. Jan found us the perfect home in The Ridges within 2 weeks. Her market knowledge is incredible!&rdquo; — Sarah & Mike Johnson
@@ -258,13 +258,13 @@ const SummerlinOpenHouseWebsite = () => {
       </section>
 
       {/* Compact RealScout CTA band */}
-      <section className="bg-blue-600 text-white py-10">
+      <section className="bg-blue-600 text-white py-8 sm:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-2xl font-bold mb-2">Never miss your dream home</h3>
           <p className="text-blue-100 mb-4">Get instant alerts for new listings, price drops, and open houses in Summerlin West.</p>
           <Link
             href="/tour/mls"
-            className="inline-block bg-white text-blue-600 hover:bg-gray-50 px-6 py-3 rounded-lg font-bold transition-colors"
+            className="inline-flex items-center justify-center min-h-[44px] bg-white text-blue-600 hover:bg-gray-50 px-6 py-3 rounded-lg font-bold transition-colors"
           >
             Search Listings & Get Alerts
           </Link>
@@ -272,7 +272,7 @@ const SummerlinOpenHouseWebsite = () => {
       </section>
 
       {/* Compact contact strip */}
-      <section className="bg-gray-900 text-white py-12">
+      <section className="bg-gray-900 text-white py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-xl font-bold mb-2">Work with Dr. Jan Duffy</h3>
           <p className="text-gray-300 mb-4 max-w-xl mx-auto">
@@ -280,11 +280,11 @@ const SummerlinOpenHouseWebsite = () => {
           </p>
           <p className="text-gray-400 text-sm mb-4">{GBP.address.street}, {GBP.address.locality}, {GBP.address.region} {GBP.address.postalCode}</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href={`tel:${GBP.phoneE164}`} className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-lg font-medium">
+            <a href={`tel:${GBP.phoneE164}`} className="inline-flex items-center justify-center min-h-[44px] gap-2 bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-lg font-medium">
               <Phone className="h-4 w-4" aria-hidden />
               Call {GBP.phone}
             </a>
-            <Link href="/book-tour" className="inline-flex items-center gap-2 bg-[#0069ff] hover:bg-[#0052cc] px-5 py-2.5 rounded-lg font-medium text-white">
+            <Link href="/book-tour" className="inline-flex items-center justify-center min-h-[44px] gap-2 bg-[#0069ff] hover:bg-[#0052cc] px-5 py-2.5 rounded-lg font-medium text-white">
               <Calendar className="h-4 w-4" aria-hidden />
               Schedule a showing
             </Link>

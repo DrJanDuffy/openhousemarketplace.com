@@ -56,6 +56,10 @@ const RealScoutWidget: React.FC<RealScoutWidgetProps> = ({
         --rs-listing-divider-color: rgb(101, 141, 172); 
         width: 100%; 
       }
+      @media (max-width: 640px) {
+        realscout-office-listings { max-width: 100%; }
+        .realScout-widget-container { overflow-x: hidden; }
+      }
     `
     if (!document.getElementById(style.id)) {
       document.head.appendChild(style)

@@ -39,7 +39,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0 text-red-500" aria-hidden />
-                <a href={BUSINESS.phoneLink} className="hover:text-white">{BUSINESS.phone}</a>
+                <a href={BUSINESS.phoneLink} className="min-h-[44px] inline-flex items-center hover:text-white">{BUSINESS.phone}</a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 shrink-0 text-red-500 mt-0.5" aria-hidden />
@@ -50,7 +50,7 @@ export default function Footer() {
               <li><Link href="/book-tour" className="hover:text-white transition-colors">Schedule a private showing</Link></li>
               <li><Link href="/schedule-consultation" className="hover:text-white transition-colors">Schedule a free consultation</Link></li>
               <li>
-                <CalendlyPopupLink className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-lg bg-[#0069ff] text-white hover:bg-[#0052cc] font-semibold text-sm transition-colors">
+                <CalendlyPopupLink className="inline-flex min-h-[44px] items-center justify-center gap-2 mt-2 px-4 py-2 rounded-lg bg-[#0069ff] text-white hover:bg-[#0052cc] font-semibold text-sm transition-colors">
                   <Calendar className="h-4 w-4" aria-hidden />
                   Schedule a private showing
                 </CalendlyPopupLink>

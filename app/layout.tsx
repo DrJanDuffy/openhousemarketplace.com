@@ -126,7 +126,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body>
+      <body className="overflow-x-hidden">
         <WebSiteSchema />
         <GoogleEnhancement />
         <CalendlyBadgeWidget />

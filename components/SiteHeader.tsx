@@ -73,12 +73,12 @@ export default function SiteHeader() {
             </a>
           </nav>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button – 44px min touch target */}
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100"
-            aria-expanded={mobileOpen}
+            className="md:hidden flex items-center justify-center min-h-[44px] min-w-[44px] rounded-lg text-gray-600 hover:bg-gray-100"
+            aria-expanded={mobileOpen ? 'true' : 'false'}
             aria-label="Toggle menu"
           >
             <Menu className="h-6 w-6" />
