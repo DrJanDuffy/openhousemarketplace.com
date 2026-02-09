@@ -18,6 +18,9 @@ export interface StoreLocation {
   directionsUrl: string
 }
 
+// Map center and pin for Summerlin West, Las Vegas, NV 89135
+const SUMMERLIN_WEST_89135 = { lat: 36.1792, lng: -115.2896 }
+
 export const storeLocations: StoreLocation[] = [
   {
     id: 'summerlin-west',
@@ -26,11 +29,11 @@ export const storeLocations: StoreLocation[] = [
     city: 'Las Vegas',
     state: 'NV',
     zip: '89135',
-    lat: 36.1699,
-    lng: -115.3301,
+    lat: SUMMERLIN_WEST_89135.lat,
+    lng: SUMMERLIN_WEST_89135.lng,
     phone: '(702) 200-3422',
     hours: 'Monday–Friday 9am–6pm, Saturday–Sunday 10am–4pm. By appointment outside hours.',
-    directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=36.1699,-115.3301',
+    directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=Summerlin+West,+Las+Vegas,+NV+89135`,
   },
   // Add more locations here, e.g.:
   // {

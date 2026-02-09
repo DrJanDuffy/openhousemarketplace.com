@@ -17,8 +17,9 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
   const infoWindowRef = useRef<unknown>(null)
 
   const firstLocation = locations[0]
-  const defaultCenter = firstLocation ? { lat: firstLocation.lat, lng: firstLocation.lng } : { lat: 36.1699, lng: -115.3301 }
-  const defaultZoom = locations.length > 1 ? 11 : 15
+  // Fallback center: Summerlin West, Las Vegas, NV 89135
+  const defaultCenter = firstLocation ? { lat: firstLocation.lat, lng: firstLocation.lng } : { lat: 36.1792, lng: -115.2896 }
+  const defaultZoom = locations.length > 1 ? 11 : 14
 
   useEffect(() => {
     const loadMaps = () => {

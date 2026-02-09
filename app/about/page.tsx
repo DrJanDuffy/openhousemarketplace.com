@@ -5,8 +5,12 @@ import dynamic from 'next/dynamic'
 import { Award, Home, Users, TrendingUp, Heart } from 'lucide-react'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
-import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
+
+const CalendlyInlineWidget = dynamic(
+  () => import('@/components/CalendlyInlineWidget'),
+  { ssr: false, loading: () => <div className="h-[700px] max-w-2xl mx-auto rounded-xl bg-gray-100 animate-pulse" aria-hidden /> }
+)
 
 const GoogleBusinessProfile = dynamic(
   () => import('@/components/GoogleBusinessProfile'),
@@ -17,7 +21,7 @@ export const revalidate = 86400 // ISR: revalidate daily
 
 export const metadata: Metadata = {
   title: 'About Dr. Jan Duffy | Top Summerlin West Real Estate Agent',
-  description: 'Learn about Dr. Jan Duffy, your trusted real estate expert in Summerlin West. With 15+ years of experience, she has helped hundreds of clients buy and sell luxury homes in Las Vegas\' premier master-planned community. Discover why she\'s the leading Las Vegas realtor.',
+  description: 'Learn about Dr. Jan Duffy, your trusted real estate expert in Summerlin West. With 30+ years of experience, she has helped hundreds of clients buy and sell luxury homes in Las Vegas\' premier master-planned community. Discover why she\'s the leading Las Vegas realtor.',
   keywords: 'Dr. Jan Duffy, Summerlin realtor, Las Vegas real estate agent, Summerlin open houses, luxury home specialist, Summerlin West real estate expert, top real estate agent Las Vegas, real estate professional Summerlin',
   robots: {
     index: true,
@@ -33,17 +37,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Dr. Jan Duffy | Summerlin West Real Estate Expert',
     description: 'Meet Dr. Jan Duffy, your trusted real estate expert in Summerlin West, Las Vegas.',
-    images: ['/images/about-hero.jpg'],
+    images: [{ url: 'https://www.openhousemarketplace.com/images/dr-jan-duffy.jpg', width: 1200, height: 630, alt: 'Dr. Jan Duffy - Summerlin West Real Estate Agent' }],
     url: 'https://www.openhousemarketplace.com/about',
   },
 }
 
 const ABOUT_FAQS = [
-  { question: 'How long has Dr. Jan Duffy been a real estate agent?', answer: 'Dr. Jan Duffy has been a licensed real estate agent for over 15 years, specializing in Summerlin West and the greater Las Vegas area. Her extensive experience and deep market knowledge have helped hundreds of clients successfully buy and sell homes.' },
+  { question: 'How long has Dr. Jan Duffy been a real estate agent?', answer: 'Dr. Jan Duffy has been a licensed real estate agent for over 30 years, specializing in Summerlin West and the greater Las Vegas area. Her extensive experience and deep market knowledge have helped hundreds of clients successfully buy and sell homes.' },
   { question: 'What makes Dr. Jan Duffy different from other real estate agents?', answer: 'Dr. Jan Duffy combines her professional background with specialized expertise in Summerlin West real estate. She offers personalized service, deep market knowledge, access to exclusive listings through her home search, and a commitment to building lasting relationships with clients rather than treating them as transactions.' },
   { question: 'What neighborhoods does Dr. Jan Duffy specialize in?', answer: 'Dr. Jan Duffy specializes in all neighborhoods throughout Summerlin West, including The Ridges, Red Rock Country Club, Summerlin Centre, Sun City Summerlin, The Trails, Willows, Mesa Ridge, Siena, and Regency. She has extensive knowledge of each community\'s unique characteristics, market trends, and amenities.' },
   { question: 'Does Dr. Jan Duffy work with luxury home buyers and sellers?', answer: 'Yes, Dr. Jan Duffy has extensive experience with luxury real estate in Summerlin, including custom estates, golf course properties, and exclusive gated communities. She understands the unique needs of luxury buyers and sellers and has access to high-end listings throughout the area.' },
-  { question: 'What credentials does Dr. Jan Duffy have?', answer: 'Dr. Jan Duffy is a licensed real estate agent with over 15 years of experience. She has specialized training in luxury homes, new construction, investment properties, and the Summerlin West real estate market. Her professional credentials and certifications demonstrate her commitment to excellence in real estate services.' },
+  { question: 'What credentials does Dr. Jan Duffy have?', answer: 'Dr. Jan Duffy is a licensed real estate agent with over 30 years of experience. She has specialized training in luxury homes, new construction, investment properties, and the Summerlin West real estate market. Her professional credentials and certifications demonstrate her commitment to excellence in real estate services.' },
   { question: 'How does Dr. Jan Duffy help first-time homebuyers?', answer: 'Dr. Jan Duffy provides comprehensive guidance for first-time homebuyers, including education about the home buying process, assistance with mortgage pre-approval, neighborhood tours, and step-by-step support throughout the entire transaction. She ensures first-time buyers feel confident and informed at every stage.' },
   { question: 'Does Dr. Jan Duffy help buyers find open houses in Summerlin?', answer: 'Yes. Dr. Jan Duffy helps buyers find and tour Summerlin open houses. Visit our Open Houses page for this weekend\'s home tours, or use her home search to search listings and filter by open house dates. She can also set up open house alerts so you\'re notified when new Summerlin open houses are added.' },
 ]
@@ -80,12 +84,13 @@ export default function AboutPage() {
                 width={192}
                 height={192}
                 className="w-full h-full object-cover"
+                priority
               />
             </div>
             <div className="min-w-0">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Professional Background & Real Estate Expertise</h2>
               <p className="text-gray-700 leading-relaxed text-lg">
-            Dr. Jan Duffy brings over 15 years of expertise and dedication to the Summerlin West real estate market. 
+            Dr. Jan Duffy brings over 30 years of expertise and dedication to the Summerlin West real estate market. 
             As a licensed Las Vegas real estate agent with an extensive track record of success, she has established 
             herself as one of the most trusted real estate professionals in Nevada&apos;s premier master-planned community. 
             Her deep understanding of the local market, combined with a passion for helping clients achieve their real 
@@ -118,7 +123,7 @@ export default function AboutPage() {
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <Award className="h-10 w-10 text-blue-600 mx-auto mb-4" />
-            <div className="text-3xl font-bold text-gray-900 mb-2">15+</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">30+</div>
             <div className="text-gray-600">Years Experience</div>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 text-center">

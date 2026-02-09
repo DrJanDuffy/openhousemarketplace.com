@@ -66,15 +66,16 @@ const SummerlinOpenHouseWebsite = () => {
              <div className="text-left">
                <div className="flex items-center mb-6">
                  <div className="w-16 h-16 rounded-full overflow-hidden bg-white/20 shrink-0 mr-4 ring-2 ring-white/30">
-                   {!heroPhotoError ? (
-                     <Image
-                       src="/images/team/dr-jan-duffy.jpg"
-                       alt=""
-                       width={64}
-                       height={64}
-                       className="w-full h-full object-cover"
-                       onError={() => setHeroPhotoError(true)}
-                     />
+                  {!heroPhotoError ? (
+                    <Image
+                      src="/images/team/dr-jan-duffy.jpg"
+                      alt=""
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-cover"
+                      priority
+                      onError={() => setHeroPhotoError(true)}
+                    />
                    ) : (
                      <div className="w-full h-full flex items-center justify-center">
                        <Home className="h-8 w-8 text-white" aria-hidden />

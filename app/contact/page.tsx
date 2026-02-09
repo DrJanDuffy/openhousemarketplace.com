@@ -2,10 +2,14 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
+
+const CalendlyInlineWidget = dynamic(
+  () => import('@/components/CalendlyInlineWidget'),
+  { ssr: false, loading: () => <div className="h-[700px] max-w-2xl mx-auto rounded-xl bg-gray-100 animate-pulse" aria-hidden /> }
+)
 
 const GoogleBusinessProfile = dynamic(
   () => import('@/components/GoogleBusinessProfile'),
@@ -32,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Dr. Jan Duffy | Schedule a Private Showing',
     description: 'Contact Dr. Jan Duffy for expert real estate services in Summerlin West, Las Vegas. Schedule a private showing.',
-    images: ['/images/contact-hero.jpg'],
+    images: [{ url: 'https://www.openhousemarketplace.com/images/dr-jan-duffy.jpg', width: 1200, height: 630, alt: 'Dr. Jan Duffy - Summerlin West Real Estate Agent' }],
     url: 'https://www.openhousemarketplace.com/contact',
   },
 }
@@ -81,12 +85,13 @@ export default function ContactPage() {
                 width={160}
                 height={160}
                 className="w-full h-full object-cover"
+                priority
               />
             </div>
             <div className="min-w-0">
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
                 Looking to buy or sell a home in Summerlin West? Dr. Jan Duffy is your trusted Las Vegas real estate 
-                agent with over 15 years of experience helping clients navigate the Summerlin real estate market. 
+                agent with over 30 years of experience helping clients navigate the Summerlin real estate market. 
                 Whether you&apos;re searching for luxury homes in The Ridges, family-friendly properties in Summerlin Centre, 
                 <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline mx-1">Summerlin open houses</Link> this weekend, 
                 or investment opportunities throughout Las Vegas, Dr. Duffy provides personalized service tailored to 

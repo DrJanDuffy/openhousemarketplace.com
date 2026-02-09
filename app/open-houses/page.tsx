@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Summerlin Open Houses | Schedule a Private Showing',
     description: 'Tour the best homes for sale in Summerlin this weekend. Schedule a private showing with Dr. Jan Duffy.',
-    images: ['/images/open-houses-hero.jpg'],
+    images: [{ url: 'https://www.openhousemarketplace.com/images/dr-jan-duffy.jpg', width: 1200, height: 630, alt: 'Dr. Jan Duffy - Summerlin West Real Estate Agent' }],
     url: 'https://www.openhousemarketplace.com/open-houses',
   },
 }
