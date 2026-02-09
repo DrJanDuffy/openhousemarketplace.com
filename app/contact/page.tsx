@@ -5,11 +5,7 @@ import dynamic from 'next/dynamic'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
-
-const CalendlyInlineWidget = dynamic(
-  () => import('@/components/CalendlyInlineWidget'),
-  { ssr: false, loading: () => <div className="h-[700px] max-w-2xl mx-auto rounded-xl bg-gray-100 animate-pulse" aria-hidden /> }
-)
+import CalendlyInlineWidgetLazy from '@/components/CalendlyInlineWidgetLazy'
 
 const GoogleBusinessProfile = dynamic(
   () => import('@/components/GoogleBusinessProfile'),
@@ -267,7 +263,7 @@ export default function ContactPage() {
           <p className="text-gray-600 mb-6">
             Book a time that works for you. Select a slot below to schedule an open house tour or consultation with Dr. Jan Duffy.
           </p>
-          <CalendlyInlineWidget
+          <CalendlyInlineWidgetLazy
             url="https://calendly.com/drjanduffy/open-house-tour"
             minWidth={320}
             height={700}

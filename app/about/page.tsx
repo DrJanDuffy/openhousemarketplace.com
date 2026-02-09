@@ -6,11 +6,7 @@ import { Award, Home, Users, TrendingUp, Heart } from 'lucide-react'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
-
-const CalendlyInlineWidget = dynamic(
-  () => import('@/components/CalendlyInlineWidget'),
-  { ssr: false, loading: () => <div className="h-[700px] max-w-2xl mx-auto rounded-xl bg-gray-100 animate-pulse" aria-hidden /> }
-)
+import CalendlyInlineWidgetLazy from '@/components/CalendlyInlineWidgetLazy'
 
 const GoogleBusinessProfile = dynamic(
   () => import('@/components/GoogleBusinessProfile'),
@@ -388,7 +384,7 @@ export default function AboutPage() {
             Book a time with Dr. Jan Duffy for a private showing or to discuss your goals. Choose a slot below.
           </p>
           <div className="max-w-2xl mx-auto">
-            <CalendlyInlineWidget
+            <CalendlyInlineWidgetLazy
               minWidth={320}
               height={700}
               className="rounded-xl overflow-hidden border border-gray-200"
