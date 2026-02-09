@@ -5,6 +5,7 @@ import SiteHeader from "@/components/SiteHeader"
 import Footer from "@/components/Footer"
 import WebSiteSchema from "@/components/WebSiteSchema"
 import GoogleEnhancement from "@/components/GoogleEnhancement"
+import StructuredData from "@/components/StructuredData"
 import CalendlyBadgeWidget from "@/components/CalendlyBadgeWidget"
 import CalendlyCSS from "@/components/CalendlyCSS"
 
@@ -136,6 +137,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CalendlyCSS />
         <WebSiteSchema />
         <GoogleEnhancement />
+        <StructuredData type="RealEstateAgent" />
         <CalendlyBadgeWidget />
         <SiteHeader />
         {children}

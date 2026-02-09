@@ -29,7 +29,8 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         '@type': 'RealEstateAgent',
         '@id': `${baseUrl}/about#agent`,
         name: 'Dr. Jan Duffy',
-        description: 'Top Summerlin West real estate agent with 15+ years of experience helping clients buy and sell luxury homes in Las Vegas. Licensed Nevada real estate professional (S.0197614.LLC), Berkshire Hathaway HomeServices Nevada Properties.',
+        honorificPrefix: 'Dr.',
+        description: 'Top Summerlin West real estate agent with 30+ years of experience helping clients buy and sell luxury homes in Las Vegas. Licensed Nevada real estate professional (S.0197614.LLC), Berkshire Hathaway HomeServices Nevada Properties.',
         url: `${baseUrl}/about`,
         image: `${baseUrl}/images/dr-jan-duffy.jpg`,
         telephone: GBP.phoneE164,
@@ -42,25 +43,22 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
           postalCode: GBP.address.postalCode,
           addressCountry: GBP.address.country
         },
-        areaServed: {
-          '@type': 'City',
-          name: 'Summerlin West, Las Vegas'
-        },
+        areaServed: [
+          { '@type': 'City', name: 'Summerlin West' },
+          { '@type': 'Neighborhood', name: 'The Ridges' },
+          { '@type': 'Neighborhood', name: 'Red Rock Country Club' },
+          { '@type': 'City', name: 'Henderson' },
+          { '@type': 'City', name: 'North Las Vegas' }
+        ],
         worksFor: {
           '@type': 'RealEstateOrganization',
           name: GBP.name,
           url: baseUrl,
         },
-        knowsAbout: [
-          'Real Estate',
-          'Luxury Homes',
-          'New Construction',
-          'Investment Properties',
-          'Summerlin Real Estate Market',
-          'Open Houses',
-          'Home Buying',
-          'Home Selling'
-        ],
+        knowsAbout: ['Open Houses', 'Luxury Open Houses', 'Weekend Open Houses'],
+        yearsOfExperience: '30',
+        license: 'Nevada S.0197614.LLC',
+        memberOf: 'Berkshire Hathaway HomeServices Nevada Properties',
         ...data
       }
       break

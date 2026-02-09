@@ -126,9 +126,12 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
-          <p className="mb-2">
-            &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved. | {BUSINESS.name} | Listings via MLS
-          </p>
+          <p className="mb-1">Las Vegas Open Houses | Summerlin West • Henderson • North Las Vegas</p>
+          <p className="mb-1">Dr. Jan Duffy | 30+ Years Open House Experience</p>
+          <p className="mb-1">Nevada License #S.0197614.LLC</p>
+          <p className="mb-1">Berkshire Hathaway HomeServices Nevada Properties</p>
+          <p className="mb-2">&copy; {new Date().getFullYear()} {SITE_NAME}</p>
+          <p className="mb-2">MLS Listings | Equal Housing Opportunity</p>
           <div className="flex flex-wrap justify-center gap-4 text-xs">
             <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>

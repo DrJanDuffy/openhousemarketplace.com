@@ -52,17 +52,6 @@ export default function AboutPage() {
   return (
     <>
       <StructuredData type="FAQPage" data={{ faqs: ABOUT_FAQS }} />
-      <StructuredData 
-        type="RealEstateAgent"
-        data={{
-          telephone: '+1-702-200-3422',
-          email: 'jan@openhousemarketplace.com',
-          areaServed: {
-            '@type': 'City',
-            name: 'Summerlin West, Las Vegas, NV'
-          }
-        }}
-      />
       <StructuredData type="LocalBusiness" />
       <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
