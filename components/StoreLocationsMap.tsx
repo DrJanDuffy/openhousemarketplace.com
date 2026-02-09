@@ -16,7 +16,8 @@ export default function StoreLocationsMap({ locations, className = '' }: StoreLo
   const markersRef = useRef<unknown[]>([])
   const infoWindowRef = useRef<unknown>(null)
 
-  const defaultCenter = locations.length > 0 ? { lat: locations[0].lat, lng: locations[0].lng } : { lat: 36.1699, lng: -115.3301 }
+  const firstLocation = locations[0]
+  const defaultCenter = firstLocation ? { lat: firstLocation.lat, lng: firstLocation.lng } : { lat: 36.1699, lng: -115.3301 }
   const defaultZoom = locations.length > 1 ? 11 : 15
 
   useEffect(() => {
