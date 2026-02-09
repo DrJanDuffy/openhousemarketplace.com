@@ -111,7 +111,7 @@ export default function AmenityMap() {
           results.forEach((place) => {
             const loc = place.geometry?.location
             if (!loc) return
-            const mapForMarker = map as google.maps.Map
+            const mapForMarker = map as InstanceType<NonNullable<Window['google']>['maps']['Map']>
             const marker = new g.Marker({
               position: { lat: loc.lat(), lng: loc.lng() },
               map: mapForMarker,
