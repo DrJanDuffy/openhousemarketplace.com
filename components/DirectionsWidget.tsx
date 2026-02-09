@@ -18,27 +18,6 @@ const TRAVEL_MODE_OPTIONS: { value: TravelMode; label: string; icon: React.React
   { value: 'TRANSIT', label: 'Transit', icon: <Train className="h-4 w-4" /> },
 ]
 
-declare global {
-  interface Window {
-    google?: {
-      maps: {
-        Map: new (el: HTMLElement, opts?: Record<string, unknown>) => unknown
-        TravelMode: { DRIVING: string; WALKING: string; BICYCLING: string; TRANSIT: string }
-        DirectionsService: new () => {
-          route: (
-            request: { origin: string | { lat: number; lng: number }; destination: string | { lat: number; lng: number }; travelMode: string },
-            callback: (result: unknown, status: string) => void
-          ) => void
-        }
-        DirectionsRenderer: new (opts?: { map: unknown }) => {
-          setMap: (map: unknown) => void
-          setDirections: (directions: unknown) => void
-        }
-      }
-    }
-  }
-}
-
 export default function DirectionsWidget({ destinations, className = '' }: DirectionsWidgetProps) {
   const mapRef = useRef<HTMLDivElement>(null)
   const [map, setMap] = useState<unknown>(null)

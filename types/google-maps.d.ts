@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    google: {
+    google?: {
       maps: {
         Map: new (mapDiv: HTMLElement, opts?: google.maps.MapOptions) => google.maps.Map
         Marker: new (opts?: google.maps.MarkerOptions) => google.maps.Marker

@@ -9,30 +9,6 @@ interface StoreLocationsMapProps {
   className?: string
 }
 
-declare global {
-  interface Window {
-    google?: {
-      maps: {
-        Map: new (el: HTMLElement, opts?: Record<string, unknown>) => {
-          setCenter: (c: { lat: number; lng: number }) => void
-          fitBounds: (b: unknown) => void
-        }
-        LatLng: new (lat: number, lng: number) => unknown
-        LatLngBounds: new () => { extend: (p: unknown) => void }
-        Marker: new (opts?: Record<string, unknown>) => {
-          setMap: (m: unknown) => void
-          addListener: (e: string, fn: () => void) => void
-        }
-        InfoWindow: new (opts?: { content?: string }) => {
-          setContent: (s: string) => void
-          open: (map: unknown, anchor: unknown) => void
-          close: () => void
-        }
-      }
-    }
-  }
-}
-
 export default function StoreLocationsMap({ locations, className = '' }: StoreLocationsMapProps) {
   const mapRef = useRef<HTMLDivElement>(null)
   const [map, setMap] = useState<unknown>(null)

@@ -19,29 +19,6 @@ const MAP_CENTER = { lat: 36.16, lng: -115.13 }
 const MAP_RADIUS_M = 2500
 const MAP_ZOOM = 14
 
-declare global {
-  interface Window {
-    google?: {
-      maps: {
-        Map: new (el: HTMLElement, opts?: Record<string, unknown>) => { setCenter: (c: { lat: number; lng: number }) => void; fitBounds: (b: unknown) => void }
-        LatLng: new (lat: number, lng: number) => { lat: () => number; lng: () => number }
-        LatLngBounds: new () => { extend: (p: { lat: () => number; lng: () => number }) => void }
-        Marker: new (opts?: Record<string, unknown>) => { setMap: (m: unknown) => void; getPosition: () => { lat: () => number; lng: () => number }; addListener: (e: string, fn: () => void) => void }
-        InfoWindow: new (opts?: { content?: string }) => { open: (map: unknown, anchor: unknown) => void; close: () => void }
-        event: { clearInstanceListeners: (obj: unknown) => void }
-        PlacesService: new (map: unknown) => {
-          nearbySearch: (
-            request: { location: { lat: () => number; lng: () => number }; radius: number; type: string },
-            callback: (results: Array<{ geometry: { location: { lat: () => number; lng: () => number } }; name: string; types?: string[] }>, status: string) => void
-          ) => void
-        }
-        Size: new (w: number, h: number) => unknown
-        Point: new (x: number, y: number) => unknown
-      }
-    }
-  }
-}
-
 export default function AmenityMap() {
   const mapRef = useRef<HTMLDivElement>(null)
   const [map, setMap] = useState<unknown>(null)
