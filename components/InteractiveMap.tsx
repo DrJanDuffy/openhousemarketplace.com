@@ -60,7 +60,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   }, [])
 
   const initializeMap = () => {
-    if (!mapRef.current) return
+    if (!mapRef.current || !window.google?.maps) return
 
     const mapInstance = new window.google.maps.Map(mapRef.current, {
       center: SUMMERLIN_CENTER,
@@ -88,7 +88,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   }
 
   useEffect(() => {
-    if (!map || !isMapLoaded) return
+    if (!map || !isMapLoaded || !window.google?.maps) return
 
     // Clear existing markers
     markers.forEach(marker => marker.setMap(null))
