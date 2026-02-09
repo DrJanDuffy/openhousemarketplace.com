@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Home, Phone, Menu, Calendar, ChevronDown } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
@@ -41,7 +42,6 @@ const NAV_SINGLE: NavItem[] = [
 ]
 
 const PHONE = { display: GBP.phone, href: `tel:${GBP.phoneE164}` }
-const FEATURED_ADDRESS = `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
 
 function NavDropdown({ group }: { group: NavGroup }) {
   const [open, setOpen] = useState(false)
@@ -106,6 +106,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
 export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileGroupOpen, setMobileGroupOpen] = useState<string | null>(null)
+  const [logoError, setLogoError] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
@@ -117,11 +118,24 @@ export default function SiteHeader() {
             className="flex items-center gap-2 text-gray-900 hover:text-blue-600 transition-colors"
             aria-label="Open House Market Place - Home"
           >
-            <Home className="h-7 w-7 text-red-600 shrink-0" aria-hidden />
-            <div>
-              <span className="font-bold text-lg">Open House Market Place</span>
-              <span className="hidden sm:block text-xs text-gray-500 font-normal">{FEATURED_ADDRESS}</span>
-            </div>
+            {!logoError ? (
+              <Image
+                src="/images/logo/logo.svg"
+                alt="Open House Market Place - Home"
+                width={200}
+                height={33}
+                className="h-10 w-auto object-contain"
+                onError={() => setLogoError(true)}
+                unoptimized
+              />
+            ) : (
+              <>
+                <Home className="h-7 w-7 text-red-600 shrink-0" aria-hidden />
+                <div>
+                  <span className="font-bold text-lg">Open House Market Place</span>
+                </div>
+              </>
+            )}
           </Link>
 
           {/* Desktop nav */}
