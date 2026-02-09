@@ -1,5 +1,8 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
+import RealScoutSearchCard from '@/components/RealScoutSearchCard'
+import RealScoutWidget from '@/components/RealScoutWidget'
 
 const REALSCOUT_SEARCH_URL =
   'https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA=='
@@ -27,47 +30,53 @@ export default function TourMLSPage() {
       <StructuredData type="Organization" data={{ url: 'https://www.openhousemarketplace.com' }} />
       <StructuredData type="BreadcrumbList" data={{ items: [{ name: 'Home', url: 'https://www.openhousemarketplace.com/' }, { name: 'MLS Property Search', url: 'https://www.openhousemarketplace.com/tour/mls' }] }} />
       <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-white rounded-lg shadow-md p-8 text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">MLS Property Search</h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Access the full MLS database of homes for sale in Summerlin. Search listings, schedule showings, and get updates with Dr. Jan Duffy&apos;s home search. Looking for open houses? See our <a href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</a> page for this weekend&apos;s home tours.
-          </p>
-          <a
-            href={REALSCOUT_SEARCH_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold text-lg"
-          >
-            Search MLS Listings
-          </a>
-        </div>
-        <div className="space-y-8">
-          <section className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">Search Summerlin Listings</h2>
-            <p className="text-gray-600">
-              The search gives you access to every listing in the Las Vegas MLS. Filter by neighborhood, price, beds, baths, and more. Save favorites and get alerts when new homes match your criteria.
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">MLS Property Search</h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Search the full MLS database of homes for sale in Summerlin. Save favorites, get alerts, and schedule showings with Dr. Jan Duffy&apos;s home search. For this weekend&apos;s tours, see our <Link href="/open-houses" className="text-blue-600 font-semibold hover:underline">Summerlin open houses</Link>.
             </p>
+          </div>
+
+          <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Find Your Perfect Home</h2>
+            <RealScoutSearchCard />
           </section>
+
+          <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Live Summerlin West Listings</h2>
+            <p className="text-gray-600 mb-4">
+              Browse current properties for sale. Filter by price, beds, baths, and more. Create an account to save searches and get instant alerts.
+            </p>
+            <RealScoutWidget
+              className="min-h-[400px]"
+              priceMin="400000"
+              priceMax="3000000"
+            />
+          </section>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <a
+              href={REALSCOUT_SEARCH_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold"
+            >
+              Open full search in new tab
+            </a>
+            <Link href="/contact" className="inline-block text-gray-700 hover:text-blue-600 font-medium">
+              Contact Dr. Jan Duffy
+            </Link>
+          </div>
+
           <section className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">How It Works</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-3">How It Works</h2>
             <p className="text-gray-600">
               Create a free account to save searches, schedule showings, and receive instant alerts for price drops and new listings. Dr. Jan Duffy&apos;s team is notified when you show interest so you get priority support.
             </p>
           </section>
-          <section className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">Contact Dr. Jan Duffy</h2>
-            <p className="text-gray-600 mb-4">
-              Need help finding your perfect home in Summerlin West? Reach out for a personalized search or to schedule a buyer consultation.
-            </p>
-            <a href="/contact" className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold">
-              Contact Us
-            </a>
-          </section>
         </div>
       </div>
-    </div>
     </>
   )
 }
-

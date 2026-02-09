@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { MapPin, Calendar, Home, Star, Phone, Mail, Clock, Award } from 'lucide-react'
 import RealScoutIntegration from './RealScoutIntegration'
+import { GBP } from '@/config/gbp'
 
 interface NeighborhoodPageProps {
   neighborhood: {
@@ -166,11 +167,11 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({ neighborhood }) => 
                                          <div className="flex items-center">
                        <Phone className="h-4 w-4 text-blue-600 mr-3" />
                        <a 
-                         href="tel:7022003422" 
+                         href={`tel:${GBP.phoneE164}`}
                          className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
-                         title="Call (702) 200-3422"
+                         title={`Call ${GBP.phone}`}
                        >
-                         (702) 200-3422
+                         {GBP.phone}
                        </a>
                      </div>
                     <div className="flex items-center">

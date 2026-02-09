@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { Calendar, Home, Star, Phone, Mail, Search, Heart } from 'lucide-react'
+import { GBP } from '@/config/gbp'
 
 const RealScoutIntegration = () => {
   const [_isLoading, _setIsLoading] = useState(false)
@@ -66,11 +67,11 @@ const RealScoutIntegration = () => {
                      <div className="flex items-center">
              <Phone className="h-4 w-4 mr-1" />
              <a 
-               href="tel:7022003422" 
+               href={`tel:${GBP.phoneE164}`}
                className="hover:text-blue-600 transition-colors cursor-pointer"
-               title="Call (702) 200-3422"
+               title={`Call ${GBP.phone}`}
              >
-               (702) 200-3422
+               {GBP.phone}
              </a>
            </div>
           <div className="flex items-center">

@@ -4,12 +4,15 @@ import Link from 'next/link'
 import { Home, Phone, Menu, Calendar } from 'lucide-react'
 import { useState } from 'react'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
+import { GBP } from '@/config/gbp'
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
+  { href: '/tour/mls', label: 'Search Listings', primary: true },
+  { href: '/open-houses', label: 'Open Houses' },
+  { href: '/buyers', label: 'Buyer Tools' },
   { href: '/book-tour', label: 'Schedule a private showing' },
   { href: '/schedule-consultation', label: 'Schedule a free consultation' },
-  { href: '/open-houses', label: 'Open Houses' },
   { href: '/amenity-map', label: 'Amenity Map' },
   { href: '/store-locations', label: 'Find Our Stores' },
   { href: '/directions', label: 'Get Directions' },
@@ -19,8 +22,8 @@ const NAV_LINKS = [
   { href: '/contact', label: 'Contact' },
 ]
 
-const PHONE = { display: '(702) 200-3422', href: 'tel:+17022003422' }
-const FEATURED_ADDRESS = '11773 Cashmere Mist Ave, Las Vegas, NV 89138'
+const PHONE = { display: GBP.phone, href: `tel:${GBP.phoneE164}` }
+const FEATURED_ADDRESS = `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
 
 export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -44,11 +47,15 @@ export default function SiteHeader() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1" aria-label="Main">
-            {NAV_LINKS.map(({ href, label }) => (
+            {NAV_LINKS.map(({ href, label, primary }) => (
               <Link
                 key={href}
                 href={href}
-                className="px-3 py-2 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors"
+                className={
+                  primary
+                    ? 'px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 font-semibold transition-colors'
+                    : 'px-3 py-2 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors'
+                }
               >
                 {label}
               </Link>
@@ -71,7 +78,7 @@ export default function SiteHeader() {
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100"
-            aria-expanded={mobileOpen ? 'true' : 'false'}
+            aria-expanded={mobileOpen}
             aria-label="Toggle menu"
           >
             <Menu className="h-6 w-6" />
@@ -85,12 +92,16 @@ export default function SiteHeader() {
             aria-label="Main mobile"
           >
             <ul className="space-y-1">
-              {NAV_LINKS.map(({ href, label }) => (
+              {NAV_LINKS.map(({ href, label, primary }) => (
                 <li key={href}>
                   <Link
                     href={href}
                     onClick={() => setMobileOpen(false)}
-                    className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium"
+                    className={
+                      primary
+                        ? 'block px-4 py-3 rounded-lg bg-red-600 text-white hover:bg-red-700 font-semibold'
+                        : 'block px-4 py-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium'
+                    }
                   >
                     {label}
                   </Link>

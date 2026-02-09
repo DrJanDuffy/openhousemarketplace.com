@@ -6,12 +6,13 @@ import { Home, Phone, MapPin, Calendar } from 'lucide-react'
 import { useState } from 'react'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import { SITE_NAME } from '@/config/site'
+import { GBP } from '@/config/gbp'
 
 const BUSINESS = {
-  name: 'Dr. Jan Duffy Real Estate',
-  phone: '(702) 200-3422',
-  phoneLink: 'tel:+17022003422',
-  address: 'Summerlin West, Las Vegas, NV 89135',
+  name: GBP.name,
+  phone: GBP.phone,
+  phoneLink: `tel:${GBP.phoneE164}`,
+  address: `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`,
   directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=36.1699,-115.3301',
 }
 
@@ -78,6 +79,7 @@ export default function Footer() {
             <h3 className="font-semibold text-white mb-3">Resources</h3>
             <ul className="text-sm space-y-1">
               <li><Link href="/market-report" className="hover:text-white transition-colors">Market Reports</Link></li>
+              <li><Link href="/buyers" className="hover:text-white transition-colors">Buyer Tools</Link></li>
               <li><Link href="/review-us" className="hover:text-white transition-colors">Review us on Google</Link></li>
               <li><Link href="/open-house-guide" className="hover:text-white transition-colors">Open House Guide</Link></li>
               <li><Link href="/amenity-map" className="hover:text-white transition-colors">Amenity Map</Link></li>

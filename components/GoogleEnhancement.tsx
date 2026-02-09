@@ -3,8 +3,10 @@
 /**
  * Google enhancement for every page: LocalBusiness + WebPage JSON-LD.
  * Ensures GBP/NAP, E-E-A-T, and page-level schema on all routes (2026 SEO).
+ * LocalBusiness data follows config/gbp.ts (site supports the Google Business Profile).
  */
 import { usePathname } from 'next/navigation'
+import { GBP } from '@/config/gbp'
 
 const BASE_URL = 'https://www.openhousemarketplace.com'
 const GBP_URL = typeof process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL === 'string'
@@ -78,26 +80,29 @@ export default function GoogleEnhancement() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': `${BASE_URL}/#organization`,
-    name: 'Dr. Jan Duffy Real Estate',
+    name: GBP.name,
+    description: GBP.description,
     image: `${BASE_URL}/images/dr-jan-duffy.jpg`,
     logo: `${BASE_URL}/images/logo/logo.svg`,
     url: BASE_URL,
-    telephone: '+1-702-200-3422',
+    telephone: GBP.phoneE164,
     email: 'jan@openhousemarketplace.com',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Summerlin West',
-      addressLocality: 'Las Vegas',
-      addressRegion: 'NV',
-      postalCode: '89135',
-      addressCountry: 'US',
+      streetAddress: GBP.address.street,
+      addressLocality: GBP.address.locality,
+      addressRegion: GBP.address.region,
+      postalCode: GBP.address.postalCode,
+      addressCountry: GBP.address.country,
     },
     geo: { '@type': 'GeoCoordinates', latitude: 36.1699, longitude: -115.3301 },
     areaServed: { '@type': 'City', name: 'Summerlin West, Las Vegas, NV' },
-    openingHoursSpecification: [
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '18:00' },
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday', 'Sunday'], opens: '10:00', closes: '16:00' },
-    ],
+    openingHoursSpecification: GBP.hours.specification.map((spec) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: spec.dayOfWeek,
+      opens: spec.opens,
+      closes: spec.closes,
+    })),
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',

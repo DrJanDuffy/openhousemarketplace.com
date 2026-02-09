@@ -3,15 +3,12 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import OptimizedImage from './OptimizedImage'
-import { MapPin, Calendar, Home, Star, Phone, Mail, Search, Heart, Award } from 'lucide-react'
+import { Calendar, Home, Star, Phone, Award } from 'lucide-react'
 import RealScoutWidget from './RealScoutWidget'
-import CalendlyPopupLink from './CalendlyPopupLink'
-import CalendlyInlineWidget from './CalendlyInlineWidget'
-// Removed tool imports no longer used in buyer-focused UI
-import BuyerToolsSection from './BuyerToolsSection'
 import RealScoutSearchCard from './RealScoutSearchCard'
 import ExitIntentPopup from './ExitIntentPopup'
 import FeaturedOpenHouses from './FeaturedOpenHouses'
+import { GBP } from '@/config/gbp'
 
 const SummerlinOpenHouseWebsite = () => {
   const [showExitPopup, setShowExitPopup] = useState(false)
@@ -97,13 +94,13 @@ const SummerlinOpenHouseWebsite = () => {
                  </div>
                </div>
                
-               {/* Primary CTA */}
-               <button 
-                 onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
-                 className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-xl font-bold text-lg mr-4 mb-4 lg:mb-0 shadow-lg hover:shadow-xl transition-all duration-200"
+               {/* Primary CTA: RealScout / Search Listings */}
+               <Link
+                 href="/tour/mls"
+                 className="inline-block bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200"
                >
-                 Get a Custom Open House Alert
-               </button>
+                 Search Summerlin Listings
+               </Link>
              </div>
              
               {/* Right Column - Advanced Home Search */}
@@ -115,40 +112,52 @@ const SummerlinOpenHouseWebsite = () => {
          </div>
        </section>
 
-             {/* Dynamic Market Insights Widget */}
-       <section className="bg-gray-50 py-12">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="bg-white rounded-lg shadow-lg p-6">
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-               <div className="text-center">
-                 <div className="text-3xl font-bold text-blue-600 mb-2">$875K</div>
-                 <div className="text-sm text-gray-600">Median Price</div>
-                 <div className="text-xs text-green-600 mt-1">↑ 5.2% vs last month</div>
-               </div>
-               <div className="text-center">
-                 <div className="text-3xl font-bold text-blue-600 mb-2">14</div>
-                 <div className="text-sm text-gray-600">Avg Days on Market</div>
-                 <div className="text-xs text-green-600 mt-1">↓ 3 days vs last month</div>
-               </div>
-               <div className="text-center">
-                 <div className="text-3xl font-bold text-blue-600 mb-2">156</div>
-                 <div className="text-sm text-gray-600">Active Listings</div>
-                 <div className="text-xs text-orange-600 mt-1">↔ Stable inventory</div>
-               </div>
-               <div className="text-center">
-                 <div className="text-3xl font-bold text-blue-600 mb-2">98%</div>
-                 <div className="text-sm text-gray-600">List to Sale Ratio</div>
-                 <div className="text-xs text-green-600 mt-1">↑ 2% vs last month</div>
-               </div>
-             </div>
-             <div className="mt-6 text-center">
-               <CalendlyPopupLink className="inline-block bg-[#0069ff] hover:bg-[#0052cc] text-white px-6 py-2 rounded-lg font-medium">
-                 Schedule a private showing
-               </CalendlyPopupLink>
-             </div>
-           </div>
-         </div>
-       </section>
+      {/* RealScout Live Listings – #1 lead gen, above the fold */}
+      <section className="bg-gray-50 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Live Summerlin West Listings – Your #1 Home Search</h2>
+            <p className="text-lg text-gray-600">
+              Browse current properties for sale in Summerlin West with Dr. Jan Duffy&apos;s home search
+            </p>
+          </div>
+          <RealScoutWidget
+            className="bg-white rounded-lg shadow-lg p-6"
+            priceMin="400000"
+            priceMax="3000000"
+          />
+        </div>
+      </section>
+
+      {/* Market teaser */}
+      <section className="bg-white py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gray-50 rounded-xl p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div>
+                <div className="text-2xl font-bold text-blue-600">$875K</div>
+                <div className="text-sm text-gray-600">Median Price</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-blue-600">14</div>
+                <div className="text-sm text-gray-600">Avg Days on Market</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-blue-600">156</div>
+                <div className="text-sm text-gray-600">Active Listings</div>
+              </div>
+            </div>
+            <div className="mt-4 flex flex-wrap justify-center gap-4">
+              <Link href="/market-report" className="text-blue-600 font-semibold hover:underline">
+                See full market report
+              </Link>
+              <Link href="/book-tour" className="text-blue-600 font-semibold hover:underline">
+                Schedule a showing
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
        <FeaturedOpenHouses />
 
@@ -228,203 +237,57 @@ const SummerlinOpenHouseWebsite = () => {
               )
             })}
           </div>
-        </div>
-      </section>
-
-      {/* RealScout Widget Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Live Summerlin West Listings</h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Browse current properties for sale in Summerlin West with Dr. Jan Duffy's home search
-            </p>
+          <div className="text-center mt-6">
+            <Link href="/neighborhoods" className="text-blue-600 font-semibold hover:underline">
+              Explore all neighborhoods →
+            </Link>
           </div>
-          
-          <RealScoutWidget 
-            className="bg-white rounded-lg shadow-lg p-6"
-            priceMin="400000"
-            priceMax="3000000"
-          />
         </div>
       </section>
 
-      {/* RealScout CTA Section */}
-      <section className="bg-blue-600 text-white py-16">
+      {/* Short testimonial strip */}
+      <section className="bg-gray-50 py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-3xl font-bold mb-4">Never Miss Your Dream Home</h3>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Get instant alerts for new listings, price drops, and open houses in Summerlin West
+          <p className="text-lg text-gray-700 italic max-w-2xl mx-auto mb-2">
+            &ldquo;Dr. Jan found us the perfect home in The Ridges within 2 weeks. Her market knowledge is incredible!&rdquo; — Sarah & Mike Johnson
           </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="text-center">
-              <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Search className="h-8 w-8" />
-              </div>
-              <h4 className="text-lg font-semibold mb-2">Smart Search</h4>
-              <p className="text-blue-100">Advanced filters beyond basic MLS searches</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Calendar className="h-8 w-8" />
-              </div>
-              <h4 className="text-lg font-semibold mb-2">Instant Alerts</h4>
-              <p className="text-blue-100">Get notified the moment homes hit the market</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Heart className="h-8 w-8" />
-              </div>
-              <h4 className="text-lg font-semibold mb-2">Save & Track</h4>
-              <p className="text-blue-100">Monitor price changes and market activity</p>
-            </div>
-          </div>
-          
-          <button 
-            onClick={() => window.open('https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0xMDkzMA==', '_blank')}
-            className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-3 rounded-lg font-bold text-lg"
-          >
-            Start Your Home Search
-          </button>
+          <Link href="/review-us" className="text-blue-600 font-semibold hover:underline">
+            Read more reviews
+          </Link>
         </div>
       </section>
 
-      <BuyerToolsSection />
+      {/* Compact RealScout CTA band */}
+      <section className="bg-blue-600 text-white py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h3 className="text-2xl font-bold mb-2">Never miss your dream home</h3>
+          <p className="text-blue-100 mb-4">Get instant alerts for new listings, price drops, and open houses in Summerlin West.</p>
+          <Link
+            href="/tour/mls"
+            className="inline-block bg-white text-blue-600 hover:bg-gray-50 px-6 py-3 rounded-lg font-bold transition-colors"
+          >
+            Search Listings & Get Alerts
+          </Link>
+        </div>
+      </section>
 
-             {/* Testimonial Carousel & Success Stats */}
-       <section className="bg-white py-16">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="text-center mb-12">
-             <h3 className="text-3xl font-bold text-gray-900 mb-4">
-               What Our Clients Say
-             </h3>
-             <p className="text-lg text-gray-600">
-               Real stories from satisfied buyers and sellers in Summerlin West
-             </p>
-           </div>
-           
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-             <div className="bg-gray-50 p-6 rounded-lg">
-               <div className="flex items-center mb-4">
-                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
-                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
-                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
-                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
-                 <Star className="h-5 w-5 text-yellow-400 mr-2" />
-                 <span className="text-sm text-gray-600">Verified Buyer</span>
-               </div>
-               <p className="text-gray-700 mb-4">
-                 "Dr. Jan found us the perfect home in The Ridges within 2 weeks. Her market knowledge is incredible!"
-               </p>
-               <div className="font-semibold text-gray-900">- Sarah & Mike Johnson</div>
-               <div className="text-sm text-gray-600">The Ridges, $2.1M</div>
-             </div>
-             
-             <div className="bg-gray-50 p-6 rounded-lg">
-               <div className="flex items-center mb-4">
-                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
-                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
-                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
-                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
-                 <Star className="h-5 w-5 text-yellow-400 mr-2" />
-                 <span className="text-sm text-gray-600">Verified Seller</span>
-               </div>
-               <p className="text-gray-700 mb-4">
-                 "Our home sold in 8 days for 5% above asking price. Dr. Jan's marketing strategy was brilliant!"
-               </p>
-               <div className="font-semibold text-gray-900">- David & Lisa Chen</div>
-               <div className="text-sm text-gray-600">Red Rock Country Club, $1.8M</div>
-             </div>
-             
-             <div className="bg-gray-50 p-6 rounded-lg">
-               <div className="flex items-center mb-4">
-                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
-                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
-                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
-                 <Star className="h-5 w-5 text-yellow-400 mr-1" />
-                 <Star className="h-5 w-5 text-yellow-400 mr-2" />
-                 <span className="text-sm text-gray-600">Verified Buyer</span>
-               </div>
-               <p className="text-gray-700 mb-4">
-                 "The personalized open house alerts helped us find our dream home before anyone else!"
-               </p>
-               <div className="font-semibold text-gray-900">- Robert & Emily Davis</div>
-               <div className="text-sm text-gray-600">Summerlin Centre, $650K</div>
-             </div>
-           </div>
-           
-           <div className="text-center">
-             <CalendlyPopupLink className="inline-block bg-[#0069ff] hover:bg-[#0052cc] text-white px-8 py-3 rounded-lg font-medium">
-               Schedule a private showing
-             </CalendlyPopupLink>
-           </div>
-         </div>
-       </section>
-
-       {/* Contact Section */}
-       <section className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                         <div>
-               <h3 className="text-3xl font-bold mb-4">Work with Dr. Jan Duffy</h3>
-               <p className="text-lg text-gray-300 mb-6">
-                 Your trusted Summerlin West real estate expert with proven results in luxury and family homes.
-               </p>
-               
-               <div className="bg-blue-900/50 rounded-lg p-4 mb-6">
-                 <h4 className="text-lg font-semibold mb-2">🎯 Get Priority Access to:</h4>
-                 <ul className="text-blue-100 space-y-1 text-sm">
-                   <li>• New listings before they hit the market</li>
-                   <li>• Exclusive open house invitations</li>
-                   <li>• Personalized market reports</li>
-                   <li>• VIP buyer/seller consultations</li>
-                 </ul>
-               </div>
-              
-              <div className="space-y-4 mb-6">
-                <div className="flex items-center">
-                  <MapPin className="h-5 w-5 text-blue-400 mr-3" />
-                  <span>Specializing in Summerlin West & Las Vegas</span>
-                </div>
-                <div className="flex items-center">
-                  <Star className="h-5 w-5 text-blue-400 mr-3" />
-                  <span>5-Star Client Reviews & Testimonials</span>
-                </div>
-                <div className="flex items-center">
-                  <Home className="h-5 w-5 text-blue-400 mr-3" />
-                  <span>Expert in Luxury & Family Homes</span>
-                </div>
-                <div className="flex items-center">
-                  <Award className="h-5 w-5 text-blue-400 mr-3" />
-                  <span>Certified Luxury Home Specialist</span>
-                </div>
-              </div>
-
-                             <div className="flex flex-col sm:flex-row gap-4">
-                 <button 
-                   onClick={() => window.open('tel:7022003422', '_self')}
-                   className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium"
-                 >
-                   <Phone className="h-4 w-4 mr-2" />
-                   Call Today
-                 </button>
-                <CalendlyPopupLink className="flex items-center justify-center bg-[#0069ff] hover:bg-[#0052cc] px-6 py-3 rounded-lg font-medium text-white">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Schedule a private showing
-                </CalendlyPopupLink>
-              </div>
-            </div>
-            
-            <div className="md:col-span-2">
-              <h3 className="text-xl font-bold text-white mb-4">Schedule a private showing</h3>
-              <p className="text-blue-100 mb-4">Book a time that works for you with Dr. Jan Duffy.</p>
-              <CalendlyInlineWidget
-                minWidth={320}
-                height={700}
-                className="rounded-xl overflow-hidden bg-white"
-              />
-            </div>
+      {/* Compact contact strip */}
+      <section className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h3 className="text-xl font-bold mb-2">Work with Dr. Jan Duffy</h3>
+          <p className="text-gray-300 mb-4 max-w-xl mx-auto">
+            Your trusted Summerlin West real estate expert. Summerlin West & Las Vegas · Certified Luxury Home Specialist
+          </p>
+          <p className="text-gray-400 text-sm mb-4">{GBP.address.street}, {GBP.address.locality}, {GBP.address.region} {GBP.address.postalCode}</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href={`tel:${GBP.phoneE164}`} className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-lg font-medium">
+              <Phone className="h-4 w-4" aria-hidden />
+              Call {GBP.phone}
+            </a>
+            <Link href="/book-tour" className="inline-flex items-center gap-2 bg-[#0069ff] hover:bg-[#0052cc] px-5 py-2.5 rounded-lg font-medium text-white">
+              <Calendar className="h-4 w-4" aria-hidden />
+              Schedule a showing
+            </Link>
           </div>
         </div>
       </section>

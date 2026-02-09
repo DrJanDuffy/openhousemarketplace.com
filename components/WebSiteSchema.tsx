@@ -1,8 +1,11 @@
 /**
  * WebSite JSON-LD for Google Search (2026 SEO).
  * Rendered server-side in root layout for site-wide understanding.
+ * Publisher NAP matches Google Business Profile (config/gbp.ts).
  * @see https://developers.google.com/search/docs/appearance/structured-data/sitelinks-searchbox
  */
+import { GBP } from '@/config/gbp'
+
 const baseUrl = 'https://www.openhousemarketplace.com'
 const gbpUrl = process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL
 
@@ -18,7 +21,7 @@ const webSiteSchema = {
   publisher: {
     '@id': `${baseUrl}/#organization`,
     '@type': 'Organization',
-    name: 'Dr. Jan Duffy Real Estate',
+    name: GBP.name,
     url: baseUrl,
     logo: {
       '@type': 'ImageObject',
@@ -26,7 +29,7 @@ const webSiteSchema = {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-702-200-3422',
+      telephone: GBP.phoneE164,
       contactType: 'customer service',
       areaServed: 'US',
       availableLanguage: 'English',

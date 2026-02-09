@@ -5,6 +5,7 @@ import { Phone, MapPin, Star, Clock, Mail } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { GBP } from '@/config/gbp'
 
 interface GoogleBusinessProfileProps {
   className?: string
@@ -12,32 +13,29 @@ interface GoogleBusinessProfileProps {
   showReviews?: boolean
 }
 
-// Business information matching Google Business Profile exactly
+// NAP and hours from Google Business Profile (config/gbp.ts) – site supports the GBP
+const coordinates = { lat: 36.1699, lng: -115.3301 }
 const BUSINESS_INFO = {
-  name: 'Dr. Jan Duffy Real Estate',
-  phone: '(702) 200-3422',
-  phoneLink: 'tel:+17022003422',
+  name: GBP.name,
+  phone: GBP.phone,
+  phoneLink: `tel:${GBP.phoneE164}`,
   email: 'jan@openhousemarketplace.com',
   address: {
-    street: 'Summerlin West',
-    city: 'Las Vegas',
-    state: 'NV',
-    zip: '89135',
-    full: 'Summerlin West, Las Vegas, NV 89135'
+    street: GBP.address.street,
+    city: GBP.address.locality,
+    state: GBP.address.region,
+    zip: GBP.address.postalCode,
+    full: `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
   },
-  coordinates: {
-    lat: 36.1699,
-    lng: -115.3301
-  },
+  coordinates,
   hours: {
-    weekdays: 'Monday - Friday: 9:00 AM - 6:00 PM',
-    weekends: 'Saturday - Sunday: 10:00 AM - 4:00 PM',
-    note: 'Available by appointment outside regular hours'
+    weekdays: 'Monday - Friday: 9:00 AM - 5:00 PM',
+    weekends: 'Saturday - Sunday: 9:00 AM - 5:00 PM',
+    note: 'Open 9 AM–5 PM every day (per Google Business Profile)'
   },
-  // Google Business Profile URL - replace with actual GBP URL when available
-  googleBusinessUrl: 'https://www.google.com/maps/place/?q=Dr+Jan+Duffy+Real+Estate+Summerlin+West+Las+Vegas+NV',
-  directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${36.1699},${-115.3301}`,
-  reviewsUrl: 'https://www.google.com/maps/place/?q=Dr+Jan+Duffy+Real+Estate+Summerlin+West+Las+Vegas+NV&action=reviews'
+  googleBusinessUrl: process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL || 'https://www.google.com/maps/place/?q=Open+House+Market+Place+Las+Vegas+NV',
+  directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${coordinates.lat},${coordinates.lng}`,
+  reviewsUrl: (process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL || 'https://www.google.com/maps/place/?q=Open+House+Market+Place+Las+Vegas+NV') + (process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL ? '' : '&action=reviews')
 }
 
 export default function GoogleBusinessProfile({ 

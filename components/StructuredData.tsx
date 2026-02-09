@@ -1,6 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
+import { GBP } from '@/config/gbp'
 
 interface StructuredDataProps {
   type: 'RealEstateAgent' | 'RealEstateListing' | 'Organization' | 'WebPage' | 'BreadcrumbList' | 'FAQPage' | 'LocalBusiness' | 'Place' | 'ItemList'
@@ -31,14 +32,15 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         description: 'Top Summerlin West real estate agent with 15+ years of experience helping clients buy and sell luxury homes in Las Vegas. Licensed Nevada real estate professional (S.0197614.LLC), Berkshire Hathaway HomeServices Nevada Properties.',
         url: `${baseUrl}/about`,
         image: `${baseUrl}/images/dr-jan-duffy.jpg`,
-        telephone: '+1-702-200-3422',
+        telephone: GBP.phoneE164,
         email: 'jan@openhousemarketplace.com',
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Summerlin',
-          addressRegion: 'NV',
-          postalCode: '89135',
-          addressCountry: 'US'
+          streetAddress: GBP.address.street,
+          addressLocality: GBP.address.locality,
+          addressRegion: GBP.address.region,
+          postalCode: GBP.address.postalCode,
+          addressCountry: GBP.address.country
         },
         areaServed: {
           '@type': 'City',
@@ -46,7 +48,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         },
         worksFor: {
           '@type': 'RealEstateOrganization',
-          name: 'Berkshire Hathaway HomeServices Nevada Properties',
+          name: GBP.name,
           url: baseUrl,
         },
         knowsAbout: [
@@ -77,12 +79,12 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
       structuredData = {
         '@context': 'https://schema.org',
         '@type': 'Organization',
-        name: 'Dr. Jan Duffy Real Estate',
+        name: GBP.name,
         url: baseUrl,
         logo: `${baseUrl}/images/logo/logo.svg`,
         contactPoint: {
           '@type': 'ContactPoint',
-          telephone: '+1-702-200-3422',
+          telephone: GBP.phoneE164,
           contactType: 'Real Estate Services',
           areaServed: 'US',
           availableLanguage: 'English'
@@ -153,21 +155,22 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         '@context': 'https://schema.org',
         '@type': 'LocalBusiness',
         '@id': `${baseUrl}/#organization`,
-        name: 'Dr. Jan Duffy Real Estate',
+        name: GBP.name,
+        description: GBP.description,
         image: `${baseUrl}/images/dr-jan-duffy.jpg`,
         logo: `${baseUrl}/images/logo/logo.svg`,
         url: baseUrl,
-        telephone: '+1-702-200-3422',
+        telephone: GBP.phoneE164,
         email: 'jan@openhousemarketplace.com',
-        // priceRange removed - not applicable for real estate services
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Summerlin West',
-          addressLocality: 'Las Vegas',
-          addressRegion: 'NV',
-          postalCode: '89135',
-          addressCountry: 'US'
+          streetAddress: GBP.address.street,
+          addressLocality: GBP.address.locality,
+          addressRegion: GBP.address.region,
+          postalCode: GBP.address.postalCode,
+          addressCountry: GBP.address.country
         },
+        openingHours: GBP.hours.schemaArray,
         geo: {
           '@type': 'GeoCoordinates',
           latitude: 36.1699,
@@ -306,10 +309,10 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
           ]
         },
         ...(sameAsUrls.length > 0 ? { sameAs: sameAsUrls } : {}),
-        // AggregateRating omitted here: single source is GoogleEnhancement (layout) to avoid "multiple aggregate ratings" in GSC
+        // AggregateRating and openingHours omitted: single source is GoogleEnhancement (layout) and config/gbp.ts (site supports GBP)
         ...(data.paymentAccepted ? { paymentAccepted: data.paymentAccepted } : {}),
         ...((): Record<string, unknown> => {
-          const { aggregateRating: _omit, ...rest } = data
+          const { aggregateRating: _a, openingHours: _o, ...rest } = data
           return rest
         })()
       }
