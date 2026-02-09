@@ -9,6 +9,12 @@ declare global {
         LatLngBounds: new (sw?: google.maps.LatLng, ne?: google.maps.LatLng) => google.maps.LatLngBounds
         Size: new (width: number, height: number) => google.maps.Size
         Point: new (x: number, y: number) => google.maps.Point
+        PlacesService: new (map: HTMLElement | google.maps.Map) => {
+          nearbySearch: (
+            request: { location: google.maps.LatLng; radius: number; type: string },
+            callback: (results: Array<{ geometry?: { location: { lat: () => number; lng: () => number } }; name: string; types?: string[] }> | null, status: string) => void
+          ) => void
+        }
       }
     }
   }
