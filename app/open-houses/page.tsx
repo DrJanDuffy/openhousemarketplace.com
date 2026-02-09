@@ -3,6 +3,7 @@ import Link from 'next/link'
 import FeaturedOpenHouses from '@/components/FeaturedOpenHouses'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
+import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
 
 export const revalidate = 3600 // ISR: revalidate hourly (open house listings change often)

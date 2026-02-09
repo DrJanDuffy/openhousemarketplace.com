@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 
-const REALSCOUT_SCRIPT = 'https://em.realscout.com/widgets/realscout-web-components.umd.js'
+const _REALSCOUT_SCRIPT = 'https://em.realscout.com/widgets/realscout-web-components.umd.js'
 
 interface RealScoutWidgetProps {
   agentEncodedId?: string
