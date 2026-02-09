@@ -122,9 +122,9 @@ export default function SiteHeader() {
               <Image
                 src="/images/logo/logo.svg"
                 alt="Open House Market Place - Home"
-                width={200}
-                height={33}
-                className="h-10 w-auto object-contain"
+                width={325}
+                height={48}
+                className="h-12 w-auto object-contain"
                 onError={() => setLogoError(true)}
                 unoptimized
               />
