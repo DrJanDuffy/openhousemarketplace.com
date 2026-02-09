@@ -75,7 +75,7 @@ export default function NeighborhoodsIndexPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Summerlin Neighborhoods
             </h1>
-            <p className="text-xl text-blue-100">
+            <p className="text-xl text-white">
               Explore communities across Summerlin West. Find schools, amenities, and homes for sale in each neighborhood.
             </p>
           </div>

@@ -190,7 +190,7 @@ export default function FeaturedOpenHouses() {
 
                 <div className="p-4">
                   <div className="mb-2 flex items-start justify-between">
-                    <h4 className="text-lg font-bold text-gray-900">{house.price}</h4>
+                    <p className="text-lg font-bold text-gray-900">{house.price}</p>
                     <span className="text-sm text-gray-600">{house.zipCode}</span>
                   </div>
 

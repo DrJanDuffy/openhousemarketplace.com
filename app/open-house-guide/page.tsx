@@ -64,7 +64,7 @@ export default function OpenHouseGuidePage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               What to Expect at a Summerlin Open House in 2026
             </h1>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-xl text-white mb-8">
               New rules mean more transparency and better protection for buyers
             </p>
             <Link

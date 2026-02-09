@@ -75,10 +75,10 @@ const SummerlinOpenHouseWebsite = () => {
                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                  Your Local Research-Driven Expert for Summerlin & Las Vegas Open Houses
                </h2>
-               <p className="text-base sm:text-xl mb-4 text-blue-100">
+               <p className="text-base sm:text-xl mb-4 text-white">
                  Get instant access to this weekend&apos;s premium open houses with personalized alerts and market insights
                </p>
-               <p className="text-base mb-8 text-blue-100">
+               <p className="text-base mb-8 text-white">
                  <Link href="/open-houses" className="text-white font-semibold underline hover:no-underline">Browse all Summerlin open houses</Link> this weekend
                </p>
                
@@ -216,7 +216,7 @@ const SummerlinOpenHouseWebsite = () => {
                   </Link>
                   <div className="p-6">
                     <Link href={neighborhoodUrl}>
-                      <h4 className="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600">{neighborhood.name}</h4>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600">{neighborhood.name}</h3>
                     </Link>
                     <p className="text-gray-600 mb-3">{neighborhood.description}</p>
                     <p className="text-blue-600 font-semibold mb-3">{neighborhood.priceRange}</p>
@@ -262,7 +262,7 @@ const SummerlinOpenHouseWebsite = () => {
       <section className="bg-blue-600 text-white py-8 sm:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-2xl font-bold mb-2">Never miss your dream home</h3>
-          <p className="text-blue-100 mb-4">Get instant alerts for new listings, price drops, and open houses in Summerlin West.</p>
+          <p className="text-white mb-4">Get instant alerts for new listings, price drops, and open houses in Summerlin West.</p>
           <Link
             href="/tour/mls"
             className="inline-flex items-center justify-center min-h-[44px] bg-white text-blue-600 hover:bg-gray-50 px-6 py-3 rounded-lg font-bold transition-colors"

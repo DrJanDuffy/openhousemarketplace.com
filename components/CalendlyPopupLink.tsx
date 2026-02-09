@@ -50,6 +50,7 @@ export default function CalendlyPopupLink({
       className={className}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Schedule a private showing"
     >
       {children}
     </a>
