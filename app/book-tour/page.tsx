@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: 'Schedule a private showing | Dr. Jan Duffy | Summerlin Real Estate',
   description: 'Schedule a private showing with Dr. Jan Duffy. Book a time that works for you—tour Summerlin homes, get a market analysis, or discuss your real estate goals.',
   keywords: 'schedule private showing, private home tour Summerlin, book showing, Dr. Jan Duffy appointment, Summerlin real estate tour',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   alternates: {
     canonical: 'https://www.openhousemarketplace.com/book-tour',
   },
@@ -14,6 +19,7 @@ export const metadata: Metadata = {
     title: 'Schedule a private showing | Dr. Jan Duffy',
     description: 'Book a private showing. Choose a time below.',
     url: 'https://www.openhousemarketplace.com/book-tour',
+    images: ['/images/og/og-image.jpg'],
   },
 }
 

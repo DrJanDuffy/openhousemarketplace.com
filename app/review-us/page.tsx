@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import StructuredData from '@/components/StructuredData'
 
 const REVIEW_URL = 'https://g.page/r/CbX7prnSI9uREBM/review'
 const QR_CODE_URL = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(REVIEW_URL)}`
@@ -11,6 +12,11 @@ export const metadata: Metadata = {
   title: 'Review us on Google | Dr. Jan Duffy Real Estate',
   description: 'Leave a review for Dr. Jan Duffy on Google. Reviews build trust and help our Business Profile stand out on Search and Maps. Share our review link or QR code.',
   keywords: 'review Dr. Jan Duffy, Google review, Summerlin real estate reviews, leave a review',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   alternates: {
     canonical: 'https://www.openhousemarketplace.com/review-us',
   },
@@ -18,6 +24,7 @@ export const metadata: Metadata = {
     title: 'Review us on Google | Dr. Jan Duffy Real Estate',
     description: 'Leave a review for Dr. Jan Duffy. Share our review link or QR code.',
     url: 'https://www.openhousemarketplace.com/review-us',
+    images: ['/images/og/og-image.jpg'],
   },
 }
 
@@ -26,6 +33,16 @@ export default function ReviewUsPage() {
   const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(REVIEW_URL)}`
 
   return (
+    <>
+      <StructuredData
+        type="BreadcrumbList"
+        data={{
+          items: [
+            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
+            { name: 'Review us on Google', url: 'https://www.openhousemarketplace.com/review-us' },
+          ],
+        }}
+      />
     <main className="min-h-screen bg-gray-50">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
         <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-6">
@@ -167,5 +184,6 @@ export default function ReviewUsPage() {
         </p>
       </div>
     </main>
+    </>
   )
 }

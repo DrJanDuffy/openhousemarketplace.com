@@ -7,6 +7,14 @@ export const metadata: Metadata = {
   title: 'Terms of Service | Open House Market Place',
   description: 'Terms of Service for Open House Market Place. Please read these terms carefully before using our services.',
   robots: 'noindex, follow',
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/terms-of-service',
+  },
+  openGraph: {
+    title: 'Terms of Service | Open House Market Place',
+    description: 'Terms of Service for Open House Market Place. Please read these terms carefully before using our services.',
+    url: 'https://www.openhousemarketplace.com/terms-of-service',
+  },
 }
 
 export default function TermsOfServicePage() {
@@ -20,6 +28,15 @@ export default function TermsOfServicePage() {
             ratingValue: '5.0',
             reviewCount: '100'
           }
+        }}
+      />
+      <StructuredData
+        type="BreadcrumbList"
+        data={{
+          items: [
+            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
+            { name: 'Terms of Service', url: 'https://www.openhousemarketplace.com/terms-of-service' },
+          ],
         }}
       />
     <div className="min-h-screen bg-gray-50 py-12">

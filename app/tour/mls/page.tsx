@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     title: 'MLS Property Search | Summerlin Real Estate',
     description: 'Search the full MLS database of homes for sale in Summerlin.',
     url: 'https://www.openhousemarketplace.com/tour/mls',
+    images: ['/images/og/og-image.jpg'],
   },
 }
 

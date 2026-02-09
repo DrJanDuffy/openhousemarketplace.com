@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: 'Get Directions | Plan Your Visit | Dr. Jan Duffy Real Estate',
   description: 'Add directions to your visit. Use Google Maps to plan your trip to our office. See estimated travel time for driving, transit, walking, and bicycling. Get started at no cost.',
   keywords: 'directions, get directions, plan your visit, travel time, driving transit walking bicycling, Summerlin office directions',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   alternates: {
     canonical: 'https://www.openhousemarketplace.com/directions',
   },
@@ -16,6 +21,7 @@ export const metadata: Metadata = {
     title: 'Get Directions | Plan Your Visit',
     description: 'Plan your visit with directions and estimated travel time across different transportation modes.',
     url: 'https://www.openhousemarketplace.com/directions',
+    images: ['/images/og/og-image.jpg'],
   },
 }
 

@@ -18,6 +18,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: 'Schedule a private tour with Dr. Jan Duffy or sign in at the open house. Summerlin real estate.',
     robots: { index: false, follow: true },
     alternates: { canonical: `${BASE_URL}/open-house-signin/${listingId}` },
+    openGraph: {
+      title: 'Open House Sign-In | Schedule a Tour | Dr. Jan Duffy',
+      description: 'Schedule a private tour with Dr. Jan Duffy or sign in at the open house. Summerlin real estate.',
+      url: `${BASE_URL}/open-house-signin/${listingId}`,
+      images: ['/images/og/og-image.jpg'],
+    },
   }
 }
 

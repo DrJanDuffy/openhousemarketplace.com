@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: 'Find Our Stores | Store Locations & Map | Dr. Jan Duffy Real Estate',
   description: 'Find our store locations. View a custom map of all our offices in Summerlin and Las Vegas. Get directions, phone numbers, and hours. Get started at no cost.',
   keywords: 'store locations, find our stores, office locations, Summerlin real estate office, Dr. Jan Duffy locations',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   alternates: {
     canonical: 'https://www.openhousemarketplace.com/store-locations',
   },
@@ -16,6 +21,7 @@ export const metadata: Metadata = {
     title: 'Find Our Stores | Store Locations Map',
     description: 'View all our store locations on a custom map. Get directions and contact info.',
     url: 'https://www.openhousemarketplace.com/store-locations',
+    images: ['/images/og/og-image.jpg'],
   },
 }
 

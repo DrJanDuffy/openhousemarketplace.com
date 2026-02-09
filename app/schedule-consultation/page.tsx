@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: 'Schedule a Free Consultation | Dr. Jan Duffy Real Estate',
   description: 'Schedule a free consultation with Dr. Jan Duffy. Discuss your real estate goals, tour Summerlin open houses, or get a market analysis—no obligation.',
   keywords: 'free consultation, schedule private showing, schedule consultation, Summerlin real estate consultation, Dr. Jan Duffy consultation, private home tour Summerlin, free real estate advice Las Vegas',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   alternates: {
     canonical: 'https://www.openhousemarketplace.com/schedule-consultation',
   },
@@ -15,6 +20,7 @@ export const metadata: Metadata = {
     title: 'Schedule a Free Consultation | Dr. Jan Duffy',
     description: 'Book a free consultation to discuss your real estate goals. No obligation.',
     url: 'https://www.openhousemarketplace.com/schedule-consultation',
+    images: ['/images/og/og-image.jpg'],
   },
 }
 

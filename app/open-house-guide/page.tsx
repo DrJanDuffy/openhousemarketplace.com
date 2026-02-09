@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     description:
       'NAR rules shape how open houses work in 2026. Learn what forms to expect, your rights as a buyer, and how to get the most from Summerlin open houses with Dr. Jan Duffy.',
     url: 'https://www.openhousemarketplace.com/open-house-guide',
+    images: ['/images/og/og-image.jpg'],
   },
   twitter: {
     card: 'summary_large_image',

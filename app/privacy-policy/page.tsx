@@ -7,6 +7,14 @@ export const metadata: Metadata = {
   title: 'Privacy Policy | Open House Market Place',
   description: 'Privacy Policy for Open House Market Place. Learn how we collect, use, and protect your personal information.',
   robots: 'noindex, follow',
+  alternates: {
+    canonical: 'https://www.openhousemarketplace.com/privacy-policy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | Open House Market Place',
+    description: 'Privacy Policy for Open House Market Place. Learn how we collect, use, and protect your personal information.',
+    url: 'https://www.openhousemarketplace.com/privacy-policy',
+  },
 }
 
 export default function PrivacyPolicyPage() {
@@ -20,6 +28,15 @@ export default function PrivacyPolicyPage() {
             ratingValue: '5.0',
             reviewCount: '100'
           }
+        }}
+      />
+      <StructuredData
+        type="BreadcrumbList"
+        data={{
+          items: [
+            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
+            { name: 'Privacy Policy', url: 'https://www.openhousemarketplace.com/privacy-policy' },
+          ],
         }}
       />
     <div className="min-h-screen bg-gray-50 py-12">

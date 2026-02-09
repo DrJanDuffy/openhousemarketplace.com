@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.openhousemarketplace.com/sitemap',
   },
+  openGraph: {
+    title: 'Sitemap | Open House Market Place',
+    description: 'Complete sitemap of all pages on Open House Market Place. Find neighborhoods, resources, builders, and real estate information in Summerlin West.',
+    url: 'https://www.openhousemarketplace.com/sitemap',
+    images: ['/images/og/og-image.jpg'],
+  },
 }
 
 export default function SitemapPage() {

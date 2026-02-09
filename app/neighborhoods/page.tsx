@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     title: 'Summerlin Neighborhoods | Communities & Areas',
     description: 'Explore Summerlin neighborhoods and find your perfect community. Homes, schools, amenities, and local expertise.',
     url: 'https://www.openhousemarketplace.com/neighborhoods',
+    images: ['/images/og/og-image.jpg'],
   },
 }
 

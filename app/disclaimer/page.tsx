@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   description: 'Legal disclaimer for Open House Market Place. Important information about the use of our website and services.',
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://www.openhousemarketplace.com/disclaimer' },
+  openGraph: {
+    title: 'Disclaimer | Open House Market Place',
+    description: 'Legal disclaimer for Open House Market Place. Important information about the use of our website and services.',
+    url: 'https://www.openhousemarketplace.com/disclaimer',
+    images: ['/images/og/og-image.jpg'],
+  },
 }
 
 export default function DisclaimerPage() {
@@ -21,6 +27,15 @@ export default function DisclaimerPage() {
             ratingValue: '5.0',
             reviewCount: '100'
           }
+        }}
+      />
+      <StructuredData
+        type="BreadcrumbList"
+        data={{
+          items: [
+            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
+            { name: 'Disclaimer', url: 'https://www.openhousemarketplace.com/disclaimer' },
+          ],
         }}
       />
     <div className="min-h-screen bg-gray-50 py-12">
