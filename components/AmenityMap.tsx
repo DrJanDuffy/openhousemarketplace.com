@@ -111,16 +111,17 @@ export default function AmenityMap() {
           results.forEach((place) => {
             const loc = place.geometry?.location
             if (!loc) return
+            const mapForMarker = map as google.maps.Map
             const marker = new g.Marker({
               position: { lat: loc.lat(), lng: loc.lng() },
-              map: mapInstance,
+              map: mapForMarker,
               title: place.name,
             })
             marker.addListener('click', () => {
               infoWindow.setContent(
                 `<div class="p-2 min-w-[140px]"><div class="font-semibold text-gray-900">${place.name}</div><div class="text-xs text-gray-600">${label}</div></div>`
               )
-              infoWindow.open(mapInstance, marker)
+              infoWindow.open(mapForMarker, marker)
             })
             markersRef.current.push(marker)
             bounds.extend(loc)
