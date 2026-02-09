@@ -6,6 +6,7 @@ import Footer from "@/components/Footer"
 import WebSiteSchema from "@/components/WebSiteSchema"
 import GoogleEnhancement from "@/components/GoogleEnhancement"
 import CalendlyBadgeWidget from "@/components/CalendlyBadgeWidget"
+import CalendlyCSS from "@/components/CalendlyCSS"
 
 // Google Analytics scripts must be in head as standard script tags for detection
 // SEO: Google 2026 – metadata defaults, E-E-A-T, structured data, Core Web Vitals
@@ -68,8 +69,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://em.realscout.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        <noscript>
+          <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        </noscript>
         {/* Google tag (gtag.js) - load afterInteractive to avoid blocking LCP */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-G22H2J3EMX"
@@ -127,6 +132,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="overflow-x-hidden">
+        <CalendlyCSS />
         <WebSiteSchema />
         <GoogleEnhancement />
         <CalendlyBadgeWidget />

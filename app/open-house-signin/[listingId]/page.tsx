@@ -1,11 +1,12 @@
 import { Metadata } from 'next'
-import { kv } from '@vercel/kv'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import OpenHouseSignInForm from '@/components/OpenHouseSignInForm'
 
 const BASE_URL = 'https://www.openhousemarketplace.com'
 const LISTING_PREFIX = 'oh-signin:listing:'
+
+export const dynamic = 'force-dynamic'
 
 type Props = {
   params: Promise<{ listingId: string }>
@@ -30,11 +31,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function OpenHouseSignInPage({ params }: Props) {
   const { listingId } = await params
   let listingAddress: string | undefined
-  try {
-    const meta = await kv.get<{ listingAddress?: string }>(`${LISTING_PREFIX}${listingId}`)
-    listingAddress = meta?.listingAddress
-  } catch {
-    listingAddress = undefined
+  if (process.env.KV_REST_API_URL) {
+    try {
+      const { kv } = await import('@vercel/kv')
+      const meta = await kv.get<{ listingAddress?: string }>(`${LISTING_PREFIX}${listingId}`)
+      listingAddress = meta?.listingAddress
+    } catch {
+      listingAddress = undefined
+    }
   }
 
   return (
