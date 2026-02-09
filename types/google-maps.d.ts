@@ -15,6 +15,25 @@ declare global {
             callback: (results: Array<{ geometry?: { location: { lat: () => number; lng: () => number } }; name: string; types?: string[] }> | null, status: string) => void
           ) => void
         }
+        DirectionsService: new () => {
+          route: (
+            request: { origin: string | { lat: number; lng: number }; destination: string | { lat: number; lng: number }; travelMode: string },
+            callback: (result: unknown, status: string) => void
+          ) => void
+        }
+        DirectionsRenderer: new (opts?: { map: unknown }) => {
+          setMap: (map: unknown) => void
+          setDirections: (directions: unknown) => void
+        }
+        TravelMode: {
+          DRIVING: string
+          WALKING: string
+          BICYCLING: string
+          TRANSIT: string
+        }
+        event: {
+          clearInstanceListeners: (obj: unknown) => void
+        }
       }
     }
   }
