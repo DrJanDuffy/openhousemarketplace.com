@@ -23,8 +23,10 @@ Internal reference for **openhousemarketplace.com** and greenfield KLB sites. Pr
 |----------|---------|
 | `NEXT_PUBLIC_SITE_URL` | Optional override of public origin (no trailing slash); preview deployments |
 | `NEXT_PUBLIC_APP_URL` | Fallback if `NEXT_PUBLIC_SITE_URL` unset (see [`vercel.json`](../vercel.json)) |
-| `ANTHROPIC_API_KEY` | Required for `/api/claude` and `/api/chat` |
+| `ANTHROPIC_API_KEY` | Required at runtime for `/api/claude` and `/api/chat` (reads `process.env.ANTHROPIC_API_KEY`) |
 | `ANTHROPIC_MODEL` | Optional; defaults to `claude-sonnet-4-20250514` |
+
+If the key is already defined in **Vercel** (e.g. team-level or shared “global” environment variables), you do **not** need to add it again on this project—Vercel injects it into builds and serverless functions the same way. Use `.env.local` only for local development.
 
 Do not commit secrets. `.env.local` is gitignored.
 
@@ -35,7 +37,7 @@ Do not commit secrets. `.env.local` is gitignored.
 3. **SEO** — Use `metadata` in `layout.tsx` and `generateMetadata` on routes. Avoid `next-seo` in App Router unless you accept duplicate-meta risk.
 4. **Sitemap** — Prefer `app/sitemap.ts` + `app/robots.ts`. Use `next-sitemap` only if you need static XML in `public/` or non-Next hosting.
 5. **JSON-LD** — Single NAP source matching GBP; optional `schema-dts` for helpers at scale.
-6. **AI routes** — Server Route Handlers only; validate inputs (e.g. Zod); rate-limit public endpoints; store `ANTHROPIC_API_KEY` in Vercel.
+6. **AI routes** — Server Route Handlers only; validate inputs (e.g. Zod); rate-limit public endpoints; ensure `ANTHROPIC_API_KEY` is available in the deployment environment (project or shared/global Vercel env).
 7. **Cloudflare + Vercel** — DNS-only (gray cloud) to avoid double TLS; SSL Full (strict); cache bypass or conservative rules for `/api/*`; public URL env without trailing slash.
 8. **Deploy** — Push to main → build → verify `/sitemap.xml`, `/robots.txt`, key pages; smoke-test AI routes if enabled.
 
