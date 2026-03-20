@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import { School, Award, BookOpen, Users, Calendar } from 'lucide-react'
 import StructuredData from '@/components/StructuredData'
@@ -19,13 +21,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/schools',
+    canonical: `${BASE_URL}/schools`,
   },
   openGraph: {
     title: 'Summerlin West Schools | Top-Rated Education Options',
     description: 'Explore top-rated schools serving Summerlin West, Las Vegas.',
     images: ['/images/schools-hero.jpg'],
-    url: 'https://www.openhousemarketplace.com/schools',
+    url: `${BASE_URL}/schools`,
   }
 }
 

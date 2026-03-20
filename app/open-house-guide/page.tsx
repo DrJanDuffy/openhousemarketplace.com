@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import FAQAccordion from '@/components/FAQAccordion'
@@ -11,13 +13,13 @@ export const metadata: Metadata = {
     'NAR rules shape how open houses work in 2026. Learn what forms to expect, your rights as a buyer, and how to get the most from Summerlin open houses with Dr. Jan Duffy.',
   robots: { index: true, follow: true },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/open-house-guide',
+    canonical: `${BASE_URL}/open-house-guide`,
   },
   openGraph: {
     title: 'Open House Guide 2026 | What Buyers Need to Know | Summerlin Las Vegas',
     description:
       'NAR rules shape how open houses work in 2026. Learn what forms to expect, your rights as a buyer, and how to get the most from Summerlin open houses with Dr. Jan Duffy.',
-    url: 'https://www.openhousemarketplace.com/open-house-guide',
+    url: `${BASE_URL}/open-house-guide`,
     images: ['/images/og/og-image.jpg'],
   },
   twitter: {

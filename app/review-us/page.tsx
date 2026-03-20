@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import ExternalLink from '@/components/ExternalLink'
@@ -19,12 +21,12 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/review-us',
+    canonical: `${BASE_URL}/review-us`,
   },
   openGraph: {
     title: 'Review us on Google | Dr. Jan Duffy Real Estate',
     description: 'Leave a review for Dr. Jan Duffy. Share our review link or QR code.',
-    url: 'https://www.openhousemarketplace.com/review-us',
+    url: `${BASE_URL}/review-us`,
     images: ['/images/og/og-image.jpg'],
   },
 }
@@ -39,8 +41,8 @@ export default function ReviewUsPage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Review us on Google', url: 'https://www.openhousemarketplace.com/review-us' },
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Review us on Google', url: `${BASE_URL}/review-us` },
           ],
         }}
       />

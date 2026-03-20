@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import { notFound } from 'next/navigation'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
@@ -202,13 +204,13 @@ export async function generateMetadata({ params }: ZipCodePageProps): Promise<Me
       },
     },
     alternates: {
-      canonical: `https://www.openhousemarketplace.com/zip/${zipcode}`,
+      canonical: `${BASE_URL}/zip/${zipcode}`,
     },
     openGraph: {
       title: `${zipcode} Homes for Sale | Summerlin Real Estate`,
       description: `Explore homes for sale in zip code ${zipcode} in Summerlin, Las Vegas.`,
       images: ['/images/zip-hero.jpg'],
-      url: `https://www.openhousemarketplace.com/zip/${zipcode}`,
+      url: `${BASE_URL}/zip/${zipcode}`,
     }
   }
 }
@@ -244,9 +246,9 @@ export default async function ZipCodePage({ params }: ZipCodePageProps) {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Zip Codes', url: 'https://www.openhousemarketplace.com/zip' },
-            { name: `Zip Code ${zipcode}`, url: `https://www.openhousemarketplace.com/zip/${zipcode}` }
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Zip Codes', url: `${BASE_URL}/zip` },
+            { name: `Zip Code ${zipcode}`, url: `${BASE_URL}/zip/${zipcode}` }
           ]
         }}
       />

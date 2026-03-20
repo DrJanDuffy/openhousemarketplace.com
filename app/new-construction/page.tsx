@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import { Calendar } from 'lucide-react'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
@@ -20,13 +22,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/new-construction',
+    canonical: `${BASE_URL}/new-construction`,
   },
   openGraph: {
     title: 'Summerlin New Construction | New Homes & Communities',
     description: 'Brand new homes in Summerlin from top builders. Modern designs with smart features and energy efficiency.',
     images: ['/images/new-construction-hero.jpg'],
-    url: 'https://www.openhousemarketplace.com/new-construction',
+    url: `${BASE_URL}/new-construction`,
   },
 }
 

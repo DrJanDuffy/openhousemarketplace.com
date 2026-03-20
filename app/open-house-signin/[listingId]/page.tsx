@@ -1,9 +1,10 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import OpenHouseSignInForm from '@/components/OpenHouseSignInForm'
 
-const BASE_URL = 'https://www.openhousemarketplace.com'
 const LISTING_PREFIX = 'oh-signin:listing:'
 
 export const dynamic = 'force-dynamic'

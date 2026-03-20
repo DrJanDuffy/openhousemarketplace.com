@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState, useRef } from 'react'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import OptimizedImage from './OptimizedImage'
 import { Download, QrCode, Share2, Copy } from 'lucide-react'
 
@@ -26,7 +28,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
     setIsGenerating(true)
     
     // Create a unique URL for this property
-    const propertyUrl = `https://www.openhousemarketplace.com/property/${propertyId}?utm_source=qr&utm_medium=yard_sign&utm_campaign=summerlin_west`
+    const propertyUrl = `${BASE_URL}/property/${propertyId}?utm_source=qr&utm_medium=yard_sign&utm_campaign=summerlin_west`
     
     // Use a QR code service (you can replace with any QR code API)
     const qrCodeServiceUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(propertyUrl)}&format=${downloadFormat}`
@@ -58,7 +60,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
 
   // Copy QR code URL to clipboard
   const copyQRCodeUrl = async () => {
-    const propertyUrl = `https://www.openhousemarketplace.com/property/${propertyId}?utm_source=qr&utm_medium=yard_sign&utm_campaign=summerlin_west`
+    const propertyUrl = `${BASE_URL}/property/${propertyId}?utm_source=qr&utm_medium=yard_sign&utm_campaign=summerlin_west`
     
     try {
       await navigator.clipboard.writeText(propertyUrl)
@@ -76,7 +78,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
         await navigator.share({
           title: `Open House: ${propertyAddress}`,
           text: `Check out this property in Summerlin West!`,
-          url: `https://www.openhousemarketplace.com/property/${propertyId}`
+          url: `${BASE_URL}/property/${propertyId}`
         })
       } catch (error) {
         console.error('Error sharing:', error)

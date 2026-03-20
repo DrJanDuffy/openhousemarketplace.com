@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
@@ -17,13 +19,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/neighborhoods/the-ridges',
+    canonical: `${BASE_URL}/neighborhoods/the-ridges`,
   },
   openGraph: {
     title: 'The Ridges Summerlin | Luxury Homes & Real Estate',
     description: 'Discover luxury living in The Ridges, Summerlin\'s most prestigious community. Custom estates with stunning views.',
     images: ['/images/the-ridges-hero.jpg'],
-    url: 'https://www.openhousemarketplace.com/neighborhoods/the-ridges',
+    url: `${BASE_URL}/neighborhoods/the-ridges`,
   },
 }
 
@@ -103,9 +105,9 @@ export default function TheRidgesPage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Neighborhoods', url: 'https://www.openhousemarketplace.com/neighborhoods' },
-            { name: 'The Ridges', url: 'https://www.openhousemarketplace.com/neighborhoods/the-ridges' }
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Neighborhoods', url: `${BASE_URL}/neighborhoods` },
+            { name: 'The Ridges', url: `${BASE_URL}/neighborhoods/the-ridges` }
           ]
         }}
       />

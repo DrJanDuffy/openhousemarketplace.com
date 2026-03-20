@@ -1,4 +1,6 @@
 import { Metadata } from "next"
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import SummerlinOpenHouseWebsite from "components/SummerlinOpenHouseWebsite"
 import StructuredData from "@/components/StructuredData"
 
@@ -20,20 +22,20 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/',
+    canonical: `${BASE_URL}/`,
   },
   twitter: {
     card: "summary_large_image",
   },
   openGraph: {
-    url: "https://www.openhousemarketplace.com/",
+    url: `${BASE_URL}/`,
     title: "Summerlin West Open Houses | Dr. Jan Duffy Real Estate",
     description: "Discover your dream home in Summerlin West, Las Vegas. This weekend's open houses in The Ridges, Red Rock Country Club, Summerlin Centre, and more.",
     images: [
       {
         width: 1200,
         height: 630,
-        url: "https://www.openhousemarketplace.com/images/og/og-image.jpg",
+        url: `${BASE_URL}/images/og/og-image.jpg`,
         alt: "Summerlin West Open Houses - Dr. Jan Duffy Real Estate",
       },
     ],
@@ -46,7 +48,7 @@ export default function HomePage() {
       <StructuredData 
         type="Organization"
         data={{
-          url: 'https://www.openhousemarketplace.com',
+          url: `${BASE_URL}`,
         }}
       />
       <SummerlinOpenHouseWebsite />

@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
@@ -17,13 +19,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/neighborhoods/the-trails',
+    canonical: `${BASE_URL}/neighborhoods/the-trails`,
   },
   openGraph: {
     title: 'The Trails Summerlin | Established Family Neighborhood',
     description: 'Discover The Trails, an established family neighborhood in Summerlin with mature landscaping and great schools.',
     images: ['/images/the-trails-hero.jpg'],
-    url: 'https://www.openhousemarketplace.com/neighborhoods/the-trails',
+    url: `${BASE_URL}/neighborhoods/the-trails`,
   }
 }
 

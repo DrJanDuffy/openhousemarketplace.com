@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import { TrendingUp, TrendingDown, Home, DollarSign, Clock, Calendar } from 'lucide-react'
 import StructuredData from '@/components/StructuredData'
@@ -19,13 +21,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/market-report',
+    canonical: `${BASE_URL}/market-report`,
   },
   openGraph: {
     title: 'Summerlin West Market Report | Real Estate Trends & Statistics',
     description: 'Latest market insights and trends for Summerlin West real estate.',
     images: ['/images/market-report-hero.jpg'],
-    url: 'https://www.openhousemarketplace.com/market-report',
+    url: `${BASE_URL}/market-report`,
   }
 }
 

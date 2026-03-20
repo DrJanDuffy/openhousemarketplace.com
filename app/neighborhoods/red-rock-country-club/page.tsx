@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
@@ -17,13 +19,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/neighborhoods/red-rock-country-club',
+    canonical: `${BASE_URL}/neighborhoods/red-rock-country-club`,
   },
   openGraph: {
     title: 'Red Rock Country Club | Luxury Golf Course Homes',
     description: 'Live the resort lifestyle at Red Rock Country Club. Championship golf, luxury amenities, and stunning homes.',
     images: ['/images/red-rock-cc-hero.jpg'],
-    url: 'https://www.openhousemarketplace.com/neighborhoods/red-rock-country-club',
+    url: `${BASE_URL}/neighborhoods/red-rock-country-club`,
   },
 }
 

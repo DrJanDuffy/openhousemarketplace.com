@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
@@ -14,12 +16,12 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/schedule-consultation',
+    canonical: `${BASE_URL}/schedule-consultation`,
   },
   openGraph: {
     title: 'Schedule a Free Consultation | Dr. Jan Duffy',
     description: 'Book a free consultation to discuss your real estate goals. No obligation.',
-    url: 'https://www.openhousemarketplace.com/schedule-consultation',
+    url: `${BASE_URL}/schedule-consultation`,
     images: ['/images/og/og-image.jpg'],
   },
 }
@@ -38,8 +40,8 @@ export default function ScheduleConsultationPage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Schedule a Free Consultation', url: 'https://www.openhousemarketplace.com/schedule-consultation' },
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Schedule a Free Consultation', url: `${BASE_URL}/schedule-consultation` },
           ],
         }}
       />

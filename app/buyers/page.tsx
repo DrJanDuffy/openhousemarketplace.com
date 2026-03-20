@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import BuyerToolsSection from '@/components/BuyerToolsSection'
@@ -11,12 +13,12 @@ export const metadata: Metadata = {
   description:
     'Smart buyer tools for Summerlin West: mortgage calculator, top-rated schools, and schedule viewings. Make confident decisions with Dr. Jan Duffy\'s buyer toolkit, then search listings.',
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://www.openhousemarketplace.com/buyers' },
+  alternates: { canonical: `${BASE_URL}/buyers` },
   openGraph: {
     title: 'Buyer Tools | Dr. Jan Duffy Real Estate',
     description: 'Mortgage calculator, schools, and buyer resources for Summerlin West.',
-    url: 'https://www.openhousemarketplace.com/buyers',
-    images: [{ url: 'https://www.openhousemarketplace.com/images/og/og-image.jpg', width: 1200, height: 630, alt: 'Dr. Jan Duffy Real Estate' }],
+    url: `${BASE_URL}/buyers`,
+    images: [{ url: `${BASE_URL}/images/og/og-image.jpg`, width: 1200, height: 630, alt: 'Dr. Jan Duffy Real Estate' }],
   },
 }
 
@@ -34,8 +36,8 @@ export default function BuyersPage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Buyer Tools', url: 'https://www.openhousemarketplace.com/buyers' },
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Buyer Tools', url: `${BASE_URL}/buyers` },
           ],
         }}
       />

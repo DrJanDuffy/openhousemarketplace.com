@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import { notFound, redirect } from 'next/navigation'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import StructuredData from '@/components/StructuredData'
@@ -195,13 +197,13 @@ export async function generateMetadata({ params }: BuilderPageProps): Promise<Me
       },
     },
     alternates: {
-      canonical: `https://www.openhousemarketplace.com/builders/${slug}`,
+      canonical: `${BASE_URL}/builders/${slug}`,
     },
     openGraph: {
       title: `${builderData.displayName} Homes in Summerlin | New Construction`,
       description: `Explore new construction homes from ${builderData.displayName} in Summerlin.`,
       images: ['/images/builders-hero.jpg'],
-      url: `https://www.openhousemarketplace.com/builders/${slug}`,
+      url: `${BASE_URL}/builders/${slug}`,
     }
   }
 }
@@ -226,9 +228,9 @@ export default async function BuilderPage({ params }: BuilderPageProps) {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Builders', url: 'https://www.openhousemarketplace.com/builders' },
-            { name: builderData.displayName, url: `https://www.openhousemarketplace.com/builders/${slug}` }
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Builders', url: `${BASE_URL}/builders` },
+            { name: builderData.displayName, url: `${BASE_URL}/builders/${slug}` }
           ]
         }}
       />

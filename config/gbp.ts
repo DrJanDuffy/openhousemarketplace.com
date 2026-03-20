@@ -4,6 +4,8 @@
  * Profile: https://share.google/Jgb4vGEoabNywBkJW (or set NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL).
  */
 
+import { getSiteUrl } from '@/lib/site'
+
 export const GBP = {
   /** Business name (exact match to GBP) */
   name: 'Open House Market Place',
@@ -24,7 +26,7 @@ export const GBP = {
   /** SMS/Chat from GBP */
   sms: 'sms:+17022003422',
   /** Website URL from GBP (canonical; must match site canonicals and schema) */
-  website: 'https://www.openhousemarketplace.com/',
+  website: `${getSiteUrl()}/`,
   /**
    * Business hours from GBP: Open 9:00 AM–5:00 PM every day.
    * (Wednesday was listed as 5:00 AM in profile; treated as 5:00 PM.)

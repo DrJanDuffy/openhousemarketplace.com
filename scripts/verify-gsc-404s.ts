@@ -1,3 +1,4 @@
+import { BASE_URL } from '@/lib/metadata-utils'
 /**
  * GSC 404 verification: fetch each URL (www and non-www), record status and redirect chain.
  * Run: pnpm run verify-gsc-404s  or  npx tsx scripts/verify-gsc-404s.ts
@@ -32,7 +33,7 @@ const GSC_404_PATHS = [
 ] as const
 
 const NON_WWW_ORIGIN = 'https://openhousemarketplace.com'
-const WWW_ORIGIN = 'https://www.openhousemarketplace.com'
+const WWW_ORIGIN = `${BASE_URL}`
 
 type ChainStep = { status: number; url: string; location?: string }
 type Result = { url: string; status: number; chain: ChainStep[]; finalUrl: string; ok: boolean }

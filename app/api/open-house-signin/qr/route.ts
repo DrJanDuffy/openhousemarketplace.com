@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import crypto from 'crypto'
 import QRCode from 'qrcode'
 
-const BASE_URL = 'https://www.openhousemarketplace.com'
 const ADMIN_COOKIE = 'oh-admin-auth'
 const ADMIN_COOKIE_SALT = 'oh-admin-signin'
 

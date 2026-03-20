@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import { GBP } from '@/config/gbp'
+import { getSiteUrl } from '@/lib/site'
 
 interface StructuredDataProps {
   type: 'RealEstateAgent' | 'RealEstateListing' | 'Organization' | 'WebPage' | 'BreadcrumbList' | 'FAQPage' | 'LocalBusiness' | 'Place' | 'ItemList'
@@ -18,7 +19,7 @@ const sameAsUrls: string[] = [
 
 export default function StructuredData({ type, data = {} }: StructuredDataProps) {
   const pathname = usePathname()
-  const baseUrl = 'https://www.openhousemarketplace.com'
+  const baseUrl = getSiteUrl()
 
   let structuredData: Record<string, any> = {}
 

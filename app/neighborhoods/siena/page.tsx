@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
@@ -17,13 +19,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/neighborhoods/siena',
+    canonical: `${BASE_URL}/neighborhoods/siena`,
   },
   openGraph: {
     title: 'Siena Summerlin | Mediterranean-Style Upscale Community',
     description: 'Discover Siena, an upscale Summerlin community featuring Mediterranean-style homes and premium amenities.',
     images: ['/images/siena-hero.jpg'],
-    url: 'https://www.openhousemarketplace.com/neighborhoods/siena',
+    url: `${BASE_URL}/neighborhoods/siena`,
   }
 }
 

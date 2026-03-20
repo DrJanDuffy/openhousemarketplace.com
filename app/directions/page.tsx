@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import { storeLocations } from '@/data/storeLocations'
 import DirectionsWidget from '@/components/DirectionsWidget'
@@ -15,12 +17,12 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/directions',
+    canonical: `${BASE_URL}/directions`,
   },
   openGraph: {
     title: 'Get Directions | Plan Your Visit',
     description: 'Plan your visit with directions and estimated travel time across different transportation modes.',
-    url: 'https://www.openhousemarketplace.com/directions',
+    url: `${BASE_URL}/directions`,
     images: ['/images/og/og-image.jpg'],
   },
 }
@@ -39,8 +41,8 @@ export default function DirectionsPage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Get Directions', url: 'https://www.openhousemarketplace.com/directions' },
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Get Directions', url: `${BASE_URL}/directions` },
           ],
         }}
       />

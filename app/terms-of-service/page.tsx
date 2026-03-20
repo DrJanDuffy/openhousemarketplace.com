@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import StructuredData from '@/components/StructuredData'
 
 export const revalidate = 2592000 // ISR: revalidate every 30 days (legal)
@@ -8,12 +10,12 @@ export const metadata: Metadata = {
   description: 'Terms of Service for Open House Market Place. Please read these terms carefully before using our services.',
   robots: 'noindex, follow',
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/terms-of-service',
+    canonical: `${BASE_URL}/terms-of-service`,
   },
   openGraph: {
     title: 'Terms of Service | Open House Market Place',
     description: 'Terms of Service for Open House Market Place. Please read these terms carefully before using our services.',
-    url: 'https://www.openhousemarketplace.com/terms-of-service',
+    url: `${BASE_URL}/terms-of-service`,
   },
 }
 
@@ -24,8 +26,8 @@ export default function TermsOfServicePage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Terms of Service', url: 'https://www.openhousemarketplace.com/terms-of-service' },
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Terms of Service', url: `${BASE_URL}/terms-of-service` },
           ],
         }}
       />

@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server'
+import { getSiteUrl } from '@/lib/site'
 
 export async function GET() {
   const aiCrawlData = {
-    site: 'www.openhousemarketplace.com',
+    site: new URL(getSiteUrl()).hostname,
     description: "Summerlin West real estate services by Dr. Jan Duffy - expert real estate agent specializing in luxury homes, new construction, and residential properties in Las Vegas' premier master-planned community",
     primaryTopics: [
       'Summerlin West real estate',

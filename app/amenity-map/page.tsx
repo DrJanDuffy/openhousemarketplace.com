@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import AmenityMap from '@/components/AmenityMap'
 import ExternalLink from '@/components/ExternalLink'
@@ -17,12 +19,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/amenity-map',
+    canonical: `${BASE_URL}/amenity-map`,
   },
   openGraph: {
     title: 'Amenity Map | Nearby Places in Summerlin',
     description: 'Find restaurants, parks, parking, cafes, and more near Summerlin and Las Vegas.',
-    url: 'https://www.openhousemarketplace.com/amenity-map',
+    url: `${BASE_URL}/amenity-map`,
     images: ['/images/og/og-image.jpg'],
   },
 }
@@ -41,8 +43,8 @@ export default function AmenityMapPage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Amenity Map', url: 'https://www.openhousemarketplace.com/amenity-map' },
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Amenity Map', url: `${BASE_URL}/amenity-map` },
           ],
         }}
       />

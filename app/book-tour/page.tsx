@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import StructuredData from '@/components/StructuredData'
@@ -13,12 +15,12 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/book-tour',
+    canonical: `${BASE_URL}/book-tour`,
   },
   openGraph: {
     title: 'Schedule a private showing | Dr. Jan Duffy',
     description: 'Book a private showing. Choose a time below.',
-    url: 'https://www.openhousemarketplace.com/book-tour',
+    url: `${BASE_URL}/book-tour`,
     images: ['/images/og/og-image.jpg'],
   },
 }
@@ -37,8 +39,8 @@ export default function BookTourPage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Schedule a private showing', url: 'https://www.openhousemarketplace.com/book-tour' },
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Schedule a private showing', url: `${BASE_URL}/book-tour` },
           ],
         }}
       />

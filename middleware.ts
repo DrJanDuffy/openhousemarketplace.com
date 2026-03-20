@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { getSiteUrl } from '@/lib/site'
 
 // Subdomain configuration
 const subdomainRoutes: Record<string, string> = {
@@ -12,7 +13,7 @@ const subdomainRoutes: Record<string, string> = {
   'new': '/new-construction'
 }
 
-const CANONICAL_ORIGIN = 'https://www.openhousemarketplace.com'
+const CANONICAL_ORIGIN = getSiteUrl()
 
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host') || ''

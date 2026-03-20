@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
@@ -28,13 +30,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/about',
+    canonical: `${BASE_URL}/about`,
   },
   openGraph: {
     title: 'About Dr. Jan Duffy | Summerlin West Real Estate Expert',
     description: 'Meet Dr. Jan Duffy, your trusted real estate expert in Summerlin West, Las Vegas.',
-    images: [{ url: 'https://www.openhousemarketplace.com/images/dr-jan-duffy.jpg', width: 1200, height: 630, alt: 'Dr. Jan Duffy - Summerlin West Real Estate Agent' }],
-    url: 'https://www.openhousemarketplace.com/about',
+    images: [{ url: `${BASE_URL}/images/dr-jan-duffy.jpg`, width: 1200, height: 630, alt: 'Dr. Jan Duffy - Summerlin West Real Estate Agent' }],
+    url: `${BASE_URL}/about`,
   },
 }
 

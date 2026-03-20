@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
@@ -27,13 +29,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/contact',
+    canonical: `${BASE_URL}/contact`,
   },
   openGraph: {
     title: 'Contact Dr. Jan Duffy | Schedule a Private Showing',
     description: 'Contact Dr. Jan Duffy for expert real estate services in Summerlin West, Las Vegas. Schedule a private showing.',
-    images: [{ url: 'https://www.openhousemarketplace.com/images/dr-jan-duffy.jpg', width: 1200, height: 630, alt: 'Dr. Jan Duffy - Summerlin West Real Estate Agent' }],
-    url: 'https://www.openhousemarketplace.com/contact',
+    images: [{ url: `${BASE_URL}/images/dr-jan-duffy.jpg`, width: 1200, height: 630, alt: 'Dr. Jan Duffy - Summerlin West Real Estate Agent' }],
+    url: `${BASE_URL}/contact`,
   },
 }
 
@@ -54,7 +56,7 @@ export default function ContactPage() {
       <StructuredData 
         type="Organization"
         data={{
-          url: 'https://www.openhousemarketplace.com',
+          url: `${BASE_URL}`,
         }}
       />
       <div className="min-h-screen bg-gray-50 py-12">

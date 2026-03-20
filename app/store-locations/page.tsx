@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import { storeLocations } from '@/data/storeLocations'
 import StoreLocationsMap from '@/components/StoreLocationsMap'
@@ -15,12 +17,12 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/store-locations',
+    canonical: `${BASE_URL}/store-locations`,
   },
   openGraph: {
     title: 'Find Our Stores | Store Locations Map',
     description: 'View all our store locations on a custom map. Get directions and contact info.',
-    url: 'https://www.openhousemarketplace.com/store-locations',
+    url: `${BASE_URL}/store-locations`,
     images: ['/images/og/og-image.jpg'],
   },
 }
@@ -39,8 +41,8 @@ export default function StoreLocationsPage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Find Our Stores', url: 'https://www.openhousemarketplace.com/store-locations' },
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Find Our Stores', url: `${BASE_URL}/store-locations` },
           ],
         }}
       />

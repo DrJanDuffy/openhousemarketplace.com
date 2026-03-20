@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import ExternalLink from '@/components/ExternalLink'
@@ -15,11 +17,11 @@ export const metadata: Metadata = {
   description:
     'Search MLS listings in Summerlin. Access the full MLS database of homes for sale in Las Vegas\' premier master-planned community.',
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://www.openhousemarketplace.com/tour/mls' },
+  alternates: { canonical: `${BASE_URL}/tour/mls` },
   openGraph: {
     title: 'MLS Property Search | Summerlin Real Estate',
     description: 'Search the full MLS database of homes for sale in Summerlin.',
-    url: 'https://www.openhousemarketplace.com/tour/mls',
+    url: `${BASE_URL}/tour/mls`,
     images: ['/images/og/og-image.jpg'],
   },
 }
@@ -28,8 +30,8 @@ export default function TourMLSPage() {
   return (
     <>
       <StructuredData type="WebPage" data={{ name: 'MLS Property Search | Summerlin Real Estate | Dr. Jan Duffy', description: 'Search MLS listings in Summerlin. Access the full MLS database of homes for sale in Las Vegas\' premier master-planned community.' }} />
-      <StructuredData type="Organization" data={{ url: 'https://www.openhousemarketplace.com' }} />
-      <StructuredData type="BreadcrumbList" data={{ items: [{ name: 'Home', url: 'https://www.openhousemarketplace.com/' }, { name: 'MLS Property Search', url: 'https://www.openhousemarketplace.com/tour/mls' }] }} />
+      <StructuredData type="Organization" data={{ url: `${BASE_URL}` }} />
+      <StructuredData type="BreadcrumbList" data={{ items: [{ name: 'Home', url: `${BASE_URL}/` }, { name: 'MLS Property Search', url: `${BASE_URL}/tour/mls` }] }} />
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">

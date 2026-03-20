@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
@@ -16,13 +18,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/neighborhoods/willows',
+    canonical: `${BASE_URL}/neighborhoods/willows`,
   },
   openGraph: {
     title: 'Willows Summerlin | Mature Trees & Walkable Community',
     description: 'Explore Willows, a charming neighborhood in Summerlin with mature trees and walkable streets.',
     images: ['/images/willows-hero.jpg'],
-    url: 'https://www.openhousemarketplace.com/neighborhoods/willows',
+    url: `${BASE_URL}/neighborhoods/willows`,
   }
 }
 

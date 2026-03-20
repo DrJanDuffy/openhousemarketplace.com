@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
@@ -17,13 +19,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/neighborhoods/mesa-ridge',
+    canonical: `${BASE_URL}/neighborhoods/mesa-ridge`,
   },
   openGraph: {
     title: 'Mesa Ridge Summerlin | Family Homes with Large Backyards',
     description: 'Discover Mesa Ridge, a family-friendly neighborhood in Summerlin with large backyards and great schools.',
     images: ['/images/mesa-ridge-hero.jpg'],
-    url: 'https://www.openhousemarketplace.com/neighborhoods/mesa-ridge',
+    url: `${BASE_URL}/neighborhoods/mesa-ridge`,
   }
 }
 

@@ -1,8 +1,9 @@
 /**
  * Utility functions for generating canonical URLs
  */
+import { getSiteUrl } from '@/lib/site'
 
-export const BASE_URL = 'https://www.openhousemarketplace.com'
+export const BASE_URL = getSiteUrl()
 
 export function getCanonicalUrl(path: string): string {
   // Remove leading slash if present to avoid double slashes

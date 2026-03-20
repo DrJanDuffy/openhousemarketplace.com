@@ -8,11 +8,12 @@ import GoogleEnhancement from "@/components/GoogleEnhancement"
 import StructuredData from "@/components/StructuredData"
 import CalendlyBadgeWidget from "@/components/CalendlyBadgeWidget"
 import CalendlyCSS from "@/components/CalendlyCSS"
+import { getSiteUrl } from "@/lib/site"
 
 // Google Analytics scripts must be in head as standard script tags for detection
 // SEO: Google 2026 – metadata defaults, E-E-A-T, structured data, Core Web Vitals
 
-const SITE_URL = 'https://www.openhousemarketplace.com'
+const SITE_URL = getSiteUrl()
 const DEFAULT_TITLE = 'Summerlin West Open Houses | Dr. Jan Duffy Real Estate'
 const DEFAULT_DESCRIPTION = 'Find Summerlin West open houses and schedule a private showing with Dr. Jan Duffy. Listings, neighborhood guides, and expert buying and selling in Summerlin and Las Vegas.'
 
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/',
+    canonical: `${SITE_URL}/`,
   },
   robots: {
     index: true,

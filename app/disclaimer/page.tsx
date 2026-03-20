@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import StructuredData from '@/components/StructuredData'
 
 export const revalidate = 2592000 // ISR: revalidate every 30 days (legal)
@@ -7,11 +9,11 @@ export const metadata: Metadata = {
   title: 'Disclaimer | Open House Market Place',
   description: 'Legal disclaimer for Open House Market Place. Important information about the use of our website and services.',
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://www.openhousemarketplace.com/disclaimer' },
+  alternates: { canonical: `${BASE_URL}/disclaimer` },
   openGraph: {
     title: 'Disclaimer | Open House Market Place',
     description: 'Legal disclaimer for Open House Market Place. Important information about the use of our website and services.',
-    url: 'https://www.openhousemarketplace.com/disclaimer',
+    url: `${BASE_URL}/disclaimer`,
     images: ['/images/og/og-image.jpg'],
   },
 }
@@ -23,8 +25,8 @@ export default function DisclaimerPage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Disclaimer', url: 'https://www.openhousemarketplace.com/disclaimer' },
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Disclaimer', url: `${BASE_URL}/disclaimer` },
           ],
         }}
       />

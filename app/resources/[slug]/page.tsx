@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
@@ -265,13 +267,13 @@ export async function generateMetadata({ params }: ResourcePageProps): Promise<M
       },
     },
     alternates: {
-      canonical: `https://www.openhousemarketplace.com/resources/${slug}`,
+      canonical: `${BASE_URL}/resources/${slug}`,
     },
     openGraph: {
       title: resource.title,
       description: resource.description,
       images: ['/images/resources-hero.jpg'],
-      url: `https://www.openhousemarketplace.com/resources/${slug}`,
+      url: `${BASE_URL}/resources/${slug}`,
     }
   }
 }
@@ -295,9 +297,9 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Resources', url: 'https://www.openhousemarketplace.com/resources' },
-            { name: resourceTitle, url: `https://www.openhousemarketplace.com/resources/${slug}` }
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Resources', url: `${BASE_URL}/resources` },
+            { name: resourceTitle, url: `${BASE_URL}/resources/${slug}` }
           ]
         }}
       />

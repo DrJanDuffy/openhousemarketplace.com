@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
@@ -17,13 +19,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/neighborhoods/sun-city-summerlin',
+    canonical: `${BASE_URL}/neighborhoods/sun-city-summerlin`,
   },
   openGraph: {
     title: 'Sun City Summerlin | 55+ Active Adult Community',
     description: 'Live your best life in Sun City Summerlin. Golf, social activities, and resort amenities for active adults.',
     images: ['/images/sun-city-hero.jpg'],
-    url: 'https://www.openhousemarketplace.com/neighborhoods/sun-city-summerlin',
+    url: `${BASE_URL}/neighborhoods/sun-city-summerlin`,
   },
 }
 

@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
@@ -20,13 +22,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/luxury-homes',
+    canonical: `${BASE_URL}/luxury-homes`,
   },
   openGraph: {
     title: 'Summerlin Luxury Homes | Exclusive Estates & Properties',
     description: 'Discover Summerlin\'s most prestigious luxury homes and estates. Exclusive listings and private showings.',
     images: ['/images/luxury-homes-hero.jpg'],
-    url: 'https://www.openhousemarketplace.com/luxury-homes',
+    url: `${BASE_URL}/luxury-homes`,
   },
 }
 

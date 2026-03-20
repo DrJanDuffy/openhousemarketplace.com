@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import FeaturedOpenHouses from '@/components/FeaturedOpenHouses'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
@@ -21,13 +23,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/open-houses',
+    canonical: `${BASE_URL}/open-houses`,
   },
   openGraph: {
     title: 'Summerlin Open Houses | Schedule a Private Showing',
     description: 'Tour the best homes for sale in Summerlin this weekend. Schedule a private showing with Dr. Jan Duffy.',
-    images: [{ url: 'https://www.openhousemarketplace.com/images/dr-jan-duffy.jpg', width: 1200, height: 630, alt: 'Dr. Jan Duffy - Summerlin West Real Estate Agent' }],
-    url: 'https://www.openhousemarketplace.com/open-houses',
+    images: [{ url: `${BASE_URL}/images/dr-jan-duffy.jpg`, width: 1200, height: 630, alt: 'Dr. Jan Duffy - Summerlin West Real Estate Agent' }],
+    url: `${BASE_URL}/open-houses`,
   },
 }
 
@@ -113,8 +115,8 @@ export default function OpenHousesPage() {
         }}
       />
       <StructuredData type="BreadcrumbList" data={{ items: [
-        { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-        { name: 'Summerlin Open Houses', url: 'https://www.openhousemarketplace.com/open-houses' },
+        { name: 'Home', url: `${BASE_URL}/` },
+        { name: 'Summerlin Open Houses', url: `${BASE_URL}/open-houses` },
       ] }} />
       <StructuredData type="FAQPage" data={{ faqs: openHouseFaqs }} />
     <div>

@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
@@ -17,13 +19,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/neighborhoods/summerlin-centre',
+    canonical: `${BASE_URL}/neighborhoods/summerlin-centre`,
   },
   openGraph: {
     title: 'Summerlin Centre | Modern Family Homes & Amenities',
     description: 'Modern family living in Summerlin Centre. Parks, schools, and shopping at your doorstep.',
     images: ['/images/summerlin-centre-hero.jpg'],
-    url: 'https://www.openhousemarketplace.com/neighborhoods/summerlin-centre',
+    url: `${BASE_URL}/neighborhoods/summerlin-centre`,
   },
 }
 

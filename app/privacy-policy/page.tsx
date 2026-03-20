@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import StructuredData from '@/components/StructuredData'
 
 export const revalidate = 2592000 // ISR: revalidate every 30 days (legal)
@@ -8,12 +10,12 @@ export const metadata: Metadata = {
   description: 'Privacy Policy for Open House Market Place. Learn how we collect, use, and protect your personal information.',
   robots: 'noindex, follow',
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/privacy-policy',
+    canonical: `${BASE_URL}/privacy-policy`,
   },
   openGraph: {
     title: 'Privacy Policy | Open House Market Place',
     description: 'Privacy Policy for Open House Market Place. Learn how we collect, use, and protect your personal information.',
-    url: 'https://www.openhousemarketplace.com/privacy-policy',
+    url: `${BASE_URL}/privacy-policy`,
   },
 }
 
@@ -24,8 +26,8 @@ export default function PrivacyPolicyPage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Privacy Policy', url: 'https://www.openhousemarketplace.com/privacy-policy' },
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Privacy Policy', url: `${BASE_URL}/privacy-policy` },
           ],
         }}
       />

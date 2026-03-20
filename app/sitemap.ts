@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next'
+import { getSiteUrl } from '@/lib/site'
 
 export const revalidate = 86400 // Revalidate sitemap daily
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.openhousemarketplace.com'
+  const baseUrl = getSiteUrl()
   const currentDate = new Date()
 
   // Main pages

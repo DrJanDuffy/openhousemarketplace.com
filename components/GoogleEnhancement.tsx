@@ -7,8 +7,9 @@
  */
 import { usePathname } from 'next/navigation'
 import { GBP } from '@/config/gbp'
+import { getSiteUrl } from '@/lib/site'
 
-const BASE_URL = 'https://www.openhousemarketplace.com'
+const BASE_URL = getSiteUrl()
 const GBP_URL = typeof process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL === 'string'
   ? process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL
   : undefined

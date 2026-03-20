@@ -5,8 +5,9 @@
  * @see https://developers.google.com/search/docs/appearance/structured-data/sitelinks-searchbox
  */
 import { GBP } from '@/config/gbp'
+import { getSiteUrl } from '@/lib/site'
 
-const baseUrl = 'https://www.openhousemarketplace.com'
+const baseUrl = getSiteUrl()
 const gbpUrl = process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL
 
 const webSiteSchema = {

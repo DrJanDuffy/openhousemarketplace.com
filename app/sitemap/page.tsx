@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 
@@ -10,12 +12,12 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/sitemap',
+    canonical: `${BASE_URL}/sitemap`,
   },
   openGraph: {
     title: 'Sitemap | Open House Market Place',
     description: 'Complete sitemap of all pages on Open House Market Place. Find neighborhoods, resources, builders, and real estate information in Summerlin West.',
-    url: 'https://www.openhousemarketplace.com/sitemap',
+    url: `${BASE_URL}/sitemap`,
     images: ['/images/og/og-image.jpg'],
   },
 }

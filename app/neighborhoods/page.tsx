@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { BASE_URL } from '@/lib/metadata-utils'
+
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import ExternalLink from '@/components/ExternalLink'
@@ -20,12 +22,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.openhousemarketplace.com/neighborhoods',
+    canonical: `${BASE_URL}/neighborhoods`,
   },
   openGraph: {
     title: 'Summerlin Neighborhoods | Communities & Areas',
     description: 'Explore Summerlin neighborhoods and find your perfect community. Homes, schools, amenities, and local expertise.',
-    url: 'https://www.openhousemarketplace.com/neighborhoods',
+    url: `${BASE_URL}/neighborhoods`,
     images: ['/images/og/og-image.jpg'],
   },
 }
@@ -56,8 +58,8 @@ export default function NeighborhoodsIndexPage() {
         type="BreadcrumbList"
         data={{
           items: [
-            { name: 'Home', url: 'https://www.openhousemarketplace.com/' },
-            { name: 'Neighborhoods', url: 'https://www.openhousemarketplace.com/neighborhoods' },
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: 'Neighborhoods', url: `${BASE_URL}/neighborhoods` },
           ],
         }}
       />

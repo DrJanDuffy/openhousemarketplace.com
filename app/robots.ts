@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
+import { getSiteUrl } from '@/lib/site'
 
-const baseUrl = 'https://www.openhousemarketplace.com'
+const baseUrl = getSiteUrl()
 
 export default function robots(): MetadataRoute.Robots {
   return {
