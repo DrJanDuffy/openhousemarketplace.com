@@ -5,6 +5,7 @@ import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import ExternalLink from '@/components/ExternalLink'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
+import GoogleMapsNeighborhoodDiscoverySection from '@/components/GoogleMapsNeighborhoodDiscoverySection'
 import { CALENDLY_OPEN_HOUSE_TOUR_URL } from '@/lib/calendly'
 
 export const revalidate = 86400 // ISR: revalidate daily
@@ -105,6 +106,14 @@ export default function NeighborhoodsIndexPage() {
                 Summerlin open houses this weekend
               </Link>
             </div>
+          </div>
+
+          <div className="mb-10 md:mb-12">
+            <GoogleMapsNeighborhoodDiscoverySection
+              heading="Explore neighborhoods on the map"
+              description="Pan, zoom, and use the tools below to discover areas and context across Summerlin. Then browse individual communities in the list."
+              id="neighborhoods-discovery-map-heading"
+            />
           </div>
 
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Neighborhoods</h2>
