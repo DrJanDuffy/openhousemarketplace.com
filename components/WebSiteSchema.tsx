@@ -4,11 +4,10 @@
  * Publisher NAP matches Google Business Profile (config/gbp.ts).
  * @see https://developers.google.com/search/docs/appearance/structured-data/sitelinks-searchbox
  */
-import { GBP } from '@/config/gbp'
+import { GBP, getBusinessSameAsUrls } from '@/config/gbp'
 import { getSiteUrl } from '@/lib/site'
 
 const baseUrl = getSiteUrl()
-const gbpUrl = process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL
 
 const webSiteSchema = {
   '@context': 'https://schema.org',
@@ -35,7 +34,7 @@ const webSiteSchema = {
       areaServed: 'US',
       availableLanguage: 'English',
     },
-    ...(gbpUrl ? { sameAs: [gbpUrl] } : {}),
+    sameAs: getBusinessSameAsUrls(),
   },
   potentialAction: [
     {

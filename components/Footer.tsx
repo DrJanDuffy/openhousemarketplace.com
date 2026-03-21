@@ -7,7 +7,7 @@ import { useState } from 'react'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import ExternalLink from '@/components/ExternalLink'
 import { SITE_NAME } from '@/config/site'
-import { GBP, GBP_SERVICE_AREA, getGoogleMapsDirectionsUrlToOffice } from '@/config/gbp'
+import { FACEBOOK_PAGE_URL, GBP, GBP_SERVICE_AREA, getGoogleMapsDirectionsUrlToOffice } from '@/config/gbp'
 
 const BUSINESS = {
   name: GBP.name,
@@ -49,6 +49,14 @@ export default function Footer() {
                     <span className="font-medium text-gray-300">Service area:</span> {BUSINESS.serviceArea}
                   </span>
                 </span>
+              </li>
+              <li>
+                <ExternalLink
+                  href={FACEBOOK_PAGE_URL}
+                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  Facebook
+                </ExternalLink>
               </li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
               <li><Link href="/open-houses" className="hover:text-white transition-colors">Summerlin open houses</Link></li>

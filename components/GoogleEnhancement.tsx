@@ -6,13 +6,10 @@
  * LocalBusiness data follows config/gbp.ts (site supports the Google Business Profile).
  */
 import { usePathname } from 'next/navigation'
-import { GBP, getAreaServedJsonLd, OFFICE_GEO } from '@/config/gbp'
+import { GBP, getAreaServedJsonLd, getBusinessSameAsUrls, OFFICE_GEO } from '@/config/gbp'
 import { getSiteUrl } from '@/lib/site'
 
 const BASE_URL = getSiteUrl()
-const GBP_URL = typeof process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL === 'string'
-  ? process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL
-  : undefined
 
 // Page-specific WebPage name/description for better SERP snippets
 const PAGE_META: Record<string, { name: string; description: string }> = {
@@ -118,7 +115,7 @@ export default function GoogleEnhancement() {
       ? { specialOpeningHoursSpecification }
       : {}),
     knowsAbout: ['Real Estate', 'Open Houses', 'Luxury Homes', 'New Construction', 'Summerlin Real Estate Market', 'Home Buying', 'Home Selling'],
-    ...(GBP_URL ? { sameAs: [GBP_URL] } : {}),
+    sameAs: getBusinessSameAsUrls(),
   }
 
   const webPage = {

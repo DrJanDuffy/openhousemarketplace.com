@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { GBP, getAreaServedJsonLd, OFFICE_GEO } from '@/config/gbp'
+import { GBP, getAreaServedJsonLd, getBusinessSameAsUrls, OFFICE_GEO } from '@/config/gbp'
 import { getSiteUrl } from '@/lib/site'
 
 interface StructuredDataProps {
@@ -10,12 +10,8 @@ interface StructuredDataProps {
   data?: Record<string, any>
 }
 
-// Google 2026 SEO: Add NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL in env for sameAs (GBP link)
-const sameAsUrls: string[] = [
-  ...(typeof process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL === 'string'
-    ? [process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL]
-    : []),
-]
+// Google 2026 SEO: GBP (env) + Facebook — see getBusinessSameAsUrls() in config/gbp.ts
+const sameAsUrls: string[] = getBusinessSameAsUrls()
 
 export default function StructuredData({ type, data = {} }: StructuredDataProps) {
   const pathname = usePathname()

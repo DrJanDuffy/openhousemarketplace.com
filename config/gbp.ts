@@ -18,6 +18,19 @@ import { getSiteUrl } from '@/lib/site'
 /** GBP “Website” field uses apex; env/canonical may be www — both resolve via redirect. */
 export const GBP_WEBSITE_FIELD_URL = 'https://openhousemarketplace.com/'
 
+/** Official Facebook Page (business profile). */
+export const FACEBOOK_PAGE_URL = 'https://www.facebook.com/OpenHouseMarketPlace' as const
+
+/** GBP + official social profiles for JSON-LD `sameAs` (GBP link from env when set). */
+export function getBusinessSameAsUrls(): string[] {
+  const urls: string[] = []
+  if (typeof process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL === 'string') {
+    urls.push(process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL)
+  }
+  urls.push(FACEBOOK_PAGE_URL)
+  return urls
+}
+
 /** Geocode for 11773 Cashmere Mist Ave (office pin; matches NAP). */
 export const OFFICE_GEO = { lat: 36.1729722, lng: -115.3540974 } as const
 
