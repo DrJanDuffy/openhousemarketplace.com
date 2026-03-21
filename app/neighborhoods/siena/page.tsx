@@ -4,7 +4,6 @@ import { BASE_URL } from '@/lib/metadata-utils'
 import Link from 'next/link'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import RelatedNeighborhoods from '@/components/RelatedNeighborhoods'
-import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
   title: 'Siena Summerlin | Luxury Mediterranean-Style Homes for Sale',

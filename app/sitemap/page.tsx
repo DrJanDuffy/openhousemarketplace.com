@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import { BASE_URL } from '@/lib/metadata-utils'
 
 import Link from 'next/link'
-import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
   title: 'Sitemap | Open House Market Place',
