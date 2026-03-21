@@ -6,6 +6,7 @@ import { storeLocations } from '@/data/storeLocations'
 import DirectionsWidget from '@/components/DirectionsWidget'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
+import GoogleMapsCommutesSection from '@/components/GoogleMapsCommutesSection'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
@@ -78,6 +79,14 @@ export default function DirectionsPage() {
               heading="Where we work in Summerlin and Las Vegas"
               description="Orient yourself on the map before you plan a route. Then use the directions tool below for driving, transit, walking, or biking."
               id="directions-my-maps-heading"
+            />
+          </div>
+
+          <div className="mb-10 md:mb-12">
+            <GoogleMapsCommutesSection
+              heading="Commute times explorer"
+              description="Use Google’s commute tool to compare travel times and options from a starting point to destinations in the area. Allow location access if prompted for the best results."
+              id="directions-commutes-heading"
             />
           </div>
 
