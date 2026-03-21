@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react'
 
 /**
- * Office listings (realscout-office-listings). Script is loaded once in root layout head.
- * @see https://em.realscout.com/widgets/ — multiple widgets share one script.
+ * Office listings (`realscout-office-listings`). Script + global styles: root `app/layout.tsx` head.
+ * Defaults match RealScout embed: PRICE_LOW, For Sale, $500K–$800K, property-types `,SFR,MF,TC,OTHER`.
  */
 interface RealScoutWidgetProps {
   agentEncodedId?: string
@@ -18,7 +18,7 @@ interface RealScoutWidgetProps {
 
 const RealScoutWidget: React.FC<RealScoutWidgetProps> = ({
   agentEncodedId = 'QWdlbnQtMjI1MDUw',
-  sortOrder = 'PRICE_HIGH',
+  sortOrder = 'PRICE_LOW',
   listingStatus = 'For Sale',
   propertyTypes = ',SFR,MF,TC,OTHER',
   priceMin = '500000',

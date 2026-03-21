@@ -174,52 +174,48 @@ const SummerlinOpenHouseWebsite = () => {
         </div>
       </section>
 
-      {/* RealScout Live Listings – #1 lead gen, above the fold */}
+      {/* Live listings intro — office listings widget is below (replaces former dummy market stats) */}
       <section className="bg-gray-50 py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
+          <div className="text-center mb-2">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
               Live listings: Summerlin Las Vegas open houses &amp; homes for sale
             </h2>
             <p className="text-lg text-gray-600">
-              Browse current Summerlin and Las Vegas MLS listings with Dr. Jan Duffy&apos;s home search—filter by open houses, price, and neighborhood.
+              Use the office listings below (price low to high, $500K–$800K) or open the full{' '}
+              <Link href="/tour/mls" className="font-semibold text-blue-600 hover:underline">
+                MLS property search
+              </Link>{' '}
+              and{' '}
+              <Link href="/open-houses" className="font-semibold text-blue-600 hover:underline">
+                open houses hub
+              </Link>
+              .
             </p>
           </div>
-          <RealScoutWidget
-            className="bg-white rounded-lg shadow-lg p-6"
-            priceMin="400000"
-            priceMax="3000000"
-          />
         </div>
       </section>
 
-      {/* Market teaser */}
-      <section className="bg-white py-8 sm:py-10">
+      {/* Office listings (replaces static market teaser stats) — same embed as RealScout docs; script once in root layout */}
+      <section className="bg-white py-8 sm:py-10" aria-labelledby="home-office-listings-low-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-50 rounded-xl p-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-2xl font-bold text-blue-600">$875K</div>
-                <div className="text-sm text-gray-600">Median Price</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-blue-600">14</div>
-                <div className="text-sm text-gray-600">Avg Days on Market</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-blue-600">156</div>
-                <div className="text-sm text-gray-600">Active Listings</div>
-              </div>
-            </div>
-            <div className="mt-4 flex flex-wrap justify-center gap-4">
-              <Link href="/market-report" className="text-blue-600 font-semibold hover:underline">
-                See full market report
+          <div className="mb-6 text-center">
+            <h2 id="home-office-listings-low-heading" className="text-xl font-bold text-gray-900 sm:text-2xl">
+              Homes for sale — sorted low to high ($500K–$800K)
+            </h2>
+            <p className="mt-2 text-gray-600">
+              Live MLS office listings from Dr. Jan Duffy. For trends and context, see the{' '}
+              <Link href="/market-report" className="font-semibold text-blue-600 hover:underline">
+                market report
+              </Link>{' '}
+              or{' '}
+              <Link href="/book-tour" className="font-semibold text-blue-600 hover:underline">
+                schedule a showing
               </Link>
-              <Link href="/book-tour" className="text-blue-600 font-semibold hover:underline">
-                Schedule a showing
-              </Link>
-            </div>
+              .
+            </p>
           </div>
+          <RealScoutWidget className="rounded-xl border border-gray-200 bg-gray-50 p-4 shadow-sm sm:p-6" />
         </div>
       </section>
 
