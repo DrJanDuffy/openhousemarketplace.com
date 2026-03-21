@@ -59,6 +59,7 @@ export default function HomePage() {
             heading="Explore Summerlin and Las Vegas on our map"
             description="Pan and zoom the map to see neighborhoods, corridors, and points of interest across the areas we serve. Open full screen from the map controls."
             id="home-area-map-heading"
+            deferEmbed
           />
         </div>
       </div>

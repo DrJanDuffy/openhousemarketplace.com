@@ -1,3 +1,5 @@
+'use client'
+
 import { getGoogleMyMapsEmbedUrl } from '@/lib/google-my-maps'
 
 type GoogleMyMapsEmbedProps = {
@@ -20,8 +22,7 @@ export default function GoogleMyMapsEmbed({
       <div className="relative aspect-[4/3] w-full min-h-[280px] sm:min-h-[400px] md:min-h-[480px]">
         <iframe
           src={src}
-          className="absolute inset-0 h-full w-full"
-          style={{ border: 0 }}
+          className="absolute inset-0 h-full w-full border-0"
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"

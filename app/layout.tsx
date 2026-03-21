@@ -72,9 +72,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://em.realscout.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.realscout.com" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="preload" href="/images/team/dr-jan-duffy.jpg" as="image" fetchPriority="high" />
         <noscript>
           <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
         </noscript>

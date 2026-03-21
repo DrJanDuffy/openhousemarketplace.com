@@ -1,3 +1,5 @@
+import { getContentSecurityPolicy } from './lib/csp-header.mjs'
+
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
@@ -35,6 +37,7 @@ const config = {
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(self)' },
+          { key: 'Content-Security-Policy', value: getContentSecurityPolicy() },
         ],
       },
     ]

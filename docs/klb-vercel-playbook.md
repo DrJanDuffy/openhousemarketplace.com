@@ -57,6 +57,12 @@ Do not commit secrets. `.env.local` is gitignored.
 
 This project targets **Next.js 15.x** (see `package.json`). Moving to Next 16 is a **dedicated upgrade**: follow the [official upgrade guide](https://nextjs.org/docs/app/building-your-application/upgrading), run `pnpm run build:vercel` or `vercel build`, fix breaking changes, and re-check middleware, `metadata`, and ESLint. Do not upgrade solely to chase a CVE without confirming advisories for your current minor line.
 
+## Content-Security-Policy
+
+- Policy is built in [`lib/csp-header.mjs`](../lib/csp-header.mjs) and sent via [`next.config.mjs`](../next.config.mjs) (`Content-Security-Policy` header).
+- When adding scripts, iframes, or new third-party domains, update **script-src**, **connect-src**, and **frame-src** there. RealScout requires **both** `em.realscout.com` and `www.realscout.com` in **script-src** and **connect-src** (see workspace rules).
+- `unsafe-inline` / `unsafe-eval` are required for Next.js + inline analytics today; stricter setups use nonces (separate migration).
+
 ## Intentionally not used here
 
 - **`next-seo`** — Conflicts with App Router `Metadata` / duplicate tags.

@@ -30,7 +30,7 @@ export default function CalendlyBadgeWidget() {
   return (
     <Script
       src={CALENDLY_SCRIPT}
-      strategy="afterInteractive"
+      strategy="lazyOnload"
       onLoad={initBadgeWidget}
     />
   )

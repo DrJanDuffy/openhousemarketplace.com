@@ -95,8 +95,10 @@ const SummerlinOpenHouseWebsite = () => {
                       alt=""
                       width={64}
                       height={64}
+                      sizes="64px"
                       className="w-full h-full object-cover"
                       priority
+                      fetchPriority="high"
                       onError={() => setHeroPhotoError(true)}
                     />
                    ) : (

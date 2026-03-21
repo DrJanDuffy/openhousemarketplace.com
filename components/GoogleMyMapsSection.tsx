@@ -1,10 +1,13 @@
 import GoogleMyMapsEmbed from '@/components/GoogleMyMapsEmbed'
+import GoogleMyMapsEmbedLazy from '@/components/GoogleMyMapsEmbedLazy'
 
 type GoogleMyMapsSectionProps = {
   heading: string
   description?: string
   className?: string
   id?: string
+  /** When true (e.g. homepage), load map iframe after hydration to improve LCP */
+  deferEmbed?: boolean
 }
 
 /**
@@ -15,6 +18,7 @@ export default function GoogleMyMapsSection({
   description,
   className = '',
   id = 'area-map-heading',
+  deferEmbed = false,
 }: GoogleMyMapsSectionProps) {
   return (
     <section className={className} aria-labelledby={id}>
@@ -24,7 +28,7 @@ export default function GoogleMyMapsSection({
       {description ? (
         <p className="text-gray-600 mb-6 max-w-3xl">{description}</p>
       ) : null}
-      <GoogleMyMapsEmbed />
+      {deferEmbed ? <GoogleMyMapsEmbedLazy /> : <GoogleMyMapsEmbed />}
     </section>
   )
 }
