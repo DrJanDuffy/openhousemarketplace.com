@@ -61,6 +61,7 @@ export default function RealScoutOfficeListingsBands() {
 
   return (
     <section
+      id="office-listings-bands"
       className="border-t border-gray-200 bg-slate-50 py-10 sm:py-14"
       aria-labelledby="realscout-office-bands-heading"
     >

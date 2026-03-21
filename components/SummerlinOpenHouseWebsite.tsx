@@ -10,18 +10,6 @@ import RealScoutSearchCard from './RealScoutSearchCard'
 import { GBP } from '@/config/gbp'
 import { HOME_PAGE_FAQS, SEO_PRIMARY_KEYWORD } from '@/config/seo'
 
-/** Code-split heavy sections to reduce initial JS (PageSpeed: TBT, main-thread work). */
-const RealScoutWidget = dynamic(() => import('./RealScoutWidget'), {
-  ssr: false,
-  loading: () => (
-    <div
-      className="min-h-[360px] rounded-lg border border-gray-200 bg-gray-100 animate-pulse"
-      aria-busy="true"
-      aria-label="Loading listings"
-    />
-  ),
-})
-
 const ExitIntentPopup = dynamic(() => import('./ExitIntentPopup'))
 
 const SummerlinOpenHouseWebsite = () => {
@@ -174,15 +162,19 @@ const SummerlinOpenHouseWebsite = () => {
         </div>
       </section>
 
-      {/* Live listings intro — office listings widget is below (replaces former dummy market stats) */}
-      <section className="bg-gray-50 py-8 sm:py-12">
+      {/* Live MLS: one RealScout embed set site-wide in layout (#office-listings-bands) — avoids duplicate grids on the homepage */}
+      <section className="bg-gray-50 py-8 sm:py-12" aria-labelledby="home-live-listings-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-2">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+          <div className="text-center">
+            <h2 id="home-live-listings-heading" className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
               Live listings: Summerlin Las Vegas open houses &amp; homes for sale
             </h2>
             <p className="text-lg text-gray-600">
-              Use the office listings below (price low to high, $500K–$800K) or open the full{' '}
+              Browse{' '}
+              <a href="#office-listings-bands" className="font-semibold text-blue-600 hover:underline">
+                office listings by price range
+              </a>{' '}
+              (five MLS bands, $400K–$900K, low to high in each band), or use the full{' '}
               <Link href="/tour/mls" className="font-semibold text-blue-600 hover:underline">
                 MLS property search
               </Link>{' '}
@@ -190,21 +182,7 @@ const SummerlinOpenHouseWebsite = () => {
               <Link href="/open-houses" className="font-semibold text-blue-600 hover:underline">
                 open houses hub
               </Link>
-              .
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Office listings (replaces static market teaser stats) — same embed as RealScout docs; script once in root layout */}
-      <section className="bg-white py-8 sm:py-10" aria-labelledby="home-office-listings-low-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-6 text-center">
-            <h2 id="home-office-listings-low-heading" className="text-xl font-bold text-gray-900 sm:text-2xl">
-              Homes for sale — sorted low to high ($500K–$800K)
-            </h2>
-            <p className="mt-2 text-gray-600">
-              Live MLS office listings from Dr. Jan Duffy. For trends and context, see the{' '}
+              . For market context, see the{' '}
               <Link href="/market-report" className="font-semibold text-blue-600 hover:underline">
                 market report
               </Link>{' '}
@@ -215,7 +193,6 @@ const SummerlinOpenHouseWebsite = () => {
               .
             </p>
           </div>
-          <RealScoutWidget className="rounded-xl border border-gray-200 bg-gray-50 p-4 shadow-sm sm:p-6" />
         </div>
       </section>
 
