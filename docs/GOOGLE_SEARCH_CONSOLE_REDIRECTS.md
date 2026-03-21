@@ -27,6 +27,20 @@ If you ran **Validate fix** for this issue, validation can still show as failed 
 
 That’s expected. The goal is not to index the redirecting URLs; it’s to have the **canonical www** URLs indexed.
 
+### Do not rely on "Validate fix" for redirect sources
+
+For **Page with redirect** issues where the redirect is **intentional** (consolidation to `https://www`), **do not expect** Google’s **Validate fix** to pass. The tool checks whether the listed URLs become indexable; they should **keep** redirecting. Treat this document as the source of truth for that behavior. In GSC you may use **Dismiss** / acknowledge the issue, or focus on the **www** property indexing (below) instead of clearing the redirect report.
+
+## Manual verification checklist (www property)
+
+Complete these in Search Console for **`https://www.openhousemarketplace.com`** (not the bare-domain property):
+
+1. Open **Indexing → Pages** (or **Page indexing**).
+2. Confirm the homepage and priority URLs show **Indexed** — e.g. `/`, `/open-houses`, `/neighborhoods/the-ridges`, `/neighborhoods/summerlin-centre`, `/neighborhoods/sun-city-summerlin`, `/neighborhoods/red-rock-country-club`.
+3. Use **URL Inspection** only on **canonical** URLs (`https://www.openhousemarketplace.com/...`). Do not use inspection on `http://` or `https://openhousemarketplace.com/...` as the primary signal; those are expected to report a redirect.
+4. If a **www** URL is not indexed, request indexing for that **www** URL after confirming it returns **200** and matches your `robots`/metadata rules.
+5. Ensure **Sitemaps** includes `https://www.openhousemarketplace.com/sitemap.xml`.
+
 ## What to do in Search Console
 
 1. **Use the correct property**
@@ -52,6 +66,37 @@ That’s expected. The goal is not to index the redirecting URLs; it’s to have
 - **Sitemap / robots:** `app/sitemap.ts` and `app/robots.ts` use the same base URL.
 
 No code change is required for "Page with redirect"; the setup is correct. Use the **www** property and the sitemap to get the canonical pages indexed.
+
+## Automated redirect check (curl)
+
+Use these to confirm non-www and HTTP URLs resolve to **https://www** (Vercel may use **301**, **307**, or **308**; all are acceptable for permanent consolidation):
+
+```bash
+curl -sI "http://openhousemarketplace.com/"
+curl -sI "https://openhousemarketplace.com/open-houses"
+curl -sI "http://www.openhousemarketplace.com/"
+curl -sI "https://www.openhousemarketplace.com/index"
+curl -sI "https://www.openhousemarketplace.com/"
+```
+
+**Last verified (repo check):** Non-www and HTTP requests return redirects toward `https://www.openhousemarketplace.com/...`; `/index` returns **301** with `Location: /` on www; the www homepage returns **200 OK**.
+
+---
+
+## "Crawled - currently not indexed" (non-www URL)
+
+If GSC lists a URL like **`https://openhousemarketplace.com/neighborhoods/summerlin-centre`** (hostname **without** `www`) under **Crawled - currently not indexed**, that is usually **consistent with canonical consolidation**:
+
+- The hostname **`openhousemarketplace.com`** is not the indexed duplicate; **`www.openhousemarketplace.com`** is.
+- Google may crawl the non-www URL, follow the redirect to **www**, and **not** index the non-www URL as its own document. The page you care about for search is **`https://www.openhousemarketplace.com/neighborhoods/summerlin-centre`**.
+
+**What to do:**
+
+1. In URL Inspection, test **`https://www.openhousemarketplace.com/neighborhoods/summerlin-centre`** (www). Confirm **Indexing allowed**, **User-declared canonical** matches **Google-selected canonical** (both should prefer **www**).
+2. Confirm the page is listed in [app/sitemap.ts](app/sitemap.ts) under the **www** base (it includes `summerlin-centre` in the neighborhoods list).
+3. If the **www** URL is indexed and healthy, you can mark **Done fixing** for the non-www report row, or ignore it as duplicate-host noise in a non-www property.
+
+If the **www** URL itself shows **Crawled - currently not indexed** or **Excluded**, investigate that URL (content quality, `noindex`, robots, manual actions)—not the non-www copy alone.
 
 ---
 

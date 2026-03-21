@@ -49,3 +49,7 @@ This project targets **Next.js 15.x** (see `package.json`). Moving to Next 16 is
 
 - **`next-seo`** — Conflicts with App Router `Metadata` / duplicate tags.
 - **`next-sitemap` postbuild** — Replaced by native sitemap convention.
+
+## Google Search Console — "Page with redirect"
+
+If GSC lists non-www or HTTP URLs under **Page with redirect**, that is usually **expected** for a www-canonical site. See [GOOGLE_SEARCH_CONSOLE_REDIRECTS.md](GOOGLE_SEARCH_CONSOLE_REDIRECTS.md) for interpretation, a **www-property checklist**, curl verification, why **Validate fix** often fails for intentional redirects, and **Crawled - currently not indexed** on non-www URLs (e.g. `openhousemarketplace.com/neighborhoods/...`).
