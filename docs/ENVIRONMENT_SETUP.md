@@ -20,6 +20,11 @@ KV_REST_API_TOKEN=your_kv_rest_api_token
 GOOGLE_MAPS_API_KEY=AIzaSyDt84u_m6IGyrNZ9Eyc2W0fAIx6yD3peTo
 NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyDt84u_m6IGyrNZ9Eyc2W0fAIx6yD3peTo
 
+# Optional: iframe embed URLs (defaults in lib/google-*.ts). Set in Vercel if Google regenerates solution HTML.
+# NEXT_PUBLIC_GOOGLE_MY_MAPS_EMBED_URL=
+# NEXT_PUBLIC_GOOGLE_MAPS_COMMUTES_EMBED_URL=
+# NEXT_PUBLIC_GOOGLE_MAPS_NEIGHBORHOOD_DISCOVERY_EMBED_URL=
+
 # Firebase Admin SDK (Server-side) - Get from Firebase Console
 FIREBASE_PROJECT_ID=your_firebase_project_id
 FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYour\nMulti\nLine\nKey\nHere\n-----END PRIVATE KEY-----\n"

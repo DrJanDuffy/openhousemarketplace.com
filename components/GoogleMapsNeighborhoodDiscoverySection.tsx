@@ -1,8 +1,10 @@
+import type { ReactNode } from 'react'
+
 import GoogleMapsNeighborhoodDiscoveryEmbed from '@/components/GoogleMapsNeighborhoodDiscoveryEmbed'
 
 type GoogleMapsNeighborhoodDiscoverySectionProps = {
   heading: string
-  description?: string
+  description?: ReactNode
   className?: string
   id?: string
 }

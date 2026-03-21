@@ -16,6 +16,7 @@ Internal reference for **openhousemarketplace.com** and greenfield KLB sites. Pr
 | Claude (non-streaming) | [`app/api/claude/route.ts`](../app/api/claude/route.ts) |
 | Claude (streaming, Vercel AI SDK) | [`app/api/chat/route.ts`](../app/api/chat/route.ts) — `streamText` + `toUIMessageStreamResponse()` |
 | Rate limiting (API) | [`lib/rate-limit.ts`](../lib/rate-limit.ts) |
+| My Maps / Maps Platform embeds | [`components/GoogleMyMapsEmbed.tsx`](../components/GoogleMyMapsEmbed.tsx), [`components/GoogleMapsCommutesEmbed.tsx`](../components/GoogleMapsCommutesEmbed.tsx), [`components/GoogleMapsNeighborhoodDiscoveryEmbed.tsx`](../components/GoogleMapsNeighborhoodDiscoveryEmbed.tsx) |
 
 ## Environment variables (Vercel)
 
@@ -25,6 +26,9 @@ Internal reference for **openhousemarketplace.com** and greenfield KLB sites. Pr
 | `NEXT_PUBLIC_APP_URL` | Fallback if `NEXT_PUBLIC_SITE_URL` unset (see [`vercel.json`](../vercel.json)) |
 | `ANTHROPIC_API_KEY` | Required at runtime for `/api/claude` and `/api/chat` (reads `process.env.ANTHROPIC_API_KEY`) |
 | `ANTHROPIC_MODEL` | Optional; defaults to `claude-sonnet-4-20250514` |
+| `NEXT_PUBLIC_GOOGLE_MY_MAPS_EMBED_URL` | Optional; overrides default My Maps iframe URL ([`lib/google-my-maps.ts`](../lib/google-my-maps.ts)) |
+| `NEXT_PUBLIC_GOOGLE_MAPS_COMMUTES_EMBED_URL` | Optional; Commutes solution HTML ([`lib/google-maps-commutes.ts`](../lib/google-maps-commutes.ts)) |
+| `NEXT_PUBLIC_GOOGLE_MAPS_NEIGHBORHOOD_DISCOVERY_EMBED_URL` | Optional; Neighborhood Discovery HTML ([`lib/google-maps-neighborhood-discovery.ts`](../lib/google-maps-neighborhood-discovery.ts)) |
 
 If the key is already defined in **Vercel** (e.g. team-level or shared “global” environment variables), you do **not** need to add it again on this project—Vercel injects it into builds and serverless functions the same way. Use `.env.local` only for local development.
 
