@@ -2,6 +2,33 @@
 
 import React, { useEffect, useState } from 'react'
 
+/** Shared readiness for `realscout-office-listings` (script in root layout). Use in multi-widget sections to poll once. */
+export function useRealScoutOfficeListingsReady(): boolean {
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const isDefined = () => window.customElements?.get?.('realscout-office-listings')
+    if (isDefined()) {
+      setReady(true)
+      return
+    }
+    const t = setInterval(() => {
+      if (isDefined()) {
+        clearInterval(t)
+        setReady(true)
+      }
+    }, 100)
+    const timeout = setTimeout(() => clearInterval(t), 12000)
+    return () => {
+      clearInterval(t)
+      clearTimeout(timeout)
+    }
+  }, [])
+
+  return ready
+}
+
 /**
  * Office listings (`realscout-office-listings`). Script + global styles: root `app/layout.tsx` head.
  * Defaults match RealScout embed: PRICE_LOW, For Sale, $500K–$800K, property-types `,SFR,MF,TC,OTHER`.
@@ -25,27 +52,7 @@ const RealScoutWidget: React.FC<RealScoutWidgetProps> = ({
   priceMax = '800000',
   className = '',
 }) => {
-  const [ready, setReady] = useState(false)
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const isDefined = () => window.customElements?.get?.('realscout-office-listings')
-    if (isDefined()) {
-      setReady(true)
-      return
-    }
-    const t = setInterval(() => {
-      if (isDefined()) {
-        clearInterval(t)
-        setReady(true)
-      }
-    }, 100)
-    const timeout = setTimeout(() => clearInterval(t), 12000)
-    return () => {
-      clearInterval(t)
-      clearTimeout(timeout)
-    }
-  }, [])
+  const ready = useRealScoutOfficeListingsReady()
 
   return (
     <div className={`realScout-widget-container ${className}`}>
