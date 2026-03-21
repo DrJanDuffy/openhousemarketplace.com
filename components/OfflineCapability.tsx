@@ -57,8 +57,7 @@ const OfflineCapability: React.FC = () => {
 
     setIsInstalling(true)
     try {
-      const registration = await navigator.serviceWorker.register('/sw.js')
-      console.log('Service Worker registered:', registration)
+      await navigator.serviceWorker.register('/sw.js')
       setIsServiceWorkerRegistered(true)
       
       // Cache essential data for offline use
@@ -152,7 +151,6 @@ const OfflineCapability: React.FC = () => {
       }
       
       setIsServiceWorkerRegistered(false)
-      console.log('Cache cleared')
     } catch (error) {
       console.error('Error clearing cache:', error)
     }

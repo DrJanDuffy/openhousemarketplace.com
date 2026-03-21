@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react'
 import { BASE_URL } from '@/lib/metadata-utils'
 
-import OptimizedImage from './OptimizedImage'
+import Image from 'next/image'
 import { Download, QrCode, Share2, Copy } from 'lucide-react'
 
 interface QRCodeGeneratorProps {
@@ -64,8 +64,6 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
     
     try {
       await navigator.clipboard.writeText(propertyUrl)
-      // You could add a toast notification here
-      console.log('QR code URL copied to clipboard')
     } catch (error) {
       console.error('Error copying to clipboard:', error)
     }
@@ -152,10 +150,13 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
         <div className="space-y-4">
           <div className="flex justify-center">
             <div ref={qrCodeRef} className="border-2 border-gray-200 rounded-lg p-4">
-              <OptimizedImage
+              <Image
                 src={qrCodeUrl}
                 alt="QR Code"
-                className="w-48 h-48"
+                width={192}
+                height={192}
+                className="h-48 w-48 object-contain"
+                unoptimized
               />
             </div>
           </div>

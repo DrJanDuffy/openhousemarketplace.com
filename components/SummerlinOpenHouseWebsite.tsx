@@ -251,7 +251,7 @@ const SummerlinOpenHouseWebsite = () => {
                     <OptimizedImage
                       src={neighborhood.image}
                       alt={`${neighborhood.name} - Summerlin West neighborhood`}
-                      className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
+                      className="hover:opacity-90 transition-opacity"
                       priority={index === 0}
                     />
                   </Link>

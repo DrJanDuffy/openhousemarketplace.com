@@ -4,6 +4,12 @@ import { getContentSecurityPolicy } from './lib/csp-header.mjs'
 const config = {
   reactStrictMode: true,
   poweredByHeader: false,
+  compiler: {
+    removeConsole:
+      process.env.NODE_ENV === 'production'
+        ? { exclude: ['error', 'warn'] }
+        : false,
+  },
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },

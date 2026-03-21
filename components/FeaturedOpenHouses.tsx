@@ -150,7 +150,7 @@ export default function FeaturedOpenHouses() {
                     <OptimizedImage
                       src={house.image}
                       alt={`${house.address} - ${house.neighborhood} open house`}
-                      className="h-48 w-full object-cover transition-opacity hover:opacity-90"
+                      className="transition-opacity hover:opacity-90"
                       priority={index === 0}
                     />
                   </div>

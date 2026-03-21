@@ -106,10 +106,10 @@ export default function Footer() {
               {!logoError ? (
                 <Image
                   src="/images/logo/logo.svg"
-                  alt=""
+                  alt="Open House Market Place logo"
                   width={170}
                   height={28}
-                  className="h-10 w-auto object-contain"
+                  className="h-7 w-auto max-w-[170px] object-contain object-left"
                   onError={() => setLogoError(true)}
                   unoptimized
                 />

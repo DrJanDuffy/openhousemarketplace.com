@@ -84,9 +84,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
         throw new Error((errorData as { error?: string }).error || `HTTP ${response.status}: ${response.statusText}`)
       }
 
-      const result = await response.json()
-      console.log('Email sent successfully:', result)
-      
+      await response.json()
+
       setSubmitStatus('success')
       reset() // Clear the form
       

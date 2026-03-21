@@ -122,7 +122,6 @@ const CustomRegistrationForm: React.FC<CustomRegistrationFormProps> = ({
           <OptimizedImage
             src={`/images/properties/${propertyId || 'default'}.jpg`}
             alt={propertyAddress}
-            className="w-full h-48 object-cover"
           />
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
             <div className="text-white">

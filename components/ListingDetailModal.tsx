@@ -74,11 +74,12 @@ export function ListingDetailModal({
           </DialogHeader>
 
           <div className="overflow-y-auto px-6 py-4">
-            <div className="aspect-video w-full overflow-hidden rounded-lg bg-gray-100">
+            <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-gray-100">
               <OptimizedImage
+                fillParent
                 src={listing.image}
                 alt={`${listing.address} - ${listing.neighborhood}`}
-                className="h-full w-full object-cover"
+                className="object-cover"
               />
             </div>
 
