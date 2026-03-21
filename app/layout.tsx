@@ -82,6 +82,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         ) : null}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="preload" href="/images/team/dr-jan-duffy.jpg" as="image" fetchPriority="high" />
+        {/* RealScout web components — load once site-wide; widgets use <realscout-office-listings> etc. */}
+        <script
+          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
+          type="module"
+          async
+        />
         <noscript>
           <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
         </noscript>
@@ -136,6 +142,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               font-size: 16px !important;
             }
             .realscout-search-container { padding: 0; }
+          }
+          realscout-office-listings {
+            --rs-listing-divider-color: #0e64c8;
+            width: 100%;
           }
         `,
           }}

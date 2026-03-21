@@ -22,17 +22,6 @@ const RealScoutWidget = dynamic(() => import('./RealScoutWidget'), {
   ),
 })
 
-const FeaturedOpenHouses = dynamic(() => import('./FeaturedOpenHouses'), {
-  loading: () => (
-    <div className="min-h-[280px] bg-gray-50 py-8" aria-hidden>
-      <div className="mx-auto max-w-7xl px-4">
-        <div className="mx-auto mb-4 h-8 w-48 animate-pulse rounded bg-gray-200" />
-        <div className="h-64 animate-pulse rounded-lg bg-gray-200" />
-      </div>
-    </div>
-  ),
-})
-
 const ExitIntentPopup = dynamic(() => import('./ExitIntentPopup'))
 
 const SummerlinOpenHouseWebsite = () => {
@@ -233,8 +222,6 @@ const SummerlinOpenHouseWebsite = () => {
           </div>
         </div>
       </section>
-
-       <FeaturedOpenHouses />
 
       {/* Neighborhood Spotlight */}
       <section className="bg-white py-10 sm:py-16">

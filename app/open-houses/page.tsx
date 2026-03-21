@@ -8,7 +8,7 @@ import {
 } from '@/config/seo'
 
 import Link from 'next/link'
-import FeaturedOpenHouses from '@/components/FeaturedOpenHouses'
+import RealScoutWidget from '@/components/RealScoutWidget'
 import HyperLocalNeighborhoodPage from '@/components/HyperLocalNeighborhoodPage'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
@@ -173,7 +173,21 @@ export default function OpenHousesPage() {
           </div>
         </div>
       </div>
-      <FeaturedOpenHouses />
+      <section className="bg-gray-50 border-t border-gray-200 py-10 sm:py-14">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="mb-2 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
+            Homes for sale — office listings
+          </h2>
+          <p className="mb-8 text-center text-gray-600">
+            Live MLS listings from Dr. Jan Duffy&apos;s office (price high to low, $500K–$800K range as configured). For the full search experience, visit{' '}
+            <Link href="/tour/mls" className="font-semibold text-blue-600 hover:underline">
+              MLS property search
+            </Link>
+            .
+          </p>
+          <RealScoutWidget className="rounded-xl bg-white p-4 shadow-lg sm:p-6" />
+        </div>
+      </section>
       {/* Schedule a private showing - Calendly inline widget */}
       <section className="bg-white border-t border-gray-200 py-12" aria-labelledby="schedule-showing-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

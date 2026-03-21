@@ -1,9 +1,11 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const _REALSCOUT_SCRIPT = 'https://em.realscout.com/widgets/realscout-web-components.umd.js'
-
+/**
+ * Office listings (realscout-office-listings). Script is loaded once in root layout head.
+ * @see https://em.realscout.com/widgets/ — multiple widgets share one script.
+ */
 interface RealScoutWidgetProps {
   agentEncodedId?: string
   sortOrder?: string
@@ -15,92 +17,55 @@ interface RealScoutWidgetProps {
 }
 
 const RealScoutWidget: React.FC<RealScoutWidgetProps> = ({
-  agentEncodedId = "QWdlbnQtMjI1MDUw",
-  sortOrder = "STATUS_AND_SIGNIFICANT_CHANGE",
-  listingStatus = "For Sale",
-  propertyTypes = "SFR,MF,TC",
-  priceMin = "600000",
-  priceMax = "1200000",
-  className = ""
+  agentEncodedId = 'QWdlbnQtMjI1MDUw',
+  sortOrder = 'PRICE_HIGH',
+  listingStatus = 'For Sale',
+  propertyTypes = ',SFR,MF,TC,OTHER',
+  priceMin = '500000',
+  priceMax = '800000',
+  className = '',
 }) => {
-  const widgetRef = useRef<HTMLDivElement>(null)
-  const [scriptReady, setScriptReady] = useState(false)
+  const [ready, setReady] = useState(false)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    const isCustomElementDefined = () =>
-      window.customElements?.get?.('realscout-office-listings')
-    if (isCustomElementDefined()) {
-      setScriptReady(true)
+    const isDefined = () => window.customElements?.get?.('realscout-office-listings')
+    if (isDefined()) {
+      setReady(true)
       return
     }
-    const scriptId = 'realscout-web-components-script'
-    let script = document.getElementById(scriptId) as HTMLScriptElement | null
-    if (!script) {
-      script = document.createElement('script')
-      script.id = scriptId
-      script.src = _REALSCOUT_SCRIPT
-      script.type = 'module'
-      script.async = true
-      document.body.appendChild(script)
-    }
-    const check = setInterval(() => {
-      if (isCustomElementDefined()) {
-        clearInterval(check)
-        setScriptReady(true)
+    const t = setInterval(() => {
+      if (isDefined()) {
+        clearInterval(t)
+        setReady(true)
       }
     }, 100)
-    const timeout = setTimeout(() => clearInterval(check), 8000)
+    const timeout = setTimeout(() => clearInterval(t), 12000)
     return () => {
-      clearInterval(check)
+      clearInterval(t)
       clearTimeout(timeout)
     }
   }, [])
 
-  useEffect(() => {
-    if (!scriptReady) return
-    const style = document.createElement('style')
-    style.id = 'realscout-office-listings-styles'
-    style.textContent = `
-      realscout-office-listings { 
-        --rs-listing-divider-color: rgb(101, 141, 172); 
-        width: 100%; 
-      }
-      @media (max-width: 640px) {
-        realscout-office-listings { max-width: 100%; }
-        .realScout-widget-container { overflow-x: hidden; }
-      }
-    `
-    if (!document.getElementById(style.id)) {
-      document.head.appendChild(style)
-    }
-    return () => {
-      const existing = document.getElementById(style.id)
-      if (existing?.parentNode) existing.parentNode.removeChild(existing)
-    }
-  }, [scriptReady])
-
   return (
     <div className={`realScout-widget-container ${className}`}>
-      <div ref={widgetRef}>
-        {scriptReady ? (
-          React.createElement('realscout-office-listings', {
-            'agent-encoded-id': agentEncodedId,
-            'sort-order': sortOrder,
-            'listing-status': listingStatus,
-            'property-types': propertyTypes,
-            'price-min': priceMin,
-            'price-max': priceMax
-          })
-        ) : (
-          <div className="animate-pulse flex flex-col gap-3 p-4">
-            <div className="h-8 bg-gray-200 rounded w-3/4" />
-            <div className="h-24 bg-gray-100 rounded" />
-            <div className="h-24 bg-gray-100 rounded" />
-            <div className="h-24 bg-gray-100 rounded" />
-          </div>
-        )}
-      </div>
+      {ready ? (
+        React.createElement('realscout-office-listings', {
+          'agent-encoded-id': agentEncodedId,
+          'sort-order': sortOrder,
+          'listing-status': listingStatus,
+          'property-types': propertyTypes,
+          'price-min': priceMin,
+          'price-max': priceMax,
+        })
+      ) : (
+        <div className="flex flex-col gap-3 p-4 animate-pulse" aria-busy="true" aria-label="Loading listings">
+          <div className="h-8 w-3/4 rounded bg-gray-200" />
+          <div className="h-24 rounded bg-gray-100" />
+          <div className="h-24 rounded bg-gray-100" />
+          <div className="h-24 rounded bg-gray-100" />
+        </div>
+      )}
     </div>
   )
 }

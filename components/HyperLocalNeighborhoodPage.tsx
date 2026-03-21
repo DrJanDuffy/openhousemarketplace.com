@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import { MapPin, Home, Clock, ChartBar, School, Leaf, Car } from 'lucide-react'
-import RealScoutWidget from './RealScoutWidget'
 import CalendlyInlineWidget from './CalendlyInlineWidget'
 
 interface MarketStats {
@@ -156,15 +155,6 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
                   </div>
                 </div>
 
-                <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                  <RealScoutWidget 
-                    agentEncodedId="QWdlbnQtMjI1MDUw"
-                    sortOrder="STATUS_AND_SIGNIFICANT_CHANGE"
-                    listingStatus="For Sale"
-                    propertyTypes="SFR,MF,TC"
-                    className="w-full"
-                  />
-                </div>
               </div>
             )}
 

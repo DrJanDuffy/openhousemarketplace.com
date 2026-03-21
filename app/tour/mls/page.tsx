@@ -51,11 +51,7 @@ export default function TourMLSPage() {
             <p className="text-gray-600 mb-4">
               Browse current properties for sale. Filter by price, beds, baths, and more. Create an account to save searches and get instant alerts.
             </p>
-            <RealScoutWidget
-              className="min-h-[400px]"
-              priceMin="400000"
-              priceMax="3000000"
-            />
+            <RealScoutWidget className="min-h-[320px]" />
           </section>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
