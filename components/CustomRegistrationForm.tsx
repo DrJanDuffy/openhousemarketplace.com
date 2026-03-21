@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { trackMetaPixelEvent } from '@/lib/facebook-pixel'
 import OptimizedImage from './OptimizedImage'
 // Removed unused imports
 
@@ -90,6 +91,7 @@ const CustomRegistrationForm: React.FC<CustomRegistrationFormProps> = ({
       }
 
       await onSubmit(submitData)
+      trackMetaPixelEvent('Lead', { content_name: 'open_house_registration', content_category: formType })
       setSubmitStatus('success')
       
       // Reset form after successful submission

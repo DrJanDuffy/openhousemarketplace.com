@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { trackMetaPixelEvent } from '@/lib/facebook-pixel'
 import { useForm } from 'react-hook-form'
 import { Mail, Phone, User, MapPin, Loader2, CheckCircle, AlertCircle } from 'lucide-react'
 
@@ -95,6 +96,7 @@ const ReactHookForm: React.FC<ReactHookFormProps> = ({
 
       await response.json()
 
+      trackMetaPixelEvent('Lead', { content_name: 'market_updates', content_category: data.neighborhood })
       setSubmitStatus('success')
       reset() // Clear the form
       

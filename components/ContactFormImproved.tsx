@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/select'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
+import { trackMetaPixelEvent } from '@/lib/facebook-pixel'
 
 interface ContactFormData {
   name: string
@@ -93,6 +94,7 @@ const ContactFormImproved: React.FC<ContactFormImprovedProps> = ({
         throw new Error(errorMessage || `HTTP ${response.status}`)
       }
 
+      trackMetaPixelEvent('Lead', { content_name: 'contact_form_improved', content_category: data.contactType })
       setSubmitStatus('success')
       reset()
       setContactType('')

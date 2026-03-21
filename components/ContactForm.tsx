@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { trackMetaPixelEvent } from '@/lib/facebook-pixel'
 import { useForm } from 'react-hook-form'
 import { Mail, Phone, User, MessageSquare, Loader2, CheckCircle, AlertCircle } from 'lucide-react'
 
@@ -86,6 +87,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
       await response.json()
 
+      trackMetaPixelEvent('Lead', { content_name: 'contact_form', content_category: data.contactType })
       setSubmitStatus('success')
       reset() // Clear the form
       
