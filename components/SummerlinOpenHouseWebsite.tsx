@@ -8,6 +8,7 @@ import OptimizedImage from './OptimizedImage'
 import { Calendar, Home, Star, Phone, Award } from 'lucide-react'
 import RealScoutSearchCard from './RealScoutSearchCard'
 import { GBP } from '@/config/gbp'
+import { HOME_PAGE_FAQS, SEO_PRIMARY_KEYWORD } from '@/config/seo'
 
 /** Code-split heavy sections to reduce initial JS (PageSpeed: TBT, main-thread work). */
 const RealScoutWidget = dynamic(() => import('./RealScoutWidget'), {
@@ -113,14 +114,20 @@ const SummerlinOpenHouseWebsite = () => {
                  </div>
                </div>
                
-               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                 Your Local Research-Driven Expert for Summerlin & Las Vegas Open Houses
-               </h2>
+               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+                 {SEO_PRIMARY_KEYWORD}
+               </h1>
+               <p className="text-lg sm:text-xl font-semibold text-blue-100 mb-4">
+                 Your local research-driven expert for Summerlin West &amp; Las Vegas—Dr. Jan Duffy, {GBP.name}
+               </p>
                <p className="text-base sm:text-xl mb-4 text-white">
-                 Get instant access to this weekend&apos;s premium open houses with personalized alerts and market insights
+                 Get instant access to this weekend&apos;s premium open houses with personalized alerts and market insights.
                </p>
                <p className="text-base mb-8 text-white">
-                 <Link href="/open-houses" className="text-white font-semibold underline hover:no-underline">Browse all Summerlin open houses</Link> this weekend
+                 <Link href="/open-houses" className="text-white font-semibold underline hover:no-underline">
+                   Browse all Summerlin Las Vegas open houses
+                 </Link>{' '}
+                 this weekend.
                </p>
                
                {/* Trust Indicators */}
@@ -153,13 +160,40 @@ const SummerlinOpenHouseWebsite = () => {
          </div>
        </section>
 
+      {/* AEO / GEO: visible answers matching homepage FAQPage JSON-LD */}
+      <section className="border-b border-gray-200 bg-white py-10 sm:py-12" aria-labelledby="home-open-house-faq-heading">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <h2 id="home-open-house-faq-heading" className="text-2xl font-bold text-gray-900 sm:text-3xl">
+            Summerlin Las Vegas open houses: quick answers
+          </h2>
+          <p className="mt-2 text-gray-600">
+            Straightforward facts for buyers searching Summerlin and Las Vegas—aligned with how people ask voice assistants and AI search.
+          </p>
+          <dl className="mt-8 space-y-6">
+            {HOME_PAGE_FAQS.map((faq) => (
+              <div key={faq.question}>
+                <dt className="font-semibold text-gray-900">{faq.question}</dt>
+                <dd className="mt-2 text-gray-700 leading-relaxed">{faq.answer}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-8 text-center">
+            <Link href="/open-houses" className="font-semibold text-blue-600 hover:underline">
+              Open Houses hub: tours, FAQs, and scheduling →
+            </Link>
+          </p>
+        </div>
+      </section>
+
       {/* RealScout Live Listings – #1 lead gen, above the fold */}
       <section className="bg-gray-50 py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Live Summerlin West Listings – Your #1 Home Search</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+              Live listings: Summerlin Las Vegas open houses &amp; homes for sale
+            </h2>
             <p className="text-lg text-gray-600">
-              Browse current properties for sale in Summerlin West with Dr. Jan Duffy&apos;s home search
+              Browse current Summerlin and Las Vegas MLS listings with Dr. Jan Duffy&apos;s home search—filter by open houses, price, and neighborhood.
             </p>
           </div>
           <RealScoutWidget

@@ -8,15 +8,19 @@
 import { usePathname } from 'next/navigation'
 import { GBP, getAreaServedJsonLd, getBusinessSameAsUrls, OFFICE_GEO } from '@/config/gbp'
 import { getSiteUrl } from '@/lib/site'
+import { SEO_HOME_DESCRIPTION, SEO_OPEN_HOUSES_DESCRIPTION, SEO_PRIMARY_KEYWORD } from '@/config/seo'
 
 const BASE_URL = getSiteUrl()
 
 // Page-specific WebPage name/description for better SERP snippets
 const PAGE_META: Record<string, { name: string; description: string }> = {
-  '/': { name: 'Summerlin West Open Houses | Dr. Jan Duffy Real Estate', description: 'Find Summerlin West open houses and Las Vegas real estate. Search listings, neighborhood guides, and expert buying and selling services in Summerlin.' },
+  '/': {
+    name: 'Summerlin Las Vegas Open Houses | Dr. Jan Duffy Real Estate',
+    description: SEO_HOME_DESCRIPTION,
+  },
   '/about': { name: 'About Dr. Jan Duffy | Summerlin West Real Estate Agent', description: 'Meet Dr. Jan Duffy, your trusted Summerlin West real estate agent. Expert in luxury homes, new construction, and Las Vegas real estate.' },
   '/contact': { name: 'Contact Dr. Jan Duffy | Summerlin West Real Estate', description: 'Contact Dr. Jan Duffy for Summerlin West real estate. Schedule a private showing, get a market report, or discuss buying and selling in Las Vegas.' },
-  '/open-houses': { name: 'Summerlin Open Houses This Weekend | Dr. Jan Duffy', description: 'This weekend\'s open houses in Summerlin West. Schedule a private showing with Dr. Jan Duffy.' },
+  '/open-houses': { name: `${SEO_PRIMARY_KEYWORD} | Dr. Jan Duffy`, description: SEO_OPEN_HOUSES_DESCRIPTION },
   '/book-tour': { name: 'Schedule a private showing | Dr. Jan Duffy | Summerlin Real Estate', description: 'Schedule a private showing with Dr. Jan Duffy. Book a time that works for you.' },
   '/schedule-consultation': { name: 'Schedule a Free Consultation | Dr. Jan Duffy Real Estate', description: 'Schedule a free consultation with Dr. Jan Duffy. Discuss your goals or schedule a private showing—no obligation.' },
   '/open-house-guide': { name: 'Open House Guide 2026 | What Buyers Need to Know | Summerlin Las Vegas', description: 'NAR rules shape how open houses work in 2026. Learn what forms to expect, your rights as a buyer, and how to get the most from Summerlin open houses with Dr. Jan Duffy.' },
@@ -37,7 +41,11 @@ const PAGE_META: Record<string, { name: string; description: string }> = {
   '/test-form': { name: 'API Test Page | Open House Market Place', description: 'Developer test page for Open House Market Place.' },
 }
 
-const DEFAULT_PAGE = { name: 'Summerlin Real Estate | Dr. Jan Duffy', description: 'Real estate services in Summerlin West, Las Vegas. Open houses, listings, and expert buying and selling with Dr. Jan Duffy.' }
+const DEFAULT_PAGE = {
+  name: 'Summerlin Las Vegas Open Houses & Real Estate | Dr. Jan Duffy',
+  description:
+    'Summerlin Las Vegas open houses, MLS search, and private showings with Dr. Jan Duffy. Expert help for buyers and sellers in Summerlin West and the Las Vegas Valley.',
+}
 
 function slugToTitle(slug: string): string {
   return slug
@@ -114,7 +122,16 @@ export default function GoogleEnhancement() {
     ...(specialOpeningHoursSpecification.length > 0
       ? { specialOpeningHoursSpecification }
       : {}),
-    knowsAbout: ['Real Estate', 'Open Houses', 'Luxury Homes', 'New Construction', 'Summerlin Real Estate Market', 'Home Buying', 'Home Selling'],
+    knowsAbout: [
+      SEO_PRIMARY_KEYWORD,
+      'Real Estate',
+      'Open Houses',
+      'Luxury Homes',
+      'New Construction',
+      'Summerlin Real Estate Market',
+      'Home Buying',
+      'Home Selling',
+    ],
     sameAs: getBusinessSameAsUrls(),
   }
 

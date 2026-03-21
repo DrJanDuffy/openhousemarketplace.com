@@ -9,6 +9,7 @@ import StructuredData from "@/components/StructuredData"
 import CalendlyBadgeWidget from "@/components/CalendlyBadgeWidget"
 import CalendlyCSS from "@/components/CalendlyCSS"
 import { getSiteUrl } from "@/lib/site"
+import { SEO_HOME_DESCRIPTION, SEO_HOME_TITLE } from "@/config/seo"
 import { getFacebookAppId } from "@/config/facebook"
 import FacebookPixel from "@/components/FacebookPixel"
 
@@ -16,8 +17,8 @@ import FacebookPixel from "@/components/FacebookPixel"
 // SEO: Google 2026 – metadata defaults, E-E-A-T, structured data, Core Web Vitals
 
 const SITE_URL = getSiteUrl()
-const DEFAULT_TITLE = 'Summerlin West Open Houses | Dr. Jan Duffy Real Estate'
-const DEFAULT_DESCRIPTION = 'Find Summerlin West open houses and schedule a private showing with Dr. Jan Duffy. Listings, neighborhood guides, and expert buying and selling in Summerlin and Las Vegas.'
+const DEFAULT_TITLE = SEO_HOME_TITLE
+const DEFAULT_DESCRIPTION = SEO_HOME_DESCRIPTION
 const FB_APP_ID = getFacebookAppId()
 
 export const metadata: Metadata = {
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     siteName: 'Open House Market Place',
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: [{ url: `${SITE_URL}/images/og/og-image.jpg`, width: 1200, height: 630, alt: 'Summerlin West Open Houses - Dr. Jan Duffy Real Estate' }],
+    images: [{ url: `${SITE_URL}/images/og/og-image.jpg`, width: 1200, height: 630, alt: 'Summerlin Las Vegas Open Houses - Dr. Jan Duffy Real Estate' }],
   },
   twitter: {
     card: 'summary_large_image',

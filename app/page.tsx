@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import { BASE_URL } from '@/lib/metadata-utils'
+import { HOME_PAGE_FAQS, SEO_HOME_DESCRIPTION, SEO_HOME_TITLE } from '@/config/seo'
 
 import SummerlinOpenHouseWebsite from "components/SummerlinOpenHouseWebsite"
 import StructuredData from "@/components/StructuredData"
@@ -30,14 +31,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: `${BASE_URL}/`,
-    title: "Summerlin West Open Houses | Dr. Jan Duffy Real Estate",
-    description: "Discover your dream home in Summerlin West, Las Vegas. This weekend's open houses in The Ridges, Red Rock Country Club, Summerlin Centre, and more.",
+    title: SEO_HOME_TITLE,
+    description: SEO_HOME_DESCRIPTION,
     images: [
       {
         width: 1200,
         height: 630,
         url: `${BASE_URL}/images/og/og-image.jpg`,
-        alt: "Summerlin West Open Houses - Dr. Jan Duffy Real Estate",
+        alt: 'Summerlin Las Vegas Open Houses - Dr. Jan Duffy Real Estate',
       },
     ],
   },
@@ -46,18 +47,19 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main id="main">
-      <StructuredData 
+      <StructuredData
         type="Organization"
         data={{
           url: `${BASE_URL}`,
         }}
       />
+      <StructuredData type="FAQPage" data={{ faqs: [...HOME_PAGE_FAQS] }} />
       <SummerlinOpenHouseWebsite />
       <div className="bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
           <GoogleMyMapsSection
-            heading="Explore Summerlin and Las Vegas on our map"
-            description="Pan and zoom the map to see neighborhoods, corridors, and points of interest across the areas we serve. Open full screen from the map controls."
+            heading="Map: Summerlin Las Vegas open houses & neighborhoods"
+            description="Pan and zoom to explore Summerlin West, corridors, and points of interest where we list and tour homes. Open full screen from the map controls."
             id="home-area-map-heading"
             deferEmbed
           />

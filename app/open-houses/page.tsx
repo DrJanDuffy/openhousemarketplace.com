@@ -1,5 +1,11 @@
 import { Metadata } from 'next'
 import { BASE_URL } from '@/lib/metadata-utils'
+import {
+  OPEN_HOUSES_PAGE_FAQS,
+  SEO_OPEN_HOUSES_DESCRIPTION,
+  SEO_OPEN_HOUSES_TITLE,
+  SEO_PRIMARY_KEYWORD,
+} from '@/config/seo'
 
 import Link from 'next/link'
 import FeaturedOpenHouses from '@/components/FeaturedOpenHouses'
@@ -11,9 +17,10 @@ import StructuredData from '@/components/StructuredData'
 export const revalidate = 3600 // ISR: revalidate hourly (open house listings change often)
 
 export const metadata: Metadata = {
-  title: 'Summerlin Open Houses | This Weekend\'s Home Tours & Private Showings',
-  description: 'Find open houses in Summerlin this weekend. Schedule a private showing with Dr. Jan Duffy. Tour luxury homes, new construction, and family homes in Las Vegas\' premier master-planned community.',
-  keywords: 'Summerlin open houses, schedule private showing, private home tour Summerlin, Las Vegas home tours, weekend open houses, Summerlin real estate, open houses this weekend Summerlin, Summerlin West open houses',
+  title: SEO_OPEN_HOUSES_TITLE,
+  description: SEO_OPEN_HOUSES_DESCRIPTION,
+  keywords:
+    'Summerlin Las Vegas open houses, Summerlin open houses this weekend, Las Vegas open houses, private showing Summerlin, Summerlin West home tours, Red Rock Country Club open house, The Ridges open house, Dr. Jan Duffy',
   robots: {
     index: true,
     follow: true,
@@ -26,8 +33,8 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/open-houses`,
   },
   openGraph: {
-    title: 'Summerlin Open Houses | Schedule a Private Showing',
-    description: 'Tour the best homes for sale in Summerlin this weekend. Schedule a private showing with Dr. Jan Duffy.',
+    title: SEO_OPEN_HOUSES_TITLE,
+    description: SEO_OPEN_HOUSES_DESCRIPTION,
     images: [{ url: `${BASE_URL}/images/dr-jan-duffy.jpg`, width: 1200, height: 630, alt: 'Dr. Jan Duffy - Summerlin West Real Estate Agent' }],
     url: `${BASE_URL}/open-houses`,
   },
@@ -85,51 +92,33 @@ const amenities = [
   }
 ]
 
-const openHouseFaqs = [
-  {
-    question: 'When are open houses in Summerlin?',
-    answer: 'Open houses in Summerlin are typically held on weekends (Saturday and Sunday), with many listings open from late morning through afternoon. Times vary by property; check our Summerlin open house listings or our home search for current dates and times.'
-  },
-  {
-    question: 'How do I find open houses this weekend in Summerlin?',
-    answer: 'Visit our Open Houses page for this weekend\'s home tours, or use Dr. Jan Duffy\'s home search to search listings and filter by open house dates. You can also sign up for open house alerts to get notified when new Summerlin open houses are added.'
-  },
-  {
-    question: 'What should I bring to an open house?',
-    answer: 'Bring a list of questions, your phone for photos and notes, and comfortable shoes. If you\'re serious about buying, consider bringing a pre-approval letter. Dr. Jan Duffy can help you prepare for Summerlin open house visits and evaluate properties.'
-  },
-  {
-    question: 'Are there open houses in Summerlin West neighborhoods like The Ridges or Red Rock?',
-    answer: 'Yes. Open houses are held across Summerlin West, including The Ridges, Red Rock Country Club, Summerlin Centre, The Trails, and other neighborhoods. Use our neighborhood pages and home search to find open houses in your preferred area.'
-  }
-]
+const openHouseFaqs = [...OPEN_HOUSES_PAGE_FAQS]
 
 export default function OpenHousesPage() {
   return (
     <>
-      <StructuredData 
+      <StructuredData
         type="WebPage"
         data={{
-          name: 'Summerlin Open Houses | This Weekend\'s Home Tours',
-          description: 'Find open houses in Summerlin this weekend. Tour luxury homes, new construction, and family homes in Las Vegas\' premier master-planned community.',
+          name: SEO_OPEN_HOUSES_TITLE,
+          description: SEO_OPEN_HOUSES_DESCRIPTION,
         }}
       />
       <StructuredData type="BreadcrumbList" data={{ items: [
         { name: 'Home', url: `${BASE_URL}/` },
-        { name: 'Summerlin Open Houses', url: `${BASE_URL}/open-houses` },
+        { name: SEO_PRIMARY_KEYWORD, url: `${BASE_URL}/open-houses` },
       ] }} />
       <StructuredData type="FAQPage" data={{ faqs: openHouseFaqs }} />
     <div>
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Summerlin Open Houses - Tour Homes This Weekend</h2>
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">{SEO_PRIMARY_KEYWORD}</h1>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Discover Summerlin's finest homes available for viewing this weekend. Our comprehensive open house listings 
-              feature luxury estates, family-friendly homes, new construction properties, and investment opportunities 
-              throughout Summerlin West. Whether you're searching for your dream home or exploring real estate opportunities, 
-              touring open houses provides the perfect opportunity to experience properties firsthand and understand what 
-              makes each neighborhood special in Las Vegas' premier master-planned community.
+              Discover Summerlin Las Vegas open houses: homes available for viewing this weekend across Summerlin West. Our listings
+              feature luxury estates, family-friendly homes, new construction, and investment opportunities
+              throughout master-planned Summerlin. Whether you&apos;re searching for your dream home or exploring opportunities,
+              touring open houses lets you experience properties firsthand and see what makes each neighborhood special in Nevada&apos;s premier master-planned community.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
               Open houses in Summerlin offer buyers the chance to explore properties at their own pace, ask questions, and 
@@ -209,8 +198,9 @@ export default function OpenHousesPage() {
         <Link href="/sitemap" className="text-blue-600 hover:underline font-medium">Sitemap</Link>
       </p>
       <HyperLocalNeighborhoodPage
-        name="Summerlin Open Houses"
-        description="Explore Summerlin's finest homes this weekend. From luxury estates to family homes, find your perfect match with our curated selection of open houses. Get real-time updates, instant scheduling, and exclusive market insights for every property."
+        name={SEO_PRIMARY_KEYWORD}
+        description="Explore Summerlin Las Vegas open houses this weekend—from luxury estates to family homes—with curated listings, search tools, and private showings with Dr. Jan Duffy. Real-time updates and local market context for every property."
+        heroHeadingLevel="h2"
         marketStats={marketStats}
         schools={schools}
         amenities={amenities}

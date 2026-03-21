@@ -35,6 +35,8 @@ interface HyperLocalNeighborhoodPageProps {
   imageUrl: string
   realscoutUrl: string
   className?: string
+  /** Use h2 when the page already has a top-level h1 (e.g. Open Houses hub). */
+  heroHeadingLevel?: 'h1' | 'h2'
 }
 
 const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
@@ -45,7 +47,8 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
   amenities,
   imageUrl,
   realscoutUrl,
-  className = ""
+  className = "",
+  heroHeadingLevel = 'h1',
 }) => {
   const [activeTab, setActiveTab] = useState<'overview' | 'market' | 'schools' | 'amenities'>('overview')
 
@@ -63,7 +66,11 @@ const HyperLocalNeighborhoodPage: React.FC<HyperLocalNeighborhoodPageProps> = ({
         <div className="absolute inset-0 bg-black bg-opacity-50" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-4xl mx-auto px-4">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">{name}</h1>
+            {heroHeadingLevel === 'h2' ? (
+              <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">{name}</h2>
+            ) : (
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">{name}</h1>
+            )}
             <p className="text-xl text-gray-200 mb-8">{description}</p>
             <button
               onClick={handleRealScoutClick}

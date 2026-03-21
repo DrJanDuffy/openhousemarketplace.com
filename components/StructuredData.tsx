@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import { GBP, getAreaServedJsonLd, getBusinessSameAsUrls, OFFICE_GEO } from '@/config/gbp'
+import { SEO_PRIMARY_KEYWORD } from '@/config/seo'
 import { getSiteUrl } from '@/lib/site'
 
 interface StructuredDataProps {
@@ -52,7 +53,7 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
           name: GBP.name,
           url: baseUrl,
         },
-        knowsAbout: ['Open Houses', 'Luxury Open Houses', 'Weekend Open Houses'],
+        knowsAbout: [SEO_PRIMARY_KEYWORD, 'Open Houses', 'Luxury Open Houses', 'Weekend Open Houses', 'Summerlin West Real Estate'],
         yearsOfExperience: '30',
         license: 'Nevada S.0197614.LLC',
         memberOf: 'Berkshire Hathaway HomeServices Nevada Properties',

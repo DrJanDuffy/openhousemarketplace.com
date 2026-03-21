@@ -10,6 +10,7 @@ import { VirtualTourModal } from './VirtualTourModal'
 import CalendlyPopupLink from './CalendlyPopupLink'
 import InteractiveMap from './InteractiveMap'
 import { summerlinOpenHouses } from '@/data/summerlinOpenHouses'
+import { SEO_FEATURED_OPEN_HOUSES_HEADING } from '@/config/seo'
 import type { Listing } from '@/types/listing'
 import { Checkbox } from './ui/checkbox'
 
@@ -60,12 +61,12 @@ export default function FeaturedOpenHouses() {
             This Weekend Only - Don&apos;t Miss Out!
           </div>
           <h2 className="mb-4 text-2xl sm:text-3xl font-bold text-gray-900">
-            This Weekend&apos;s Featured Open Houses
+            {SEO_FEATURED_OPEN_HOUSES_HEADING}
           </h2>
           <p className="mb-6 text-lg text-gray-600">
-            {filteredHouses.length} premium open houses available in Summerlin West.{' '}
+            {filteredHouses.length} premium Summerlin Las Vegas open houses in Summerlin West.{' '}
             <Link href="/open-houses" className="font-semibold text-blue-600 hover:underline">
-              See full Summerlin open house listings
+              See all Summerlin Las Vegas open house listings
             </Link>
             .
           </p>
