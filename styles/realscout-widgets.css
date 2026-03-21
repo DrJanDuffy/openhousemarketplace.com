@@ -1,0 +1,43 @@
+/* RealScout web components — loaded with main CSS bundle (no extra head <style> block). */
+realscout-advanced-search {
+  --rs-as-button-text-color: #ffffff;
+  --rs-as-background-color: transparent;
+  --rs-as-button-color: #dc2626;
+  --rs-as-widget-width: 100% !important;
+  --rs-as-border-radius: 0.5rem;
+  --rs-as-font-family: system-ui, -apple-system, sans-serif;
+  --rs-as-input-height: 48px;
+  --rs-as-button-hover-color: #b91c1c;
+}
+.realscout-search-container {
+  width: 100% !important;
+}
+realscout-advanced-search input {
+  border: 1px solid #d1d5db !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem !important;
+  font-size: 1rem !important;
+}
+realscout-advanced-search button {
+  background-color: #dc2626 !important;
+  border-radius: 0.5rem !important;
+  font-weight: 500 !important;
+  transition: background-color 0.2s !important;
+}
+realscout-advanced-search button:hover {
+  background-color: #b91c1c !important;
+}
+@media (max-width: 640px) {
+  realscout-advanced-search {
+    --rs-as-widget-width: 100% !important;
+    --rs-as-input-height: 44px;
+    font-size: 16px !important;
+  }
+  .realscout-search-container {
+    padding: 0;
+  }
+}
+realscout-office-listings {
+  --rs-listing-divider-color: #0e64c8;
+  width: 100%;
+}

@@ -188,7 +188,7 @@ export default function SiteHeader() {
                 <p className="px-4 text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Book now</p>
                 <div className="flex flex-col gap-2">
                   <CalendlyPopupLink className="flex items-center gap-2 px-4 py-3 rounded-lg bg-[#0069ff] text-white hover:bg-[#0052cc] font-semibold">
-                    <Calendar className="h-4 w-4" />
+                    <Calendar className="h-4 w-4" aria-hidden />
                     Book a showing
                   </CalendlyPopupLink>
                   <Link
@@ -196,14 +196,14 @@ export default function SiteHeader() {
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center gap-2 px-4 py-3 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 font-semibold"
                   >
-                    <Calendar className="h-4 w-4" />
+                    <Calendar className="h-4 w-4" aria-hidden />
                     Free consultation
                   </Link>
                   <a
                     href={PHONE.href}
                     className="flex items-center gap-2 px-4 py-3 rounded-lg bg-blue-600 text-white font-semibold"
                   >
-                    <Phone className="h-4 w-4" />
+                    <Phone className="h-4 w-4" aria-hidden />
                     {PHONE.display}
                   </a>
                 </div>
