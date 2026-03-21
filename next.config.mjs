@@ -1,7 +1,13 @@
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { getContentSecurityPolicy } from './lib/csp-header.mjs'
+
+const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 
 /** @type {import('next').NextConfig} */
 const config = {
+  // Parent folders may contain other lockfiles; pin tracing to this app (cleaner builds / Vercel)
+  outputFileTracingRoot: projectRoot,
   reactStrictMode: true,
   poweredByHeader: false,
   compiler: {
