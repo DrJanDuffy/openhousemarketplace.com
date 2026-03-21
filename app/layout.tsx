@@ -12,7 +12,7 @@ import { getSiteUrl } from "@/lib/site"
 import { SEO_HOME_DESCRIPTION, SEO_HOME_TITLE } from "@/config/seo"
 import { getFacebookAppId } from "@/config/facebook"
 import FacebookPixel from "@/components/FacebookPixel"
-import RealScoutOfficeListingsBands from "@/components/RealScoutOfficeListingsBands"
+import RealScoutOfficeListingsBandsDynamic from "@/components/RealScoutOfficeListingsBandsDynamic"
 
 // Google Analytics scripts must be in head as standard script tags for detection
 // SEO: Google 2026 – metadata defaults, E-E-A-T, structured data, Core Web Vitals
@@ -161,7 +161,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CalendlyBadgeWidget />
         <SiteHeader />
         {children}
-        <RealScoutOfficeListingsBands />
+        <RealScoutOfficeListingsBandsDynamic />
         <Footer />
       </body>
     </html>
