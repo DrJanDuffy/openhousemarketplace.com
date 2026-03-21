@@ -18,22 +18,23 @@ export interface StoreLocation {
   directionsUrl: string
 }
 
-// Map center and pin for Summerlin West, Las Vegas, NV 89135
-const SUMMERLIN_WEST_89135 = { lat: 36.1792, lng: -115.2896 }
+// Pin for office — must match NAP in config/gbp.ts (11773 Cashmere Mist Ave, Las Vegas, NV 89138)
+const OFFICE_89138 = { lat: 36.1729722, lng: -115.3540974 }
 
 export const storeLocations: StoreLocation[] = [
   {
     id: 'summerlin-west',
     name: 'Dr. Jan Duffy Real Estate',
-    address: 'Summerlin West',
+    address: '11773 Cashmere Mist Ave',
     city: 'Las Vegas',
     state: 'NV',
-    zip: '89135',
-    lat: SUMMERLIN_WEST_89135.lat,
-    lng: SUMMERLIN_WEST_89135.lng,
+    zip: '89138',
+    lat: OFFICE_89138.lat,
+    lng: OFFICE_89138.lng,
     phone: '(702) 200-3422',
-    hours: 'Monday–Friday 9am–6pm, Saturday–Sunday 10am–4pm. By appointment outside hours.',
-    directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=Summerlin+West,+Las+Vegas,+NV+89135`,
+    hours: 'Open daily 9:00 AM–5:00 PM (matches Google Business Profile). By appointment outside hours.',
+    directionsUrl:
+      'https://www.google.com/maps/dir/?api=1&destination=11773+Cashmere+Mist+Ave,+Las+Vegas,+NV+89138',
   },
   // Add more locations here, e.g.:
   // {
