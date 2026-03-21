@@ -1,0 +1,31 @@
+---
+description: Open House Market Place — project context, NAP, boundaries (read AGENTS + soul + skill)
+alwaysApply: true
+---
+
+# Open House Market Place (this repo)
+
+## Read first
+
+- **[AGENTS.md](AGENTS.md)** — where to look before substantive edits.
+- **[docs/soul.md](docs/soul.md)** — brand voice, Dr. Jan Duffy (**never "Janet"**), NAP, audience.
+- **[docs/skill.md](docs/skill.md)** — stack, integrations, file map, perf/CSP notes.
+- **[docs/klb-vercel-playbook.md](docs/klb-vercel-playbook.md)** — Vercel, env, CSP maintenance.
+
+## Single source of truth
+
+- **NAP / GBP / hours / service area:** [`config/gbp.ts`](config/gbp.ts) — do not duplicate conflicting phone or address elsewhere without updating this file.
+
+## Hard boundaries
+
+- **`components/idx/*`:** Do **not** modify unless the product owner explicitly approves (MLS/IDX compliance).
+- **RealScout CSP:** Both `em.realscout.com` and `www.realscout.com` belong in `script-src` and `connect-src` when touching [`lib/csp-header.mjs`](lib/csp-header.mjs).
+
+## Stack reminder
+
+- Next.js 15 **App Router** (`app/`), not Pages Router (`getStaticProps` / `getServerSideProps`).
+- Prefer **server components**; client only for interactivity. Dynamic route params: **`params: Promise<...>`** where applicable.
+
+## Deploy
+
+- Prefer **`vercel build`** for production checks; Cloudflare **DNS-only** (gray cloud) with Vercel — no orange-cloud proxy.

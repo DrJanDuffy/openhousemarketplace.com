@@ -59,3 +59,7 @@ Internal reference for **implementation** on this repo: stack, boundaries, and w
 ## Docs
 
 - [klb-vercel-playbook.md](./klb-vercel-playbook.md) — Vercel, env, CSP, GBP, greenfield checklist.
+
+## Cursor (IDE)
+
+- [`.cursor/rules/openhousemarketplace.mdc`](../.cursor/rules/openhousemarketplace.mdc) — always-on project rules for the AI agent (NAP, idx boundary, RealScout/CSP, App Router).
