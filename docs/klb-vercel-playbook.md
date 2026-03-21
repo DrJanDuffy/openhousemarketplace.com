@@ -2,6 +2,8 @@
 
 Internal reference for **openhousemarketplace.com** and greenfield KLB sites. Prefer App Router native patterns over legacy SEO packages unless hosting constraints require otherwise.
 
+**Brand & implementation context:** [soul.md](./soul.md) (voice, NAP, audience) and [skill.md](./skill.md) (stack, integrations, boundaries). Root [AGENTS.md](../AGENTS.md) points agents here.
+
 ## This repository (patterns)
 
 | Concern | Location |
