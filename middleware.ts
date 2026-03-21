@@ -36,8 +36,10 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(`${CANONICAL_ORIGIN}${pathname}${search}`, 301)
   }
 
-  // HTTPS for other hosts (e.g. subdomains)
-  if (protocol === 'http:') {
+  // HTTPS for other hosts (e.g. subdomains). Skip for local dev so http://localhost smoke tests work.
+  const isLocalHost =
+    hostname === 'localhost' || hostname.startsWith('127.0.0.1') || hostname.startsWith('[::1]')
+  if (protocol === 'http:' && !isLocalHost) {
     const httpsUrl = new URL(`https://${hostname}${pathname}${search}`, request.url)
     return NextResponse.redirect(httpsUrl, 301)
   }
