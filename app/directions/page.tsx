@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { storeLocations } from '@/data/storeLocations'
 import DirectionsWidget from '@/components/DirectionsWidget'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
+import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
@@ -71,6 +72,14 @@ export default function DirectionsPage() {
               Use directions from Google Maps Platform to help you plan your visit. Enter your starting point, choose our location, and see estimated travel time for driving, transit, walking, and bicycling. Simply use the form below—get started at no cost.
             </p>
           </header>
+
+          <div className="mb-10 md:mb-12">
+            <GoogleMyMapsSection
+              heading="Where we work in Summerlin and Las Vegas"
+              description="Orient yourself on the map before you plan a route. Then use the directions tool below for driving, transit, walking, or biking."
+              id="directions-my-maps-heading"
+            />
+          </div>
 
           {storeLocations.length === 0 ? (
             <div className="p-6 rounded-xl border border-gray-200 bg-gray-50 text-center">

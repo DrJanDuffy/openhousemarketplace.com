@@ -4,6 +4,7 @@ import { BASE_URL } from '@/lib/metadata-utils'
 import Link from 'next/link'
 import AmenityMap from '@/components/AmenityMap'
 import ExternalLink from '@/components/ExternalLink'
+import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
@@ -75,6 +76,14 @@ export default function AmenityMapPage() {
               Click a marker for the place name. Powered by Google Maps Platform.
             </p>
           </header>
+
+          <div className="mb-10 md:mb-12">
+            <GoogleMyMapsSection
+              heading="Area overview map"
+              description="Our curated Google map shows Summerlin and Las Vegas context. Use the interactive filters below for nearby restaurants, parks, parking, and more."
+              id="amenity-my-maps-heading"
+            />
+          </div>
 
           <section aria-label="Interactive amenity map">
             <AmenityMap />

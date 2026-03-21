@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { storeLocations } from '@/data/storeLocations'
 import StoreLocationsMap from '@/components/StoreLocationsMap'
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget'
+import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
@@ -71,6 +72,14 @@ export default function StoreLocationsPage() {
               Use the map below to find all our store locations. Choose your store, get directions, and see contact details and hours. Add the map to your site and get started at no cost.
             </p>
           </header>
+
+          <div className="mb-10 md:mb-12">
+            <GoogleMyMapsSection
+              heading="Service area map"
+              description="See how our offices and service area fit across Summerlin and the Las Vegas valley on this shared map."
+              id="stores-my-maps-heading"
+            />
+          </div>
 
           <section aria-label="Store locations map and list">
             <StoreLocationsMap locations={storeLocations} />

@@ -3,6 +3,7 @@ import { BASE_URL } from '@/lib/metadata-utils'
 
 import SummerlinOpenHouseWebsite from "components/SummerlinOpenHouseWebsite"
 import StructuredData from "@/components/StructuredData"
+import GoogleMyMapsSection from "@/components/GoogleMyMapsSection"
 
 export const revalidate = 3600 // ISR: revalidate every hour
 
@@ -52,6 +53,15 @@ export default function HomePage() {
         }}
       />
       <SummerlinOpenHouseWebsite />
+      <div className="bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+          <GoogleMyMapsSection
+            heading="Explore Summerlin and Las Vegas on our map"
+            description="Pan and zoom the map to see neighborhoods, corridors, and points of interest across the areas we serve. Open full screen from the map controls."
+            id="home-area-map-heading"
+          />
+        </div>
+      </div>
     </main>
   )
 }

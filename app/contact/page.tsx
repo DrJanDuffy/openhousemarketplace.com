@@ -8,6 +8,7 @@ import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
 import CalendlyInlineWidgetLazy from '@/components/CalendlyInlineWidgetLazy'
+import GoogleMyMapsSection from '@/components/GoogleMyMapsSection'
 
 const GoogleBusinessProfile = dynamic(
   () => import('@/components/GoogleBusinessProfile'),
@@ -103,6 +104,14 @@ export default function ContactPage() {
               </p>
             </div>
           </div>
+        </div>
+
+        <div className="mb-12">
+          <GoogleMyMapsSection
+            heading="Service area — Summerlin and Las Vegas"
+            description="Explore the communities and corridors where Dr. Jan Duffy helps buyers and sellers. Zoom and pan for detail; use contact options below for a private showing."
+            id="contact-my-maps-heading"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
