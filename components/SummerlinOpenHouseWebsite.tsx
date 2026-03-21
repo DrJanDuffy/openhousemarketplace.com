@@ -1,15 +1,38 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
 import OptimizedImage from './OptimizedImage'
 import { Calendar, Home, Star, Phone, Award } from 'lucide-react'
-import RealScoutWidget from './RealScoutWidget'
 import RealScoutSearchCard from './RealScoutSearchCard'
-import ExitIntentPopup from './ExitIntentPopup'
-import FeaturedOpenHouses from './FeaturedOpenHouses'
 import { GBP } from '@/config/gbp'
+
+/** Code-split heavy sections to reduce initial JS (PageSpeed: TBT, main-thread work). */
+const RealScoutWidget = dynamic(() => import('./RealScoutWidget'), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="min-h-[360px] rounded-lg border border-gray-200 bg-gray-100 animate-pulse"
+      aria-busy="true"
+      aria-label="Loading listings"
+    />
+  ),
+})
+
+const FeaturedOpenHouses = dynamic(() => import('./FeaturedOpenHouses'), {
+  loading: () => (
+    <div className="min-h-[280px] bg-gray-50 py-8" aria-hidden>
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto mb-4 h-8 w-48 animate-pulse rounded bg-gray-200" />
+        <div className="h-64 animate-pulse rounded-lg bg-gray-200" />
+      </div>
+    </div>
+  ),
+})
+
+const ExitIntentPopup = dynamic(() => import('./ExitIntentPopup'))
 
 const SummerlinOpenHouseWebsite = () => {
   const [showExitPopup, setShowExitPopup] = useState(false)
