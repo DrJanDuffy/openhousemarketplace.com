@@ -77,9 +77,18 @@ export default function GoogleEnhancement() {
   const pageMeta = getWebPageData(pathname ?? '/')
   const pageUrl = `${BASE_URL}${pathname === null ? '' : pathname}`
 
+  const specialOpeningHoursSpecification = GBP.specialHoursClosed.map((closure) => ({
+    '@type': 'OpeningHoursSpecification' as const,
+    validFrom: closure.date,
+    validThrough: closure.date,
+    /** Closed all day (GBP special hours); Google accepts 00:00–00:00 for closed */
+    opens: '00:00',
+    closes: '00:00',
+  }))
+
   const localBusiness = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'RealEstateAgent'],
     '@id': `${BASE_URL}/#organization`,
     name: GBP.name,
     description: GBP.description,
@@ -96,7 +105,8 @@ export default function GoogleEnhancement() {
       postalCode: GBP.address.postalCode,
       addressCountry: GBP.address.country,
     },
-    geo: { '@type': 'GeoCoordinates', latitude: 36.1699, longitude: -115.3301 },
+    /** Office location (matches NAP / map pin for 11773 Cashmere Mist Ave) */
+    geo: { '@type': 'GeoCoordinates', latitude: 36.1729722, longitude: -115.3540974 },
     areaServed: { '@type': 'City', name: 'Summerlin West, Las Vegas, NV' },
     openingHoursSpecification: GBP.hours.specification.map((spec) => ({
       '@type': 'OpeningHoursSpecification',
@@ -104,6 +114,9 @@ export default function GoogleEnhancement() {
       opens: spec.opens,
       closes: spec.closes,
     })),
+    ...(specialOpeningHoursSpecification.length > 0
+      ? { specialOpeningHoursSpecification }
+      : {}),
     knowsAbout: ['Real Estate', 'Open Houses', 'Luxury Homes', 'New Construction', 'Summerlin Real Estate Market', 'Home Buying', 'Home Selling'],
     ...(GBP_URL ? { sameAs: [GBP_URL] } : {}),
   }
