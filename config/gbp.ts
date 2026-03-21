@@ -10,12 +10,25 @@
  * - Address: 11773 Cashmere Mist Ave, Las Vegas, NV 89138
  * - Hours: daily 9:00 AM–5:00 PM. If Wednesday shows 5:00 AM in GBP, fix to 5:00 PM in Google Business Profile.
  * - Special: Apr 5, 2026 (Easter) — Closed
+ * - Service area: add in GBP when defined; meanwhile site uses GBP_SERVICE_AREA for visible + schema
  */
 
 import { getSiteUrl } from '@/lib/site'
 
 /** GBP “Website” field uses apex; env/canonical may be www — both resolve via redirect. */
 export const GBP_WEBSITE_FIELD_URL = 'https://openhousemarketplace.com/'
+
+/** Geocode for 11773 Cashmere Mist Ave (office pin; matches NAP). */
+export const OFFICE_GEO = { lat: 36.1729722, lng: -115.3540974 } as const
+
+/**
+ * Hyperlocal service area — visible copy + schema. Mirror GBP → “Service area” when you configure it there.
+ */
+export const GBP_SERVICE_AREA = {
+  label:
+    'Summerlin West and Summerlin; Las Vegas zip codes 89135, 89138, and 89144; greater Las Vegas Valley including Henderson and North Las Vegas.',
+  zipCodes: ['89135', '89138', '89144'] as const,
+} as const
 
 export const GBP = {
   /** Business name (exact match to GBP) */
@@ -63,3 +76,26 @@ export const GBP = {
 } as const
 
 export type GBPConfig = typeof GBP
+
+/** Google Maps directions to the office address (encoded). */
+export function getGoogleMapsDirectionsUrlToOffice(): string {
+  const dest = `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}`
+}
+
+/**
+ * JSON-LD `areaServed` list for LocalBusiness / RealEstateAgent (aligns with site footer + zip routes).
+ */
+export function getAreaServedJsonLd(): Record<string, unknown>[] {
+  return [
+    {
+      '@type': 'City',
+      name: 'Las Vegas',
+      containedInPlace: { '@type': 'State', name: 'Nevada', addressCountry: 'US' },
+    },
+    { '@type': 'AdministrativeArea', name: 'Summerlin' },
+    { '@type': 'AdministrativeArea', name: 'Summerlin West' },
+    { '@type': 'City', name: 'Henderson', containedInPlace: { '@type': 'State', name: 'Nevada', addressCountry: 'US' } },
+    { '@type': 'City', name: 'North Las Vegas', containedInPlace: { '@type': 'State', name: 'Nevada', addressCountry: 'US' } },
+  ]
+}

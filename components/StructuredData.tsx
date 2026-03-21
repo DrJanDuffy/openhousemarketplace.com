@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { GBP } from '@/config/gbp'
+import { GBP, getAreaServedJsonLd, OFFICE_GEO } from '@/config/gbp'
 import { getSiteUrl } from '@/lib/site'
 
 interface StructuredDataProps {
@@ -173,23 +173,20 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         openingHours: GBP.hours.schemaArray,
         geo: {
           '@type': 'GeoCoordinates',
-          latitude: 36.1699,
-          longitude: -115.3301
+          latitude: OFFICE_GEO.lat,
+          longitude: OFFICE_GEO.lng
         },
-        areaServed: {
-          '@type': 'City',
-          name: 'Summerlin West, Las Vegas, NV'
-        },
+        areaServed: getAreaServedJsonLd(),
         serviceArea: {
           '@type': 'GeoCircle',
           geoMidpoint: {
             '@type': 'GeoCoordinates',
-            latitude: 36.1699,
-            longitude: -115.3301
+            latitude: OFFICE_GEO.lat,
+            longitude: OFFICE_GEO.lng
           },
           geoRadius: {
             '@type': 'Distance',
-            value: '10',
+            value: '25',
             unitCode: 'MI'
           }
         },
@@ -332,8 +329,8 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
         },
         geo: data.geo || {
           '@type': 'GeoCoordinates',
-          latitude: 36.1699,
-          longitude: -115.3301
+          latitude: OFFICE_GEO.lat,
+          longitude: OFFICE_GEO.lng
         },
         ...data
       }

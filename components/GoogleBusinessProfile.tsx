@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import ExternalLink from '@/components/ExternalLink'
-import { GBP } from '@/config/gbp'
+import { GBP, GBP_SERVICE_AREA, getGoogleMapsDirectionsUrlToOffice, OFFICE_GEO } from '@/config/gbp'
 
 interface GoogleBusinessProfileProps {
   className?: string
@@ -15,7 +15,7 @@ interface GoogleBusinessProfileProps {
 }
 
 // NAP and hours from Google Business Profile (config/gbp.ts) – site supports the GBP
-const coordinates = { lat: 36.1699, lng: -115.3301 }
+const coordinates = { lat: OFFICE_GEO.lat, lng: OFFICE_GEO.lng }
 const BUSINESS_INFO = {
   name: GBP.name,
   phone: GBP.phone,
@@ -29,13 +29,14 @@ const BUSINESS_INFO = {
     full: `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`
   },
   coordinates,
+  serviceArea: GBP_SERVICE_AREA.label,
   hours: {
     weekdays: 'Monday - Friday: 9:00 AM - 5:00 PM',
     weekends: 'Saturday - Sunday: 9:00 AM - 5:00 PM',
     note: 'Open 9 AM–5 PM every day (per Google Business Profile)'
   },
   googleBusinessUrl: process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL || 'https://www.google.com/maps/place/?q=Open+House+Market+Place+Las+Vegas+NV',
-  directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${coordinates.lat},${coordinates.lng}`,
+  directionsUrl: getGoogleMapsDirectionsUrlToOffice(),
   reviewsUrl: (process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL || 'https://www.google.com/maps/place/?q=Open+House+Market+Place+Las+Vegas+NV') + (process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL ? '' : '&action=reviews')
 }
 
@@ -99,6 +100,9 @@ export default function GoogleBusinessProfile({
             <p className="text-gray-700">{BUSINESS_INFO.address.street}</p>
             <p className="text-gray-700">
               {BUSINESS_INFO.address.city}, {BUSINESS_INFO.address.state} {BUSINESS_INFO.address.zip}
+            </p>
+            <p className="text-sm text-gray-600 mt-4">
+              <span className="font-semibold text-gray-800">Service area:</span> {BUSINESS_INFO.serviceArea}
             </p>
           </div>
         </div>

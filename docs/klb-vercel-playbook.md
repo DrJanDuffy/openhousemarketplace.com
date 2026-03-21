@@ -17,6 +17,14 @@ Internal reference for **openhousemarketplace.com** and greenfield KLB sites. Pr
 | Claude (streaming, Vercel AI SDK) | [`app/api/chat/route.ts`](../app/api/chat/route.ts) — `streamText` + `toUIMessageStreamResponse()` |
 | Rate limiting (API) | [`lib/rate-limit.ts`](../lib/rate-limit.ts) |
 | My Maps / Maps Platform embeds | [`components/GoogleMyMapsEmbed.tsx`](../components/GoogleMyMapsEmbed.tsx), [`components/GoogleMapsCommutesEmbed.tsx`](../components/GoogleMapsCommutesEmbed.tsx), [`components/GoogleMapsNeighborhoodDiscoveryEmbed.tsx`](../components/GoogleMapsNeighborhoodDiscoveryEmbed.tsx) |
+| Service area + office geo | [`config/gbp.ts`](../config/gbp.ts) — `GBP_SERVICE_AREA`, `OFFICE_GEO`, `getAreaServedJsonLd()`, `getGoogleMapsDirectionsUrlToOffice()` |
+
+## GBP maintenance (hyperlocal)
+
+- **Service area:** When you set **Service area** in Google Business Profile, mirror the same wording in `GBP_SERVICE_AREA.label` in [`config/gbp.ts`](../config/gbp.ts) (footer + contact card + JSON-LD alignment).
+- **Office pin / directions:** `OFFICE_GEO` and encoded directions URL stay tied to the street address in `GBP.address`.
+- **Special hours:** Closed dates live in `GBP.specialHoursClosed`; remove dates after they pass (e.g. Easter).
+- **Description:** When you add a **Description** in GBP, consider aligning `GBP.description` for schema parity.
 
 ## Environment variables (Vercel)
 

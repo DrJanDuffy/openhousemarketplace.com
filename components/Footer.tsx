@@ -7,14 +7,15 @@ import { useState } from 'react'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import ExternalLink from '@/components/ExternalLink'
 import { SITE_NAME } from '@/config/site'
-import { GBP } from '@/config/gbp'
+import { GBP, GBP_SERVICE_AREA, getGoogleMapsDirectionsUrlToOffice } from '@/config/gbp'
 
 const BUSINESS = {
   name: GBP.name,
   phone: GBP.phone,
   phoneLink: `tel:${GBP.phoneE164}`,
   address: `${GBP.address.street}, ${GBP.address.locality}, ${GBP.address.region} ${GBP.address.postalCode}`,
-  directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=36.1699,-115.3301',
+  directionsUrl: getGoogleMapsDirectionsUrlToOffice(),
+  serviceArea: GBP_SERVICE_AREA.label,
 }
 
 export default function Footer() {
@@ -42,7 +43,12 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 shrink-0 text-red-500 mt-0.5" aria-hidden />
-                <span>{BUSINESS.address}</span>
+                <span>
+                  {BUSINESS.address}
+                  <span className="block text-gray-400 mt-2 text-xs leading-relaxed">
+                    <span className="font-medium text-gray-300">Service area:</span> {BUSINESS.serviceArea}
+                  </span>
+                </span>
               </li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
               <li><Link href="/open-houses" className="hover:text-white transition-colors">Summerlin open houses</Link></li>

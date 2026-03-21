@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import { Navigation, Car, Footprints, Bike, Train, MapPin, Loader2 } from 'lucide-react'
+import { OFFICE_GEO } from '@/config/gbp'
 import type { StoreLocation } from '@/data/storeLocations'
 
 interface DirectionsWidgetProps {
@@ -64,7 +65,7 @@ export default function DirectionsWidget({ destinations, className = '' }: Direc
       const g = window.google.maps
       const center = selectedDestination
         ? { lat: selectedDestination.lat, lng: selectedDestination.lng }
-        : { lat: 36.1699, lng: -115.3301 }
+        : { lat: OFFICE_GEO.lat, lng: OFFICE_GEO.lng }
       const mapInstance = new g.Map(mapRef.current, {
         center,
         zoom: 12,

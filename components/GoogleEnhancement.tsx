@@ -6,7 +6,7 @@
  * LocalBusiness data follows config/gbp.ts (site supports the Google Business Profile).
  */
 import { usePathname } from 'next/navigation'
-import { GBP } from '@/config/gbp'
+import { GBP, getAreaServedJsonLd, OFFICE_GEO } from '@/config/gbp'
 import { getSiteUrl } from '@/lib/site'
 
 const BASE_URL = getSiteUrl()
@@ -106,8 +106,8 @@ export default function GoogleEnhancement() {
       addressCountry: GBP.address.country,
     },
     /** Office location (matches NAP / map pin for 11773 Cashmere Mist Ave) */
-    geo: { '@type': 'GeoCoordinates', latitude: 36.1729722, longitude: -115.3540974 },
-    areaServed: { '@type': 'City', name: 'Summerlin West, Las Vegas, NV' },
+    geo: { '@type': 'GeoCoordinates', latitude: OFFICE_GEO.lat, longitude: OFFICE_GEO.lng },
+    areaServed: getAreaServedJsonLd(),
     openingHoursSpecification: GBP.hours.specification.map((spec) => ({
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: spec.dayOfWeek,
