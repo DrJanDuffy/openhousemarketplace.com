@@ -6,7 +6,7 @@
  * GBP snapshot (keep in sync when the profile changes):
  * - Name: Open House Market Place | Category: Real estate agent
  * - Phone: (702) 200-3422 | Chat/SMS: sms:+17022003422
- * - Website (GBP field): https://openhousemarketplace.com/ — apex; this site’s canonical is www (see vercel.json redirect)
+ * - Website (GBP field): use **https://www.openhousemarketplace.com/** (canonical). If the profile still shows apex, update it in Google so it matches this site’s indexed URL.
  * - Address: 11773 Cashmere Mist Ave, Las Vegas, NV 89138
  * - Hours: daily 9:00 AM–5:00 PM. If Wednesday shows 5:00 AM in GBP, fix to 5:00 PM in Google Business Profile.
  * - Special: Apr 5, 2026 (Easter) — Closed
@@ -15,8 +15,8 @@
 
 import { getSiteUrl } from '@/lib/site'
 
-/** GBP “Website” field uses apex; env/canonical may be www — both resolve via redirect. */
-export const GBP_WEBSITE_FIELD_URL = 'https://openhousemarketplace.com/'
+/** Canonical public site URL (same as GBP “Website” when the profile uses www). */
+export const GBP_WEBSITE_FIELD_URL = `${getSiteUrl()}/`
 
 /** Official Facebook Page (business profile). */
 export const FACEBOOK_PAGE_URL = 'https://www.facebook.com/OpenHouseMarketPlace' as const

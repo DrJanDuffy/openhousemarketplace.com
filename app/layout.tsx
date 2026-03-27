@@ -29,9 +29,7 @@ export const metadata: Metadata = {
     template: '%s | Open House Market Place',
   },
   description: DEFAULT_DESCRIPTION,
-  alternates: {
-    canonical: `${SITE_URL}/`,
-  },
+  // Per-route canonical is set in each page’s metadata (see app/page.tsx for `/`).
   robots: {
     index: true,
     follow: true,

@@ -65,7 +65,7 @@ Complete these in Search Console for **`https://www.openhousemarketplace.com`** 
 - **Redirects:** `vercel.json` (non‑www → www) and `middleware.ts` (http and non‑www → https www).
 - **Sitemap / robots:** `app/sitemap.ts` and `app/robots.ts` use the same base URL.
 
-No code change is required for "Page with redirect"; the setup is correct. Use the **www** property and the sitemap to get the canonical pages indexed.
+Redirects are intentional for **http** and **apex** hosts. **Update the Google Business Profile “Website” field** to **https://www.openhousemarketplace.com/** so Google and users see the canonical URL (fewer “Page with redirect” rows from the apex hostname). Use the **www** property and the sitemap to monitor canonical pages.
 
 ## Automated redirect check (curl)
 
@@ -102,11 +102,8 @@ If the **www** URL itself shows **Crawled - currently not indexed** or **Exclude
 
 ## "Blocked by robots.txt"
 
-If GSC reports **Blocked by robots.txt** for URLs such as:
+[app/robots.ts](app/robots.ts) disallows **`/api/`** and a few private paths only. **`/_next/static/...`** is **not** disallowed so Google can load JS/CSS for rendering.
 
-- `/_next/static/css/...` (Next.js build assets)
-- `/api/placeholder/...` (API routes)
+If GSC reports **Blocked by robots.txt** for **`/api/...`**, that is expected for API routes.
 
-this is **intentional**. Those paths are disallowed in [app/robots.ts](app/robots.ts) so that build artifacts and API endpoints are not indexed. They should remain non-indexed.
-
-**In Search Console:** You can mark **Done fixing** for this issue. No code change is required; you are confirming that the current block is what you want.
+**In Search Console:** For API-only blocks, you can mark **Done fixing** if you intend API URLs to stay non-indexed.

@@ -4,6 +4,8 @@ Internal reference for **openhousemarketplace.com** and greenfield KLB sites. Pr
 
 **Brand & implementation context:** [soul.md](./soul.md) (voice, NAP, audience) and [skill.md](./skill.md) (stack, integrations, boundaries). Root [AGENTS.md](../AGENTS.md) points agents here.
 
+**Google Search Console + Google Business Profile:** [gsc-gbp-runbook.md](./gsc-gbp-runbook.md) — GSC www property checklist, GBP field alignment with [`config/gbp.ts`](../config/gbp.ts), repo file map, sitemap coverage notes.
+
 ## This repository (patterns)
 
 | Concern | Location |
@@ -12,6 +14,7 @@ Internal reference for **openhousemarketplace.com** and greenfield KLB sites. Pr
 | Metadata & canonical helpers | [`lib/metadata-utils.ts`](../lib/metadata-utils.ts) — `BASE_URL`, `getCanonicalUrl()` |
 | Root metadata | [`app/layout.tsx`](../app/layout.tsx) — `Metadata` API (not `next-seo`) |
 | Sitemap / robots | [`app/sitemap.ts`](../app/sitemap.ts), [`app/robots.ts`](../app/robots.ts) |
+| GSC + GBP operations | [gsc-gbp-runbook.md](./gsc-gbp-runbook.md) |
 | JSON-LD (runtime) | [`components/StructuredData.tsx`](../components/StructuredData.tsx), [`components/WebSiteSchema.tsx`](../components/WebSiteSchema.tsx), [`components/GoogleEnhancement.tsx`](../components/GoogleEnhancement.tsx) |
 | GBP / NAP | [`config/gbp.ts`](../config/gbp.ts) |
 | Type-safe JSON-LD helpers | [`lib/schema/neighborhood.ts`](../lib/schema/neighborhood.ts) (`schema-dts`) |
