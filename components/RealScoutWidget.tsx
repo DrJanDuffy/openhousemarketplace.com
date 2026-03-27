@@ -1,12 +1,13 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, type FC } from 'react'
 import {
   REALSCOUT_OFFICE_AGENT_ID,
   REALSCOUT_OFFICE_DEFAULT_PRICE_MAX,
   REALSCOUT_OFFICE_DEFAULT_PRICE_MIN,
   REALSCOUT_OFFICE_PROPERTY_TYPES,
 } from '@/config/realscout-office-bands'
+import { createRealScoutOfficeListingsElement } from '@/lib/realscout-mount-office-listings'
 
 /** Shared readiness for `realscout-office-listings` (script in root layout). Use in multi-widget sections to poll once. */
 export function useRealScoutOfficeListingsReady(): boolean {
@@ -49,7 +50,7 @@ interface RealScoutWidgetProps {
   className?: string
 }
 
-const RealScoutWidget: React.FC<RealScoutWidgetProps> = ({
+const RealScoutWidget: FC<RealScoutWidgetProps> = ({
   agentEncodedId = REALSCOUT_OFFICE_AGENT_ID,
   sortOrder = 'PRICE_LOW',
   listingStatus = 'For Sale',
@@ -59,26 +60,45 @@ const RealScoutWidget: React.FC<RealScoutWidgetProps> = ({
   className = '',
 }) => {
   const ready = useRealScoutOfficeListingsReady()
+  const hostContainerRef = useRef<HTMLDivElement>(null)
+
+  useLayoutEffect(() => {
+    const container = hostContainerRef.current
+    if (!container) return
+
+    if (!ready) {
+      container.innerHTML = ''
+      return
+    }
+
+    const el = createRealScoutOfficeListingsElement({
+      agentEncodedId,
+      sortOrder,
+      listingStatus,
+      propertyTypes,
+      priceMin,
+      priceMax,
+    })
+    container.innerHTML = ''
+    container.appendChild(el)
+
+    return () => {
+      container.innerHTML = ''
+    }
+  }, [ready, agentEncodedId, sortOrder, listingStatus, propertyTypes, priceMin, priceMax])
 
   return (
     <div className={`realScout-widget-container ${className}`}>
-      {ready ? (
-        React.createElement('realscout-office-listings', {
-          'agent-encoded-id': agentEncodedId,
-          'sort-order': sortOrder,
-          'listing-status': listingStatus,
-          'property-types': propertyTypes,
-          'price-min': priceMin,
-          'price-max': priceMax,
-        })
-      ) : (
-        <div className="flex flex-col gap-3 p-4 animate-pulse" aria-busy="true" aria-label="Loading listings">
-          <div className="h-8 w-3/4 rounded bg-gray-200" />
-          <div className="h-24 rounded bg-gray-100" />
-          <div className="h-24 rounded bg-gray-100" />
-          <div className="h-24 rounded bg-gray-100" />
-        </div>
-      )}
+      <div ref={hostContainerRef}>
+        {!ready ? (
+          <div className="flex flex-col gap-3 p-4 animate-pulse" aria-busy="true" aria-label="Loading listings">
+            <div className="h-8 w-3/4 rounded bg-gray-200" />
+            <div className="h-24 rounded bg-gray-100" />
+            <div className="h-24 rounded bg-gray-100" />
+            <div className="h-24 rounded bg-gray-100" />
+          </div>
+        ) : null}
+      </div>
     </div>
   )
 }

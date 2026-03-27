@@ -1,13 +1,9 @@
 'use client'
 
-import React from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import { useRealScoutOfficeListingsReady } from '@/components/RealScoutWidget'
-import {
-  REALSCOUT_OFFICE_AGENT_ID,
-  REALSCOUT_OFFICE_LISTINGS_BANDS,
-  REALSCOUT_OFFICE_PROPERTY_TYPES,
-  type RealScoutOfficeBand,
-} from '@/config/realscout-office-bands'
+import { REALSCOUT_OFFICE_LISTINGS_BANDS, type RealScoutOfficeBand } from '@/config/realscout-office-bands'
+import { createRealScoutOfficeListingsElement } from '@/lib/realscout-mount-office-listings'
 import { useInViewOnce } from '@/lib/use-in-view-once'
 
 function OfficeListingBand({
@@ -19,6 +15,29 @@ function OfficeListingBand({
 }) {
   const { ref, inView } = useInViewOnce('280px 0px')
   const showWidget = inView && ready
+  const hostContainerRef = useRef<HTMLDivElement>(null)
+
+  // Mount the custom element imperatively so price-min / price-max exist before RealScout's connectedCallback.
+  useLayoutEffect(() => {
+    const container = hostContainerRef.current
+    if (!container) return
+
+    if (!showWidget) {
+      container.innerHTML = ''
+      return
+    }
+
+    const el = createRealScoutOfficeListingsElement({
+      priceMin: band.priceMin,
+      priceMax: band.priceMax,
+    })
+    container.innerHTML = ''
+    container.appendChild(el)
+
+    return () => {
+      container.innerHTML = ''
+    }
+  }, [showWidget, band.id, band.priceMin, band.priceMax])
 
   return (
     <div
@@ -26,17 +45,8 @@ function OfficeListingBand({
       className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm sm:p-6"
     >
       <h3 className="mb-4 text-lg font-semibold text-gray-900">{band.label}</h3>
-      <div className="realScout-widget-container min-h-[180px]">
-        {showWidget ? (
-          React.createElement('realscout-office-listings', {
-            'agent-encoded-id': REALSCOUT_OFFICE_AGENT_ID,
-            'sort-order': 'PRICE_LOW',
-            'listing-status': 'For Sale',
-            'property-types': REALSCOUT_OFFICE_PROPERTY_TYPES,
-            'price-min': band.priceMin,
-            'price-max': band.priceMax,
-          })
-        ) : (
+      <div ref={hostContainerRef} className="realScout-widget-container min-h-[180px]">
+        {!showWidget ? (
           <div
             className="flex flex-col gap-3 p-4 animate-pulse"
             aria-busy="true"
@@ -46,7 +56,7 @@ function OfficeListingBand({
             <div className="h-24 rounded bg-gray-100" />
             <div className="h-24 rounded bg-gray-100" />
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   )
