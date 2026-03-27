@@ -179,7 +179,7 @@ export default function OpenHousesPage() {
             Homes for sale — office listings
           </h2>
           <p className="mb-8 text-center text-gray-600">
-            Live MLS listings from Dr. Jan Duffy&apos;s office (price high to low, $500K–$800K range as configured). For the full search experience, visit{' '}
+            Live MLS listings from Dr. Jan Duffy&apos;s office (sorted low to high, $400K–$900K — same range as the site-wide office bands). For the full search experience, visit{' '}
             <Link href="/tour/mls" className="font-semibold text-blue-600 hover:underline">
               MLS property search
             </Link>

@@ -19,3 +19,9 @@ export const REALSCOUT_OFFICE_LISTINGS_BANDS: readonly RealScoutOfficeBand[] = [
 
 export const REALSCOUT_OFFICE_AGENT_ID = 'QWdlbnQtMjI1MDUw'
 export const REALSCOUT_OFFICE_PROPERTY_TYPES = ',SFR,MF,TC,OTHER'
+
+/** Single `realscout-office-listings` embeds (e.g. /open-houses): same span as all bands combined. */
+export const REALSCOUT_OFFICE_DEFAULT_PRICE_MIN =
+  REALSCOUT_OFFICE_LISTINGS_BANDS[0].priceMin
+export const REALSCOUT_OFFICE_DEFAULT_PRICE_MAX =
+  REALSCOUT_OFFICE_LISTINGS_BANDS[REALSCOUT_OFFICE_LISTINGS_BANDS.length - 1].priceMax

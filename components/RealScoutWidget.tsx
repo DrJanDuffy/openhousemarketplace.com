@@ -1,6 +1,12 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import {
+  REALSCOUT_OFFICE_AGENT_ID,
+  REALSCOUT_OFFICE_DEFAULT_PRICE_MAX,
+  REALSCOUT_OFFICE_DEFAULT_PRICE_MIN,
+  REALSCOUT_OFFICE_PROPERTY_TYPES,
+} from '@/config/realscout-office-bands'
 
 /** Shared readiness for `realscout-office-listings` (script in root layout). Use in multi-widget sections to poll once. */
 export function useRealScoutOfficeListingsReady(): boolean {
@@ -31,7 +37,7 @@ export function useRealScoutOfficeListingsReady(): boolean {
 
 /**
  * Office listings (`realscout-office-listings`). Script + global styles: root `app/layout.tsx` head.
- * Defaults match RealScout embed: PRICE_LOW, For Sale, $500K–$800K, property-types `,SFR,MF,TC,OTHER`.
+ * Defaults: PRICE_LOW, For Sale, $400K–$900K (matches `REALSCOUT_OFFICE_LISTINGS_BANDS` in config).
  */
 interface RealScoutWidgetProps {
   agentEncodedId?: string
@@ -44,12 +50,12 @@ interface RealScoutWidgetProps {
 }
 
 const RealScoutWidget: React.FC<RealScoutWidgetProps> = ({
-  agentEncodedId = 'QWdlbnQtMjI1MDUw',
+  agentEncodedId = REALSCOUT_OFFICE_AGENT_ID,
   sortOrder = 'PRICE_LOW',
   listingStatus = 'For Sale',
-  propertyTypes = ',SFR,MF,TC,OTHER',
-  priceMin = '500000',
-  priceMax = '800000',
+  propertyTypes = REALSCOUT_OFFICE_PROPERTY_TYPES,
+  priceMin = REALSCOUT_OFFICE_DEFAULT_PRICE_MIN,
+  priceMax = REALSCOUT_OFFICE_DEFAULT_PRICE_MAX,
   className = '',
 }) => {
   const ready = useRealScoutOfficeListingsReady()
