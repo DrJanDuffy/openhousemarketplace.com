@@ -38,7 +38,7 @@ export function useRealScoutOfficeListingsReady(): boolean {
 
 /**
  * Office listings (`realscout-office-listings`). Script + global styles: root `app/layout.tsx` head.
- * Defaults: PRICE_LOW, For Sale, $400K–$900K (matches `REALSCOUT_OFFICE_LISTINGS_BANDS` in config).
+ * Defaults: PRICE_LOW, For Sale, $400K–$900K (`REALSCOUT_OFFICE_DEFAULT_*` in config).
  */
 interface RealScoutWidgetProps {
   agentEncodedId?: string

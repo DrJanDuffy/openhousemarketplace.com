@@ -172,9 +172,9 @@ const SummerlinOpenHouseWebsite = () => {
             <p className="text-lg text-gray-600">
               Browse{' '}
               <a href="#office-listings-bands" className="font-semibold text-blue-600 hover:underline">
-                office listings by price range
+                office MLS listings
               </a>{' '}
-              (five MLS bands, $400K–$900K, low to high in each band), or use the full{' '}
+              ($400K–$900K), or use the full{' '}
               <Link href="/tour/mls" className="font-semibold text-blue-600 hover:underline">
                 MLS property search
               </Link>{' '}

@@ -10,7 +10,7 @@ const RealScoutOfficeListingsBands = dynamic(
       <section
         className="border-t border-gray-200 bg-slate-50 py-10 sm:py-14"
         aria-busy="true"
-        aria-label="Loading office listings by price range"
+        aria-label="Loading office MLS listings"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 text-center">
@@ -24,7 +24,7 @@ const RealScoutOfficeListingsBands = dynamic(
   },
 )
 
-/** Defers bands chunk + hydration until client; intersection logic is inside RealScoutOfficeListingsBands. */
+/** Defers chunk until client (RealScout is browser-only). */
 export default function RealScoutOfficeListingsBandsDynamic() {
   return <RealScoutOfficeListingsBands />
 }
