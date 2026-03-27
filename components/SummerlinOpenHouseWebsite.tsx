@@ -70,7 +70,7 @@ const SummerlinOpenHouseWebsite = () => {
                   {!heroPhotoError ? (
                     <Image
                       src="/images/team/dr-jan-duffy.jpg"
-                      alt=""
+                      alt="Dr. Jan Duffy, real estate agent serving Summerlin West and Las Vegas"
                       width={64}
                       height={64}
                       sizes="64px"
@@ -107,15 +107,15 @@ const SummerlinOpenHouseWebsite = () => {
                  this weekend.
                </p>
                
-               {/* Trust Indicators */}
-               <div className="flex items-center space-x-6 mb-8">
+               {/* Trust indicators: avoid unsubstantiated performance stats (E-E-A-T). */}
+               <div className="flex flex-wrap items-center gap-6 mb-8">
                  <div className="flex items-center">
-                   <Star className="h-5 w-5 text-yellow-400 mr-2" />
-                   <span className="text-sm">98% of listings sell in 14 days</span>
+                   <Star className="h-5 w-5 text-yellow-400 mr-2 shrink-0" aria-hidden />
+                   <span className="text-sm">Deep local knowledge: Summerlin West &amp; Las Vegas Valley</span>
                  </div>
                  <div className="flex items-center">
-                   <Award className="h-5 w-5 text-yellow-400 mr-2" />
-                   <span className="text-sm">Certified Luxury Specialist</span>
+                   <Award className="h-5 w-5 text-yellow-400 mr-2 shrink-0" aria-hidden />
+                   <span className="text-sm">Nevada license S.0197614.LLC · Berkshire Hathaway HomeServices Nevada Properties</span>
                  </div>
                </div>
                

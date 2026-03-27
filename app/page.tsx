@@ -9,8 +9,8 @@ import GoogleMyMapsSection from "@/components/GoogleMyMapsSection"
 export const revalidate = 3600 // ISR: revalidate every hour
 
 export const metadata: Metadata = {
-  title: "Summerlin West Open Houses | Dr. Jan Duffy Real Estate",
-  description: "Discover your dream home in Summerlin West, Las Vegas. This weekend's open houses in The Ridges, Red Rock Country Club, Summerlin Centre, and more. Search all listings with Dr. Jan Duffy's home search.",
+  title: SEO_HOME_TITLE,
+  description: SEO_HOME_DESCRIPTION,
   keywords: "Summerlin West open houses, open houses Summerlin Nevada, weekend home tours Red Rock, new construction Summerlin West, luxury homes Summerlin open house, Summerlin real estate showings",
   robots: {
     index: true,

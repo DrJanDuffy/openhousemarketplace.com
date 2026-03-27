@@ -97,13 +97,7 @@ const openHouseFaqs = [...OPEN_HOUSES_PAGE_FAQS]
 export default function OpenHousesPage() {
   return (
     <>
-      <StructuredData
-        type="WebPage"
-        data={{
-          name: SEO_OPEN_HOUSES_TITLE,
-          description: SEO_OPEN_HOUSES_DESCRIPTION,
-        }}
-      />
+      {/* WebPage JSON-LD comes from GoogleEnhancement (layout); avoid duplicate graphs. */}
       <StructuredData type="BreadcrumbList" data={{ items: [
         { name: 'Home', url: `${BASE_URL}/` },
         { name: SEO_PRIMARY_KEYWORD, url: `${BASE_URL}/open-houses` },

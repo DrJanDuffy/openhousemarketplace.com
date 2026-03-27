@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { Award, Home, Users, TrendingUp, Heart } from 'lucide-react'
-import StructuredData from '@/components/StructuredData'
 import FAQSection from '@/components/FAQSection'
 import CalendlyPopupLink from '@/components/CalendlyPopupLink'
 import CalendlyInlineWidgetLazy from '@/components/CalendlyInlineWidgetLazy'
@@ -53,7 +52,7 @@ const ABOUT_FAQS = [
 export default function AboutPage() {
   return (
     <>
-      <StructuredData type="FAQPage" data={{ faqs: ABOUT_FAQS }} />
+      {/* FAQPage JSON-LD is emitted by FAQSection below (single graph per URL). */}
       <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] bg-gradient-to-r from-blue-600 to-red-600 rounded-b-3xl overflow-hidden">

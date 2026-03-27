@@ -104,11 +104,11 @@ export default function StructuredData({ type, data = {} }: StructuredDataProps)
           name: 'Dr. Jan Duffy',
           url: `${baseUrl}/about`,
           jobTitle: 'Real Estate Agent',
-          worksFor: { '@type': 'Organization', name: 'Dr. Jan Duffy Real Estate', url: baseUrl },
+          worksFor: { '@type': 'Organization', name: GBP.name, url: baseUrl },
         },
         publisher: {
           '@type': 'Organization',
-          name: 'Dr. Jan Duffy Real Estate',
+          name: GBP.name,
           url: baseUrl,
           logo: { '@type': 'ImageObject', url: `${baseUrl}/images/logo/logo.svg` },
         },

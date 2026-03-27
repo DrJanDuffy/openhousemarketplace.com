@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export default function TourMLSPage() {
   return (
     <>
-      <StructuredData type="WebPage" data={{ name: 'MLS Property Search | Summerlin Real Estate | Dr. Jan Duffy', description: 'Search MLS listings in Summerlin. Access the full MLS database of homes for sale in Las Vegas\' premier master-planned community.' }} />
+      {/* WebPage JSON-LD comes from GoogleEnhancement (layout). */}
       <StructuredData type="Organization" data={{ url: `${BASE_URL}` }} />
       <StructuredData type="BreadcrumbList" data={{ items: [{ name: 'Home', url: `${BASE_URL}/` }, { name: 'MLS Property Search', url: `${BASE_URL}/tour/mls` }] }} />
       <div className="min-h-screen bg-gray-50 py-12">
