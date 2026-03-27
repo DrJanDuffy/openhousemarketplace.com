@@ -12,3 +12,5 @@ Before substantive edits:
 4. For **Google Search Console** and **Google Business Profile** checklists and repo map, see **[docs/gsc-gbp-runbook.md](docs/gsc-gbp-runbook.md)**.
 
 NAP and business facts: **`config/gbp.ts`** is the source of truth.
+
+**CRM:** Calendly is used for scheduling UI on many pages, but **`FOLLOWUPBOSS_API_KEY`** must still be set in **Vercel** for server-side lead sync (`/api/leads`, open-house sign-in). See **[docs/klb-vercel-playbook.md](docs/klb-vercel-playbook.md)** and [`.env.example`](.env.example).

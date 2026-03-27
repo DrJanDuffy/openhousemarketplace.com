@@ -3,28 +3,29 @@
 const fs = require('fs');
 const path = require('path');
 
+// Placeholders only — never commit real API keys. Copy values from Vercel → Settings → Environment Variables.
 const envTemplate = `# .env.local (DO NOT COMMIT THIS FILE)
 
-# FollowUpBoss API
-FOLLOWUPBOSS_API_KEY=fka_0N4mnNxym6FYyqt91G2eaemnqC8TTOSYru
+# Follow Up Boss — required for /api/leads, open-house sign-in CRM sync (Calendly does not replace this)
+FOLLOWUPBOSS_API_KEY=your_followupboss_api_key
 
 # Google Maps API
-GOOGLE_MAPS_API_KEY=AIzaSyDt84u_m6IGyrNZ9Eyc2W0fAIx6yD3peTo
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyDt84u_m6IGyrNZ9Eyc2W0fAIx6yD3peTo
+GOOGLE_MAPS_API_KEY=your_google_maps_server_key
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_browser_key
 
 # Firebase Admin SDK (Server-side) - Update with your Firebase project details
-FIREBASE_PROJECT_ID=openhousemarketplace-com
+FIREBASE_PROJECT_ID=your_firebase_project_id
 FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\\nYour\\nMulti\\nLine\\nKey\\nHere\\n-----END PRIVATE KEY-----\\n"
-FIREBASE_CLIENT_EMAIL=firebase-adminsdk@openhousemarketplace-com.iam.gserviceaccount.com
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk@your-project.iam.gserviceaccount.com
 
 # Firebase Client SDK (Client-side) - Update with your Firebase project details
 NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=openhousemarketplace-com.firebaseapp.com
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=openhousemarketplace-com
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=openhousemarketplace-com.firebasestorage.app
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=183961324071
-NEXT_PUBLIC_FIREBASE_APP_ID=1:183961324071:web:demo
-NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-DEMO
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_firebase_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project.firebasestorage.app
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-XXXXXXXXXX
 
 # reCAPTCHA for Firebase App Check (Optional)
 NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
@@ -40,13 +41,13 @@ if (fs.existsSync(envPath)) {
 
 try {
   fs.writeFileSync(envPath, envTemplate);
-  console.log('✅ Created .env.local file with pre-configured API keys');
-  console.log('📝 Edit .env.local to update Firebase configuration with your project details');
-  console.log('🔑 The Google Maps and FollowUpBoss API keys are already configured');
+  console.log('✅ Created .env.local from template (placeholders only).');
+  console.log('📝 Add real keys from Vercel → Project → Settings → Environment Variables.');
+  console.log('🔑 FOLLOWUPBOSS_API_KEY is required for CRM even when using Calendly for scheduling.');
   console.log('');
   console.log('Next steps:');
-  console.log('1. Update Firebase configuration in .env.local');
-  console.log('2. Add the same variables to your Vercel project settings');
+  console.log('1. Fill in .env.local with your keys');
+  console.log('2. Mirror the same variables in Vercel for production');
   console.log('3. Run: npm run dev');
 } catch (error) {
   console.error('❌ Error creating .env.local:', error.message);

@@ -16,9 +16,9 @@ OPEN_HOUSE_ADMIN_PASSWORD=your_secure_admin_password
 KV_REST_API_URL=https://your-store.kv.vercel.app
 KV_REST_API_TOKEN=your_kv_rest_api_token
 
-# Google Maps API
-GOOGLE_MAPS_API_KEY=AIzaSyDt84u_m6IGyrNZ9Eyc2W0fAIx6yD3peTo
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyDt84u_m6IGyrNZ9Eyc2W0fAIx6yD3peTo
+# Google Maps API (use your own keys; do not commit live keys)
+GOOGLE_MAPS_API_KEY=your_google_maps_server_key
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_browser_key
 
 # Optional: iframe embed URLs (defaults in lib/google-*.ts). Set in Vercel if Google regenerates solution HTML.
 # NEXT_PUBLIC_GOOGLE_MY_MAPS_EMBED_URL=
