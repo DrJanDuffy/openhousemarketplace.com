@@ -45,19 +45,19 @@ function OfficeListingBand({
       className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm sm:p-6"
     >
       <h3 className="mb-4 text-lg font-semibold text-gray-900">{band.label}</h3>
-      <div ref={hostContainerRef} className="realScout-widget-container min-h-[180px]">
-        {!showWidget ? (
-          <div
-            className="flex flex-col gap-3 p-4 animate-pulse"
-            aria-busy="true"
-            aria-label={inView ? `Loading listings for ${band.label}` : `Listings for ${band.label} load as you scroll`}
-          >
-            <div className="h-8 w-3/4 rounded bg-gray-200" />
-            <div className="h-24 rounded bg-gray-100" />
-            <div className="h-24 rounded bg-gray-100" />
-          </div>
-        ) : null}
-      </div>
+      {!showWidget ? (
+        <div
+          className="flex flex-col gap-3 p-4 animate-pulse"
+          aria-busy="true"
+          aria-label={inView ? `Loading listings for ${band.label}` : `Listings for ${band.label} load as you scroll`}
+        >
+          <div className="h-8 w-3/4 rounded bg-gray-200" />
+          <div className="h-24 rounded bg-gray-100" />
+          <div className="h-24 rounded bg-gray-100" />
+        </div>
+      ) : null}
+      {/* Only imperative custom element inside this div — never React VDOM children */}
+      <div ref={hostContainerRef} className="realScout-widget-container min-h-[180px]" />
     </div>
   )
 }

@@ -87,18 +87,19 @@ const RealScoutWidget: FC<RealScoutWidgetProps> = ({
     }
   }, [ready, agentEncodedId, sortOrder, listingStatus, propertyTypes, priceMin, priceMax])
 
+  // Skeleton must NOT live inside hostContainerRef: React would clear imperative DOM on reconcile.
   return (
     <div className={`realScout-widget-container ${className}`}>
-      <div ref={hostContainerRef}>
-        {!ready ? (
-          <div className="flex flex-col gap-3 p-4 animate-pulse" aria-busy="true" aria-label="Loading listings">
-            <div className="h-8 w-3/4 rounded bg-gray-200" />
-            <div className="h-24 rounded bg-gray-100" />
-            <div className="h-24 rounded bg-gray-100" />
-            <div className="h-24 rounded bg-gray-100" />
-          </div>
-        ) : null}
-      </div>
+      {!ready ? (
+        <div className="flex flex-col gap-3 p-4 animate-pulse" aria-busy="true" aria-label="Loading listings">
+          <div className="h-8 w-3/4 rounded bg-gray-200" />
+          <div className="h-24 rounded bg-gray-100" />
+          <div className="h-24 rounded bg-gray-100" />
+          <div className="h-24 rounded bg-gray-100" />
+        </div>
+      ) : null}
+      {/* Only non-React children here (custom element); mount helper owns this node */}
+      <div ref={hostContainerRef} className="min-h-[180px]" />
     </div>
   )
 }
