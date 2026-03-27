@@ -6,8 +6,8 @@ const path = require('path');
 // Placeholders only — never commit real API keys. Copy values from Vercel → Settings → Environment Variables.
 const envTemplate = `# .env.local (DO NOT COMMIT THIS FILE)
 
-# Follow Up Boss — required for /api/leads, open-house sign-in CRM sync (Calendly does not replace this)
-FOLLOWUPBOSS_API_KEY=your_followupboss_api_key
+# Scheduling / leads: Calendly is primary (no FUB key required unless you enable legacy CRM sync).
+# FOLLOWUPBOSS_API_KEY=your_followupboss_api_key
 
 # Google Maps API
 GOOGLE_MAPS_API_KEY=your_google_maps_server_key
@@ -43,7 +43,7 @@ try {
   fs.writeFileSync(envPath, envTemplate);
   console.log('✅ Created .env.local from template (placeholders only).');
   console.log('📝 Add real keys from Vercel → Project → Settings → Environment Variables.');
-  console.log('🔑 FOLLOWUPBOSS_API_KEY is required for CRM even when using Calendly for scheduling.');
+  console.log('📅 Calendly handles scheduling/leads UX; FUB vars are optional legacy only.');
   console.log('');
   console.log('Next steps:');
   console.log('1. Fill in .env.local with your keys');

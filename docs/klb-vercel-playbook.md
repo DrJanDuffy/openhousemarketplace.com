@@ -42,7 +42,7 @@ Internal reference for **openhousemarketplace.com** and greenfield KLB sites. Pr
 | `NEXT_PUBLIC_GOOGLE_MY_MAPS_EMBED_URL` | Optional; overrides default My Maps iframe URL ([`lib/google-my-maps.ts`](../lib/google-my-maps.ts)) |
 | `NEXT_PUBLIC_GOOGLE_MAPS_COMMUTES_EMBED_URL` | Optional; Commutes solution HTML ([`lib/google-maps-commutes.ts`](../lib/google-maps-commutes.ts)) |
 | `NEXT_PUBLIC_GOOGLE_MAPS_NEIGHBORHOOD_DISCOVERY_EMBED_URL` | Optional; Neighborhood Discovery HTML ([`lib/google-maps-neighborhood-discovery.ts`](../lib/google-maps-neighborhood-discovery.ts)) |
-| `FOLLOWUPBOSS_API_KEY` | **Production:** set in Vercel. Calendly replaces on-site **forms** for scheduling, but FUB is still required for server routes that sync leads to CRM ([`lib/followupboss-service.ts`](../lib/followupboss-service.ts) — e.g. [`app/api/leads/route.ts`](../app/api/leads/route.ts), open-house sign-in). |
+| `FOLLOWUPBOSS_API_KEY` | **Optional.** Calendly is primary for scheduling/leads UX; no FUB key is required. Set only if you enable server-side CRM sync ([`lib/followupboss-service.ts`](../lib/followupboss-service.ts), [`app/api/leads/route.ts`](../app/api/leads/route.ts), open-house hooks). |
 | `FOLLOWUPBOSS_BASE_URL` | Optional; defaults to `https://api.followupboss.com/v1` |
 
 If the key is already defined in **Vercel** (e.g. team-level or shared “global” environment variables), you do **not** need to add it again on this project—Vercel injects it into builds and serverless functions the same way. Use `.env.local` only for local development.

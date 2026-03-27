@@ -1,3 +1,8 @@
+/**
+ * Optional Follow Up Boss server integration. Calendly is the primary scheduling/leads UX;
+ * no FUB key is required. When `FOLLOWUPBOSS_API_KEY` is unset, callers no-op or return success without CRM sync.
+ */
+
 interface LeadData {
   firstName: string
   lastName?: string
@@ -34,11 +39,6 @@ interface FollowUpBossSearchResponse {
 }
 
 const API_KEY = process.env.FOLLOWUPBOSS_API_KEY
-
-// Avoid spamming `next build` (many workers import this); local dev still surfaces misconfiguration.
-if (!API_KEY && process.env.NODE_ENV === 'development') {
-  console.warn('FOLLOWUPBOSS_API_KEY environment variable is not set. FollowUpBoss integration will not work.')
-}
 const API_URL = process.env.FOLLOWUPBOSS_BASE_URL || 'https://api.followupboss.com/v1'
 
 // Cache for tracking property interactions

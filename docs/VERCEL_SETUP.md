@@ -9,37 +9,31 @@
 
 ## Required Environment Variables
 
-Add these variables in Vercel with the following settings:
+Add these variables in Vercel with the following settings (use **your own** values from Firebase / Google Cloud; never commit live keys to git).
 
-### 1. FollowUpBoss API
-```
-Name: FOLLOWUPBOSS_API_KEY
-Value: fka_0N4mnNxym6FYyqt91G2eaemnqC8TTOSYru
-Environment: Production, Preview, Development
-Sensitive: ✅ Yes
-```
+### 1. Google Maps API
 
-### 2. Google Maps API
 ```
 Name: GOOGLE_MAPS_API_KEY
-Value: AIzaSyDt84u_m6IGyrNZ9Eyc2W0fAIx6yD3peTo
+Value: your_google_maps_server_key
 Environment: Production, Preview, Development
 Sensitive: ✅ Yes
 ```
 
 ```
 Name: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
-Value: AIzaSyDt84u_m6IGyrNZ9Eyc2W0fAIx6yD3peTo
+Value: your_google_maps_browser_key
 Environment: Production, Preview, Development
 Sensitive: ❌ No (public variable)
 ```
 
-### 3. Firebase Configuration (Update with your Firebase project details)
+### 2. Firebase Configuration (update with your Firebase project details)
 
 #### Server-side Firebase Admin:
+
 ```
 Name: FIREBASE_PROJECT_ID
-Value: openhousemarketplace-com
+Value: your_firebase_project_id
 Environment: Production, Preview, Development
 Sensitive: ❌ No
 ```
@@ -53,12 +47,13 @@ Sensitive: ✅ Yes
 
 ```
 Name: FIREBASE_CLIENT_EMAIL
-Value: firebase-adminsdk@openhousemarketplace-com.iam.gserviceaccount.com
+Value: firebase-adminsdk@your-project.iam.gserviceaccount.com
 Environment: Production, Preview, Development
 Sensitive: ❌ No
 ```
 
 #### Client-side Firebase Config:
+
 ```
 Name: NEXT_PUBLIC_FIREBASE_API_KEY
 Value: your_firebase_api_key
@@ -68,40 +63,41 @@ Sensitive: ❌ No (public variable)
 
 ```
 Name: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
-Value: openhousemarketplace-com.firebaseapp.com
+Value: your-project.firebaseapp.com
 Environment: Production, Preview, Development
 Sensitive: ❌ No (public variable)
 ```
 
 ```
 Name: NEXT_PUBLIC_FIREBASE_PROJECT_ID
-Value: openhousemarketplace-com
+Value: your_firebase_project_id
 Environment: Production, Preview, Development
 Sensitive: ❌ No (public variable)
 ```
 
 ```
 Name: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
-Value: openhousemarketplace-com.firebasestorage.app
+Value: your-project.firebasestorage.app
 Environment: Production, Preview, Development
 Sensitive: ❌ No (public variable)
 ```
 
 ```
 Name: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
-Value: 183961324071
+Value: your_sender_id
 Environment: Production, Preview, Development
 Sensitive: ❌ No (public variable)
 ```
 
 ```
 Name: NEXT_PUBLIC_FIREBASE_APP_ID
-Value: 1:183961324071:web:your_app_id
+Value: your_firebase_app_id
 Environment: Production, Preview, Development
 Sensitive: ❌ No (public variable)
 ```
 
-### 4. Optional: reCAPTCHA for Firebase App Check
+### 3. Optional: reCAPTCHA for Firebase App Check
+
 ```
 Name: NEXT_PUBLIC_RECAPTCHA_SITE_KEY
 Value: your_recaptcha_site_key
@@ -109,10 +105,28 @@ Environment: Production, Preview, Development
 Sensitive: ❌ No (public variable)
 ```
 
+### 4. Optional: Follow Up Boss (legacy CRM)
+
+Scheduling and lead capture use **Calendly**; a Follow Up Boss key is **not** required. Add only if you enable server-side CRM sync (see `lib/followupboss-service.ts`):
+
+```
+Name: FOLLOWUPBOSS_API_KEY
+Value: your_followupboss_api_key
+Environment: Production, Preview, Development
+Sensitive: ✅ Yes
+```
+
+```
+Name: FOLLOWUPBOSS_BASE_URL
+Value: https://api.followupboss.com/v1
+Environment: Production, Preview, Development
+Sensitive: ❌ No (optional override)
+```
+
 ## Important Notes
 
 1. **After adding variables**: Trigger a new deployment by pushing to your repository
-2. **Firebase setup**: You'll need to get your actual Firebase configuration from the Firebase Console
+2. **Firebase setup**: Get actual configuration from the Firebase Console
 3. **API key restrictions**: Set up domain restrictions in Google Cloud Console and Firebase Console for security
 4. **Regular rotation**: Change API keys every 90 days for security
 

@@ -13,4 +13,4 @@ Before substantive edits:
 
 NAP and business facts: **`config/gbp.ts`** is the source of truth.
 
-**CRM:** Calendly is used for scheduling UI on many pages, but **`FOLLOWUPBOSS_API_KEY`** must still be set in **Vercel** for server-side lead sync (`/api/leads`, open-house sign-in). See **[docs/klb-vercel-playbook.md](docs/klb-vercel-playbook.md)** and [`.env.example`](.env.example).
+**Scheduling / leads:** Calendly is the primary UX; a **Follow Up Boss API key is not required** in Vercel for normal operation. Optional FUB env vars are documented in **[docs/klb-vercel-playbook.md](docs/klb-vercel-playbook.md)** and [`.env.example`](.env.example).

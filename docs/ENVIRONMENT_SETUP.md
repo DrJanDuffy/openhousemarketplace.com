@@ -5,9 +5,6 @@
 Create a `.env.local` file in your project root with the following variables:
 
 ```bash
-# FollowUpBoss API (used for leads and open house sign-in Registration events)
-FOLLOWUPBOSS_API_KEY=your_followupboss_api_key
-
 # Open House Sign-In Admin (password-protected admin page for QR codes and submissions)
 OPEN_HOUSE_ADMIN_PASSWORD=your_secure_admin_password
 
@@ -39,6 +36,15 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your_measurement_id
+```
+
+## Optional: Follow Up Boss (legacy CRM sync)
+
+Calendly is the primary scheduling and lead capture path. Set these **only** if you enable server-side CRM sync (`lib/followupboss-service.ts`, `/api/leads`, open-house Registration events):
+
+```bash
+# FOLLOWUPBOSS_API_KEY=your_followupboss_api_key
+# FOLLOWUPBOSS_BASE_URL=https://api.followupboss.com/v1
 ```
 
 ## Vercel Dashboard Setup

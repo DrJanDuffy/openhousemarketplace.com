@@ -57,7 +57,7 @@ const ReactHookForm: React.FC<ReactHookFormProps> = ({
       const firstName = nameParts[0] || data.name
       const lastName = nameParts.slice(1).join(' ') || ''
 
-      // Prepare FollowUpBoss payload (for logging purposes)
+      // Lead payload shape (server may sync to optional CRM if FOLLOWUPBOSS_API_KEY is set)
       const _leadData = {
         firstName,
         lastName,
@@ -71,7 +71,6 @@ const ReactHookForm: React.FC<ReactHookFormProps> = ({
         }
       }
 
-      // Send directly to FollowUpBoss API
       const response = await fetch('/api/leads', {
         method: 'POST',
         headers: {

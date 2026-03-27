@@ -25,10 +25,10 @@ Internal reference for **implementation** on this repo: stack, boundaries, and w
 | Integration | Notes |
 |-------------|--------|
 | **RealScout** | Script once in layout pattern; widgets use `dangerouslySetInnerHTML` where applicable. **CSP:** `em.realscout.com` + `www.realscout.com` in `script-src` and `connect-src` — see [`lib/csp-header.mjs`](../lib/csp-header.mjs). |
-| **Calendly** | Popup / inline widgets; primary scheduling UX on many pages. **Does not replace** Follow Up Boss: set `FOLLOWUPBOSS_API_KEY` in Vercel so `/api/leads` and open-house sign-in still sync to CRM. |
+| **Calendly** | Popup / inline widgets; **primary** scheduling and lead capture UX (replaces on-site forms for normal operation). |
 | **Google Analytics** | gtag in [`app/layout.tsx`](../app/layout.tsx); `afterInteractive` or as tuned for perf. |
 | **Google Maps** | API key via env; Maps Platform embeds (My Maps, Commutes, Neighborhood Discovery) URLs in `lib/google-*.ts`. |
-| **Follow Up Boss** | Server-side [`lib/followupboss-service.ts`](../lib/followupboss-service.ts); **`FOLLOWUPBOSS_API_KEY`** in Vercel (not optional for production if you use `/api/leads` or open-house CRM flows). |
+| **Follow Up Boss** | **Optional** legacy server integration [`lib/followupboss-service.ts`](../lib/followupboss-service.ts). No key required in Vercel unless you explicitly wire CRM sync. |
 | **Claude / AI** | [`app/api/claude/route.ts`](../app/api/claude/route.ts), [`app/api/chat/route.ts`](../app/api/chat/route.ts); rate limit [`lib/rate-limit.ts`](../lib/rate-limit.ts). |
 
 ## Security
