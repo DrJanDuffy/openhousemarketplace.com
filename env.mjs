@@ -5,6 +5,10 @@ export const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "production", "test"]),
     VERCEL_URL: z.string().optional(),
+    // Email service
+    RESEND_API_KEY: z.string().optional(),
+    RESEND_FROM_EMAIL: z.string().email().optional(),
+    RESEND_NOTIFY_EMAIL: z.string().email().optional(),
     // Firebase Admin SDK (server-side only)
     FIREBASE_PROJECT_ID: z.string().optional(),
     FIREBASE_CLIENT_EMAIL: z.string().optional(),
