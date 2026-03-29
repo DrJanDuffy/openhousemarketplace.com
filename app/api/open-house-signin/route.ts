@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import crypto from 'crypto'
 import { kv } from '@vercel/kv'
 import followupBossService from '@/lib/followupboss-service'
+import { sendOpenHouseSignInEmail } from '@/lib/email'
+import { env } from '@/env.mjs'
 import {
   parseOpenHouseSignInBody,
   type OpenHouseSignIn,
@@ -94,9 +96,22 @@ export async function POST(request: NextRequest) {
       console.warn('FUB Registration event failed:', fubResult.error)
     }
 
-    // TODO: Send email notification to Dr. Jan Duffy (same pattern as app/api/contact/route.ts)
-    const emailContent = `Open House Sign-In: ${parsed.fullName} (${parsed.email}) at ${parsed.listingAddress || parsed.listingId}`
-    console.log('Open house sign-in (email stub):', emailContent)
+    // Send email notification if configured
+    if (env.RESEND_NOTIFY_EMAIL) {
+      const emailResult = await sendOpenHouseSignInEmail(
+        {
+          fullName: parsed.fullName,
+          email: parsed.email,
+          phone: parsed.phone,
+          listingAddress: parsed.listingAddress,
+          listingId: parsed.listingId,
+        },
+        env.RESEND_NOTIFY_EMAIL
+      )
+      if (!emailResult.success) {
+        console.warn('Open house sign-in email notification failed:', emailResult.error)
+      }
+    }
 
     return NextResponse.json({ success: true, id })
   } catch (err) {
